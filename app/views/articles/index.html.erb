@@ -1,0 +1,7 @@
+<% for article in @page.articles %>
+	<span class="seed-admin-tag">
+		<%= link_to "edit", edit_page_article_path(@page, article)%>|<%= link_to "X", edit_page_article_path(@page, article) %>
+	</span>
+	<h3><%= article.title %></h3>
+	<p><%= article.content %></p>
+<% end -%>

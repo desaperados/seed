@@ -1,0 +1,30 @@
+<% form_for(@page) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :parent_id %><br />
+	<select id="page_parent_id" name="page[parent_id]">
+		<option value="">Top Level</option>
+    	<%= options_from_collection_for_select(@pages, :id, :name) %>
+	</select>
+  </p>
+  <p>
+    <%= f.label :paginate %><br />
+    <%= f.text_field :paginate %>
+  </p>
+  <p>
+    <%= f.submit submit %>
+  </p>
+<% end %>

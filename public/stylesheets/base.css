@@ -1,0 +1,129 @@
+body { 
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 1.3em;
+	width: 80%;
+	margin: 0 auto;
+	background-color: #fff; 
+	color: #333;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+div#menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+div#menu ul.child {
+	margin-left: 10px;
+}
+div#menu li {
+	display: block;
+	width: 200px;
+}
+div#menu li a {
+	width: 100px;
+	text-decoration: none;
+	background-color: #666;
+	color: #fff;
+	padding: 0 10px 0 10px;
+}
+div#menu li a:hover {
+	background-color: #999;
+}
+div#menu li a.edit {
+	background-color: transparent;
+	color: #666;
+	font-size: 10px;
+	width: 2em;
+	padding: 0 1em;
+}
+div#menu li a.edit:hover {
+	color: red;
+}
+div#head {
+	height: 100px;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+}
+div#head span.seed-admin-tag a {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+/*** Admin Tag Styles ***/
+.seed-admin-tag {
+	font-size: 10px;
+	color: #666;
+	background: #ddd;
+}
+.seed-admin-tag a {
+	text-decoration: none;
+	margin: 0 3px 0 3px;
+}
+.seed-admin-tag a:hover {
+	background-color: transparent;
+	color: red;
+}
+/**************************/
+
+div#left {
+	border-right: 1px solid #ccc;
+	float: left;
+}
+div#right {
+	margin-left: 220px;
+	min-height: 400px;
+}
+div#foot {
+	border-top: 1px solid #ccc;
+	padding: 20px;
+	clear: both;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+

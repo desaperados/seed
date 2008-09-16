@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Pages: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'base' %>
+  <%= javascript_include_tag :defaults %>
+</head>
+<body>
+
+<p style="color: green"><%= flash[:notice] %></p>
+<div id="head">
+	<h1><%= @page.title unless !@page %></h1>
+	<span class="seed-admin-tag"><%= link_to "Add Article", new_page_article_path(@page) %></span>
+</div>
+<div id="left">
+	<div id="menu">
+	<%= render :partial => "layouts/menu" %>
+	</div>
+</div>
+<div id="right">
+	<%= yield  %>
+</div>
+<div id="foot">
+	<strong>Seed</strong> | a Common Sense CMS from The Media Collective
+</div>
+</body>
+</html>

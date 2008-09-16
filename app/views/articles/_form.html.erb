@@ -1,0 +1,16 @@
+<% form_for([@page, @article]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </p>
+  <p>
+	<%= f.hidden_field :page_id %>
+    <%= f.submit "#{submit}" %>
+  </p>
+<% end %>

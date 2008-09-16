@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  name: MyString
+  description: MyString
+  parent_id: 1
+
+two:
+  title: MyString
+  name: MyString
+  description: MyString
+  parent_id: 1

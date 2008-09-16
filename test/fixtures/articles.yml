@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  content: MyString
+  page_id: 1
+  position: 1
+
+two:
+  title: MyString
+  content: MyString
+  page_id: 1
+  position: 1
