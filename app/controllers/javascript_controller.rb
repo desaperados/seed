@@ -1,5 +1,12 @@
 class JavascriptController < ApplicationController
   
+  def update_article_order
+    params[:articles].each_with_index do |id, position|
+      Article.update(id, :position => position)
+    end
+    render(:nothing => true)
+  end
+  
   def update_page_order
     params[:menupages].each_pair do |position, value|
       if value.is_a?(Hash)

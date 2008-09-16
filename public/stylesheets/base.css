@@ -1,6 +1,6 @@
 body { 
 	font-family: verdana, arial, helvetica, sans-serif;
-	font-size: 12px;
+	font-size: 11px;
 	line-height: 1.3em;
 	width: 80%;
 	margin: 0 auto;
@@ -8,58 +8,80 @@ body {
 	color: #333;
 }
 
-a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+a { color: #4488bb; }
+a:visited { color: #4488bb; }
+a:hover { color: #000; }
 
 div#menu ul {
 	list-style: none;
-	margin: 0;
+	margin: 20px 0 0 0;
 	padding: 0;
+	font-size: 12px;
 }
 div#menu ul.child {
 	margin-left: 10px;
 }
+div#menu ul#menupages {
+	border-top: 1px solid #ccc;
+}
+ul#menupages span.seed-edit-tag {
+	position: absolute;
+	left: 0;
+	bottom: -30px;
+}
 div#menu li {
 	display: block;
-	width: 200px;
+	padding: 0.5em 0 0.5em 0;
+	height: 1.3em;
+	border-bottom: 1px solid #ccc;
 }
 div#menu li a {
-	width: 100px;
 	text-decoration: none;
-	background-color: #666;
-	color: #fff;
-	padding: 0 10px 0 10px;
-}
-div#menu li a:hover {
-	background-color: #999;
-}
-div#menu li a.edit {
-	background-color: transparent;
-	color: #666;
-	font-size: 10px;
-	width: 2em;
-	padding: 0 1em;
-}
-div#menu li a.edit:hover {
-	color: red;
 }
 div#head {
-	height: 100px;
+	height: 60px;
 	border-bottom: 1px solid #ccc;
 	position: relative;
 }
-div#head span.seed-admin-tag a {
+div#head span.seed-admin-tag {
 	position: absolute;
 	right: 0;
 	bottom: 0;
 }
 
 /*** Admin Tag Styles ***/
+form.seed-admin {
+	background: red;
+	width: 80%;
+	padding: 1em;
+	border: 1px solid #e9e9e9;
+	background-color: #f8f8f8;
+}
+form.seed-admin label {
+	float: left;
+	width: 20%;
+	color: #666;
+}
+form.seed-admin fieldset {
+	border-width: 0;
+	padding: 0;
+}
+form.seed-admin div.input-row {
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+form.seed-admin div.input-row input, form.seed-admin div.input-row textarea {
+	width: 70%;
+}
+
+div#seed-admin-form h2 {
+	margin-top: 0;
+}
+
 .seed-admin-tag {
 	font-size: 10px;
 	color: #666;
-	background: #ddd;
+	background: #f0f0f0;
 }
 .seed-admin-tag a {
 	text-decoration: none;
@@ -69,15 +91,31 @@ div#head span.seed-admin-tag a {
 	background-color: transparent;
 	color: red;
 }
+.seed-edit-tag {
+	float: right;
+}
 /**************************/
 
+/*** Articles ***/
+div.article {
+	border-top: 1px solid #e9e9e9;
+	border-bottom: 1px solid #e9e9e9;
+	margin-bottom: 20px;
+}
+div.article h3 {
+	margin: 1em;
+}
+div.article p {
+	margin: 1em;
+}
 div#left {
-	border-right: 1px solid #ccc;
 	float: left;
 }
 div#right {
-	margin-left: 220px;
+	margin-left: 200px;
 	min-height: 400px;
+	padding: 20px;
+	border-left: 1px solid #ccc;
 }
 div#foot {
 	border-top: 1px solid #ccc;
@@ -125,5 +163,10 @@ pre {
 #errorExplanation ul li {
   font-size: 12px;
   list-style: square;
+}
+span#flashnotice {
+	position: absolute;
+	right: 0;
+	color: green;
 }
 

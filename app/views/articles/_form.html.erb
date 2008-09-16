@@ -1,16 +1,18 @@
-<% form_for([@page, @article]) do |f| %>
+<% form_for([@page, @article], :html => {:class => "seed-admin"}) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :title %><br />
+  <fieldset>
+  <div class="input-row">
+    <%= f.label :title %>
     <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :content %><br />
-    <%= f.text_field :content %>
-  </p>
-  <p>
+  </div>
+  <div class="input-row">
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+  </fieldset>
+  <div>
 	<%= f.hidden_field :page_id %>
-    <%= f.submit "#{submit}" %>
-  </p>
+    <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
+  </div>
+  
 <% end %>

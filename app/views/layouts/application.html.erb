@@ -9,9 +9,10 @@
 </head>
 <body>
 
-<p style="color: green"><%= flash[:notice] %></p>
 <div id="head">
+	<span id="flashnotice"><%= flash[:notice] %></span>
 	<h1><%= @page.title unless !@page %></h1>
+	<p><%= @page.description unless !@page %></p>
 	<span class="seed-admin-tag"><%= link_to "Add Article", new_page_article_path(@page) %></span>
 </div>
 <div id="left">

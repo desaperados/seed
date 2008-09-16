@@ -2,7 +2,7 @@
 <% for page in @menupages %>
   <li class="level_<%= page.tree_level %>" id="page_<%= page.id %>">
 	  <%= link_to page.name, page_articles_path(page) %> 
-	  <%= link_to "edit", edit_page_path(page), :class => "edit" %>
+	  <span class="seed-admin-tag"><%= link_to "edit", edit_page_path(page) %></span>
 	  <%= image_tag "icons/drag_handle.gif", :size => "11x11", :class => "handle" %>
   
   	  <% if page.children %>
@@ -18,6 +18,9 @@
   	  <% end -%>
   </li>
 <% end %>
-  <%= link_to "Add Page", new_page_path %>
+  <span class="seed-admin-tag seed-edit-tag"><%= link_to "Add Page", new_page_path %></span>
 </ul>
-<%= sortable_element('menupages', :tree => true, :url => {:controller => "javascript", :action => "update_page_order"}) %>
+<%= sortable_element('menupages',  
+					 :url => {:controller => "javascript", :action => "update_page_order"},
+					 :tree => true,
+					 :handle => 'handle') %>
