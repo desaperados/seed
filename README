@@ -1,3 +1,36 @@
-Seed | a Common Sense CMS from The Media Collective
+seed | a Common Sense CMS from The Media Collective
 
-Status: currently in very early development and not ready for general use. 
+Status: 
+Currently in early development. 
+
+USAGE
+1. Grab the app:
+git clone git://github.com/desaperados/seed.git
+
+2. Generate the database: (default is sqlite3)
+rake db:migrate
+
+3. Start your server:
+script/server
+
+4. Start using seed
+
+CURRENT FEATURES:
+- Site wide embedded editing. No separate admin section
+
+- Page Creation and Management
+  - Menu Hierarchy Ordering
+
+- Article Creation and Management  
+  - Drag and drop Article Ordering
+
+- Users Module
+  - Restful Authentication
+  - Account activation via email
+
+PLANNED FEATURES:
+- Article Image Management
+- Redcloth support
+- Site wide search
+- Pagination Control
+- Themes

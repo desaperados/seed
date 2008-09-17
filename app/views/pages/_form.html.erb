@@ -2,26 +2,26 @@
   <%= f.error_messages %>
   <fieldset>
   <div class="input-row">
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="input-row">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="input-row">
-    <%= f.label :description %><br />
+    <%= f.label :description %>
     <%= f.text_field :description %>
   </div>
   <div class="input-row">
-    <%= f.label :parent_id %><br />
+    <%= f.label :parent_id %>
 	<select id="page_parent_id" name="page[parent_id]">
 		<option value="">Top Level</option>
     	<%= options_from_collection_for_select(@pages, :id, :name) %>
 	</select>
   </div>
   <div class="input-row">
-    <%= f.label :paginate %><br />
+    <%= f.label :paginate %>
     <%= f.text_field :paginate %>
   </div>
   </fieldset>

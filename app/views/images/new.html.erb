@@ -1,0 +1,28 @@
+<div id="seed-admin-form">
+	<h2>Image Upload</h2>
+	
+	<%= error_messages_for :image %>
+	
+	<% form_for(:image, :url => images_path, :html => { :multipart => true, :class => "seed-admin" }) do |f| %>
+	  <fieldset id="image">
+	  <div class="input-row">
+	    <%= f.label :uploaded_data, "Choose a file to upload:" %>
+		<%= f.file_field :uploaded_data %>
+	  </div>
+	  </fieldset>
+	  <div>
+	    <%= submit_tag 'Upload' %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
+	  </div>
+	  
+	<% end -%>
+	
+	<div id="seed-image-list">
+	<% @images.each do |image| %>
+		<div class="seed-image-item">
+			<%= image_tag image.public_filename(:thumb100) %>
+			<%= link_to "X", image_path(image), :confirm => 'Delete Image?', :method => :delete %>
+		</div>
+	<% end %>
+	</div>
+</div>
+

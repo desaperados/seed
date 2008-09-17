@@ -1,0 +1,195 @@
+/* seed.css
+   base admin styles
+*/
+
+/********* Tag Defaults **********/
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/**** Absolute Positioned Tags ***/
+ul#menupages span.seed-edit-tag {
+	position: absolute;
+	left: 0;
+	bottom: -30px;
+}
+div#head span.seed-admin-tag {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+ul#seed-admin-menu {
+	position: absolute;
+	font-size: 10px;
+	margin: 0;
+	padding: 4px 40px 0 0;
+	top: 0;
+	right: 0;
+	list-style: none;
+	background-color: #000;
+	opacity: 0.5;
+}
+ul#seed-admin-menu li {
+	float: left;
+	margin: 0 4px;
+}
+ul#seed-admin-menu a {
+	text-decoration: none;
+	color: #fff;
+}
+ul#seed-admin-menu a:hover {
+	color: #4488bb;
+}
+div#seed-user-bar {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background-color: #000;
+	opacity: 0.5;
+	color: #fff;
+	padding: 4px 40px 4px 5px;
+	font-size: 10px;
+}
+div#seed-user-bar div {
+	float: left;
+	margin: 0 0 0 10px;
+}
+div#seed-user-bar a {
+	text-decoration: none;
+}
+div#seed-user-bar a:hover {
+	color: #fff;
+}
+
+/********** Admin & Tags ***********/
+
+form.seed-admin { 				/* forms */
+	background: red;
+	width: 80%;
+	padding: 1em;
+	border: 1px solid #e9e9e9;
+	background-color: #f8f8f8;
+}
+form.seed-admin label {
+	float: left;
+	width: 25%;
+	color: #666;
+}
+form.seed-admin fieldset {
+	border-width: 0;
+	padding: 0;
+}
+form.seed-admin fieldset#image {
+	padding: 5px;
+	margin: 5px 5px 15px 5px;
+	background: #fff;
+}
+form.seed-admin div.input-row {
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+form.seed-admin div.input-row input,
+form.seed-admin div.input-row textarea {
+	width: 70%;
+}
+div#seed-admin-form h2 {
+	margin-top: 0;
+}
+.seed-admin-tag { 				/* crud anchor tags */
+	font-size: 10px;
+	color: #666;
+	background: #f0f0f0;
+}
+.seed-admin-tag a {
+	text-decoration: none;
+	margin: 0 3px 0 3px;
+}
+.seed-admin-tag a:hover {
+	background-color: transparent;
+	color: red;
+}
+.seed-edit-tag {
+	float: right;
+}
+#seed-image-list { 				/* image upload */
+	border-top: 1px solid #ddd;
+	padding: 10px 5px;
+}
+.seed-image-item {
+	float: left;
+	border: 1px solid #ccc;
+	font-weight: normal;
+	margin: 0 5px 5px 0;
+	position: relative;
+	text-align: center;
+}
+.seed-image-item img {
+	float: left;
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+}
+.seed-image-item a {
+	margin: 0;
+	padding: 0 5px;
+	opacity: 0.7;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background: #fff;
+	border-bottom: 0px #fff;
+	text-decoration: none;
+}
+.seed-image-item a:hover {
+	color: #fff;
+	background: #4488bb;
+}
+
+/******** Error Messages *********/
+
+div.fieldWithErrors label {
+  color: red;
+}
+div.fieldWithErrors input {
+	background: #ffdddd;
+}
+#errorExplanation {
+  border: 1px solid red;
+  padding: 7px;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 10px;
+}
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  font-size: 11px !important;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px !important;
+  background-color: #c00;
+  color: #fff;
+}
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+#errorExplanation ul li {
+  list-style: square;
+}
+span#flashnotice {
+	position: absolute;
+	font-size: 10px;
+	right: 0;
+	top: 25px;
+	color: #fff;
+	background-color: blue;
+	opacity: 0.5;
+	padding: 1px 40px 1px 5px;
+}
+

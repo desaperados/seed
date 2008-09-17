@@ -1,0 +1,24 @@
+<div id="seed-admin-form">
+	<h2>Log In</h2>
+	
+	<% form_tag session_path, :class => "seed-admin" do -%>
+	<fieldset>
+	<div class="input-row">
+		<%= label_tag 'login' %>
+		<%= text_field_tag 'login', @login %>
+	</div>
+	
+	<div class="input-row">
+		<%= label_tag 'password' %>
+		<%= password_field_tag 'password', nil %>
+	</div>
+	
+	<div class="input-row">
+		<%= label_tag 'remember_me', 'Remember me' %>
+		<%= check_box_tag 'remember_me', '1', @remember_me %>
+	</div>
+
+	</fieldset>
+	<div><%= submit_tag 'Log in' %></div>
+	<% end -%>
+</div>

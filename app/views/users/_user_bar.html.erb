@@ -1,0 +1,8 @@
+<div id="seed-user-bar">
+<% if logged_in? -%>
+  <div id="user-bar-greeting">Logged in as <%= link_to_current_user :content_method => :login %></div>
+  <div id="user-bar-action"  >[<%= link_to "Log out", logout_path, { :title => "Log out" } %>]</div>
+<% else -%>
+  <div id="user-bar-greeting"><%= link_to_login_with_IP 'Not logged in', :style => 'border: none;' %></div>
+<% end -%>
+</div>

@@ -4,7 +4,7 @@ class CreatePages < ActiveRecord::Migration
       t.string :title
       t.string :name
       t.string :description
-      t.integer :position, :null => false
+      t.integer :position
       t.integer :parent_id
       t.integer :paginate
 

@@ -1,7 +1,7 @@
 class Page < ActiveRecord::Base
   acts_as_tree :order => :position
   acts_as_list :scope => :parent
-  has_many :articles, :order => :position
+  has_many :articles, :order => :position, :dependent => :destroy
   #has_many :childeren, :class_name => Page, :foreign_key => :parent_id, :order => :position
   
   validates_presence_of :title, :name

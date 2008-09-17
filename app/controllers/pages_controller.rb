@@ -1,24 +1,10 @@
 class PagesController < ApplicationController
   
-  before_filter :pages_menu
-
-  def show
-    @page = Page.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @page }
-    end
-  end
+  before_filter :pages_menu, :except => [:create, :update, :destroy]
 
   def new
     @page = Page.new
     @pages = Page.pages_for_dropdown
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @page }
-    end
   end
 
   def edit
@@ -29,30 +15,26 @@ class PagesController < ApplicationController
   def create
     @page = Page.new(params[:page])
 
-    respond_to do |format|
-      if @page.save
-        flash[:notice] = 'Page was successfully created.'
-        format.html { page_articles_path(@page) }
-        format.xml  { render :xml => @page, :status => :created, :location => @page }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @page.errors, :status => :unprocessable_entity }
-      end
+    if @page.save
+      flash[:notice] = 'Page was successfully created'
+      redirect_to page_articles_path(@page) 
+    else
+      @pages = Page.pages_for_dropdown(params[:id])
+      pages_menu
+      render :action => "new" 
     end
   end
 
   def update
     @page = Page.find(params[:id])
 
-    respond_to do |format|
-      if @page.update_attributes(params[:page])
-        flash[:notice] = 'Page was successfully updated.'
-        format.html { redirect_to(@page) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @page.errors, :status => :unprocessable_entity }
-      end
+    if @page.update_attributes(params[:page])
+      flash[:notice] = 'Page was successfully updated'
+      redirect_to(@page) 
+    else
+      @pages = Page.pages_for_dropdown(params[:id])
+      pages_menu
+      render :action => "edit"
     end
   end
 
@@ -60,9 +42,6 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id])
     @page.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(pages_url) }
-      format.xml  { head :ok }
-    end
+    redirect_to home_url 
   end
 end

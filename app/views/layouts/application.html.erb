@@ -4,21 +4,24 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Pages: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'base' %>
+  <%= stylesheet_link_tag 'seed', 'default' %>
   <%= javascript_include_tag :defaults %>
 </head>
 <body>
-
-<div id="head">
+<% if flash[:notice] %>
 	<span id="flashnotice"><%= flash[:notice] %></span>
+<% end -%>
+<div id="head">
 	<h1><%= @page.title unless !@page %></h1>
 	<p><%= @page.description unless !@page %></p>
 	<span class="seed-admin-tag"><%= link_to "Add Article", new_page_article_path(@page) %></span>
 </div>
 <div id="left">
 	<div id="menu">
-	<%= render :partial => "layouts/menu" %>
+		<%= render :partial => "layouts/menu" %>
 	</div>
+	<%= render :partial => "layouts/adminmenu" %>
+	<%= render :partial => "users/user_bar" %>
 </div>
 <div id="right">
 	<%= yield  %>

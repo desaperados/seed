@@ -1,0 +1,81 @@
+/* default.css
+   Edit or overide these styles 
+   to create a custom layout
+*/
+
+/********* Tag Defaults ***********/
+
+a { color: #4488bb; }
+a:visited { color: #4488bb; }
+a:hover { color: #000; }
+
+/********** Page Layout ***********/
+
+body { 
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 1.3em;
+	width: 80%;
+	margin: 0 auto;
+	background-color: #fff; 
+	color: #333;
+}
+div#left {
+	float: left;
+}
+div#right {
+	margin-left: 200px;
+	min-height: 400px;
+	padding: 20px;
+	border-left: 1px solid #ccc;
+}
+div#foot {
+	border-top: 1px solid #ccc;
+	padding: 20px;
+	clear: both;
+}
+
+/************ Articles ************/
+
+div.article {
+	border-top: 1px solid #e9e9e9;
+	border-bottom: 1px solid #e9e9e9;
+	margin-bottom: 20px;
+}
+div.article h3 {
+	margin: 1em;
+}
+div.article p {
+	margin: 1em;
+}
+
+/*********** Main Menu ************/
+div#menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+}
+div#menu ul.child {
+	margin-left: 1.5em;
+}
+div#menu ul#menupages {
+	border-top: 1px solid #ccc;
+	margin-top: 20px;
+}
+div#menu li {
+	border-bottom: 1px solid #ccc;
+	line-height: 2em;
+}
+div#menu ul.child li {
+	border-width: 0;
+	border-top: 1px solid #ddd;
+}
+div#menu li a {
+	text-decoration: none;
+}
+div#head {
+	height: 60px;
+	border-bottom: 1px solid #ccc;
+	position: relative;
+}
