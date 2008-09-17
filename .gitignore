@@ -3,3 +3,4 @@ log/*.log
 doc/api
 doc/app
 tmp/**/*
+public/imageupload*
