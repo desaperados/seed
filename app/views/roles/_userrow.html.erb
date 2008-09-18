@@ -1,0 +1,16 @@
+<tr id="user_<%= userrow.id %>_role_<%= roleid %>">
+	<td></td>
+	<td><%= userrow.name %></td>
+	<td><%= userrow.login %></td>
+	<td><%= userrow.email %></td>
+	<td class="right">
+		<span class="seed-admin-tag">
+		<%= link_to_remote("X", 
+		:url => {:controller => "javascript",
+				 :action => "remove_role", 
+				 :id => userrow.id, 
+				 :role => roleid,
+		}) %>
+		</span>
+	</td>
+</tr>

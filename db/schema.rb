@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20080918091624) do
 
   create_table "roles", :force => true do |t|
     t.string "name"
+    t.string "description"
   end
 
   create_table "roles_users", :id => false, :force => true do |t|

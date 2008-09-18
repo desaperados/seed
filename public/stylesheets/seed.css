@@ -4,6 +4,10 @@
 
 /********* Tag Defaults **********/
 
+body {
+	margin: 0;
+}
+
 pre {
   background-color: #eee;
   padding: 10px;
@@ -67,9 +71,9 @@ div#seed-user-bar a:hover {
 	color: #fff;
 }
 
-/********** Admin & Tags ***********/
+/************* Forms ***************/
 
-form.seed-admin { 				/* forms */
+form.seed-admin { 			
 	background: red;
 	width: 80%;
 	padding: 1em;
@@ -84,6 +88,12 @@ form.seed-admin label {
 form.seed-admin fieldset {
 	border-width: 0;
 	padding: 0;
+}
+form.seed-admin legend {
+	padding: 0 0 10px 0;
+}
+form.seed-admin a {
+	text-decoration: none;
 }
 form.seed-admin fieldset#image {
 	padding: 5px;
@@ -101,7 +111,51 @@ form.seed-admin div.input-row textarea {
 div#seed-admin-form h2 {
 	margin-top: 0;
 }
-.seed-admin-tag { 				/* crud anchor tags */
+
+/********* Admin Tables ************/
+table.seed-admin {
+	width: 100%;
+	margin-bottom: 2em;
+	border-spacing: 0;
+}
+table.seed-admin th {
+	text-align: left;
+	font-weight: normal;
+	border-bottom: 1px solid #ccc;
+	padding: 0.2em 0.5em;
+}
+table.seed-admin td {
+	border-bottom: 1px solid #ddd;
+	padding: 0.2em 0.5em;
+}
+table.seed-admin td.right {
+	text-align: right;
+}
+table.seed-roles td.role {
+	width: 20%;
+}
+table.seed-roles tr.role {
+	background-color: #f0f0f0;
+}
+table.seed-roles tr.usertitle {
+	font-style: italic;
+	background: #f7f7f7;
+}
+table.seed-roles th.addlink {
+	text-align: right;
+	padding-right: 0;
+}
+table.seed-roles th.editrole {
+	font-style: normal;
+	padding-left: 3px;
+}
+table.seed-roles th.editrole span {
+	float: left;
+}
+
+/******* CRUD Anchor Tags **********/
+
+.seed-admin-tag { 				
 	font-size: 10px;
 	color: #666;
 	background: #f0f0f0;
@@ -117,7 +171,10 @@ div#seed-admin-form h2 {
 .seed-edit-tag {
 	float: right;
 }
-#seed-image-list { 				/* image upload */
+
+/********** Image Upload ***********/
+
+#seed-image-list { 			
 	border-top: 1px solid #ddd;
 	padding: 10px 5px;
 }

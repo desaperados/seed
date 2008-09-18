@@ -1,0 +1,12 @@
+<div id="lightview-content">
+	<ul class="roles">
+	<% for user in @users %>
+		<li><%= link_to_remote(user.name, 
+		:url => {:action => "assign_role", 
+				 :id => user.id, 
+				 :role => @roleid,}, 
+		:html => {:onclick => "show_clicked(this)"}) %>
+		</li>
+	<% end -%>
+	</ul>
+</div>

@@ -1,5 +1,42 @@
 class JavascriptController < ApplicationController
   
+  skip_before_filter :verify_authenticity_token
+  
+  layout nil
+  
+  # Used by Roles, Add User to Role.
+  def list_users
+    @users = User.find(:all)
+    @roleid = params[:role]
+  end
+  
+  #TODO Make this method more efficient
+  def assign_role
+    user = User.find(params[:id])
+    role = Role.find(params[:role])
+    begin
+      exists = user.roles.find(role.id)
+    rescue
+      exists = false
+    end
+    user.roles << role unless exists
+    render :update do |page|
+      if exists
+      else
+        page.insert_html :bottom, "#{role.name}_table", :partial => "roles/userrow", :object => user, :locals => {:roleid => role.id}
+      end
+    end
+  end
+  
+  def remove_role
+    user = User.find(params[:id])
+    role = Role.find(params[:role])
+    user.roles.delete(role)
+    render :update do |page|
+      page.remove "user_#{user.id}_role_#{role.id}"
+    end
+  end
+  
   def update_article_order
     params[:articles].each_with_index do |id, position|
       Article.update(id, :position => position)

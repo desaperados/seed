@@ -1,1 +1,1 @@
-ExceptionNotifier.exception_recipients = APP_CONFIG[:errors_email]
+ExceptionNotifier.exception_recipients = "example@gmail.com"

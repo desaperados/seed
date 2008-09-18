@@ -1,5 +1,7 @@
 class UsersController < ApplicationController  
 
+  before_filter :login_required, :only => :index
+  require_role "admin", :only => [:index]
   before_filter :pages_menu, :except => [:activate]
   
   def index

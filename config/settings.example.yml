@@ -1,6 +1,7 @@
 development: &non_production_settings
   site_url: http://localhost:3000
   site_name: Seed
+  site_description: a Common Sense CMS from The Media Collective
   admin_email: example@gmail.com
   errors_email: example@gmail.com
   
@@ -10,5 +11,6 @@ test:
 production:
   site_url: http://www.example.com
   site_name: Seed
+  site_description: a Common Sense CMS from The Media Collective
   admin_email: example@gmail.com
   errors_email: example@gmail.com

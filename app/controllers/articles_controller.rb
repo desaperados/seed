@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   
   before_filter :login_required, :except => [:index]
   before_filter :pages_menu, :except => [:create, :update, :destroy]
-  before_filter :get_page
+  before_filter :get_page, :except => [:create, :update, :destroy]
   
   def index
     @articles = @page.articles
@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
 
     if @article.save
       flash[:notice] = 'Article was successfully created'
-      redirect_to page_articles_path(@page) 
+      redirect_to page_articles_path(@article.page_id) 
     else
       pages_menu
       render :action => "new" 
@@ -33,7 +33,7 @@ class ArticlesController < ApplicationController
 
     if @article.update_attributes(params[:article])
       flash[:notice] = 'Article was successfully updated'
-      redirect_to page_articles_path(@page) 
+      redirect_to page_articles_path(@article.page_id) 
     else
       pages_menu
       render :action => "edit"
@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
 
-    format.html { redirect_to page_articles_path(@page) }
+    redirect_to page_articles_path(@article.page_id)
   end
   
   private 

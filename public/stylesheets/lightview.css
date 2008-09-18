@@ -1,0 +1,399 @@
+/* lightview.css
+   http://www.nickstakenburg.com/projects/lightview
+*/
+
+#lightview {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 150px;
+	width: 150px;
+	margin: -75px 0 0 -75px;
+	padding: 0;
+}
+
+div#lightview-content {
+	overflow: scroll;
+	float: left;
+	overflow-y: scroll;
+	height: 350px;
+	width: 250px;
+}
+div#lightview-content ul.roles {
+	margin: 0;
+	padding: 0;
+}
+div#lightview-content ul.roles li {
+	border-bottom: 1px solid #ddd;
+	padding: 0.5em;
+}
+
+/* The container that holds everything */
+.lv_Container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: none;
+	padding: 0;
+	margin: 0;
+}
+
+.lv_Button {
+	cursor: pointer;
+	text-decoration: none;
+	border: none;
+	background: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* The buttons on the side when you view a gallery */
+.lv_Sides {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	clear: both;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+.lv_Sides * { padding: 0; margin: 0; }
+.lv_Sides li {
+	list-style-type: none;
+	position: relative;
+}
+
+.lv_PrevSide { float: left; }
+.lv_NextSide { float: right; }
+.lv_Sides .lv_Wrapper {
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+}
+.lv_Sides .lv_Button {
+	float: left;
+	background: none;
+}
+
+/* The frames above and below the center, that hold the corners.
+   It's recommended not to change anything here, a lot is done in
+   javascript to build further upon this based on your settings.
+*/
+.lv_Frames {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+.lv_Frames li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.lv_Frame {
+	width: 100%;
+	display: block;
+}
+.lv_Frame * { padding: 0; margin: 0; }
+.lv_FrameTop {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	display: block;
+}
+.lv_FrameBottom {
+	position: relative;
+	float: left;
+	clear: both;
+}
+
+.lv_Liquid {
+	position: relative;
+	float: left;
+	width: 100%;
+	overflow: hidden;
+	clear: both;
+}
+.lv_Liquid .lv_Filler {
+	position: absolute;
+	height: 100%;
+	width: 2px;
+	top: 0;
+	left: 50%;
+}
+
+.lv_Half {
+	display: block;
+	height: 100%;
+	clear: both;
+	line-height: 0px;
+}
+.lv_Half li { list-style-type: none; }
+.lv_Corner {
+	float: left;
+	position: relative;
+}
+.lv_CornerTr, .lv_CornerBr { float: right; }
+
+.lv_Fill {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.lv_Half .lv_CornerWrapper {
+	float: left;
+	position: relative;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+}
+.lv_HalfRight .lv_CornerWrapper { float: right; }
+
+.lv_Corner { position: relative; }
+.lv_Corner canvas { position: relative; }
+.lv_HalfLeft .lv_Corner { float: left; }
+.lv_HalfRight .lv_Corner {
+	position: relative;
+	float: right;
+}
+
+/* To position content correctly in the center with correct
+   rounded corner display we need a few wrappers.
+   This is to get it right on all browsers.
+*/
+.lv_Center {
+	position: relative;
+	clear: both;
+	height: 100%;
+	overflow: hidden;
+	background: none;
+	padding: 0;
+	margin: 0;
+}
+.lv_WrapUp {
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+}
+.lv_WrapDown {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+}
+.lv_WrapCenter {
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+
+/* The loading indicator */
+.lv_Loading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+.lv_Loading .lv_Button {
+	float: left;
+	height: 100%;
+	width: 100%;
+}
+
+.lv_MediaWrapper {
+	position: relative;
+	width: 100%;
+	display: block;
+	overflow: hidden;
+	clear: both;
+	padding: 0;
+	margin: 0;
+}
+.lv_MediaWrapper img {
+	position: relative;
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+
+/* The overlays on top of images that toggle the previous/next buttons */
+.lv_PrevNext {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+.lv_PrevNext * { padding: 0; margin: 0; }
+.lv_PrevNext .lv_Button {
+	position: relative;
+	height: 100%;
+}
+.lv_PrevButton { float: left; }
+.lv_NextButton { float: right; }
+
+/* The bar that holds title, caption, imagenumber, slideshow and closebutton */
+.lv_MenuBar {
+	clear: both;
+	position: relative;
+	width: 100%;
+	float: left;
+	font: 11px Arial, Helvetica, sans-serif;
+	color: #7a7a7a;
+	padding: 0;
+	margin: 0;
+	text-align:left;
+}
+.lv_MenuBar * { padding: 0; margin: 0; }
+
+/* When the Menubar is at the top, on (ajax/iframe/inline) content,
+   it will also have this style.
+   The margins are removed here for better alignment, and since it's
+   at the top we switch the inner margins to the other side.
+*/
+.lv_MenuTop .lv_DataText div,
+.lv_MenuTop .lv_ImgNumber div { margin: 0; padding: 0; }
+#lightview .lv_MenuTop .lv_Close, 
+#lightview .lv_MenuTop .lv_Data { margin: 0 0 6px 0; }
+
+.lv_Close, .lv_Data { margin: 6px 0 0 0; }
+.lv_Close {
+    position: relative;
+	float: right;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+}
+
+.lv_Data {
+	position: relative;
+	float: left;
+	padding-bottom: 3px;
+	line-height: 13px;
+}
+
+.lv_Data li {
+	list-style-type: none;
+	float: left;
+	margin-top: 3px;
+}
+.lv_DataText { width: 100%; }
+.lv_DataText .lv_Title {
+	font-weight: bold;
+	margin-bottom: 2px;
+}
+.lv_DataText .lv_Caption { clear: both; }
+.lv_Data .lv_ImgNumber {
+	color: #a7a7a7;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+.lv_Data .lv_innerPrevNext, 
+.lv_Data .lv_Slideshow {
+	position: relative;
+	border-left: 1px solid #d7d7d7;
+	padding: 0 5px;
+	margin-top: 5px;
+	vertical-align: middle;
+}
+.lv_Data .lv_Slideshow { padding-right: 0px; }
+
+.lv_Data .lv_innerPrevNext .lv_Button, 
+.lv_Data .lv_Slideshow .lv_Button { /* play and stop */
+	float: left;
+	background-position: center left;
+	background-repeat: no-repeat;
+}
+
+/* the boxes that hold media or external content */
+.lv_Media,
+.lv_External {
+	position: relative;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+#lightview iframe {
+	border: 0;
+	clear: both;
+	padding: 0;
+	margin: 0;
+	background: none;
+}
+
+/* The container that hold buttons above the view, currently only topclose */
+.lv_topButtons {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+}
+.lv_topcloseButtonImage { cursor: pointer; }
+
+
+/* The error/warning/download message that will appear when
+   a required plugin is not installed.
+*/
+#lightviewError p { padding: 0 0 10px 0; }
+#lightviewError div {
+	padding: 6px;
+	font: 11px Arial, Helvetica, sans-serif;
+}
+#lightviewError .message {
+	background: #fcb5b5;
+	color: #dd1f1f;
+	margin-bottom: 3px;
+}
+#lightviewError .type { font-weight: bold; }
+#lightviewError .pluginspage {
+	background: #b5fcbd;
+	color: #21be30;
+}
+#lightviewError a,
+#lightviewError a:hover,
+#lightviewError a:visited {
+	color: #21be30;
+	text-decoration: none;
+	background: none;
+	font-weight: bold;
+	border-bottom: 1px solid #7de689;
+}
+#lightviewError p {
+	margin-left: 0;
+	padding: 0;
+}
+
+#lv_overlay {
+  position: absolute; /* Opera will use fixed */
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+* html #lightview { /* IE6 */
+	position: absolute;
+	margin-top: expression( (-1 * this.offsetHeight / 2 + (document.documentElement ? document.documentElement.scrollTop : 0) + (Lightview.navbarHeight || 0)) + 'px');
+	margin-left: expression( -1 * this.offsetWidth / 2 + (document.documentElement ? document.documentElement.scrollLeft : 0) + 'px');
+}
+
+/* Always cover 100% of the screen in IE6 */
+html #lv_overlay {
+	position: absolute;
+	height: expression(((window.Enumerable && window.Enumerable.max) ? [document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight].max() : document.documentElement.scrollHeight) + 'px' );
+	width: expression(((window.Enumerable && window.Enumerable.max) ? [document.body.scrollWidth, document.documentElement.scrollWidth, document.body.offsetWidth, document.documentElement.clientHeight].max() : document.documentElement.scrollWidth) + 'px' );
+}

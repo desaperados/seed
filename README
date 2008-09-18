@@ -7,13 +7,15 @@ USAGE
 1. Grab the app:
 git clone git://github.com/desaperados/seed.git
 
-2. Generate the database: (default is sqlite3)
+2. Copy config/settings.example.yml to config/settings.yml and edit accordingly
+
+3. Generate the database: (default is sqlite3)
 rake db:migrate
 
-3. Start your server:
+4. Start your server:
 script/server
 
-4. Start using seed
+5. Start using seed
 
 CURRENT FEATURES:
 - Site wide embedded editing. No separate admin section
@@ -36,7 +38,5 @@ CURRENT FEATURES:
 
 PLANNED FEATURES:
 - Article Image Management
-- Redcloth support
 - Site wide search
-- Pagination Control
 - Themes

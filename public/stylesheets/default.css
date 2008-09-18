@@ -15,10 +15,17 @@ body {
 	font-family: verdana, arial, helvetica, sans-serif;
 	font-size: 11px;
 	line-height: 1.3em;
-	width: 80%;
-	margin: 0 auto;
 	background-color: #fff; 
 	color: #333;
+}
+div#container {
+	width: 80%;
+	margin: 0 auto;
+}
+div#head {
+	height: 60px;
+	border-bottom: 1px solid #ccc;
+	position: relative;
 }
 div#left {
 	float: left;
@@ -73,9 +80,4 @@ div#menu ul.child li {
 }
 div#menu li a {
 	text-decoration: none;
-}
-div#head {
-	height: 60px;
-	border-bottom: 1px solid #ccc;
-	position: relative;
 }

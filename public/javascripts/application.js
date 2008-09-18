@@ -1,2 +1,4 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+function show_clicked(anchor) {
+	anchor.up(0).setStyle({background: '#ffff99'});
+	anchor.setStyle({color: '#333333'});
+}

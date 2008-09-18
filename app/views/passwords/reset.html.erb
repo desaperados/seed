@@ -1,22 +1,19 @@
+<div id="seed-admin-form">
 <%= title "Reset Your Password", :h2 %>
-<% form_for :user, :url => { :action => 'update_after_forgetting' } do |f| %>
+<% form_for :user, :url => { :action => 'update_after_forgetting' }, :html => {:class => "seed-admin"} do |f| %>
   <%= f.error_messages %>
-  <p>Please enter a new password and confirm it.</p>
-	<fieldset>
-		<legend>Update Password</legend>
-		<ol>
-			<li>
-		    <%= f.label :password %>
-		    <%= f.password_field :password %>
-			</li>
-			<li>
-		    <%= f.label :password_confirmation %>
-		    <%= f.password_field :password_confirmation %>
-			</li>
-		</ol>
-	</fieldset>
-	<%= hidden_field_tag :reset_code, params[:reset_code] %>
-	<div class="buttons">
-    <%= f.submit "Submit" %>
-	</div>
+  <fieldset>
+  	<legend>Please enter a new password and confirm it</legend>
+  		<div class="input-row">
+  	    	<%= f.label :password, "New password" %>
+  	    	<%= f.password_field :password %>
+  		</div>
+  		<div class="input-row">
+  	    	<%= f.label :password_confirmation, "Confirm password" %>
+  	    	<%= f.password_field :password_confirmation %>
+  		</div>
+  </fieldset>
+  <%= hidden_field_tag :reset_code, params[:reset_code] %>
+  <div><%= f.submit "Submit" %></div>
 <% end %>
+</div>
