@@ -9,11 +9,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080917140115) do
+ActiveRecord::Schema.define(:version => 20080918091624) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.string   "content"
+    t.string   "imagesize"
+    t.string   "imageposition"
     t.integer  "page_id"
     t.integer  "position"
     t.datetime "created_at"
@@ -42,6 +44,23 @@ ActiveRecord::Schema.define(:version => 20080917140115) do
     t.integer  "paginate"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "passwords", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "reset_code"
+    t.datetime "expiration_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string "name"
+  end
+
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
   end
 
   create_table "sessions", :force => true do |t|

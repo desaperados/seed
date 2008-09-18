@@ -1,3 +1,4 @@
+<% if logged_in? %>
 <ul id="seed-admin-menu">
 	<li><%= image_tag "icons/process.png", :size => "16x16" %></li>
   	<li><%= link_to "Images", new_image_path %></li>
@@ -5,3 +6,4 @@
 	<li><%= link_to "Users", users_path %></li>
 	<li><%= link_to "Preferences", new_image_path %></li>
 </ul>
+<% end -%>

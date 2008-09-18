@@ -1,0 +1,1 @@
+ExceptionNotifier.exception_recipients = APP_CONFIG[:errors_email]

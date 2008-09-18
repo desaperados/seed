@@ -20,13 +20,19 @@ CURRENT FEATURES:
 
 - Page Creation and Management
   - Menu Hierarchy Ordering
+  - Pagination Control
 
 - Article Creation and Management  
   - Drag and drop Article Ordering
 
 - Users Module
   - Restful Authentication
+  - Roles
   - Account activation via email
+  - Forgotten password handling
+
+- Exception Notification
+- Asset Packager
 
 PLANNED FEATURES:
 - Article Image Management

@@ -2,25 +2,33 @@
 <% for page in @menupages %>
   <li class="level_<%= page.tree_level %>" id="page_<%= page.id %>">
 	  <%= link_to page.name, page_articles_path(page) %> 
-	  <span class="seed-admin-tag"><%= link_to "edit", edit_page_path(page) %>|<%= link_to "X", page_path(page), :confirm => 'Delete this page and all associated articles?', :method => :delete %></span>
-	  <%= image_tag "icons/drag_handle.gif", :size => "11x11", :class => "handle" %>
+	  <% if logged_in? %>
+	  	<span class="seed-admin-tag"><%= link_to "edit", edit_page_path(page) %>|<%= link_to "X", page_path(page), :confirm => 'Delete this page and all associated articles?', :method => :delete %></span>
+	  	<%= image_tag "icons/drag_handle.gif", :size => "11x11", :class => "handle" %>
+	  <% end -%>
   
   	  <% if page.children %>
   	  	 <ul class="child">
   	  	 <% for child in page.children %>
   	  	   <li class="level_<%= child.tree_level %>" id="page_<%= child.id %>">
 				<%= link_to child.name, page_articles_path(child) %> 
-				<span class="seed-admin-tag"><%= link_to "edit", edit_page_path(child) %>|<%= link_to "X", page_path(child), :confirm => 'Delete this page and all associated articles?', :method => :delete %></span>
-				<%= image_tag "icons/drag_handle.gif", :size => "11x11", :class => "handle" %>
+				<% if logged_in? %>
+					<span class="seed-admin-tag"><%= link_to "edit", edit_page_path(child) %>|<%= link_to "X", page_path(child), :confirm => 'Delete this page and all associated articles?', :method => :delete %></span>
+					<%= image_tag "icons/drag_handle.gif", :size => "11x11", :class => "handle" %>
+				<% end -%>
 			</li>
   	  	 <% end -%>
   	  	 </ul>
   	  <% end -%>
   </li>
 <% end %>
-  <span class="seed-admin-tag seed-edit-tag"><%= link_to "Add Page", new_page_path %></span>
+  <% if logged_in? %>
+  	<span class="seed-admin-tag seed-edit-tag"><%= link_to "Add Page", new_page_path %></span> 
+  <% end -%>
 </ul>
+<% if logged_in? %>
 <%= sortable_element('menupages',  
 					 :url => {:controller => "javascript", :action => "update_page_order"},
 					 :tree => true,
 					 :handle => 'handle') %>
+<% end -%>

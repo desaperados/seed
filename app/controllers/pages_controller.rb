@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   
+  before_filter :login_required
   before_filter :pages_menu, :except => [:create, :update, :destroy]
 
   def new

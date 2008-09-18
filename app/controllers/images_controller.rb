@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
   
   layout "application"
+  before_filter :login_required
   before_filter :pages_menu, :except => [:create, :destroy]
 
   def new

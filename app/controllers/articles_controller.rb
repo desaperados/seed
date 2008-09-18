@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   
+  before_filter :login_required, :except => [:index]
   before_filter :pages_menu, :except => [:create, :update, :destroy]
   before_filter :get_page
   

@@ -2,5 +2,9 @@ log/*.log
 .DS_Store
 doc/api
 doc/app
+doc/plugins
 tmp/**/*
-public/imageupload*
+public/imageupload
+db/*.sqlite3
+Capfile
+config/settings.yml

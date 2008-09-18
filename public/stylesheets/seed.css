@@ -11,6 +11,9 @@ pre {
 }
 
 /**** Absolute Positioned Tags ***/
+ul#menupages {
+	position: relative;
+}
 ul#menupages span.seed-edit-tag {
 	position: absolute;
 	left: 0;
@@ -182,7 +185,7 @@ div.fieldWithErrors input {
 #errorExplanation ul li {
   list-style: square;
 }
-span#flashnotice {
+div#flash-notice, div#flash-warning, div#flash-error {
 	position: absolute;
 	font-size: 10px;
 	right: 0;

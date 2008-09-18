@@ -1,5 +1,5 @@
 <div id="seed-admin-form">
-	<h2>Log In</h2>
+	<h2>Login</h2>
 	
 	<% form_tag session_path, :class => "seed-admin" do -%>
 	<fieldset>
@@ -19,6 +19,9 @@
 	</div>
 
 	</fieldset>
-	<div><%= submit_tag 'Log in' %></div>
+	<div>
+		<%= submit_tag 'Login' %>
+		<%= link_to 'Forgotten Password', forgot_password_path %>
+	</div>
 	<% end -%>
 </div>

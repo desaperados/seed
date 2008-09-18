@@ -1,9 +1,3 @@
-# Be sure to restart your server when you modify this file
-
-# Uncomment below to force Rails into production mode when
-# you don't control web/app server and can't set it the proper way
-# ENV['RAILS_ENV'] ||= 'production'
-
 # Specifies gem version of Rails to use when vendor/rails is not present
 RAILS_GEM_VERSION = '2.1.1' unless defined? RAILS_GEM_VERSION
 
@@ -11,20 +5,14 @@ RAILS_GEM_VERSION = '2.1.1' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  # Settings in config/environments/* take precedence over those specified here.
-  # Application configuration should go into files in config/initializers
-  # -- all .rb files in that directory are automatically loaded.
-  # See Rails::Configuration for more options.
 
-  # Skip frameworks you're not going to use. To use Rails without a database
-  # you must remove the Active Record framework.
+  # Skip frameworks you're not going to use. 
   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
 
   # Specify gems that this application depends on. 
   # They can then be installed with "rake gems:install" on new installations.
-  # config.gem "bj"
-  # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
-  # config.gem "aws-s3", :lib => "aws/s3"
+  config.gem 'mislav-will_paginate', :version => '~> 2.3.2', :lib => 'will_paginate', 
+      :source => 'http://gems.github.com'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
@@ -52,17 +40,8 @@ Rails::Initializer.run do |config|
     :secret      => '70974e63857c8417f13ed8547170663f3a2efce6e42ad2dc760ce6a794b75a6e8dea0e45b43dd0c14f493be4560595b15267bed26742e22c25af42b0c3d7d9af'
   }
 
-  # Use the database for sessions instead of the cookie-based default,
-  # which shouldn't be used to store highly confidential information
-  # (create the session table with "rake db:sessions:create")
-  # config.action_controller.session_store = :active_record_store
-
-  # Use SQL instead of Active Record's schema dumper when creating the test database.
-  # This is necessary if your schema can't be completely dumped by the schema dumper,
-  # like if you have constraints or database-specific column types
-  # config.active_record.schema_format = :sql
+  config.action_controller.session_store = :active_record_store
 
   # Activate observers that should always be running
-  # config.active_record.observers = :cacher, :garbage_collector
   config.active_record.observers = :user_observer
 end

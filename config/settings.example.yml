@@ -1,0 +1,14 @@
+development: &non_production_settings
+  site_url: http://localhost:3000
+  site_name: Seed
+  admin_email: example@gmail.com
+  errors_email: example@gmail.com
+  
+test:
+  <<: *non_production_settings
+  
+production:
+  site_url: http://www.example.com
+  site_name: Seed
+  admin_email: example@gmail.com
+  errors_email: example@gmail.com

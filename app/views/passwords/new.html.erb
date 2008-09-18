@@ -1,0 +1,17 @@
+<%= title "Forgot Your Password?", :h2 %>
+<% form_for @password do |f| %>
+  <%= f.error_messages %>
+	<fieldset>
+		<legend>Enter Your Email Address</legend>
+		<ol>
+			<li>			
+		    <%= f.label :email %>
+		    <%= f.text_field :email %>
+			</li>
+		</ol>
+	</fieldset>
+	<div class="buttons">
+  	<%= f.submit "Submit" %>
+	</div>
+<% end %>
+
