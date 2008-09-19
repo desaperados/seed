@@ -18,11 +18,12 @@ script/server
 5. Start using seed
 
 CURRENT FEATURES:
-- Site wide embedded editing. No separate admin section
+- Site wide embedded content creation and editing. 
 
 - Page Creation and Management
   - Menu Hierarchy Ordering
   - Pagination Control
+  - Manage page viewing and editing rules
 
 - Article Creation and Management  
   - Drag and drop Article Ordering
@@ -36,7 +37,7 @@ CURRENT FEATURES:
 - Exception Notification
 - Asset Packager
 
-PLANNED FEATURES:
-- Article Image Management
-- Site wide search
-- Themes
+NOTES:
+
+Uses Lightview by Nick Stakenburg which requires a Creative Commons Licence
+http://www.nickstakenburg.com/projects/lightview/

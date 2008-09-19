@@ -18,7 +18,7 @@ class PagesController < ApplicationController
 
     if @page.save
       flash[:notice] = 'Page was successfully created'
-      redirect_to page_articles_path(@page) 
+      redirect_to resource_path(@page) 
     else
       @pages = Page.pages_for_dropdown(params[:id])
       pages_menu
@@ -31,7 +31,7 @@ class PagesController < ApplicationController
 
     if @page.update_attributes(params[:page])
       flash[:notice] = 'Page was successfully updated'
-      redirect_to(@page) 
+      redirect_to resource_path(@page) 
     else
       @pages = Page.pages_for_dropdown(params[:id])
       pages_menu
@@ -44,5 +44,11 @@ class PagesController < ApplicationController
     @page.destroy
 
     redirect_to home_url 
+  end
+  
+  private
+  
+  def resource_path(page)
+    eval ("#{page.kind}_path(#{page.id})")
   end
 end

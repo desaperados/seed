@@ -1,9 +1,9 @@
-<div id="articles">
+<div id="sortableitems">
 <% for article in @page.articles %>
-	<div div id="article_<%= article.id %>" class="article">
+	<div div id="sortableitem_<%= article.id %>" class="article">
 		<% if logged_in? %>
 			<span class="seed-admin-tag seed-edit-tag">
-				<%= link_to "edit", edit_page_article_path(@page, article)%>|<%= link_to "X", page_article_path(@page, article), :confirm => 'Delete this article?', :method => :delete %>
+				<%= link_to "edit", edit_article_path(@page, article)%>|<%= link_to "X", article_path(@page, article), :confirm => 'Delete this article?', :method => :delete %>
 			</span>
 		<% end -%>
 		<h3><%= article.title %></h3>
@@ -12,7 +12,7 @@
 <% end -%>
 </div>
 <% if logged_in? %>
-<%= sortable_element('articles',  
-					 :url => {:controller => "javascript", :action => "update_article_order"},
+<%= sortable_element('sortableitems',  
+					 :url => {:controller => "javascript", :action => "update_article_order", :class_name => article.class.name},
 					 :tag => :div) %>
 <% end -%>

@@ -4,8 +4,10 @@ class UserObserver < ActiveRecord::Observer
   end
 
   def after_save(user)
-  
     UserMailer.deliver_activation(user) if user.recently_activated?
+  end
   
+  def after_destroy(user)
+    UserMailer.deliver_termination_notification(user)
   end
 end

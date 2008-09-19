@@ -25,7 +25,12 @@ div#lightview-content ul.roles {
 }
 div#lightview-content ul.roles li {
 	border-bottom: 1px solid #ddd;
+	border-left: 1px solid #ddd;
 	padding: 0.5em;
+	background: #f9f9f9;
+}
+div#lightview-content ul.roles li.even {
+	background: #fcfcfc;
 }
 
 /* The container that holds everything */

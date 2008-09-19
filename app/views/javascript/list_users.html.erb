@@ -1,7 +1,7 @@
 <div id="lightview-content">
 	<ul class="roles">
 	<% for user in @users %>
-		<li><%= link_to_remote(user.name, 
+		<li class="<%= cycle('even', 'odd') %>"><%= link_to_remote(user.name, 
 		:url => {:action => "assign_role", 
 				 :id => user.id, 
 				 :role => @roleid,}, 

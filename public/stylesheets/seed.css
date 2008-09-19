@@ -123,10 +123,14 @@ table.seed-admin th {
 	font-weight: normal;
 	border-bottom: 1px solid #ccc;
 	padding: 0.2em 0.5em;
+	background: #f0f0f0;
 }
 table.seed-admin td {
 	border-bottom: 1px solid #ddd;
 	padding: 0.2em 0.5em;
+}
+table.seed-admin tr.even {
+	background: #fbfbfb;
 }
 table.seed-admin td.right {
 	text-align: right;
@@ -137,7 +141,10 @@ table.seed-roles td.role {
 table.seed-roles tr.role {
 	background-color: #f0f0f0;
 }
-table.seed-roles tr.usertitle {
+table.seed-roles th {
+	background: #fff;
+}
+table.seed-roles tr.usertitle th {
 	font-style: italic;
 	background: #f7f7f7;
 }

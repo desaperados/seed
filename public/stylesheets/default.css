@@ -44,15 +44,15 @@ div#foot {
 
 /************ Articles ************/
 
-div.article {
+div.article, div.newsitem {
 	border-top: 1px solid #e9e9e9;
 	border-bottom: 1px solid #e9e9e9;
 	margin-bottom: 20px;
 }
-div.article h3 {
+div.article h3, div.newsitem h3 {
 	margin: 1em;
 }
-div.article p {
+div.article p, div.newsitem p {
 	margin: 1em;
 }
 

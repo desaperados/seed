@@ -16,15 +16,26 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
  
+  # Create behaviour allows for users to be created by an admin user
+  # with activation via email or via self signup and activation
   def create
-    logout_keeping_session!
+    if current_user.has_role? "admin"
+      internal = true
+    else
+      logout_keeping_session!
+    end
     @user = User.new(params[:user])
     success = @user && @user.save
     if success && @user.errors.empty?
-      redirect_back_or_default('/')
-      flash[:notice] = "Thanks for signing up! We're sending you an email with your activation code."
+      if internal
+        redirect_to users_url
+        flash[:notice] = "User created! An email has been sent to #{@user.email} for account activation."
+      else
+        redirect_back_or_default('/')
+        flash[:notice] = "Thanks for signing up! We're sending you an email with your activation code."
+      end
     else
-      flash[:error]  = "We couldn't set up that account, sorry. Please try again, or contact an admin (link is above)."
+      flash[:error]  = "We couldn't set up that account, sorry. Please try again."
       render :action => 'new'
     end
   end
@@ -45,4 +56,16 @@ class UsersController < ApplicationController
       redirect_back_or_default('/')
     end
   end
+  
+  def destroy
+    user = User.find(params[:id])
+    begin
+      user.destroy
+      flash[:notice] = "#{user.name} deleted"
+    rescue Exception => e
+      flash[:notice] = e.message
+    end
+    redirect_to users_path
+  end
+  
 end

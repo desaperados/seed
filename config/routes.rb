@@ -11,9 +11,14 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resource :session
   map.resources :images, :users, :passwords, :roles
-  map.resources :pages, :has_many => [:articles]
+  map.resources :pages do |page|
+    page.resources :articles, :name_prefix => nil
+    page.resources :newsitems, :name_prefix => nil, :as => "news"
+    page.resources :posts, :name_prefix => nil
+  end
 
   map.home "", :controller => "articles", :page_id => "1"
+  map.root :home
   
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'

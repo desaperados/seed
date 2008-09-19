@@ -6,7 +6,7 @@
     <%= f.text_field :title %>
   </div>
   <div class="input-row">
-    <%= f.label :name %>
+    <%= f.label :name, "Name (for menu)" %>
     <%= f.text_field :name %>
   </div>
   <div class="input-row">
@@ -14,15 +14,19 @@
     <%= f.text_field :description %>
   </div>
   <div class="input-row">
-    <%= f.label :parent_id %>
+    <%= f.label :parent_id, "Parent Page" %>
 	<select id="page_parent_id" name="page[parent_id]">
 		<option value="">Top Level</option>
     	<%= options_from_collection_for_select(@pages, :id, :name) %>
 	</select>
   </div>
   <div class="input-row">
-    <%= f.label :paginate %>
-    <%= f.text_field :paginate %>
+    <%= f.label :kind, "Page Type" %>
+	<%= f.select(:kind, Page::KIND) %>
+  </div>
+  <div class="input-row">
+    <%= f.label :paginate, "Pagination" %>
+	<%= f.select(:paginate, Page::PAGINATION) %>
   </div>
   </fieldset>
   <div>

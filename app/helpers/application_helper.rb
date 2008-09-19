@@ -1,5 +1,9 @@
 module ApplicationHelper
   
+  def resource_path(page)
+    eval ("#{page.kind}_path(#{page.id})")
+  end
+  
   def use_lightview
       # Avoid multiple inclusions
       @content_for_lightview_css = "" 
@@ -10,6 +14,10 @@ module ApplicationHelper
       content_for :lightview_js do
         javascript_include_tag "lightview.js"
       end
+  end
+  
+  def boolean_to_string(boolean, truestring, falsestring)
+    (boolean == true) ? truestring : falsestring
   end
   
   # Generate a link for adding a new resource based on the controller

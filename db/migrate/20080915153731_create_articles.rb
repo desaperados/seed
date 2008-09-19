@@ -10,7 +10,7 @@ class CreateArticles < ActiveRecord::Migration
 
       t.timestamps
     end
-    Article.create(:title => "Welcome to Seed", :content => "This is your first seed article! \nLogin using the link in the bottom right corner to make changes. \nUser: admin\nPassword: monkey", :page_id => 1)
+    Article.create(:title => "Welcome to Seed", :content => "This is your first seed article! \nLogin using the link in the bottom right corner to make changes. \nUser: admin\nPassword: administrator", :page_id => 1)
   end
 
   def self.down

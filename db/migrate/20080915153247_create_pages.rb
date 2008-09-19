@@ -5,15 +5,18 @@ class CreatePages < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.integer :position
+      t.string :kind
+      t.integer :view_role
+      t.integer :edit_role
       t.integer :parent_id
       t.integer :paginate
 
       t.timestamps
     end
-     Page.create(:title => "Home Page", :name => "Home", :description => "Default home page for a new seed installation")
-     Page.create(:title => "About Page", :name => "About", :description => "A page where you could write what this site is about")
-     Page.create(:title => "Special Page", :name => "Special Stuff", :description => "Stuff that you want only logged in users to see")
-     Page.create(:title => "Another Page", :name => "More Stuff", :description => "Be Creative...")
+     Page.create(:title => "Home Page", :kind => "articles", :name => "Home", :description => "Default home page for a new seed installation")
+     Page.create(:title => "About Page", :kind => "articles", :name => "About", :description => "A page where you could write what this site is about")
+     Page.create(:title => "News Page", :kind => "newsitems", :name => "News", :description => "A page for news items with dates and archive section")
+     Page.create(:title => "Another Page", :kind => "articles", :name => "More Stuff", :description => "Be Creative...")
   end
 
   def self.down

@@ -31,15 +31,16 @@ class JavascriptController < ApplicationController
   def remove_role
     user = User.find(params[:id])
     role = Role.find(params[:role])
-    user.roles.delete(role)
+    # Prevent an admin from removing themselves
+    user.roles.delete(role) unless user.id = current_user.id
     render :update do |page|
-      page.remove "user_#{user.id}_role_#{role.id}"
+      page.remove "user_#{user.id}_role_#{role.id}" 
     end
   end
   
   def update_article_order
-    params[:articles].each_with_index do |id, position|
-      Article.update(id, :position => position)
+    params[:sortableitems].each_with_index do |id, position|
+      params[:class_name].constantize.update(id, :position => position)
     end
     render(:nothing => true)
   end
