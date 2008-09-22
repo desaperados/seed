@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   before_filter :pages_menu, :except => [:create, :update, :destroy]
 
   def new
-    @page = Page.new
+    @page = Page.new(:menu_type => "primary")
   end
 
   def edit

@@ -29,9 +29,13 @@ class Page < ActiveRecord::Base
     [ '50 Items per page', 50 ]
   ]
   
-  def pages_for_dropdown(thispage, menu_type)
-    conditions = ["id != ? AND menu_type = ?", thispage, menu_type]
-    list = Page.find(:all, :select => "id, name", :conditions => conditions)
+  def pages_for_dropdown(thispage, menu_type, action)
+    if action != "new"
+      conditions = ["id != ? AND menu_type = ? AND parent_id IS NULL", thispage, menu_type]
+    else
+      conditions = ["menu_type = ? AND parent_id IS NULL", menu_type]
+    end
+    list = Page.find(:all, :select => "id, name", :conditions => conditions, :order => "position ASC")
   end
 
   # Use the parent_id for the menu list_level class
