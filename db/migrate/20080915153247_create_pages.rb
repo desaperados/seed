@@ -6,6 +6,7 @@ class CreatePages < ActiveRecord::Migration
       t.string :description
       t.integer :position
       t.string :kind
+      t.string :menu_type
       t.integer :view_role
       t.integer :edit_role
       t.integer :parent_id
@@ -13,10 +14,10 @@ class CreatePages < ActiveRecord::Migration
 
       t.timestamps
     end
-     Page.create(:title => "Home Page", :kind => "articles", :name => "Home", :description => "Default home page for a new seed installation")
-     Page.create(:title => "About Page", :kind => "articles", :name => "About", :description => "A page where you could write what this site is about")
-     Page.create(:title => "News Page", :kind => "newsitems", :name => "News", :description => "A page for news items with dates and archive section")
-     Page.create(:title => "Another Page", :kind => "articles", :name => "More Stuff", :description => "Be Creative...")
+     Page.create(:title => "Home Page", :menu_type => "primary", :kind => "articles", :name => "Home", :description => "Default home page for a new seed installation")
+     Page.create(:title => "About Page", :menu_type => "primary",:kind => "articles", :name => "About", :description => "A page where you could write what this site is about")
+     Page.create(:title => "News Page", :menu_type => "primary", :kind => "newsitems", :name => "News", :description => "A page for news items with dates and archive section")
+     Page.create(:title => "Another Page", :menu_type => "primary", :kind => "articles", :name => "More Stuff", :description => "Be Creative...")
   end
 
   def self.down

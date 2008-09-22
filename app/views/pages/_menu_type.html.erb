@@ -1,0 +1,2 @@
+<option value="">Top Level</option>
+<%= options_from_collection_for_select(@page.pages_for_dropdown(params[:id], @page.menu_type), :id, :name) %>

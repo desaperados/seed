@@ -28,6 +28,9 @@ CURRENT FEATURES:
 - Article Creation and Management  
   - Drag and drop Article Ordering
 
+- News Items Creation and Management
+  - Drag and drop News Item Ordering
+
 - Users Module
   - Restful Authentication
   - Roles
@@ -38,6 +41,5 @@ CURRENT FEATURES:
 - Asset Packager
 
 NOTES:
-
 Uses Lightview by Nick Stakenburg which requires a Creative Commons Licence
 http://www.nickstakenburg.com/projects/lightview/

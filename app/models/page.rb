@@ -6,6 +6,11 @@ class Page < ActiveRecord::Base
   
   validates_presence_of :title, :name
   
+  MENUS = [
+    [ 'Primary Menu', 'primary' ],
+    [ 'Secondary Menu', 'secondary' ]
+  ]
+  
   KIND = [
     [ 'General - Articles', 'articles' ],
     [ 'News - News items with dates and archive section', 'newsitems' ]
@@ -24,8 +29,9 @@ class Page < ActiveRecord::Base
     [ '50 Items per page', 50 ]
   ]
   
-  def self.pages_for_dropdown(excluded="NULL")
-    list = find(:all, :select => "id, name", :conditions => ["id != ?", excluded])
+  def pages_for_dropdown(thispage, menu_type)
+    conditions = ["id != ? AND menu_type = ?", thispage, menu_type]
+    list = Page.find(:all, :select => "id, name", :conditions => conditions)
   end
 
   # Use the parent_id for the menu list_level class

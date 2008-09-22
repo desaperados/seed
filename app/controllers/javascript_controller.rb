@@ -4,6 +4,20 @@ class JavascriptController < ApplicationController
   
   layout nil
   
+  # Used by Pages new and edit actions for menu_type
+  # dependent select dropdown
+  def replace_page_menu_type
+    if params[:action] == "edit"
+      @page = Page.find(params[:id]) 
+    else
+      @page = Page.new
+    end
+    @page.menu_type = params[:menu_type]
+    render :update do |page|
+      page.replace_html "page_parent_id", :partial => "pages/menu_type"
+    end
+  end
+  
   # Used by Roles, Add User to Role.
   def list_users
     @users = User.find(:all)
@@ -46,7 +60,8 @@ class JavascriptController < ApplicationController
   end
   
   def update_page_order
-    params[:menupages].each_pair do |position, value|
+    pages = params[:menupages] || params[:menupages2]
+    pages.each_pair do |position, value|
       if value.is_a?(Hash)
         value.each_pair do |pos, v|
           if v.is_a?(String)

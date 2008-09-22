@@ -13,11 +13,21 @@
     <%= f.label :description %>
     <%= f.text_field :description %>
   </div>
+  <% if secondary_menu? %>
+  	<div class="input-row">
+  	  <%= f.label :menu_type, "Belongs To" %>
+  	  <%= f.select(:menu_type, Page::MENUS) %>
+  	</div>
+	<% observe_id = (params[:id]) ? params[:id] : "0" %>
+	<%= observe_field :page_menu_type, 
+					  :url => { :controller => :javascript, :action => :replace_page_menu_type },
+					  :method => :get,
+					  :with => "'menu_type=' + value + '&action=' + 'new' + '&id=' + #{observe_id}" %>
+  <% end -%>
   <div class="input-row">
     <%= f.label :parent_id, "Parent Page" %>
 	<select id="page_parent_id" name="page[parent_id]">
-		<option value="">Top Level</option>
-    	<%= options_from_collection_for_select(@pages, :id, :name) %>
+    	<%= render :partial => "menu_type" %>
 	</select>
   </div>
   <div class="input-row">

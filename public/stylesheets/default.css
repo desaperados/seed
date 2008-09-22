@@ -57,27 +57,74 @@ div.article p, div.newsitem p {
 }
 
 /*********** Main Menu ************/
-div#menu ul {
+ul.menu {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 	font-size: 12px;
-}
-div#menu ul.child {
-	margin-left: 1.5em;
-}
-div#menu ul#menupages {
 	border-top: 1px solid #ccc;
 	margin-top: 20px;
 }
-div#menu li {
+ul.menuchild {
+	margin-left: 1.5em;
+	padding: 0;
+	list-style: none;
+}
+div#secondary-menu ul.menu  {
+	margin-top: 45px;
+}
+ul.menu li {
 	border-bottom: 1px solid #ccc;
 	line-height: 2em;
 }
-div#menu ul.child li {
+ul.menuchild li {
 	border-width: 0;
 	border-top: 1px solid #ddd;
 }
-div#menu li a {
+ul.menu li a {
 	text-decoration: none;
+}
+
+/******** Horizontal Menu *********/
+div.horizontal-menu {
+	height: 24px;
+}
+div.horizontal-menu ul.menu, div.horizontal-menu ul.menuchild {
+	margin: 0;
+	border-width: 0;
+	float: left;
+	background: #ffffff;
+	width: 100%;
+}
+div.horizontal-menu ul.menu {
+	width: 100%;
+	border-bottom: 1px solid #ddd;
+	height: 23px;
+	margin: 0px !important;
+}
+div.horizontal-menu ul.menu li {
+	float: left;
+	position: relative;
+	border-width: 0;
+	padding: 0 2%;
+	border-right: 1px solid #ddd;
+	z-index: 1000;
+}
+div.horizontal-menu ul.menu li:hover ul.menuchild {
+	display:block;
+}
+div.horizontal-menu ul.menuchild {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 24px;
+	width: 100%;
+}
+div.horizontal-menu ul.menuchild li {
+	width: 80%;
+	padding: 0 10%;
+	border-width: 0;
+	border-bottom: 1px solid #ddd;
+	background: #f9f9f9;
+	position: relative;
 }

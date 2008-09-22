@@ -1,34 +1,23 @@
-<ul id="menupages">
-<% for page in @menupages %>
-  <li class="level_<%= page.tree_level %>" id="page_<%= page.id %>">
-	  <%= link_to page.name, resource_path(page) %> 
-	  <% if logged_in? %>
-	  	<span class="seed-admin-tag"><%= link_to "edit", edit_page_path(page) %>|<%= link_to "X", page_path(page), :confirm => 'Delete this page and all associated articles?', :method => :delete %></span>
-	  	<%= image_tag "icons/drag_handle.gif", :size => "11x11", :class => "handle" %>
+<li class="level_<%= menu.tree_level %>" id="page_<%= menu.id %>">
+    <%= link_to menu.name, resource_path(menu) %> 
+    <% if logged_in? %>
+    	<span class="seed-admin-tag"><%= link_to "edit", edit_page_path(menu) %>|<%= link_to "X", page_path(menu), :confirm => 'Delete this page and all associated articles?', :method => :delete %></span>
+    	<%= image_tag "icons/drag_handle.gif", :size => "11x11", :class => "handle" %>
+    <% end -%>
+
+	  <% if menu.children %>
+	  	 <ul class="menuchild">
+	  	 <% for child in menu.children %>
+	  	   <li class="level_<%= child.tree_level %>" id="page_<%= child.id %>" onmouseover="" >
+  			<%= link_to child.name, articles_path(child) %> 
+  			<% if logged_in? %>
+  				<span class="seed-admin-tag"><%= link_to "edit", edit_page_path(child) %>|<%= link_to "X", page_path(child), :confirm => 'Delete this page and all associated articles?', :method => :delete %></span>
+  				<%= image_tag "icons/drag_handle.gif", :size => "11x11", :class => "handle" %>
+  			<% end -%>
+  		</li>
+	  	 <% end -%>
+	  	 </ul>
 	  <% end -%>
-  
-  	  <% if page.children %>
-  	  	 <ul class="child">
-  	  	 <% for child in page.children %>
-  	  	   <li class="level_<%= child.tree_level %>" id="page_<%= child.id %>">
-				<%= link_to child.name, articles_path(child) %> 
-				<% if logged_in? %>
-					<span class="seed-admin-tag"><%= link_to "edit", edit_page_path(child) %>|<%= link_to "X", page_path(child), :confirm => 'Delete this page and all associated articles?', :method => :delete %></span>
-					<%= image_tag "icons/drag_handle.gif", :size => "11x11", :class => "handle" %>
-				<% end -%>
-			</li>
-  	  	 <% end -%>
-  	  	 </ul>
-  	  <% end -%>
-  </li>
-<% end %>
-  <% if logged_in? %>
-  	<span class="seed-admin-tag seed-edit-tag"><%= link_to "Add Page", new_page_path %></span> 
-  <% end -%>
-</ul>
-<% if logged_in? %>
-<%= sortable_element('menupages',  
-					 :url => {:controller => "javascript", :action => "update_page_order"},
-					 :tree => true,
-					 :handle => 'handle') %>
-<% end -%>
+</li>
+
+

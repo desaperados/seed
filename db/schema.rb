@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20080919143818) do
     t.string   "description"
     t.integer  "position"
     t.string   "kind"
+    t.string   "menu_type"
     t.integer  "view_role"
     t.integer  "edit_role"
     t.integer  "parent_id"

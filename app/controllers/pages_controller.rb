@@ -5,12 +5,10 @@ class PagesController < ApplicationController
 
   def new
     @page = Page.new
-    @pages = Page.pages_for_dropdown
   end
 
   def edit
     @page = Page.find(params[:id])
-    @pages = Page.pages_for_dropdown(params[:id])
   end
 
   def create
