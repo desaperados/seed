@@ -1,5 +1,13 @@
 module ApplicationHelper
   
+  def viewable?(page)
+    page.public? || (logged_in? && page.private?) || (logged_in? && current_user.has_role?("#{page.viewable_by}"))
+  end
+  
+  def editable?(page)
+    (logged_in? && page.private?) || (logged_in? && current_user.has_role?("#{page.editable_by}"))
+  end
+  
   # Convenience methods for checking site settings
   def secondary_menu?
     true unless APP_CONFIG[:enable_secondary_menu] != true

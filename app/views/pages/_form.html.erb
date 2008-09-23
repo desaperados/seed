@@ -2,20 +2,20 @@
   <%= f.error_messages %>
   <fieldset>
   <div class="input-row">
-    <%= f.label :title %>
+    <%= f.label :title, "Page Title:" %>
     <%= f.text_field :title %>
   </div>
   <div class="input-row">
-    <%= f.label :name, "Name (for menu)" %>
+    <%= f.label :name, "Name: (for menu)" %>
     <%= f.text_field :name %>
   </div>
   <div class="input-row">
-    <%= f.label :description %>
+    <%= f.label :description , "Description:"%>
     <%= f.text_field :description %>
   </div>
   <% if secondary_menu? %>
   	<div class="input-row">
-  	  <%= f.label :menu_type, "Belongs To" %>
+  	  <%= f.label :menu_type, "Belongs To:" %>
   	  <%= f.select(:menu_type, Page::MENUS) %>
   	</div>
 	<% observe_id = (params[:id]) ? params[:id] : "0" %>
@@ -25,17 +25,23 @@
 					  :with => "'menu_type=' + value + '&action=' + 'new' + '&id=' + #{observe_id}" %>
   <% end -%>
   <div class="input-row">
-    <%= f.label :parent_id, "Parent Page" %>
-	<select id="page_parent_id" name="page[parent_id]">
-    	<%= render :partial => "menu_type" %>
-	</select>
+    <%= f.label :parent_id, "Parent Page:" %>
+    <%= render :partial => "menu_type" %>
   </div>
   <div class="input-row">
-    <%= f.label :kind, "Page Type" %>
+    <%= f.label :kind, "Page Type:" %>
 	<%= f.select(:kind, Page::KIND) %>
   </div>
   <div class="input-row">
-    <%= f.label :paginate, "Pagination" %>
+    <%= f.label :viewable_by, "Viewable by:" %>
+    <%= f.collection_select(:viewable_by, Role.pages_for_viewable_by, :name, :capitalised_name) %>
+  </div>
+  <div class="input-row">
+    <%= f.label :editable_by, "Editable by:" %>
+	<%= f.collection_select(:editable_by, Role.pages_for_editable_by, :name, :capitalised_name) %>
+  </div>
+  <div class="input-row">
+    <%= f.label :paginate, "Pagination:" %>
 	<%= f.select(:paginate, Page::PAGINATION) %>
   </div>
   </fieldset>

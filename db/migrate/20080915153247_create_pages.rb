@@ -7,8 +7,8 @@ class CreatePages < ActiveRecord::Migration
       t.integer :position
       t.string :kind
       t.string :menu_type
-      t.integer :view_role
-      t.integer :edit_role
+      t.string :viewable_by, :default => "public"
+      t.string :editable_by, :default => "users"
       t.integer :parent_id
       t.integer :paginate
 
@@ -18,6 +18,7 @@ class CreatePages < ActiveRecord::Migration
      Page.create(:title => "About Page", :menu_type => "primary",:kind => "articles", :name => "About", :description => "A page where you could write what this site is about")
      Page.create(:title => "News Page", :menu_type => "primary", :kind => "newsitems", :name => "News", :description => "A page for news items with dates and archive section")
      Page.create(:title => "Another Page", :menu_type => "primary", :kind => "articles", :name => "More Stuff", :description => "Be Creative...")
+     Page.create(:title => "Secondary Menu Default Page", :menu_type => "secondary", :kind => "articles", :name => "Secondary Default", :description => "Secondary Menu Default Page")
   end
 
   def self.down

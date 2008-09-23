@@ -101,8 +101,11 @@ form.seed-admin fieldset#image {
 	background: #fff;
 }
 form.seed-admin div.input-row {
-	margin-bottom: 5px;
-	padding-bottom: 5px;
+	margin: 2px 0 2px 0;
+	padding: 3px 0 3px 0;
+}
+form.seed-admin div.input-row label {
+	padding-top: 3px;
 }
 form.seed-admin div.input-row input,
 form.seed-admin div.input-row textarea {
