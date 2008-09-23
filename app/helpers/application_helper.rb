@@ -5,7 +5,7 @@ module ApplicationHelper
   end
   
   def editable?(page)
-    (logged_in? && page.private?) || (logged_in? && current_user.has_role?("#{page.editable_by}"))
+    (logged_in? && page.edit_all?) || (logged_in? && current_user.has_role?("#{page.editable_by}"))
   end
   
   # Convenience methods for checking site settings

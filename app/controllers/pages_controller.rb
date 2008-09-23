@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  
+
   before_filter :login_required
   before_filter :pages_menu, :except => [:create, :update, :destroy]
 
@@ -48,5 +48,9 @@ class PagesController < ApplicationController
   
   def resource_path(page)
     eval ("#{page.kind}_path(#{page.id})")
+  end
+  
+  def current_page
+    @current = Page.find(params[:page_id])
   end
 end

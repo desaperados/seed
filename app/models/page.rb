@@ -17,6 +17,10 @@ class Page < ActiveRecord::Base
     true if viewable_by == "all users" 
   end
   
+  def edit_all?
+    true if editable_by == "all users" 
+  end
+  
   MENUS = [
     [ 'Primary Menu', 'primary' ],
     [ 'Secondary Menu', 'secondary' ]

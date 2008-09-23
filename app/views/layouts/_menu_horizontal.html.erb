@@ -1,0 +1,35 @@
+<% if primary_horizontal? %>
+<div class="horizontal-menu">
+	<div id="primary-menu">
+		<ul id="menupages" class="menu">
+			<%= render :partial => "layouts/menu", :collection => @primary_pages %>
+			<% if logged_in? && current_user.has_role?(:admin) %>
+				<li><%= link_to "Add Page", new_page_path %></li> 
+			<% end -%>
+		</ul>
+		<% if logged_in? %>
+		<%= sortable_element('menupages',  
+							 :url => {:controller => "javascript", :action => "update_page_order"},
+							 :tree => true,
+							 :constraint => false,
+							 :handle => 'handle') %>
+		<% end -%>
+	</div>
+</div>
+<% end -%>
+<% if secondary_menu? && secondary_horizontal? %>
+<div class="horizontal-menu">
+	<div id="secondary-menu">
+		<ul id="menupages2" class="menu">
+			<%= render :partial => "layouts/menu", :collection => @secondary_pages %>
+		</ul>
+		<% if logged_in? %>
+		<%= sortable_element('menupages2',  
+							 :url => {:controller => "javascript", :action => "update_page_order"},
+							 :tree => true,
+							 :constraint => false,
+							 :handle => 'handle') %>
+		<% end -%>
+	</div>
+</div>
+<% end -%>

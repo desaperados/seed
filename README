@@ -4,6 +4,7 @@ Status:
 Currently in early development. 
 
 USAGE
+
 1. Grab the app:
 git clone git://github.com/desaperados/seed.git
 
@@ -18,6 +19,7 @@ script/server
 5. Start using seed
 
 CURRENT FEATURES:
+
 - Site wide embedded content creation and editing. 
 
 - Page Creation and Management
@@ -40,6 +42,23 @@ CURRENT FEATURES:
 - Exception Notification
 - Asset Packager
 
+TODO:
+
+- Limit some page creation and editing options to admin users
+- Add Roles control to controllers
+- Make Articles inherit Page role control
+- Add Page type Blog | Portfolio | Table / Info | Wiki
+- Sidebars
+- Plugin Customisation
+- Modularise components
+- Add pagination to pages
+- Allow drag and drop Page sorting between tree levels
+- Search Facility
+- Full featured image management
+- Gravatar for users
+- RSS / Atom Feeds
+
 NOTES:
+
 Uses Lightview by Nick Stakenburg which requires a Creative Commons Licence
 http://www.nickstakenburg.com/projects/lightview/
