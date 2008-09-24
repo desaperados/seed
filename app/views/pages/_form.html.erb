@@ -13,6 +13,7 @@
     <%= f.label :description , "Description:"%>
     <%= f.text_field :description %>
   </div>
+
   <% if secondary_menu? %>
   	<div class="input-row">
   	  <%= f.label :menu_type, "Belongs To:" %>
@@ -24,22 +25,30 @@
 					  :method => :get,
 					  :with => "'menu_type=' + value + '&action=' + 'new' + '&id=' + #{observe_id}" %>
   <% end -%>
+
   <div class="input-row">
     <%= f.label :parent_id, "Parent Page:" %>
     <%= render :partial => "menu_type" %>
   </div>
-  <div class="input-row">
-    <%= f.label :kind, "Page Type:" %>
-	<%= f.select(:kind, Page::KIND) %>
-  </div>
-  <div class="input-row">
-    <%= f.label :viewable_by, "Viewable by:" %>
-    <%= f.collection_select(:viewable_by, Role.pages_for_viewable_by, :name, :capitalised_name) %>
-  </div>
-  <div class="input-row">
-    <%= f.label :editable_by, "Editable by:" %>
-	<%= f.collection_select(:editable_by, Role.pages_for_editable_by, :name, :capitalised_name) %>
-  </div>
+
+  <% if action_name == "new" %>
+  	<div class="input-row">
+  	  <%= f.label :kind, "Page Type:" %>
+  	  <%= f.select(:kind, Page::KIND) %>
+  	</div>
+  <% end -%>
+
+  <% if current_user.has_role? "admin" %>
+  	<div class="input-row">
+  	  <%= f.label :viewable_by, "Viewable by:" %>
+  	  <%= f.collection_select(:viewable_by, Role.pages_for_viewable_by, :name, :capitalised_name) %>
+  	</div>
+  	<div class="input-row">
+  	  <%= f.label :editable_by, "Editable by:" %>
+  	  <%= f.collection_select(:editable_by, Role.pages_for_editable_by, :name, :capitalised_name) %>
+  	</div>
+  <% end -%>
+
   <div class="input-row">
     <%= f.label :paginate, "Pagination:" %>
 	<%= f.select(:paginate, Page::PAGINATION) %>

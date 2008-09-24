@@ -5,7 +5,7 @@ module ApplicationHelper
   end
   
   def editable?(page)
-    (logged_in? && page.edit_all?) || (logged_in? && current_user.has_role?("#{page.editable_by}"))
+    (logged_in? && page.all_users?) || (logged_in? && current_user.has_role?("#{page.editable_by}"))
   end
   
   # Convenience methods for checking site settings
@@ -33,8 +33,13 @@ module ApplicationHelper
   
   # Generate a link for adding a new resource based on the 
   # controller name
-  def add_resource_link(controller)
-    link_to "Add #{controller.singularize.capitalize!}", :controller => controller, :action => "new"
+  def add_resource_link(controller, page)
+    if controller != "pages" && editable?(page)
+      content_tag(:span, 
+        link_to("Add #{controller.singularize.capitalize!}", :controller => controller, :action => "new"),
+        :class => "seed-admin-tag"
+      )
+    end
   end
   
   # Javascript include helper for lightview

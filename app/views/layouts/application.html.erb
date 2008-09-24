@@ -19,10 +19,11 @@
 			<%= flash_messages %>
 			<div id="head">
 				<%= page_title %>
-				<p><%= @page.description unless !@page %></p>
-				<% if logged_in? && params[:controller] != "pages" %>
-					<span class="seed-admin-tag"><%= add_resource_link(params[:controller]) %></span>
+				<% if @page %>
+					<p><%= @page.description %></p>
+					<%= add_resource_link(params[:controller], @page) %>
 				<% end -%>
+				<%= yield :add_resource_link %>
 			</div>
 			<%= render :partial => "layouts/menu_horizontal" %>
 			<div id="left">

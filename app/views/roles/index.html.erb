@@ -33,3 +33,9 @@
 		<%= render :partial => "userrow", :collection => role.users, :locals => {:roleid => role.id} %>
 	</table>
 <% end -%>
+<% content_for :add_resource_link do %>
+	<%= content_tag(:span, 
+		link_to("Add Role", :controller => "roles", :action => "new"),
+		:class => "seed-admin-tag"
+	) %>
+<% end -%>

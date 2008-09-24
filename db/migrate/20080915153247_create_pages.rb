@@ -8,7 +8,7 @@ class CreatePages < ActiveRecord::Migration
       t.string :kind
       t.string :menu_type
       t.string :viewable_by, :default => "public"
-      t.string :editable_by, :default => "users"
+      t.string :editable_by, :default => "all users"
       t.integer :parent_id
       t.integer :paginate
 

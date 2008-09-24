@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(:version => 20080919143818) do
     t.string   "kind"
     t.string   "menu_type"
     t.string   "viewable_by", :default => "public"
-    t.string   "editable_by", :default => "users"
+    t.string   "editable_by", :default => "all users"
     t.integer  "parent_id"
     t.integer  "paginate"
     t.datetime "created_at"

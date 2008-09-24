@@ -17,7 +17,7 @@ class Page < ActiveRecord::Base
     true if viewable_by == "all users" 
   end
   
-  def edit_all?
+  def all_users?
     true if editable_by == "all users" 
   end
   

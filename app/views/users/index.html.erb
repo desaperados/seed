@@ -26,3 +26,9 @@
 	</tr>
 	<% end -%>
 </table>
+<% content_for :add_resource_link do %>
+	<%= content_tag(:span, 
+		link_to("Add User", :controller => "users", :action => "new"),
+		:class => "seed-admin-tag"
+	) %>
+<% end -%>

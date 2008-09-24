@@ -1,7 +1,7 @@
 <div id="sortableitems">
 <% for newsitem in @page.newsitems %>
 	<div div id="sortableitem_<%= newsitem.id %>" class="newsitem">
-		<% if logged_in? %>
+		<% if editable?(@page) %>
 			<span class="seed-admin-tag seed-edit-tag">
 				<%= link_to "edit", edit_newsitem_path(@page, newsitem)%>|<%= link_to "X", newsitem_path(@page, newsitem), :confirm => 'Delete this newsitem?', :method => :delete %>
 			</span>
