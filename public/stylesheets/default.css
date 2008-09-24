@@ -128,3 +128,34 @@ div.horizontal-menu ul.menuchild li {
 	background: #f9f9f9;
 	position: relative;
 }
+
+/********** Pagination ***********/
+.pagination {
+  	padding: 3px;
+  	margin: 3px;
+  	text-align: center;
+}
+.pagination a {
+  	padding: 1px 5px 1px 5px;
+  	margin: 2px;
+  	border: 1px solid #ccc;
+  	text-decoration: none;
+}
+.pagination a:hover, .pagination a:active {
+  	border: 1px solid #4488bb;
+  	color: #333;
+}
+.pagination span.current {
+  	padding: 1px 5px 1px 5px;
+  	margin: 2px;
+  	border: 1px solid #4488bb;
+  	font-weight: bold;
+  	background-color: #4488bb;
+  	color: #fff;
+}
+.pagination span.disabled {
+  padding: 2px 5px 2px 5px;
+  margin: 2px;
+  border: 1px solid #eee;
+  color: #ddd;
+}

@@ -1,5 +1,5 @@
 <div id="sortableitems">
-<% for newsitem in @page.newsitems %>
+<% for newsitem in @newsitems %>
 	<div div id="sortableitem_<%= newsitem.id %>" class="newsitem">
 		<% if editable?(@page) %>
 			<span class="seed-admin-tag seed-edit-tag">
@@ -16,3 +16,4 @@
 					 :url => {:controller => "javascript", :action => "update_article_order", :class_name => newsitem.class.name},
 					 :tag => :div) %>
 <% end -%>
+<%= will_paginate @newsitems %>

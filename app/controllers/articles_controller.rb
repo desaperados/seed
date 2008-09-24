@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   before_filter :get_page, :only => [:index, :new, :edit]
   
   def index
-    @articles = @page.articles
+    @articles = @page.articles.paginate(:page => params[:page], :per_page => @page.paginate)
   end
 
   def new

@@ -44,14 +44,11 @@ CURRENT FEATURES:
 
 TODO:
 
-- Limit some page creation and editing options to admin users
 - Add Roles control to controllers
-- Make Articles inherit Page role control
 - Add Page type Blog | Portfolio | Table / Info | Wiki
 - Sidebars
 - Plugin Customisation
 - Modularise components
-- Add pagination to pages
 - Allow drag and drop Page sorting between tree levels
 - Search Facility
 - Full featured image management
