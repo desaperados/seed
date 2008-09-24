@@ -79,11 +79,16 @@ form.seed-admin {
 	padding: 1em;
 	border: 1px solid #e9e9e9;
 	background-color: #f8f8f8;
+	margin: 0px;
 }
 form.seed-admin label {
 	float: left;
 	width: 25%;
 	color: #666;
+}
+form.seed-admin p {
+	margin: 0 0 0 25%;
+	width: 80%;
 }
 form.seed-admin fieldset {
 	border-width: 0;
@@ -113,6 +118,28 @@ form.seed-admin div.input-row textarea {
 }
 div#seed-admin-form h2 {
 	margin-top: 0;
+}
+
+/******* Articles Form Menu ********/
+ul#articletabs {
+	list-style: none;
+	margin: 20px 0 0 0;
+	padding: 0;
+	height: 17px;
+}
+ul#articletabs li a {
+	float: left;
+	padding: 0 10px 0 10px;
+	margin-right: 2px;
+	border-top: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+	border-bottom: 0px solid #fff;
+	text-decoration: none;
+	height: 16px;
+}
+ul#articletabs li a.selected {
+	background-color: #f0f0f0;
 }
 
 /********* Admin Tables ************/

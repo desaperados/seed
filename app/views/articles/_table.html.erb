@@ -1,0 +1,19 @@
+<% form_for(@article, :url => article_path(@page, @article), :html => {:class => "seed-admin", :id => "changer"}) do |f| %>
+  <%= f.error_messages %>
+  <fieldset>
+  <div class="input-row">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="input-row">
+    <%= f.label :content, "Table Data" %>
+    <%= f.text_area :content %>
+  </div>
+  </fieldset>
+  <div>
+	<%= f.hidden_field :page_id %>
+	<%= hidden_field :article, :content_type, {:value => "table"} %>
+    <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
+  </div>
+  
+<% end %>

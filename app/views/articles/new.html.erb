@@ -1,5 +1,12 @@
 <div id="seed-admin-form">
-<h2>New article</h2>
-
-<%= render :partial => "form", :locals => {:submit => "Create"} %>
+	<h2>New article</h2>
+	
+	<ul id="articletabs">
+		<li class="articletab"><%= articles_menu_link "Article", "Create", "selected" %></li>
+		<li class="videotab"><%= articles_menu_link "Video", "Create" %></li>
+		<li class="tabletab"><%= articles_menu_link "Table", "Create" %></li>
+	</ul>
+	<div id="articlesform">
+		<%= render :partial => "article", :locals => {:submit => "Create"} %>
+	</div>
 </div>

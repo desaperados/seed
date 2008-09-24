@@ -1,0 +1,24 @@
+<% form_for(@article, :url => article_path(@page, @article), :html => {:class => "seed-admin", :id => "changer"}) do |f| %>
+  <%= f.error_messages %>
+  <fieldset>
+  <div class="input-row">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <p><small>Only YouTube works at the moment.<br />(ie. http://www.youtube.com/v/t2yoOlicmww)</small></p>
+  <div class="input-row">
+    <%= f.label :video, "Video URL" %>
+    <%= f.text_field :video %>
+  </div>
+  <div class="input-row">
+    <%= f.label :content, "Caption" %>
+    <%= f.text_area :content %>
+  </div>
+  </fieldset>
+  <div>
+	<%= f.hidden_field :page_id %>
+	<%= hidden_field :article, :content_type, {:value => "video"} %>
+    <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
+  </div>
+  
+<% end %>

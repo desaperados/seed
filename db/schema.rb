@@ -14,6 +14,8 @@ ActiveRecord::Schema.define(:version => 20080919143818) do
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.string   "content"
+    t.string   "video"
+    t.string   "content_type",  :default => "article"
     t.string   "imagesize"
     t.string   "imageposition"
     t.integer  "page_id"

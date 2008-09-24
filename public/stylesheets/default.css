@@ -8,6 +8,8 @@
 a { color: #4488bb; }
 a:visited { color: #4488bb; }
 a:hover { color: #000; }
+table {width:100%;}
+table td { border: 1px solid #ddd}
 
 /********** Page Layout ***********/
 
@@ -48,12 +50,13 @@ div.article, div.newsitem {
 	border-top: 1px solid #e9e9e9;
 	border-bottom: 1px solid #e9e9e9;
 	margin-bottom: 20px;
+	padding: 1em;
 }
 div.article h3, div.newsitem h3 {
-	margin: 1em;
+	margin: 1em 0;
 }
 div.article p, div.newsitem p {
-	margin: 1em;
+	margin: 1em 0;
 }
 
 /*********** Main Menu ************/
