@@ -17,12 +17,7 @@
 	<% end -%>
 	
 	<div id="seed-image-list">
-	<% @images.each do |image| %>
-		<div class="seed-image-item">
-			<%= image_tag image.public_filename(:thumb100) %>
-			<%= link_to "X", image_path(image), :confirm => 'Delete Image?', :method => :delete %>
-		</div>
-	<% end %>
+		<%= render :partial => "image_item", :collection => @images %>
 	</div>
 </div>
 

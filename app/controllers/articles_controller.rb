@@ -10,10 +10,12 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new(:page_id => params[:page_id])
+    @images = []
   end
 
   def edit
     @article = Article.find(params[:id])
+    @images = @article.images
   end
 
   def create

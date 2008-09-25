@@ -16,9 +16,9 @@ class Image < ActiveRecord::Base
 
   validates_as_attachment
   
-  def before_destroy
-    if article 
-      raise "Can't delete images that are being used in an article"
-    end
-  end
+  #def before_destroy
+  #  if article 
+  #    raise "Can't delete images that are being used in an article"
+  #  end
+  #end
 end

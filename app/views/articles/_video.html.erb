@@ -1,15 +1,15 @@
-<% form_for(@article, :url => article_path(@page, @article), :html => {:class => "seed-admin", :id => "changer"}) do |f| %>
+<% form_for(@article, :url => article_path(@page, @article), :html => {:class => "seed-admin tight", :id => "changer"}) do |f| %>
   <%= f.error_messages %>
   <fieldset>
   <div class="input-row">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
-  <p><small>Only YouTube works at the moment.<br />(ie. http://www.youtube.com/v/t2yoOlicmww)</small></p>
   <div class="input-row">
     <%= f.label :video, "Video URL" %>
     <%= f.text_field :video %>
   </div>
+  <p><small>Only YouTube works at the moment.<br />(ie. http://www.youtube.com/v/t2yoOlicmww)</small></p>
   <div class="input-row">
     <%= f.label :content, "Caption" %>
     <%= f.text_area :content %>
@@ -22,3 +22,10 @@
   </div>
   
 <% end %>
+
+<div id="seed-notes">
+	<h4>Post Style:</h4>
+	<h5>Video</h5>
+	<p>Entering a video URL from sites like YouTube or Vimeo will display video inside your article.</p> 
+	<p>You can also enter a title for the video and caption.</p>
+</div>

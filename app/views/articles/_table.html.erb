@@ -1,4 +1,4 @@
-<% form_for(@article, :url => article_path(@page, @article), :html => {:class => "seed-admin", :id => "changer"}) do |f| %>
+<% form_for(@article, :url => article_path(@page, @article), :html => {:class => "seed-admin tight", :id => "changer"}) do |f| %>
   <%= f.error_messages %>
   <fieldset>
   <div class="input-row">
@@ -17,3 +17,14 @@
   </div>
   
 <% end %>
+
+<div id="seed-notes">
+	<h4>Post Style:</h4>
+	<h5>Table</h5>
+	<p>Create a table by entering special field separators between the data that you wish to tabulate.</p> 
+	<p>Use a | to separate columns.</p>
+	<p>Start a new line for each new row.</p>
+	<p>| age | sex |</p>
+	<p>| 43 | male |</p>
+	<p>Have a look at the <a href="">markup guide</a> for more complex table options.</p>
+</div>

@@ -1,6 +1,6 @@
 class JavascriptController < ApplicationController
   
-  skip_before_filter :verify_authenticity_token
+  #skip_before_filter :verify_authenticity_token
   
   layout nil
   

@@ -1,5 +1,4 @@
-<% form_for(@article, :url => article_path(@page, @article), :html => {:class => "seed-admin", :id => "changer"}) do |f| %>
-  <%= f.error_messages %>
+<% form_for(@article, :url => article_path(@page, @article), :html => {:class => "seed-admin tight", :id => "changer"}) do |f| %>
   <fieldset>
   <div class="input-row">
     <%= f.label :title %>
@@ -10,10 +9,32 @@
     <%= f.text_area :content %>
   </div>
   </fieldset>
-  <div>
-	<%= f.hidden_field :page_id %>
-	<%= hidden_field :article, :content_type, {:value => "article"} %>
+  <%= f.hidden_field :page_id %>
+  <%= hidden_field :article, :content_type, {:value => "article"} %>
+  <div id="image-ids">
+	<% @article.images.each do |image| %>
+		<%= hidden_field_tag "article[image_ids][]", image.id, :id => "hidden_image_tag_#{image.id}" %>
+	<% end -%>
     <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
   </div>
   
 <% end %>
+
+<div id="seed-notes">
+	<h4>Post Style:</h4>
+	<h5>Article</h5>
+	<p>General purpose post containing text and images.</p> 
+</div>
+
+<div id="image-control">
+	<% use_lightview -%>
+	<%= link_to_lightview( "Add Image",
+			ajax_new_images_path, 
+			{:class => "add"}, {}, {:autosize => false, :width => 400, :height => 200} )%>
+	<div id="image-list">
+		<%= render :partial => "images/image_item", :collection => @images %>
+	</div>
+</div>
+
+
+

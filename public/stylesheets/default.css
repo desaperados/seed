@@ -37,6 +37,7 @@ div#right {
 	min-height: 400px;
 	padding: 20px;
 	border-left: 1px solid #ccc;
+	min-width: 350px;
 }
 div#foot {
 	border-top: 1px solid #ccc;

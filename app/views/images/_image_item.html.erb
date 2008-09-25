@@ -1,0 +1,4 @@
+<div class="seed-image-item" id="image_<%= image_item.id %>">
+	<%= image_tag image_item.public_filename(:thumb100) %>
+	<%= link_to_remote "X", :url => image_path(image_item), :confirm => "Delete Image?", :method => :delete %>
+</div>

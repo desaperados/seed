@@ -8,6 +8,9 @@
 		<% end -%>
 		<% if article.content_type == "article" %>
 			<h3><%= article.title %></h3>
+			<% article.images.each do |image| %>
+				<%= image_tag image.public_filename(:thumb200) %>
+			<% end -%>
 			<%= textilize(article.content) %>
 		<% end -%>
 		<% if article.content_type == "video" %>

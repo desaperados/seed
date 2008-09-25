@@ -13,10 +13,11 @@
 	  <%= yield :lightview_css %>
 	  <%= javascript_include_tag 'prototype', 'effects', 'dragdrop', 'scriptaculous.js? » load=effects', 'application' %>
 	  <%= yield :lightview_js %>
+	  <script type="text/javascript" charset="utf-8">window._token = '<%= form_authenticity_token -%>';</script>
 	</head>
 	<body>
 		<div id="container">
-			<%= flash_messages %>
+			<%= flash_messages %><div id="ajax-msg"></div>
 			<div id="head">
 				<%= page_title %>
 				<% if @page %>

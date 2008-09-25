@@ -74,8 +74,7 @@ div#seed-user-bar a:hover {
 /************* Forms ***************/
 
 form.seed-admin { 			
-	background: red;
-	width: 80%;
+	width: 90%;
 	padding: 1em;
 	border: 1px solid #e9e9e9;
 	background-color: #f8f8f8;
@@ -86,13 +85,31 @@ form.seed-admin label {
 	width: 25%;
 	color: #666;
 }
+form.tight {
+	width: 70%;
+	padding: 1em 1.5em;
+}
+form.tight label {
+	float: none;
+	display: block;
+	color: #666;
+}
 form.seed-admin p {
 	margin: 0 0 0 25%;
 	width: 80%;
 }
+form.tight p {
+	margin: 0;
+}
+form.seed-admin img {
+	position: absolute;
+	top: 5px;
+	right: 15px;
+}
 form.seed-admin fieldset {
 	border-width: 0;
 	padding: 0;
+	position: relative;
 }
 form.seed-admin legend {
 	padding: 0 0 10px 0;
@@ -115,6 +132,16 @@ form.seed-admin div.input-row label {
 form.seed-admin div.input-row input,
 form.seed-admin div.input-row textarea {
 	width: 70%;
+}
+form.tight div.input-row input,
+form.tight div.input-row textarea {
+	width: 100%;
+}
+form.ajax {
+	width: 93%;
+}
+div#seed-admin-form {
+	position: relative;
 }
 div#seed-admin-form h2 {
 	margin-top: 0;
@@ -141,6 +168,51 @@ ul#articletabs li a {
 ul#articletabs li a.selected {
 	background-color: #f0f0f0;
 }
+div#seed-admin-form div#image-control {
+	position: absolute;
+	top: 150px;
+	right: 0;
+	width: 20%;
+}
+div#seed-admin-form div#image-control .seed-image-item {
+	margin-right: 0;
+	float: left;
+}
+div#seed-admin-form div#image-control a.add {
+	text-decoration: none;
+	float: right;
+	clear: both;
+	width: 92%;
+	font-size: 10px;
+	background: #fff;
+	padding: 0 4%;
+	margin-bottom: 5px;
+	border: 1px solid #ddd;
+}
+div#seed-notes {
+	position: absolute;
+	top: 50px;
+	right: 0;
+	width: 20%;
+	border: 1px solid #e9e9e9;
+}
+div#seed-notes p {
+	margin: 5px;
+	font-size: 10px;
+	color: #666;
+}
+div#seed-notes a {
+	text-decoration: none;
+}
+div#seed-notes h4, div#seed-notes h5 {
+	margin: 5px;
+	font-size: 10px;
+	color: #555;
+}
+div#seed-notes h5 {
+	margin-top: -5px;
+	color: #999;
+}
 
 /********* Admin Tables ************/
 table.seed-admin {
@@ -156,6 +228,7 @@ table.seed-admin th {
 	background: #f0f0f0;
 }
 table.seed-admin td {
+	border-width: 0px;
 	border-bottom: 1px solid #ddd;
 	padding: 0.2em 0.5em;
 }
@@ -216,7 +289,7 @@ table.seed-roles th.editrole span {
 	padding: 10px 5px;
 }
 .seed-image-item {
-	float: left;
+	float: right;
 	border: 1px solid #ccc;
 	font-weight: normal;
 	margin: 0 5px 5px 0;
@@ -288,5 +361,8 @@ div#flash-notice, div#flash-warning, div#flash-error {
 	background-color: blue;
 	opacity: 0.5;
 	padding: 1px 40px 1px 5px;
+}
+ul#ajax-error {
+	margin-bottom: 10px;
 }
 
