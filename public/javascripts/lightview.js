@@ -54,7 +54,7 @@ var Lightview = {
       topclose: { width: 22, height: 18 }                  // when topclose option is used
     },
     defaultOptions : {                                     // Default open dimensions for each type
-      ajax:   { width: 400, height: 300 },
+      ajax:   { width: 400, height: 300, method: "get" },
       iframe: { width: 400, height: 300, scrolling: true },
       inline: { width: 400, height: 300 },
       flash:  { width: 400, height: 300 },

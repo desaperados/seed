@@ -35,6 +35,9 @@ class ImagesController < ApplicationController
         render :update do |page|
             page << "Lightview.hide();"
             page.insert_html :top, 'image-list', :partial => "images/image_item", :object => @image
+            page << "if ($('image-size-partial')==null) {"
+                page.insert_html :top, 'image-size-options', :partial => "articles/image_size_options"
+            page << "}"
             page.insert_html :top, 'image-ids', hidden_field_tag("article[image_ids][]", @image.id, :id => "hidden_image_tag_#{@image.id}")
             page.insert_html :top, 'ajax-msg', "<div id='flash-notice'>Image was successfully uploaded</div>"
         end

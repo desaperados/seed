@@ -1,8 +1,14 @@
 <% form_for(@article, :url => article_path(@page, @article), :html => {:class => "seed-admin tight", :id => "changer"}) do |f| %>
+  <%= f.error_messages %>
   <fieldset>
   <div class="input-row">
     <%= f.label :title %>
     <%= f.text_field :title %>
+  </div>
+  <div id="image-size-options">
+  <% if !@article.images.empty? %>
+  	<%= render :partial => "image_size_options" %>
+  <% end -%>
   </div>
   <div class="input-row">
     <%= f.label :content %>

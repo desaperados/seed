@@ -5,4 +5,10 @@ class Article < ActiveRecord::Base
   
   validates_presence_of :title
   
+  IMAGESIZE = [
+    [ 'Small', 'thumb100' ],
+    [ 'Regular', 'thumb200' ],
+    [ 'Medium', 'thumb300' ],
+    [ 'Large', 'thumb400' ]
+  ]
 end

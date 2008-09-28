@@ -25,6 +25,8 @@ class ArticlesController < ApplicationController
       flash[:notice] = 'Article was successfully created'
       redirect_to articles_path(@article.page_id) 
     else
+      @images = @article.images
+      get_page
       pages_menu
       render :action => "new" 
     end
@@ -37,6 +39,8 @@ class ArticlesController < ApplicationController
       flash[:notice] = 'Article was successfully updated'
       redirect_to articles_path(@article.page_id) 
     else
+      @images = @article.images
+      get_page
       pages_menu
       render :action => "edit"
     end

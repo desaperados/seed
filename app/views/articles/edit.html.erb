@@ -4,7 +4,7 @@
 	<ul id="articletabs">
 		<li class="articletab"><%= articles_menu_link "Article", "Update", @article %></li>
 		<li class="videotab"><%= articles_menu_link "Video", "Update", @article %></li>
-		<li class="tabletab"><%= articles_menu_link "Table", "Create", @article %></li>
+		<li class="tabletab"><%= articles_menu_link "Table", "Update", @article %></li>
 	</ul>
 	<div id="articlesform">
 		<%= render :partial => @article.content_type, :locals => {:submit => "Update"} %>

@@ -93,6 +93,7 @@ form.tight label {
 	float: none;
 	display: block;
 	color: #666;
+	width: 100%;
 }
 form.seed-admin p {
 	margin: 0 0 0 25%;
@@ -346,7 +347,7 @@ div.fieldWithErrors input {
 }
 #errorExplanation p {
   	color: #333;
-  	margin-bottom: 0;
+  	margin: 10px 0 0 0;
   	padding: 5px;
 }
 #errorExplanation ul li {

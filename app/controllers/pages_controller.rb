@@ -18,7 +18,6 @@ class PagesController < ApplicationController
       flash[:notice] = 'Page was successfully created'
       redirect_to resource_path(@page) 
     else
-      @pages = Page.pages_for_dropdown(params[:id])
       pages_menu
       render :action => "new" 
     end
@@ -31,7 +30,6 @@ class PagesController < ApplicationController
       flash[:notice] = 'Page was successfully updated'
       redirect_to resource_path(@page) 
     else
-      @pages = Page.pages_for_dropdown(params[:id])
       pages_menu
       render :action => "edit"
     end

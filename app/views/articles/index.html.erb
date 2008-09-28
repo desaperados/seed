@@ -6,31 +6,33 @@
 				<%= link_to "edit", edit_article_path(@page, article)%>|<%= link_to "X", article_path(@page, article), :confirm => 'Delete this article?', :method => :delete %>
 			</span>
 		<% end -%>
+		
 		<% if article.content_type == "article" %>
 			<h3><%= article.title %></h3>
 			<% article.images.each do |image| %>
-				<%= image_tag image.public_filename(:thumb200) %>
+				<%= image_tag image.public_filename("#{article.imagesize}") %>
 			<% end -%>
 			<%= textilize(article.content) %>
 		<% end -%>
+		
 		<% if article.content_type == "video" %>
-		<div>
 			<h3><%= article.title %></h3>
-			<p>
-			<object type="application/x-shockwave-flash" data="<%= article.video %>&amp;hl=en&amp;fs=1" width="425" height="344">
-			  <param name="movie" value="<%= article.video %>&amp;hl=en&amp;fs=1" />
-			  <param name="allowScriptAcess" value="always" />
-			  <param name="quality" value="best" />
-			  <param name="bgcolor" value="#ffffff" />
-			  <param name="scale" value="noScale" />
-			  <param name="salign" value="TL" />
-			  <param name="allowfullscreen" value="true" />
-			  <param name="wmode" value="transparent" />
-			  <param name="FlashVars" value="playerMode=embedded" />
-			</object>
+			<% if article.video != "" %>
+			<div>
+				<object type="application/x-shockwave-flash" data="<%= article.video %>&amp;hl=en&amp;fs=1" width="425" height="344">
+				  <param name="movie" value="<%= article.video %>&amp;hl=en&amp;fs=1" />
+				  <param name="allowScriptAcess" value="always" />
+				  <param name="quality" value="best" />
+				  <param name="bgcolor" value="#ffffff" />
+				  <param name="scale" value="noScale" />
+				  <param name="salign" value="TL" />
+				  <param name="allowfullscreen" value="true" />
+				  <param name="wmode" value="transparent" />
+				  <param name="FlashVars" value="playerMode=embedded" />
+				</object>
 			</div>
+			<% end -%>
 			<%= textilize(article.content) %>
-		</p>
 		<% end -%>
 		<% if article.content_type == "table" %>
 			<h3><%= article.title %></h3>
