@@ -1,18 +1,44 @@
-<% form_for(@newsitem, :url => newsitem_path(@page, @newsitem), :html => {:class => "seed-admin"}) do |f| %>
+<% form_for(@newsitem, :url => newsitem_path(@page, @newsitem), :html => {:class => "seed-admin tight"}) do |f| %>
   <%= f.error_messages %>
   <fieldset>
   <div class="input-row">
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
+  <div id="image-size-options">
+  <% if !@newsitem.images.empty? %>
+  	<%= render :partial => "articles/image_size_options", :locals => {:model_name => "newsitem"} %>
+  <% end -%>
+  </div>
   <div class="input-row">
     <%= f.label :content %>
     <%= f.text_area :content %>
   </div>
   </fieldset>
-  <div>
-	<%= f.hidden_field :page_id %>
+  <%= f.hidden_field :page_id %>
+
+  <div id="image-ids">
+	<% @newsitem.images.each do |image| %>
+		<%= hidden_field_tag "newsitem[image_ids][]", image.id, :id => "hidden_image_tag_#{image.id}" %>
+	<% end -%>
     <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
   </div>
   
 <% end %>
+
+<div id="form-sidebar" class="notabs">
+	<div id="seed-notes">
+		<h4>News Item:</h4>
+		<p>May contain text and images. Ordered by creation date</p> 
+	</div>
+	
+	<div id="image-control">
+		<% use_lightview -%>
+		<%= link_to_lightview( "Add Image",
+				ajax_new_images_path(:class_name => "newsitem"), 
+				{:class => "add"}, {}, {:autosize => false, :width => 400, :height => 200} )%>
+		<div id="image-list">
+			<%= render :partial => "images/image_item", :collection => @images %>
+		</div>
+	</div>
+</div>

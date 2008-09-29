@@ -9,6 +9,7 @@ class CreateImages < ActiveRecord::Migration
       t.integer :parent_id
       t.string :thumbnail
       t.integer :article_id
+      t.integer :newsitem_id
 
       t.timestamps
     end

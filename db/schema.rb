@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20080919143818) do
     t.integer  "parent_id"
     t.string   "thumbnail"
     t.integer  "article_id"
+    t.integer  "newsitem_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

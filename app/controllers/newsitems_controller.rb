@@ -19,10 +19,12 @@ class NewsitemsController < ApplicationController
   
   def new
     @newsitem = Newsitem.new(:page_id => params[:page_id])
+    @images = @newsitem.images
   end
 
   def edit
     @newsitem = Newsitem.find(params[:id])
+    @images = @newsitem.images
   end
 
   def create
@@ -32,6 +34,8 @@ class NewsitemsController < ApplicationController
       flash[:notice] = 'Newsitem was successfully created'
       redirect_to newsitems_path(@newsitem.page_id) 
     else
+      @images = @newsitem.images
+      get_page
       pages_menu
       render :action => "new" 
     end
@@ -44,6 +48,8 @@ class NewsitemsController < ApplicationController
       flash[:notice] = 'Newsitem was successfully updated'
       redirect_to newsitems_path(@newsitem.page_id) 
     else
+      @images = @newsitem.images
+      get_page
       pages_menu
       render :action => "edit"
     end

@@ -4,7 +4,7 @@
 	<ul id="ajax-error"></ul>
 	
 	<% form_for(:image, 
-					   :url => ajax_create_images_path, 
+					   :url => ajax_create_images_path(:class_name => params[:class_name]), 
 					   :html => { :multipart => true, 
 								  :method => :post,
 								  :target => "upload_frame",

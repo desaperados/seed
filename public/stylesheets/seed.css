@@ -169,32 +169,31 @@ ul#articletabs li a {
 ul#articletabs li a.selected {
 	background-color: #f0f0f0;
 }
-div#seed-admin-form div#image-control {
+
+/********** Form Sidebar ***********/
+div#form-sidebar {
 	position: absolute;
-	top: 150px;
+	top: 50px;
 	right: 0;
 	width: 20%;
 }
-div#seed-admin-form div#image-control .seed-image-item {
+div#form-sidebar.notabs {
+	top: 29px;
+}
+div#form-sidebar .seed-image-item {
 	margin-right: 0;
 	float: left;
 }
 div#seed-admin-form div#image-control a.add {
 	text-decoration: none;
-	float: right;
-	clear: both;
-	width: 92%;
+	display: block;
 	font-size: 10px;
 	background: #fff;
 	padding: 0 4%;
-	margin-bottom: 5px;
+	margin: 5px 0;
 	border: 1px solid #ddd;
 }
 div#seed-notes {
-	position: absolute;
-	top: 50px;
-	right: 0;
-	width: 20%;
 	border: 1px solid #e9e9e9;
 }
 div#seed-notes p {
