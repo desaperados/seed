@@ -60,11 +60,11 @@ div.article p, div.newsitem p {
 	margin: 1em 0;
 }
 
-/************** News **************/
-div#news {
+/*********** News & Blog **********/
+div#news, div#blog {
 	position: relative;
 }
-div#news div#newsitems {
+div#news div#newsitems, div#blog div#blogposts {
 	width: 75%;
 }
 div#archive {

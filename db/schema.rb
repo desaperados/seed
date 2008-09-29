@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080919143818) do
+ActiveRecord::Schema.define(:version => 20080918091624) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -33,18 +33,6 @@ ActiveRecord::Schema.define(:version => 20080919143818) do
     t.integer  "parent_id"
     t.string   "thumbnail"
     t.integer  "article_id"
-    t.integer  "newsitem_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "newsitems", :force => true do |t|
-    t.string   "title"
-    t.string   "content"
-    t.integer  "position"
-    t.integer  "page_id"
-    t.string   "imagesize"
-    t.string   "imageposition"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,7 +43,7 @@ ActiveRecord::Schema.define(:version => 20080919143818) do
     t.string   "description"
     t.integer  "position"
     t.string   "kind"
-    t.string   "menu_type"
+    t.string   "menu_type",   :default => "primary"
     t.string   "viewable_by", :default => "public"
     t.string   "editable_by", :default => "all users"
     t.integer  "parent_id"

@@ -1,4 +1,4 @@
-<% form_for(@article, :url => newsitem_path(@page, @article), :html => {:class => "seed-admin tight"}) do |f| %>
+<% form_for(@article, :url => post_path(@page, @article), :html => {:class => "seed-admin tight"}) do |f| %>
   <%= f.error_messages %>
   <fieldset>
   <div class="input-row">
@@ -16,7 +16,7 @@
   </div>
   </fieldset>
   <%= f.hidden_field :page_id %>
-  <%= hidden_field :article, :content_type, {:value => "news"} %>
+  <%= hidden_field :article, :content_type, {:value => "post"} %>
 
   <div id="image-ids">
 	<% @article.images.each do |image| %>
@@ -29,8 +29,9 @@
 
 <div id="form-sidebar" class="notabs">
 	<div id="seed-notes">
-		<h4>News Item:</h4>
-		<p>May contain text and images. Ordered by creation date</p> 
+		<h4>Post Style:</h4>
+		<h5>Blog Post</h5>
+		<p>General purpose post containing text and images.</p> 
 	</div>
 	
 	<div id="image-control">
@@ -43,3 +44,6 @@
 		</div>
 	</div>
 </div>
+
+
+

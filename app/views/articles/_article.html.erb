@@ -7,7 +7,7 @@
   </div>
   <div id="image-size-options">
   <% if !@article.images.empty? %>
-  	<%= render :partial => "image_size_options", :locals => {:model_name => "article"} %>
+  	<%= render :partial => "image_size_options" %>
   <% end -%>
   </div>
   <div class="input-row">
@@ -36,7 +36,7 @@
 	<div id="image-control">
 		<% use_lightview -%>
 		<%= link_to_lightview( "Add Image",
-				ajax_new_images_path(:class_name => "article"), 
+				new_image_path, 
 				{:class => "add"}, {}, {:autosize => false, :width => 400, :height => 200} )%>
 		<div id="image-list">
 			<%= render :partial => "images/image_item", :collection => @images %>

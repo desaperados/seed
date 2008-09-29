@@ -11,16 +11,20 @@ ActionController::Routing::Routes.draw do |map|
   
   map.resource :session
   map.resources :users, :passwords, :roles
-  map.resources :images, :collection => {:ajax_create => :post, :ajax_new => :get}
+  map.resources :images
   map.resources :pages do |page|
     page.resources :articles, :name_prefix => nil
     page.resources :newsitems, :name_prefix => nil, :as => "news"
-    page.resources :posts, :name_prefix => nil
+    page.resources :posts, :name_prefix => nil, :as => "blog"
   end
   
   # News Archive Mapping
   map.archive 'pages/:page_id/news/archive/:month/:year', :controller => 'newsitems', :action => 'index'
   map.annual_archive 'pages/:page_id/news/archive/:year', :controller => 'newsitems', :action => 'index'
+  
+  # Blog Archive Mapping
+  map.blog_archive 'pages/:page_id/blog/archive/:month/:year', :controller => 'posts', :action => 'index'
+  map.blog_annual_archive 'pages/:page_id/blog/archive/:year', :controller => 'posts', :action => 'index'
 
   map.home "", :controller => "articles", :page_id => "1"
   map.root :home

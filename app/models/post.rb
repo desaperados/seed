@@ -1,7 +1,9 @@
-class Newsitem < Article
+# Blog Posts
+class Post < Article
+  has_many :comments
   
   def self.find(*args)
-    with_scope(:find=> { :conditions=> "content_type = 'news'" } ) do
+    with_scope(:find=> { :conditions=> "content_type = 'post'" } ) do
       super(*args)
     end
   end

@@ -1,0 +1,39 @@
+<div id="blog">
+	<div id="blogposts">
+		<% for post in @posts %>
+			<div class="article">
+				<% if editable?(@page) %>
+					<span class="seed-admin-tag seed-edit-tag">
+						<%= link_to "edit", edit_post_path(@page, post)%>|<%= link_to "X", post_path(@page, post), :confirm => 'Delete this post?', :method => :delete %>
+					</span>
+				<% end -%>
+				
+				<h3><%= post.title %></h3>
+				<h4><%= format_date(post.created_at, true) %></h4>
+				<% post.images.each do |image| %>
+					<%= image_tag image.public_filename("#{post.imagesize}") %>
+				<% end -%>
+				<%= textilize(post.content) %>
+			</div>
+		<% end -%>
+	</div>
+	
+	<%= will_paginate @posts %>
+	
+	<div id="archive">
+		<h3>Archive</h3>
+		<% @archive_years.each do |year, value| %>
+			<div class="year">
+				<h4 class="year"><%= link_to year, blog_annual_archive_path(@page, year) %></h4>
+				<% iterations = 0 %>
+				<% @archive_months.each do |month, value| %>
+					<h4 class="month">
+						<%= link_to "#{month} (#{@archive_months.values[iterations].size})", blog_archive_path(@page, Date.parse(month).month, year) %>
+						<%  iterations += 1 -%>
+					</h4>
+				<% end %>
+			</div>
+		<% end -%>
+	</div>
+</div>
+

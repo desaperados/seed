@@ -22,8 +22,8 @@ class ArticlesController < ApplicationController
     @article = Article.new(params[:article])
 
     if @article.save
-      flash[:notice] = 'Article was successfully created'
-      redirect_to articles_path(@article.page_id) 
+      flash[:notice] = "#{@article.content_type.capitalize} was successfully created"
+      redirect_to resource_index_page(@article)
     else
       @images = @article.images
       get_page
@@ -36,8 +36,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     if @article.update_attributes(params[:article])
-      flash[:notice] = 'Article was successfully updated'
-      redirect_to articles_path(@article.page_id) 
+      flash[:notice] = "#{@article.content_type.capitalize} was successfully updated"
+      redirect_to resource_index_page(@article)
     else
       @images = @article.images
       get_page
@@ -50,7 +50,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
 
-    redirect_to articles_path(@article.page_id)
+    redirect_to resource_index_page(@article)
   end
   
   private 
@@ -58,4 +58,15 @@ class ArticlesController < ApplicationController
   def get_page
     @page = Page.find(params[:page_id])
   end
+  
+  def resource_index_page(resource)
+    if resource.content_type == "post"
+      posts_path(resource.page_id) 
+    elsif resource.content_type == "news"
+      newsitems_path(resource.page_id) 
+    else
+      articles_path(resource.page_id) 
+    end
+  end
+  
 end
