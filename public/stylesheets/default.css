@@ -33,7 +33,7 @@ div#left {
 	float: left;
 }
 div#right {
-	margin-left: 200px;
+	margin-left: 160px;
 	min-height: 400px;
 	padding: 20px;
 	border-left: 1px solid #ccc;
@@ -58,6 +58,34 @@ div.article h3, div.newsitem h3 {
 }
 div.article p, div.newsitem p {
 	margin: 1em 0;
+}
+
+/************** News **************/
+div#news {
+	position: relative;
+}
+div#news div#newsitems {
+	width: 75%;
+}
+div#archive {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 20%;
+	font-size: 0.9em;
+	border-top: 1px solid #ddd;
+	text-align: right;
+}
+div#archive div.year {
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 1em;
+}
+div#archive h4 {
+	margin: 0 0 0.5em 0;
+	font-weight: normal;
+}
+div#archive h4.year a {
+	color: #666;
 }
 
 /*********** Main Menu ************/

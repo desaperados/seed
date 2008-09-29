@@ -1,5 +1,14 @@
 module ApplicationHelper
   
+  def format_date(date, use_time = false)
+     if use_time == true
+         ampm = date.strftime("%p").downcase
+         new_date = date.strftime("%A, %B %d %Y at %I:%M" + ampm)
+     else
+         new_date = date.strftime("%A, %B %d %Y")
+     end
+  end
+  
   def viewable?(page)
     page.public? || (logged_in? && page.private?) || (logged_in? && current_user.has_role?("#{page.viewable_by}"))
   end

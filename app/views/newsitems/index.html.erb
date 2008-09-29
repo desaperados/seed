@@ -1,19 +1,34 @@
-<div id="sortableitems">
-<% for newsitem in @newsitems %>
-	<div div id="sortableitem_<%= newsitem.id %>" class="newsitem">
-		<% if editable?(@page) %>
-			<span class="seed-admin-tag seed-edit-tag">
-				<%= link_to "edit", edit_newsitem_path(@page, newsitem)%>|<%= link_to "X", newsitem_path(@page, newsitem), :confirm => 'Delete this newsitem?', :method => :delete %>
-			</span>
+<div id="news">
+	<div id="newsitems">
+		<% for newsitem in @newsitems %>
+			<div class="newsitem">
+				<% if editable?(@page) %>
+					<span class="seed-admin-tag seed-edit-tag">
+						<%= link_to "edit", edit_newsitem_path(@page, newsitem)%>|<%= link_to "X", newsitem_path(@page, newsitem), :confirm => 'Delete this newsitem?', :method => :delete %>
+					</span>
+				<% end -%>
+				<h3><%= newsitem.title %></h3>
+				<h4><%= format_date(newsitem.created_at, true) %></h4>
+				<%= textilize(newsitem.content) %>
+			</div>
 		<% end -%>
-		<h3><%= newsitem.title %></h3>
-		<%= textilize(newsitem.content) %>
 	</div>
-<% end -%>
+
+	<%= will_paginate @newsitems %>
+	
+	<div id="archive">
+		<h3>Archive</h3>
+		<% @archive_years.each do |year, value| %>
+			<div class="year">
+				<h4 class="year"><%= link_to year, annual_archive_path(@page, year) %></h4>
+				<% iterations = 0 %>
+				<% @archive_months.each do |month, value| %>
+					<h4 class="month">
+						<%= link_to "#{month} (#{@archive_months.values[iterations].size})", archive_path(@page, Date.parse(month).month, year) %>
+						<%  iterations += 1 -%>
+					</h4>
+				<% end %>
+			</div>
+		<% end -%>
+	</div>
 </div>
-<% if logged_in? %>
-<%= sortable_element('sortableitems',  
-					 :url => {:controller => "javascript", :action => "update_article_order", :class_name => newsitem.class.name},
-					 :tag => :div) %>
-<% end -%>
-<%= will_paginate @newsitems %>

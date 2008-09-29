@@ -17,6 +17,10 @@ ActionController::Routing::Routes.draw do |map|
     page.resources :newsitems, :name_prefix => nil, :as => "news"
     page.resources :posts, :name_prefix => nil
   end
+  
+  # News Archive Mapping
+  map.archive 'pages/:page_id/news/archive/:month/:year', :controller => 'newsitems', :action => 'index'
+  map.annual_archive 'pages/:page_id/news/archive/:year', :controller => 'newsitems', :action => 'index'
 
   map.home "", :controller => "articles", :page_id => "1"
   map.root :home

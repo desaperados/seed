@@ -1,4 +1,4 @@
-<% form_for(@newsitem, :html => {:class => "seed-admin"}) do |f| %>
+<% form_for(@newsitem, :url => newsitem_path(@page, @newsitem), :html => {:class => "seed-admin"}) do |f| %>
   <%= f.error_messages %>
   <fieldset>
   <div class="input-row">
