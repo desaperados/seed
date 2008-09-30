@@ -8,3 +8,4 @@ public/imageupload
 db/*.sqlite3
 Capfile
 config/settings.yml
+template/**/*
