@@ -16,8 +16,4 @@ class ApplicationController < ActionController::Base
     @secondary_pages = grouped_pages["secondary"]
   end
   
-  def get_controller
-    @controller_path = self.class.controller_path
-  end
-  
 end
