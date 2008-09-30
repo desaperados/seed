@@ -16,7 +16,7 @@
   </div>
   </fieldset>
   <%= f.hidden_field :page_id %>
-  <%= hidden_field :article, :content_type, {:value => "article"} %>
+  <%= hidden_field :article, :article_type, {:value => "article"} %>
   <div id="image-ids">
 	<% @article.images.each do |image| %>
 		<%= hidden_field_tag "article[image_ids][]", image.id, :id => "hidden_image_tag_#{image.id}" %>

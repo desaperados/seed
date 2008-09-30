@@ -6,8 +6,12 @@ development: &non_production_settings
   site_description: a Common Sense CMS from The Media Collective
   admin_email: example@gmail.com
   
+  # Akismet api key for comment spam protection
+  # http://akismet.com/
+  akismet_key: abc123
+  
   # Layout Settings
-  enable_secondary_menu: true
+  enable_secondary_menu: false
   primary_menu_orientation: vertical
   secondary_menu_orientation: vertical
   
@@ -19,6 +23,10 @@ production:
   site_name: Seed
   site_description: a Common Sense CMS from The Media Collective
   admin_email: example@gmail.com
+  
+  # Akismet api key for comment spam protection
+  # http://akismet.com/
+  akismet_key: abc123
   
   # Layout Settings
   enable_secondary_menu: false

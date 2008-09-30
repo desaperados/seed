@@ -8,12 +8,13 @@
 					</span>
 				<% end -%>
 				
-				<h3><%= post.title %></h3>
+				<h3><%= link_to post.title, post_path(@page, post) %></h3>
 				<h4><%= format_date(post.created_at, true) %></h4>
 				<% post.images.each do |image| %>
 					<%= image_tag image.public_filename("#{post.imagesize}") %>
 				<% end -%>
 				<%= textilize(post.content) %>
+				<em><%= link_to "#{post.comments.size} comments", post_path(@page, post) %></em>
 			</div>
 		<% end -%>
 	</div>

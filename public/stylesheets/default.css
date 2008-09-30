@@ -87,6 +87,12 @@ div#archive h4 {
 div#archive h4.year a {
 	color: #666;
 }
+/************ Comments ************/
+div.comment {
+	background: #f8f8f8;
+	border-top: 1px solid #ddd;
+	padding: 1em;
+}
 
 /*********** Main Menu ************/
 ul.menu {

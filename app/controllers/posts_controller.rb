@@ -12,6 +12,14 @@ class PostsController < ArticlesController
     end
   end
   
+  def show
+    @post = @page.posts.find(params[:id])
+    @comments = @post.comments
+    if @post.article_type == "post"
+      @comment = Comment.new
+    end
+  end
+  
   private
   
   def archive_menu

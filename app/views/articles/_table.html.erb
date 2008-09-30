@@ -12,7 +12,7 @@
   </fieldset>
   <div>
 	<%= f.hidden_field :page_id %>
-	<%= hidden_field :article, :content_type, {:value => "table"} %>
+	<%= hidden_field :article, :article_type, {:value => "table"} %>
     <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
   </div>
   

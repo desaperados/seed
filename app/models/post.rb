@@ -1,9 +1,10 @@
 # Blog Posts
 class Post < Article
-  has_many :comments
+  # TODO Handle periodic cleaning of un-approved comments
+  has_many :comments, :conditions => ['approved = ?', true]
   
   def self.find(*args)
-    with_scope(:find=> { :conditions=> "content_type = 'post'" } ) do
+    with_scope(:find=> { :conditions=> "article_type = 'post'" } ) do
       super(*args)
     end
   end

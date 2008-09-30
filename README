@@ -25,13 +25,20 @@ CURRENT FEATURES:
 - Page Creation and Management
   - Menu Hierarchy Ordering
   - Pagination Control
-  - Manage page viewing and editing rules
+  - Management of page viewing and editing rules
 
 - Article Creation and Management  
   - Drag and drop Article Ordering
+  - Integrated image upload
+  - General / Video / Table style articles
 
 - News Items Creation and Management
-  - Drag and drop News Item Ordering
+  - News archive 
+  - Integrated image upload
+
+- Blog Posts Creation and Management
+  - News archive
+  - Integrated image upload
 
 - Users Module
   - Restful Authentication
@@ -45,7 +52,6 @@ CURRENT FEATURES:
 TODO:
 
 - Add Roles control to controllers
-- Add Page type Blog | Portfolio | Table / Info | Wiki
 - Sidebars
 - Plugin Customisation
 - Modularise components

@@ -3,7 +3,7 @@ class Image < ActiveRecord::Base
   
   named_scope :originals, :conditions => ["parent_id IS NULL"]
   
-  has_attachment   :content_type => :image,
+  has_attachment   :article_type => :image,
                    :path_prefix  => 'public/imageupload',
                    :processor => 'rmagick',
                    :storage => :file_system, 

@@ -7,7 +7,7 @@
 			</span>
 		<% end -%>
 		
-		<% if article.content_type == "article" %>
+		<% if article.article_type == "article" %>
 			<h3><%= article.title %></h3>
 			<% article.images.each do |image| %>
 				<%= image_tag image.public_filename("#{article.imagesize}") %>
@@ -15,7 +15,7 @@
 			<%= textilize(article.content) %>
 		<% end -%>
 		
-		<% if article.content_type == "video" %>
+		<% if article.article_type == "video" %>
 			<h3><%= article.title %></h3>
 			<% if article.video != "" %>
 			<div>
@@ -34,7 +34,7 @@
 			<% end -%>
 			<%= textilize(article.content) %>
 		<% end -%>
-		<% if article.content_type == "table" %>
+		<% if article.article_type == "table" %>
 			<h3><%= article.title %></h3>
 			<%= textilize_without_paragraph(article.content) %>
 		<% end -%>

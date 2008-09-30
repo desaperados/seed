@@ -14,9 +14,14 @@
     <%= f.label :content %>
     <%= f.text_area :content %>
   </div>
+  <div class="commentable-row">
+    <%= f.label :commentable, "Comments for this post:" %>
+    <%= f.radio_button :commentable, true, :style => "display:inline" %>On
+    <%= f.radio_button :commentable, false %>Off
+  </div>
   </fieldset>
   <%= f.hidden_field :page_id %>
-  <%= hidden_field :article, :content_type, {:value => "post"} %>
+  <%= hidden_field :article, :article_type, {:value => "post"} %>
 
   <div id="image-ids">
 	<% @article.images.each do |image| %>

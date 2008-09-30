@@ -127,6 +127,9 @@ form.seed-admin div.input-row {
 	margin: 2px 0 2px 0;
 	padding: 3px 0 3px 0;
 }
+form.seed-admin div.commentable-row {
+	margin-bottom: 10px;
+}
 form.seed-admin div.input-row label {
 	padding-top: 3px;
 }
@@ -137,6 +140,9 @@ form.seed-admin div.input-row textarea {
 form.tight div.input-row input,
 form.tight div.input-row textarea {
 	width: 100%;
+}
+form.comment textarea {
+	height: 90px;
 }
 form.ajax {
 	width: 93%;

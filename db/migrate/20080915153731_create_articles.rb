@@ -4,9 +4,10 @@ class CreateArticles < ActiveRecord::Migration
       t.string :title
       t.string :content
       t.string :video
-      t.string :content_type, :default => "article"
+      t.string :article_type, :default => "article"
       t.string :imagesize
       t.string :imageposition
+      t.boolean :commentable, :default => true
       t.integer :page_id
       t.integer :position
 

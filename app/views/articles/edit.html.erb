@@ -7,6 +7,6 @@
 		<li class="tabletab"><%= articles_menu_link "Table", "Update", @article %></li>
 	</ul>
 	<div id="articlesform">
-		<%= render :partial => @article.content_type, :locals => {:submit => "Update"} %>
+		<%= render :partial => @article.article_type, :locals => {:submit => "Update"} %>
 	</div>
 </div>

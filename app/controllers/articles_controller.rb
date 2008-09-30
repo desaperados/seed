@@ -1,8 +1,8 @@
 class ArticlesController < ApplicationController
   
   before_filter :login_required, :except => [:index]
-  before_filter :pages_menu, :only => [:index, :new, :edit]
-  before_filter :get_page, :only => [:index, :new, :edit]
+  before_filter :pages_menu, :only => [:index, :new, :edit, :show]
+  before_filter :get_page, :only => [:index, :new, :edit, :show]
   
   def index
     @articles = @page.articles.paginate(:page => params[:page], :per_page => @page.paginate)
@@ -22,7 +22,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(params[:article])
 
     if @article.save
-      flash[:notice] = "#{@article.content_type.capitalize} was successfully created"
+      flash[:notice] = "#{@article.article_type.capitalize} was successfully created"
       redirect_to resource_index_page(@article)
     else
       @images = @article.images
@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     if @article.update_attributes(params[:article])
-      flash[:notice] = "#{@article.content_type.capitalize} was successfully updated"
+      flash[:notice] = "#{@article.article_type.capitalize} was successfully updated"
       redirect_to resource_index_page(@article)
     else
       @images = @article.images
@@ -60,9 +60,9 @@ class ArticlesController < ApplicationController
   end
   
   def resource_index_page(resource)
-    if resource.content_type == "post"
+    if resource.article_type == "post"
       posts_path(resource.page_id) 
-    elsif resource.content_type == "news"
+    elsif resource.article_type == "news"
       newsitems_path(resource.page_id) 
     else
       articles_path(resource.page_id) 

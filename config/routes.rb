@@ -10,8 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.change_password '/change_password/:reset_code', :controller => 'passwords', :action => 'reset'
   
   map.resource :session
-  map.resources :users, :passwords, :roles
-  map.resources :images
+  map.resources :users, :passwords, :roles, :images, :comments
   map.resources :pages do |page|
     page.resources :articles, :name_prefix => nil
     page.resources :newsitems, :name_prefix => nil, :as => "news"

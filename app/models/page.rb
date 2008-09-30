@@ -2,11 +2,8 @@ class Page < ActiveRecord::Base
   acts_as_tree :order => :position
   acts_as_list :scope => :parent
   has_many :articles, :order => :position, :dependent => :destroy
-  has_many :newsitems, :order => :position, :conditions => "content_type = 'news'", :dependent => :destroy
-  has_many :posts, :order => :position, :conditions => "content_type = 'post'", :dependent => :destroy
-  
-  has_and_belongs_to_many :roles, :foreign_key => :viewable_by
-  has_and_belongs_to_many :roles, :foreign_key => :editable_by
+  has_many :newsitems, :order => :position, :conditions => "article_type = 'news'", :dependent => :destroy
+  has_many :posts, :order => :position, :conditions => "article_type = 'post'", :dependent => :destroy
   
   validates_presence_of :title, :name
   

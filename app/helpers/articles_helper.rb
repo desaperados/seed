@@ -16,7 +16,7 @@ module ArticlesHelper
   def selected?(name, article)
     article if article == "selected"
     if !article.nil?
-      "selected" if article == "selected" || (name.downcase == article.content_type) && article != nil
+      "selected" if article == "selected" || (name.downcase == article.article_type) && article != nil
     end
   end
   
