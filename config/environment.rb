@@ -45,3 +45,6 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   config.active_record.observers = :user_observer
 end
+
+#theme_view_path = "#{RAILS_ROOT}/theme/views"
+#ActionController::Base.view_paths = ActionController::Base.view_paths.dup.unshift(theme_view_path)

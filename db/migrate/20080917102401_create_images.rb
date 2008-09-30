@@ -2,7 +2,7 @@ class CreateImages < ActiveRecord::Migration
   def self.up
     create_table :images do |t|
       t.integer :size
-      t.string :article_type
+      t.string :content_type
       t.string :filename
       t.integer :height
       t.integer :width

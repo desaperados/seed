@@ -39,6 +39,7 @@ CURRENT FEATURES:
 - Blog Posts Creation and Management
   - News archive
   - Integrated image upload
+  - Comments with Akismet spam protection 
 
 - Users Module
   - Restful Authentication
