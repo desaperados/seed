@@ -46,24 +46,6 @@ template
 See the ABOUT file in public/stylesheets/template for information on
 customising stylesheets
 
-Some examples:
-
-template
-  stylesheets
-    default.css (replaces public/stylesheets/default.css)
-  
-template
-  stylesheets
-    myapp.css (includes myapp.css after public/stylesheets/default.css)
-  
-template
-  stylesheets
-    default.css (replaces public/stylesheets/default.css)
-    myapp.css (includes myapp.css after public/stylesheets/default.css)
-  
-In production mode all css files will be automatically combined into
-a single file and cached.
-
 
 =LAYOUTS
 

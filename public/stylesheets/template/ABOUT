@@ -3,3 +3,24 @@ and included in the document head. A file in this directory named
 default.css will replace the seed default.css. If a default.css 
 file is not found in this directory then any other css files 
 will be included below the seed default.css file.
+
+Some examples:
+
+public
+  stylesheets
+    template
+      default.css (replaces public/stylesheets/default.css)
+  
+template
+  stylesheets
+    template
+      myapp.css (includes myapp.css after public/stylesheets/default.css)
+  
+template
+  stylesheets
+    template
+      default.css (replaces public/stylesheets/default.css)
+      myapp.css (includes myapp.css after public/stylesheets/default.css)
+  
+In production mode all css files will be automatically combined into
+a single file and cached.
