@@ -1,0 +1,5 @@
+Css files included in this template directory will be picked up 
+and included in the document head. A file in this directory named
+default.css will replace the seed default.css. If a default.css 
+file is not found in this directory then any other css files 
+will be included below the seed default.css file.

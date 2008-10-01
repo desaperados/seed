@@ -5,6 +5,8 @@ doc/app
 doc/plugins
 tmp/**/*
 public/imageupload
+public/stylesheets/seed.css
+public/stylesheets/template/*.css
 db/*.sqlite3
 Capfile
 config/settings.yml

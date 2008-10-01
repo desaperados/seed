@@ -7,6 +7,12 @@ class Page < ActiveRecord::Base
   
   validates_presence_of :title, :name
   
+  def before_destroy
+    if self.id == 1
+      raise "Can't delete the Home page"
+    end
+  end
+  
   def public?
     true if viewable_by == "public" 
   end

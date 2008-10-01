@@ -31,12 +31,48 @@ and customise the .erb file accordingly
 template
 	newsitems
 		index.html.erb
+		
+Seed treats the Page with an id of 1 as the home page and renders a
+special view for this page within app/views/homepage/index.html.erb
+So to customise the home page:
+
+template
+	homepage
+		index.html.erb
+		
+		
+==CSS
+
+See the ABOUT file in public/stylesheets/template for information on
+customising stylesheets
+
+Some examples:
+
+template
+  stylesheets
+    default.css (replaces public/stylesheets/default.css)
+  
+template
+  stylesheets
+    myapp.css (includes myapp.css after public/stylesheets/default.css)
+  
+template
+  stylesheets
+    default.css (replaces public/stylesheets/default.css)
+    myapp.css (includes myapp.css after public/stylesheets/default.css)
+  
+In production mode all css files will be automatically combined into
+a single file and cached.
 
 
-=LAYOUTS	
+=LAYOUTS
 
-In addition to views it is also possible to template layouts. Seed
-renders layouts according to rails convention using a single layout
+Customisation of views provides a fairy powerful way of changing
+how content is rendered to suit your needs. If you need to go further
+than this you can also customise layouts, (the layout files into which 
+views are rendered)	
+
+Seed renders layouts according to rails convention using a single layout
 file located at app/views/layouts/application.html.erb
 		
 So to customise the default layout file create your own layout at:

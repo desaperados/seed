@@ -37,8 +37,12 @@ class PagesController < ApplicationController
 
   def destroy
     @page = Page.find(params[:id])
-    @page.destroy
-
+    begin
+      @page.destroy
+      flash[:notice] = "Page deleted"
+    rescue Exception => e
+      flash[:notice] = e.message
+    end
     redirect_to home_url 
   end
   

@@ -47,8 +47,8 @@ CURRENT FEATURES:
   - Account activation via email
   - Forgotten password handling
 
+- Override the default layout with a custom template
 - Exception Notification
-- Asset Packager
 
 TODO:
 

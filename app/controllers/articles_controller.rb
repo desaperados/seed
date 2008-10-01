@@ -6,6 +6,9 @@ class ArticlesController < ApplicationController
   
   def index
     @articles = @page.articles.paginate(:page => params[:page], :per_page => @page.paginate)
+    if @page.id == 1
+      render :template => "homepage/index"
+    end
   end
 
   def new

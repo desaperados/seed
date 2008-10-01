@@ -49,3 +49,5 @@ end
 # Add the template directory to the default rails render path
 ActionController::Base.prepend_view_path('template')
 
+require 'seed_stylesheets'
+
