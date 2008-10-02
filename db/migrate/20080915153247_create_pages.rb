@@ -12,6 +12,7 @@ class CreatePages < ActiveRecord::Migration
       t.string :permalink
       t.integer :parent_id
       t.integer :paginate
+      t.integer :components_count, :default => 0
 
       t.timestamps
     end

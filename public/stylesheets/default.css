@@ -93,6 +93,10 @@ div.comment {
 	border-top: 1px solid #ddd;
 	padding: 1em;
 }
+/*********** Components ***********/
+div#components {
+	text-align: left;
+}
 
 /*********** Main Menu ************/
 ul.menu {

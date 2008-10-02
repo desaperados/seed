@@ -43,11 +43,10 @@ module ApplicationHelper
   # Generate a link for adding a new resource based on the 
   # controller name
   def add_resource_link(controller, page)
-    if controller != "pages" && editable?(page)
-      content_tag(:span, 
-        link_to("Add #{controller.singularize.capitalize!}", :controller => controller, :action => "new"),
-        :class => "seed-admin-tag"
-      )
+    if controller != "pages" && editable?(page) && controller != "components"
+        content_tag(:span, 
+        link_to("Add #{controller.singularize.capitalize!}", :controller => controller, :action => "new")+"|"+
+        link_to("Add Component", new_component_path), :class => "seed-admin-tag")
     end
   end
   

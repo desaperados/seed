@@ -1,3 +1,5 @@
+<%= render :partial => "components/components" %>
+
 <div id="sortableitems">
 <% for article in @articles %>
 	<div id="sortableitem_<%= article.id %>" class="article">
@@ -49,7 +51,7 @@
 </div>
 <% if logged_in? %>
 <%= sortable_element('sortableitems',  
-					 :url => {:controller => "javascript", :action => "update_article_order", :class_name => article.class.name},
+					 :url => {:controller => "javascript", :action => "update_item_order", :class_name => article.class.name},
 					 :tag => :div ) %>
 <% end -%> 
 <%= will_paginate @articles %>

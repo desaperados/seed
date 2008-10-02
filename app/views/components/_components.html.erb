@@ -1,0 +1,12 @@
+<div id="components">
+  <div id="sortablecomponents">
+    <%= render :partial => "components/component", :collection => @page.components %>
+  </div>
+</div>
+<% if logged_in? %>
+<%= sortable_element('sortablecomponents',  
+					 :url => {:controller => "javascript", :action => "update_item_order", :class_name => "Component"},
+					 :handle => "handle",
+					 :constraint => false,
+					 :tag => :div ) %>
+<% end -%>

@@ -12,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
   map.resources :users, :passwords, :roles, :images, :comments
   map.resources :pages do |page|
+    page.resources :components, :name_prefix => nil
     page.resources :articles, :name_prefix => nil
     page.resources :newsitems, :name_prefix => nil, :as => "news"
     page.resources :posts, :name_prefix => nil, :as => "blog"

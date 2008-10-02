@@ -1,10 +1,15 @@
 class PagesController < ApplicationController
 
-  before_filter :login_required
-  before_filter :pages_menu, :except => [:create, :update, :destroy]
+  before_filter :login_required, :except => [:show]
+  before_filter :pages_menu, :except => [:create, :update, :destroy, :show]
 
   def new
     @page = Page.new(:menu_type => "primary")
+  end
+  
+  def show
+     @page = Page.find(params[:id])
+     redirect_to resource_path(@page) 
   end
 
   def edit

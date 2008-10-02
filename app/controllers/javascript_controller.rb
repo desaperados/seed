@@ -52,8 +52,9 @@ class JavascriptController < ApplicationController
     end
   end
   
-  def update_article_order
-    params[:sortableitems].each_with_index do |id, position|
+  def update_item_order
+    elements = params[:sortableitems] || params[:sortablecomponents]
+    elements.each_with_index do |id, position|
       params[:class_name].constantize.update(id, :position => position)
     end
     render(:nothing => true)

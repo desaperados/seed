@@ -1,0 +1,24 @@
+<% form_for @component, :url => component_path(@page, @component), :html => {:class => "seed-admin"} do |f| -%>
+  <%= f.error_messages %>
+  <fieldset>
+    <div class="input-row">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="input-row">
+      <%= f.label :source_page %>
+      <%= f.collection_select(:source_page, Page.all_pages_excluding_current(params[:page_id]), :id, :name) %>
+    </div>
+    <div class="input-row">
+      <%= f.label :order, "Sort Order" %>
+      <%= f.select(:order, Component::ORDER_OPTIONS) %>
+    </div>
+    <div class="input-row">
+      <%= f.label :limit %>
+      <%= f.select(:limit, Component::LIMIT_OPTIONS) %>
+    </div>
+  </fieldset>
+  <div>
+    <%= f.submit submit %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
+  </div>
+<% end %>

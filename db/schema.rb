@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080929154325) do
+ActiveRecord::Schema.define(:version => 20081002193219) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -39,6 +39,18 @@ ActiveRecord::Schema.define(:version => 20080929154325) do
     t.datetime "updated_at"
   end
 
+  create_table "components", :force => true do |t|
+    t.string   "title"
+    t.integer  "page_id"
+    t.integer  "source_page"
+    t.integer  "limit"
+    t.integer  "position"
+    t.string   "order"
+    t.string   "snippet_class"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "images", :force => true do |t|
     t.integer  "size"
     t.string   "content_type"
@@ -58,12 +70,13 @@ ActiveRecord::Schema.define(:version => 20080929154325) do
     t.string   "description"
     t.integer  "position"
     t.string   "kind"
-    t.string   "menu_type",   :default => "primary"
-    t.string   "viewable_by", :default => "public"
-    t.string   "editable_by", :default => "all users"
+    t.string   "menu_type",        :default => "primary"
+    t.string   "viewable_by",      :default => "public"
+    t.string   "editable_by",      :default => "all users"
     t.string   "permalink"
     t.integer  "parent_id"
     t.integer  "paginate"
+    t.integer  "components_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -95,6 +108,11 @@ ActiveRecord::Schema.define(:version => 20080929154325) do
 
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+
+  create_table "source_pages", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40

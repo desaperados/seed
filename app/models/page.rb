@@ -4,6 +4,7 @@ class Page < ActiveRecord::Base
   has_many :articles, :order => :position, :dependent => :destroy
   has_many :newsitems, :order => :position, :conditions => "article_type = 'news'", :dependent => :destroy
   has_many :posts, :order => :position, :conditions => "article_type = 'post'", :dependent => :destroy
+  has_many :components, :order => :position, :dependent => :destroy
   
   validates_presence_of :title, :name
   
@@ -48,6 +49,10 @@ class Page < ActiveRecord::Base
     [ '20 Items per page', 20 ],
     [ '50 Items per page', 50 ]
   ]
+  
+  def self.all_pages_excluding_current(current)
+    find(:all, :conditions => ["id != ?", current])
+  end
   
   def pages_for_parent_select(thispage, menu_type, action)
     if action != "new"
