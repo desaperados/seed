@@ -51,19 +51,6 @@ module ApplicationHelper
     end
   end
   
-  # Javascript include helper for lightview
-  def use_lightview
-      # Avoid multiple inclusions
-      @content_for_lightview_css = "" 
-      @content_for_lightview_js = "" 
-      content_for :lightview_css do
-        stylesheet_link_tag "lightview.css"
-      end  
-      content_for :lightview_js do
-        javascript_include_tag "lightview.js"
-      end
-  end
-  
   # Sets the html head section title
   def head_title
     root = "#{APP_CONFIG[:site_name]} &raquo;"

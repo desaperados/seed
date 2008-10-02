@@ -1,18 +1,26 @@
 <div id="news">
 	<div id="newsitems">
-		<% for newsitem in @newsitems %>
+		<% for newsitem in @newsitems -%>
 			<div class="newsitem">
-				<% if editable?(@page) %>
+				<% if editable?(@page) -%>
 					<span class="seed-admin-tag seed-edit-tag">
 						<%= link_to "edit", edit_newsitem_path(@page, newsitem)%>|<%= link_to "X", newsitem_path(@page, newsitem), :confirm => 'Delete this newsitem?', :method => :delete %>
 					</span>
 				<% end -%>
+				
 				<h3><%= newsitem.title %></h3>
 				<h4><%= format_date(newsitem.created_at, true) %></h4>
-				<% newsitem.images.each do |image| %>
-					<%= image_tag image.public_filename("#{newsitem.imagesize}") %>
-				<% end -%>
+				
+				<div id="images">
+  			  <% newsitem.images.each do |image| -%>
+  			  	<a href="<%= image.public_filename %>" class="lightview" rel="gallery[<%= newsitem.id %>]">
+              <%= image_tag image.public_filename("#{newsitem.imagesize}") %>
+            </a>
+  			  <% end -%>
+  			</div>
+  			
 				<%= textilize(newsitem.content) %>
+				
 			</div>
 		<% end -%>
 	</div>

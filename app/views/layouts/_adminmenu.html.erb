@@ -1,4 +1,4 @@
-<% if logged_in? && current_user.has_role?("admin") %>
+<% if logged_in? && current_user.has_role?("admin") -%>
 <ul id="seed-admin-menu">
 	<li><%= image_tag "icons/process.png", :size => "16x16" %></li>
   	<li><%= link_to "Galleries", "" %></li>

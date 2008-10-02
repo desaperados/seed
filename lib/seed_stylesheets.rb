@@ -6,7 +6,7 @@ module ActionView
       require 'find'
       
       def seed_stylesheets
-        seed_css = ["seed"]
+        seed_css = ["seed", "lightview"]
         
         template_css = []
         template_css_paths = match("#{RAILS_ROOT}/public/stylesheets/template/") { |p| ext = p[-4...p.size]; ext && ext.downcase == ".css"}
