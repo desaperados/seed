@@ -9,8 +9,16 @@
 	  
 	  <%= content_tag(:h3, component.title) %>
 	  
-    <% component.snippets.each do |snippet| -%>
-      <h4><%= link_to(snippet.title, page_path(component.source_page)) %></h4>
+	  <% if component.page_feed? %>
+      <% component.snippets.each do |snippet| -%>
+        <h4><%= link_to(snippet.title, page_path(component.source_page)) %></h4>
+      <% end -%>
+    <% end -%>
+    
+    <% if component.documents? %>
+      <% component.documents.each do |document| -%>
+        <h4><%= link_to(document.name, document.public_filename) %></h4>
+      <% end -%>
     <% end -%>
 
 </div>

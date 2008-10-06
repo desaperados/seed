@@ -2,10 +2,7 @@ class ImagesController < ApplicationController
   
   layout nil
   before_filter :login_required
-  before_filter :pages_menu, :except => [:create, :new, :destroy]
   
-  # TODO solve the problem that results in a No action responded to show error 
-  # when calling this (related to the the iframe in the view I think)
   def new
     @image = Image.new
   end

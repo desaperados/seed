@@ -8,6 +8,7 @@ class CreateComponents < ActiveRecord::Migration
       t.integer :position
       t.string :order
       t.string :snippet_class
+      t.string :component_type
 
       t.timestamps
     end

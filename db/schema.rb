@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081002193219) do
+ActiveRecord::Schema.define(:version => 20081006130719) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -47,6 +47,17 @@ ActiveRecord::Schema.define(:version => 20081002193219) do
     t.integer  "position"
     t.string   "order"
     t.string   "snippet_class"
+    t.string   "component_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "documents", :force => true do |t|
+    t.string   "name"
+    t.integer  "size"
+    t.string   "content_type"
+    t.string   "filename"
+    t.integer  "component_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -108,11 +119,6 @@ ActiveRecord::Schema.define(:version => 20081002193219) do
 
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
-
-  create_table "source_pages", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40

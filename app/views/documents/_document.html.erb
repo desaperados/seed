@@ -1,0 +1,7 @@
+<tr id="document_<%= document.id %>">
+  <td><%= truncate(document.name, 30, "...") %></td>
+  <td><%= document.content_type %></td>
+  <td><%= truncate(document.filename, 30, "...") %></td>
+  <td><%= number_to_human_size(document.size) %></td>
+  <td><%= link_to_remote "X", :url => document_path(document), :confirm => "Delete Document?", :method => :delete %></td>
+</tr>

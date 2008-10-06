@@ -28,6 +28,10 @@ div#head span.seed-admin-tag {
 	right: 0;
 	bottom: 0;
 }
+div#head span.seed-admin-tag a {
+	border-left: 10px;
+	background: #f0f0f0;
+}
 ul#seed-admin-menu {
 	position: absolute;
 	font-size: 10px;
@@ -89,7 +93,10 @@ form.tight {
 	width: 70%;
 	padding: 1em 1.5em;
 }
-form.tight label {
+form.ajax {
+	width: 370px;
+}
+form.tight label, form.ajax label {
 	float: none;
 	display: block;
 	color: #666;
@@ -141,11 +148,15 @@ form.tight div.input-row input,
 form.tight div.input-row textarea {
 	width: 100%;
 }
+form.ajax div.input-row input,
+form.ajax div.input-row textarea {
+	width: auto;
+}
+form.ajax div.submit {
+	margin-top: 10px;
+}
 form.comment textarea {
 	height: 90px;
-}
-form.ajax {
-	width: 93%;
 }
 div#seed-admin-form {
 	position: relative;
@@ -154,14 +165,14 @@ div#seed-admin-form h2 {
 	margin-top: 0;
 }
 
-/******* Articles Form Menu ********/
-ul#articletabs {
+/********** Form Tab Menu **********/
+ul#formtabs {
 	list-style: none;
 	margin: 20px 0 0 0;
 	padding: 0;
 	height: 17px;
 }
-ul#articletabs li a {
+ul#formtabs li a {
 	float: left;
 	padding: 0 10px 0 10px;
 	margin-right: 2px;
@@ -172,7 +183,7 @@ ul#articletabs li a {
 	text-decoration: none;
 	height: 16px;
 }
-ul#articletabs li a.selected {
+ul#formtabs li a.selected {
 	background-color: #f0f0f0;
 }
 
@@ -288,12 +299,23 @@ table.seed-roles th.editrole span {
 	float: right;
 }
 
-/********** Image Upload ***********/
-
-#seed-image-list { 			
-	border-top: 1px solid #ddd;
-	padding: 10px 5px;
+/********* Document Admin *********/
+div#form-documents {
+	margin-top: 1em;
 }
+div#form-documents a.button {
+	display: block;
+	border: 1px solid #ddd;
+	width: 100px;
+	text-decoration: none;
+	text-align: center;
+}
+table#document-table {
+	margin-top: 1em;
+}
+
+/********** Image Admin **********/
+
 .seed-image-item {
 	float: right;
 	border: 1px solid #ccc;

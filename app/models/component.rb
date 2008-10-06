@@ -2,10 +2,19 @@ class Component < ActiveRecord::Base
   belongs_to :page, :counter_cache => true
   belongs_to :source, :class_name => "Page", :foreign_key => :source_page
   acts_as_list :scope => :page_id
+  has_many :documents
   validates_presence_of :title
   
   def snippets
     snippet_class.constantize.find(:all, :order => order, :limit => limit, :conditions => ["page_id = ?", source_page])
+  end
+  
+  def page_feed?
+    true if component_type == "pagefeed"
+  end
+  
+  def documents?
+    true if component_type == "documents"
   end
   
   ORDER_OPTIONS = [

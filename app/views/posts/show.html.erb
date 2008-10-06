@@ -31,4 +31,6 @@
 		</div>
 	<% end -%>	
 </div>
-<%= render :partial => "comment" %>
+<% if @post.commentable? %>
+  <%= render :partial => "comment" %>
+<% end -%>

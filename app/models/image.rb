@@ -3,7 +3,7 @@ class Image < ActiveRecord::Base
   
   named_scope :originals, :conditions => ["parent_id IS NULL"]
   
-  has_attachment   :article_type => :image,
+  has_attachment   :content_type => :image,
                    :path_prefix  => 'public/imageupload',
                    :processor => 'rmagick',
                    :storage => :file_system, 
@@ -16,9 +16,4 @@ class Image < ActiveRecord::Base
 
   validates_as_attachment
   
-  #def before_destroy
-  #  if article 
-  #    raise "Can't delete images that are being used in an article"
-  #  end
-  #end
 end
