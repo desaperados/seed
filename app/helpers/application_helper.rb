@@ -34,7 +34,7 @@ module ApplicationHelper
   end
   
   # Sets the html head section title
-  def head_title
+  def seed_head_title
     root = "#{APP_CONFIG[:site_name]} &raquo;"
     title = @page_title || (@page.title if @page) || APP_CONFIG[:site_description]
     "#{root} #{title}"
