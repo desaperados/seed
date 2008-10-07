@@ -11,6 +11,18 @@ a:hover { color: #000; }
 table {width:100%;}
 table td { border: 1px solid #ddd}
 
+/********* Create Tags* ***********/
+
+div#head span.seed-admin-tag {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+div#head span.seed-admin-tag a {
+	border-left: 10px;
+	background: #f0f0f0;
+}
+
 /********** Page Layout ***********/
 
 body { 
@@ -47,16 +59,16 @@ div#foot {
 
 /************ Articles ************/
 
-div.article, div.newsitem {
+div.article, div.newsitem, div.post {
 	border-top: 1px solid #e9e9e9;
 	border-bottom: 1px solid #e9e9e9;
 	margin-bottom: 20px;
 	padding: 1em;
 }
-div.article h3, div.newsitem h3 {
+div.article h3, div.newsitem h3, div.post h3 {
 	margin: 1em 0;
 }
-div.article p, div.newsitem p {
+div.article p, div.newsitem p, div.post h3 {
 	margin: 1em 0;
 }
 
@@ -125,6 +137,10 @@ ul.menuchild li {
 }
 ul.menu li a {
 	text-decoration: none;
+}
+ul.menu li.add {
+	background-color: #f9f9f9;
+	font-size: 11px;
 }
 
 /******** Horizontal Menu *********/

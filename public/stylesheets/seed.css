@@ -15,24 +15,7 @@ pre {
 }
 
 /**** Absolute Positioned Tags ***/
-ul#menupages {
-	position: relative;
-}
-ul#menupages span.seed-edit-tag {
-	position: absolute;
-	left: 0;
-	bottom: -30px;
-}
-div#head span.seed-admin-tag {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-}
-div#head span.seed-admin-tag a {
-	border-left: 10px;
-	background: #f0f0f0;
-}
-ul#seed-admin-menu {
+ul#seed-user-bar {
 	position: absolute;
 	font-size: 10px;
 	margin: 0;
@@ -43,36 +26,17 @@ ul#seed-admin-menu {
 	background-color: #000;
 	opacity: 0.5;
 }
-ul#seed-admin-menu li {
+ul#seed-user-bar li {
 	float: left;
 	margin: 0 4px;
+	color: #999;
 }
-ul#seed-admin-menu a {
+ul#seed-user-bar a {
 	text-decoration: none;
 	color: #fff;
 }
-ul#seed-admin-menu a:hover {
+ul#seed-user-bar a:hover {
 	color: #4488bb;
-}
-div#seed-user-bar {
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	background-color: #000;
-	opacity: 0.5;
-	color: #fff;
-	padding: 4px 40px 4px 5px;
-	font-size: 10px;
-}
-div#seed-user-bar div {
-	float: left;
-	margin: 0 0 0 10px;
-}
-div#seed-user-bar a {
-	text-decoration: none;
-}
-div#seed-user-bar a:hover {
-	color: #fff;
 }
 
 /************* Forms ***************/

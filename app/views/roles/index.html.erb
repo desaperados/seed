@@ -1,3 +1,6 @@
+<%= content_tag(:span, link_to("Add Role", :controller => "roles", :action => "new"),
+		            :class => "seed-admin-tag") %>
+		            
 <% for role in @roles %>
 	<table class="seed-admin seed-roles" id="<%= role.name %>_table">
 		<tr>
@@ -32,9 +35,6 @@
 		<%= render :partial => "userrow", :collection => role.users, :locals => {:roleid => role.id} %>
 	</table>
 <% end -%>
-<% content_for :add_resource_link do %>
-	<%= content_tag(:span, 
-		link_to("Add Role", :controller => "roles", :action => "new"),
-		:class => "seed-admin-tag"
-	) %>
-<% end -%>
+
+
+

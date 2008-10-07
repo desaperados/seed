@@ -3,30 +3,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 	<head>
 	  <title><%= head_title %></title>
-	  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-	  <%= stylesheet_link_tag seed_stylesheets, :cache => :application %>
-	  <%= javascript_include_tag 'prototype', 'effects', 'dragdrop', 'scriptaculous.js? » load=effects', 'lightview', 'application', :cache => true %>
-	  <script type="text/javascript" charset="utf-8">window._token = '<%= form_authenticity_token -%>';</script>
+	  <%= seed_head_elements %>
 	</head>
 	<body>
 		<div id="container">
 			<%= seed_admin_messages %>
 			
 			<div id="head">
-				<%= page_title %>
-				<% if @page -%>
-					<p><%= @page.description %></p>
-					<%= add_resource_link(params[:controller], @page) %>
-				<% end -%>
-				<%= yield :add_resource_link %>
+				<%= seed_page_title %>
+				<%= seed_page_description %>
+				<%= seed_create_tags %>
 			</div>
 			
-			<%= render :partial => "layouts/menu_horizontal" %>
-			
 			<div id="left">
-				<%= render :partial => "layouts/menu_vertical" %>
-				<%= render :partial => "layouts/adminmenu" %>
-				<%= render :partial => "users/user_bar" %>
+				<%= seed_primary_menu %>
+				<%= seed_user_bar %>
 			</div>
 			
 			<div id="right">

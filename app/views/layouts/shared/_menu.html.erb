@@ -1,5 +1,5 @@
 <% if viewable?(menu) -%>
-	<li class="level_<%= menu.tree_level %>" id="page_<%= menu.id %>">
+	<li class="level_<%= menu.tree_level %> sortable" id="page_<%= menu.id %>">
 	    <%= link_to menu.name, resource_path(menu) %> 
 	    <% if editable?(menu) -%>
 	    	<span class="seed-admin-tag"><%= link_to "edit", edit_page_path(menu) %>|<%= link_to "X", page_path(menu), :confirm => 'Delete this page and all associated articles?', :method => :delete %></span>
@@ -9,7 +9,7 @@
 		  <% if menu.children -%>
 		  	 <ul class="menuchild">
 		  	 <% for child in menu.children -%>
-		  	   <li class="level_<%= child.tree_level %>" id="page_<%= child.id %>">
+		  	   <li class="level_<%= child.tree_level %> sortable" id="page_<%= child.id %>">
 	  			<%= link_to child.name, articles_path(child) %> 
 	  			<% if editable?(child) -%>
 	  			   <span class="seed-admin-tag"><%= link_to "edit", edit_page_path(child) %>|<%= link_to "X", page_path(child), :confirm => 'Delete this page and all associated articles?', :method => :delete %></span>

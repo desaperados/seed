@@ -12,8 +12,6 @@ development: &non_production_settings
   
   # Layout Settings
   enable_secondary_menu: false
-  primary_menu_orientation: vertical
-  secondary_menu_orientation: vertical
   
 test:
   <<: *non_production_settings
@@ -30,5 +28,3 @@ production:
   
   # Layout Settings
   enable_secondary_menu: false
-  primary_menu_orientation: vertical
-  secondary_menu_orientation: vertical

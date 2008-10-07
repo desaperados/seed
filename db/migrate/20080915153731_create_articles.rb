@@ -13,7 +13,7 @@ class CreateArticles < ActiveRecord::Migration
 
       t.timestamps
     end
-    Article.create(:title => "Welcome to Seed", :content => "This is your first seed article! \nLogin using the link in the bottom right corner to make changes. \nUser: admin\nPassword: administrator", :page_id => 1)
+    Article.create(:title => "Welcome to Seed", :content => "This is your first seed article! \nLogin at http://yoursiteurl/login to make changes. \nUser: admin\nPassword: administrator", :page_id => 1)
   
     # Some test articles for development
      Article.create(:title => "Test article 1", :content => "An article for testing during development", :page_id => 2)

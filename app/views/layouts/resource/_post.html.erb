@@ -1,0 +1,21 @@
+<div class="post">
+	<% if editable?(@page) -%>
+		<span class="seed-admin-tag seed-edit-tag">
+			<%= link_to "edit", edit_post_path(@page, post)%>|<%= link_to "X", post_path(@page, post), :confirm => 'Delete this post?', :method => :delete %>
+		</span>
+	<% end -%>
+	
+	<h3><%= link_to post.title, post_path(@page, post) %></h3>
+	<h4><%= format_date(post.created_at, true) %></h4>
+	
+	<div id="images">
+	  <% post.images.each do |image| -%>
+	  	<a href="<%= image.public_filename %>" class="lightview" rel="gallery[<%= post.id %>]">
+        <%= image_tag image.public_filename("#{post.imagesize}") %>
+      </a>
+	  <% end -%>
+	</div>
+
+	<%= textilize(post.content) %>
+	<em><%= link_to "#{post.comments.size} comments", post_path(@page, post) %></em>
+</div>
