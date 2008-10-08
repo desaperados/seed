@@ -6,6 +6,10 @@ class Newsitem < Article
     end
   end
   
+  def sortable?
+    false
+  end
+  
   def self.find_all_in_month(year, month, page, per_page)
     conditions = ["created_at BETWEEN ? AND ?", DateTime.new(year, month, 1), DateTime.new(year, month, days_in_month(year, month), 11, 59, 59)]
     self.paginate(:page => page, :per_page => per_page, :conditions => conditions, :order => "created_at DESC")

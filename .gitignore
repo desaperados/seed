@@ -7,7 +7,7 @@ tmp/**/*
 public/imageupload
 public/documents
 public/stylesheets/application.css
-public/javascripts/all.css
+public/javascripts/all.js
 public/stylesheets/template/*.css
 db/*.sqlite3
 Capfile

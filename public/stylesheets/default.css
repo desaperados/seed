@@ -57,19 +57,22 @@ div#foot {
 	clear: both;
 }
 
-/************ Articles ************/
+/************ Resources ************/
 
 div.article, div.newsitem, div.post {
 	border-top: 1px solid #e9e9e9;
-	border-bottom: 1px solid #e9e9e9;
 	margin-bottom: 20px;
 	padding: 1em;
 }
-div.article h3, div.newsitem h3, div.post h3 {
+div.article h2, div.newsitem h2, div.post h2 {
+	margin: 1em 0;
+	font-size: 16px;
+}
+div.article p, div.newsitem p, div.post p {
 	margin: 1em 0;
 }
-div.article p, div.newsitem p, div.post h3 {
-	margin: 1em 0;
+div.article a, div.newsitem a, div.post a {
+	text-decoration: none;
 }
 
 /*********** News & Blog **********/
@@ -99,12 +102,17 @@ div#archive h4 {
 div#archive h4.year a {
 	color: #666;
 }
+
 /************ Comments ************/
 div.comment {
 	background: #f8f8f8;
 	border-top: 1px solid #ddd;
 	padding: 1em;
 }
+div.comment.even {
+	background: #fbfbfb;
+}
+
 /*********** Components ***********/
 div#components {
 	text-align: left;

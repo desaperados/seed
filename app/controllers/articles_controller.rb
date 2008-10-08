@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   
+  caches_action :index, :unless => :logged_in?
+  
   before_filter :login_required, :except => [:index, :show]
   before_filter :pages_menu, :only => [:index, :new, :edit, :show]
   before_filter :get_page, :only => [:index, :new, :edit, :show]

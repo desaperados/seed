@@ -1,12 +1,12 @@
-<div class="article">
+<div class="post">
 	<% if editable?(@page) -%>
 		<span class="seed-admin-tag seed-edit-tag">
 			<%= link_to "edit", edit_post_path(@page, @post)%>|<%= link_to "X", post_path(@page, @post), :confirm => 'Delete this post?', :method => :delete %>
 		</span>
 	<% end -%>
 	
-	<h3><%= @post.title %></h3>
-	<h4><%= format_date(@post.created_at, true) %></h4>
+	<h2><%= @post.title %></h2>
+	<h4>By <%= @post.author %>, <%= simple_date(@post.created_at) %></h4>
 	
 	<div id="images">
 	  <% @post.images.each do |image| -%>
@@ -18,19 +18,14 @@
 	
 	<%= textilize(@post.content) %>
 </div>
+
 <div id="comments">
-	<% for comment in @comments -%>
-		<div class="comment">
-			<% if editable?(@page) -%>
-				<span class="seed-admin-tag seed-edit-tag">
-					<%= link_to "X", comment_path(comment, :page_id => params[:page_id]), :confirm => 'Delete this comment?', :method => :delete %>
-				</span>
-			<% end -%>
-			<%= link_to_unless(comment.website.blank?, comment.name, comment.website) %>
-			<%= textilize(comment.comment) %>
-		</div>
-	<% end -%>	
+	<% if @post.comments %>
+	  <h3>Comments (<%= @post.comments.size %>)</h3>
+	  <%= render :partial => "comment", :collection => @post.comments %>
+	<% end -%>
 </div>
+
 <% if @post.commentable? %>
-  <%= render :partial => "comment" %>
+  <%= render :partial => "commentform" %>
 <% end -%>

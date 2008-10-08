@@ -5,6 +5,10 @@ class Article < ActiveRecord::Base
   
   validates_presence_of :title
   
+  def sortable?
+    true
+  end
+  
   IMAGESIZE = [
     [ 'Small', 'thumb100' ],
     [ 'Regular', 'thumb200' ],

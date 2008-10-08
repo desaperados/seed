@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(:version => 20081006130719) do
     t.string   "imagesize"
     t.string   "imageposition"
     t.boolean  "commentable",   :default => true
+    t.boolean  "truncate",      :default => true
+    t.string   "author"
     t.integer  "page_id"
     t.integer  "position"
     t.datetime "created_at"

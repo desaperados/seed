@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery :secret => '8c4c66a250987cb59c7eb90053e840e4'
   filter_parameter_logging :password, :password_confirmation
   
+  protected
+  
   def pages_menu
     pages = Page.find(:all, :conditions => ["parent_id IS NULL"], :order => "position")
     grouped_pages = pages.group_by { |p| p[:menu_type] }

@@ -9,6 +9,10 @@ module ApplicationHelper
      end
   end
   
+  def simple_date(date)
+    date.strftime("%B %d %Y")
+  end
+  
   def viewable?(page)
     page.public? || (logged_in? && page.private?) || (logged_in? && current_user.has_role?("#{page.viewable_by}"))
   end

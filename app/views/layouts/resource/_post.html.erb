@@ -5,8 +5,8 @@
 		</span>
 	<% end -%>
 	
-	<h3><%= link_to post.title, post_path(@page, post) %></h3>
-	<h4><%= format_date(post.created_at, true) %></h4>
+	<h2><%= link_to post.title, post_path(@page, post) %></h2>
+	<h4><%= simple_date(post.created_at) %></h4>
 	
 	<div id="images">
 	  <% post.images.each do |image| -%>
@@ -16,6 +16,8 @@
 	  <% end -%>
 	</div>
 
-	<%= textilize(post.content) %>
-	<em><%= link_to "#{post.comments.size} comments", post_path(@page, post) %></em>
+	<%= textilize(truncate(post.content, 1000, "... #{link_to '[more]', post_path(@page, post)}")) %>
+	<% if post.commentable? %>
+	  <em><%= link_to "#{post.comments.size} comments", post_path(@page, post) %></em>
+	<% end -%>
 </div>

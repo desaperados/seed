@@ -1,0 +1,24 @@
+<div id="comment_form">
+	<h3>Add your comment:</h3>
+	<% form_for(@comment, :html => {:class => "seed-admin tight comment"}) do |f| %>
+		<div class="input-row">
+			<%= f.label :name, "Name: <small>(required)</small>" %>
+			<%= f.text_field :name %>
+		</div>
+		<div class="input-row">
+			<%= f.label :email, "Email: <small>(not displayed)</small>" %>
+			<%= f.text_field :email %>
+		</div>
+		<div class="input-row">
+			<%= f.label :website, "Website URL: <small>(include http://)</small>" %>
+			<%= f.text_field :website %>
+		</div>
+		<div class="input-row">
+			<%= f.label :comment, "Comment: <small>(required)</small>" %>
+			<%= f.text_area :comment %>
+		</div>
+		<%= hidden_field_tag :page_id, params[:page_id] %>
+		<%= f.hidden_field :post_id, :value => params[:id] %>
+		<%= f.submit "Submit" %>
+	<% end -%>	
+</div>

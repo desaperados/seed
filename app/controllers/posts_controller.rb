@@ -14,7 +14,6 @@ class PostsController < ArticlesController
   
   def show
     @post = @page.posts.find(params[:id])
-    @comments = @post.comments
     if @post.article_type == "post"
       @comment = Comment.new
     end

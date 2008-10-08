@@ -1,7 +1,7 @@
 seed | a Common Sense CMS from The Media Collective
 
 Status: 
-Currently in early development. 
+Currently under intense development. 
 
 USAGE
 
@@ -20,7 +20,9 @@ script/server
 
 CURRENT FEATURES:
 
-- Site wide embedded content creation and editing. 
+- Site wide embedded content creation and editing
+- Override the default layout with a custom template
+- Exception Notification
 
 - Page Creation and Management
   - Menu Hierarchy Ordering
@@ -40,6 +42,11 @@ CURRENT FEATURES:
   - News archive
   - Integrated image upload
   - Comments with Akismet spam protection 
+  
+- Components Creation and Management
+  - Pull feeds from other pages on the site
+  - Integrated document upload
+  - Customise display options
 
 - Users Module
   - Restful Authentication
@@ -47,20 +54,6 @@ CURRENT FEATURES:
   - Account activation via email
   - Forgotten password handling
 
-- Override the default layout with a custom template
-- Exception Notification
-
-TODO:
-
-- Add Roles control to controllers
-- Sidebars
-- Plugin Customisation
-- Modularise components
-- Allow drag and drop Page sorting between tree levels
-- Search Facility
-- Full featured image management
-- Gravatar for users
-- RSS / Atom Feeds
 
 NOTES:
 

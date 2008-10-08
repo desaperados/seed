@@ -5,8 +5,8 @@
 		</span>
 	<% end -%>
 	
-	<h3><%= newsitem.title %></h3>
-	<h4><%= format_date(newsitem.created_at, true) %></h4>
+	<h2><%= newsitem.title %></h2>
+	<h3><%= simple_date(newsitem.created_at) %></h3>
 	
 	<div id="images">
 	  <% newsitem.images.each do |image| -%>

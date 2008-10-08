@@ -2,7 +2,7 @@
   <div id="sortableitems">
     <%= render :partial => "layouts/resource/#{collection.first.class.name.downcase}", :collection => collection %>
   </div>
-  <% if logged_in? %>
+  <% if logged_in? && (collection.first.sortable? if !collection.empty?) %>
   <%= sortable_element('sortableitems',  
   					 :url => {:controller => "javascript", :action => "update_item_order", :class_name => collection.first.class.name},
   					 :tag => :div ) %>

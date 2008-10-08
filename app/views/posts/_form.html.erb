@@ -21,7 +21,8 @@
   </div>
   </fieldset>
   <%= f.hidden_field :page_id %>
-  <%= hidden_field :article, :article_type, {:value => "post"} %>
+  <%= f.hidden_field :article_type, {:value => "post"} %>
+  <%= f.hidden_field :author, {:value => current_user.name} %>
 
   <div id="image-ids">
 	<% @article.images.each do |image| %>
