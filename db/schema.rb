@@ -15,14 +15,14 @@ ActiveRecord::Schema.define(:version => 20081006130719) do
     t.string   "title"
     t.string   "content"
     t.string   "video"
-    t.string   "article_type",  :default => "article"
+    t.string   "article_type",   :default => "article"
     t.string   "imagesize"
     t.string   "imageposition"
-    t.boolean  "commentable",   :default => true
-    t.boolean  "truncate",      :default => true
+    t.boolean  "commentable",    :default => true
     t.string   "author"
     t.integer  "page_id"
     t.integer  "position"
+    t.integer  "comments_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

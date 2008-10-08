@@ -11,6 +11,7 @@ class CreateArticles < ActiveRecord::Migration
       t.string :author
       t.integer :page_id
       t.integer :position
+      t.integer :comments_count, :default => 0
 
       t.timestamps
     end

@@ -1,4 +1,4 @@
-<% form_for @component, :url => component_path(@page, @component), :html => {:class => "seed-admin", :id => "changer"} do |f| -%>
+<% form_for @component, :url => component_path(@page, @component), :html => {:class => "seed-admin tight", :id => "changer"} do |f| -%>
   <%= f.error_messages %>
   <fieldset>
     <div class="input-row">
@@ -19,7 +19,16 @@
     </div>
   </fieldset>
   <%= f.hidden_field :component_type, :value => "pagefeed" %>
-  <div>
+  <div class="submit">
     <%= f.submit submit %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
   </div>
 <% end %>
+
+<div id="form-sidebar">
+	<div id="seed-notes">
+		<h4>Component Type:</h4>
+		<h5>Page Feed</h5>
+		<p>Displays links to articles from another page on this site.</p> 
+		<p>Select the source page, the display order and the number of items to display.</p> 
+	</div>
+</div>

@@ -4,9 +4,12 @@ class Document < ActiveRecord::Base
   
   has_attachment    :max_size => 4.megabytes,
                     :content_type => ['application/pdf', 
-                                      'application/ms-word', 
-                                      'application/ms-excel', 
-                                      'application/ms-powerpoint', 
+                                      'application/msword', 
+                                      'application/msexcel', 
+                                      'application/vnd.ms-excel',
+                                      'application/mspowerpoint',
+                                      'application/octet-stream',
+                                      'text/rtf',
                                       'text/plain'],
                     :storage => :file_system
                     

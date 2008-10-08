@@ -1,4 +1,4 @@
-<% form_for @component, :url => component_path(@page, @component), :html => {:class => "seed-admin", :id => "changer"} do |f| -%>
+<% form_for @component, :url => component_path(@page, @component), :html => {:class => "seed-admin tight", :id => "changer"} do |f| -%>
   <%= f.error_messages %>
   <fieldset>
     <div class="input-row">
@@ -16,10 +16,19 @@
 		  <%= hidden_field_tag "component[document_ids][]", document.id, :id => "hidden_document_tag_#{document.id}" %>
 	  <% end -%>
   </div>
-  <div>
+  <div class="submit">
     <%= f.submit submit %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
   </div>
 <% end %>
+
+<div id="form-sidebar">
+	<div id="seed-notes">
+		<h4>Component Type:</h4>
+		<h5>Documents</h5>
+		<p>Displays links to documents for viewing or download.</p> 
+		<p>Upload documents that you would like this component to display.</p>
+	</div>
+</div>
 
 <div id="form-documents">
   
@@ -27,7 +36,18 @@
 				{:class => "button"}, {:title => "'Document Upload'"}, {:autosize => false, :width => 400, :height => 250} )%>
 		
 		<table id="document-table" class="seed-admin">
-		  <%= render :partial => "documents/document", :collection => @component.documents %>
+		  <thead>
+		    <tr>
+		      <th>Name</th>
+		      <th>Type</th>
+		      <th>Filename</th>
+		      <th colspan="2">Size</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <%= render :partial => "documents/document", :collection => @component.documents %>
+		  </tbody>
 		</table>
 		
 </div>
+

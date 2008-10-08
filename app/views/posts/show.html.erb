@@ -20,7 +20,7 @@
 </div>
 
 <div id="comments">
-	<% if @post.comments %>
+	<% if !@post.comments.size.zero? %>
 	  <h3>Comments (<%= @post.comments.size %>)</h3>
 	  <%= render :partial => "comment", :collection => @post.comments %>
 	<% end -%>

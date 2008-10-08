@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  belongs_to :post
+  belongs_to :post, :counter_cache => true
   validates_presence_of :name, :email, :comment
   before_create :check_for_spam
   

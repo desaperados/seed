@@ -1,0 +1,20 @@
+<div class="newsitem">
+	<% if editable?(@page) -%>
+		<span class="seed-admin-tag seed-edit-tag">
+			<%= link_to "edit", edit_newsitem_path(@page, @newsitem)%>|<%= link_to "X", newsitem_path(@page, @newsitem), :confirm => 'Delete this News item?', :method => :delete %>
+		</span>
+	<% end -%>
+	
+	<h2><%= @newsitem.title %></h2>
+	<h4><%= simple_date(@newsitem.created_at) %></h4>
+	
+	<div id="images">
+	  <% @newsitem.images.each do |image| -%>
+	  	<a href="<%= image.public_filename %>" class="lightview" rel="gallery[<%= @newsitem.id %>]">
+        <%= image_tag image.public_filename("#{@newsitem.imagesize}") %>
+      </a>
+	  <% end -%>
+	</div>
+	
+	<%= textilize(@newsitem.content) %>
+</div>

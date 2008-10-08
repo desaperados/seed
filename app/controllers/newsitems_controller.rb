@@ -13,6 +13,10 @@ class NewsitemsController < ArticlesController
     end
   end
   
+  def show
+    @newsitem = @page.newsitems.find(params[:id])
+  end
+  
   private
   
   def archive_menu

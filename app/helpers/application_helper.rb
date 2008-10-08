@@ -13,6 +13,11 @@ module ApplicationHelper
     date.strftime("%B %d %Y")
   end
   
+  # Convenience methods for checking site settings
+  def secondary_menu?
+    true unless APP_CONFIG[:enable_secondary_menu] != true
+  end
+  
   def viewable?(page)
     page.public? || (logged_in? && page.private?) || (logged_in? && current_user.has_role?("#{page.viewable_by}"))
   end

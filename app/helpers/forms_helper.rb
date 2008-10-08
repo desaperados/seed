@@ -15,7 +15,7 @@ module FormsHelper
   
   def selected?(name, resource)
     if !resource.nil?
-      "selected" if resource == "selected" || (name.downcase == resource_type(resource))
+      "selected" if resource == "selected" || (partial_name(name) == resource_type(resource))
     end
   end
   

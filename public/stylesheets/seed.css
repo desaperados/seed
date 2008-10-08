@@ -116,7 +116,7 @@ form.ajax div.input-row input,
 form.ajax div.input-row textarea {
 	width: auto;
 }
-form.ajax div.submit {
+form.ajax div.submit, form.tight div.submit {
 	margin-top: 10px;
 }
 form.comment textarea {
