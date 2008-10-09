@@ -1,5 +1,9 @@
 module RenderingHelper
   
+  def seed_site_search(container="search", submit="Search")
+    render :partial => "search/form", :locals => {:container => container, :submit => submit}
+  end
+  
   def seed_render_all(collection, container="seed-resources")
     render :partial => "layouts/resource/container", :locals => {:collection => collection, :container => container}
   end

@@ -18,6 +18,9 @@ ActionController::Routing::Routes.draw do |map|
     page.resources :posts, :name_prefix => nil, :as => "blog"
   end
   
+  # Search
+  map.search 'search', :controller => "search", :action => "index"
+  
   # News Archive Mapping
   map.archive 'pages/:page_id/news/archive/:month/:year', :controller => 'newsitems', :action => 'index'
   map.annual_archive 'pages/:page_id/news/archive/:year', :controller => 'newsitems', :action => 'index'

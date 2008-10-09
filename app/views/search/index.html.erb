@@ -1,0 +1,44 @@
+<div id="search-results">
+  <%= title "Search Results" %>
+  
+  <% if @empty -%>
+    <p>No records matched your search</p>
+  <% else -%>
+  
+    <% if @grouped_results["article"] -%>
+      <div class="result-group">
+        <%= content_tag(:h2, "Content (#{@grouped_results["article"].size})") %>
+        <% @grouped_results["article"].each do |article| -%>
+          <h3><%= link_to highlight(article.title, params[:query]), articles_path(article.page_id) %></h3>
+          <p><%= truncate_for_search(article.content, params[:query]) %></p>
+        <% end -%>
+      </div>
+    <% end -%>
+    
+    <% if @grouped_results["post"] -%>
+      <div class="result-group">
+        <%= content_tag(:h2, "Blog Posts (#{@grouped_results["post"].size})") %>
+        <% @grouped_results["post"].each do |post| -%>
+          <h3><%= link_to post.title, post_path(post.page_id, post) %></h3>
+          <p><%= truncate_for_search(post.content, params[:query]) %></p>
+        <% end -%>
+      </div>
+    <% end -%>
+    
+    <% if @grouped_results["news"] -%>
+      <div class="result-group">
+        <%= content_tag(:h2, "News Items (#{@grouped_results["news"].size})") %>
+        <% @grouped_results["news"].each do |newsitem| -%>
+          <h3><%= link_to newsitem.title, newsitem_path(newsitem.page_id, newsitem) %></h3>
+          <p><%= truncate_for_search(newsitem.content, params[:query]) %></p>
+        <% end -%>
+      </div>
+    <% end -%>
+    
+    <%= will_paginate @results %>
+    
+  <% end -%>
+  
+  
+  
+</div>

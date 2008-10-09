@@ -1,0 +1,8 @@
+<div id="<%= container %>">
+	<% form_tag search_path, :method => 'get' do %>
+	<fieldset>
+		<%= submit_tag submit, :class => "search", :name => nil %>
+		<%= text_field_tag :query, params[:query] %>
+	</fieldset>
+	<% end %>
+</div>

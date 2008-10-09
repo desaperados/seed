@@ -35,9 +35,9 @@ module ApplicationHelper
   # Generate a path for component links
   def resource_path(type, page, resource)
     if type == "Article"
-      eval ("#{type.downcase.pluralize}_path(#{page})")
+      eval("#{type.downcase.pluralize}_path(#{page})")
     else
-      eval ("#{type.downcase}_path(#{page}, #{resource})")
+      eval("#{type.downcase}_path(#{page}, #{resource})")
     end
   end
   

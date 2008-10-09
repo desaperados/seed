@@ -57,6 +57,26 @@ div#foot {
 	clear: both;
 }
 
+/************* Search **************/
+div#head div#search {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+div#search-results h2 {
+	border-bottom: 1px solid #ddd;
+	padding: 0 0 1em 0;
+}
+div#search-results h3 {
+	font-weight: normal;
+}
+div#search-results div.result-group {
+	margin-bottom: 4em;
+}
+div#search-results p strong.highlight {
+	background-color: #ffff66;
+}
+
 /************ Resources ************/
 
 div.article, div.newsitem, div.post {

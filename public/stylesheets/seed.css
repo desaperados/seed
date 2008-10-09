@@ -13,27 +13,33 @@ pre {
   padding: 10px;
   font-size: 11px;
 }
+fieldset {
+	border-width: 0;
+	padding: 0;
+	position: relative;
+}
 
 /**** Absolute Positioned Tags ***/
 ul#seed-user-bar {
-	position: absolute;
 	font-size: 10px;
 	margin: 0;
-	padding: 4px 40px 0 0;
-	top: 0;
-	right: 0;
+	padding: 2px 5px 0 5px;
 	list-style: none;
-	background-color: #000;
-	opacity: 0.5;
+	background-color: #ffff99;
+	height: 18px;
+	border-bottom: 1px solid #ccc;
 }
 ul#seed-user-bar li {
-	float: left;
-	margin: 0 4px;
+	float: right;
+	margin: 0 4px 0 0;
 	color: #999;
+}
+ul#seed-user-bar li.left {
+	float: left;
 }
 ul#seed-user-bar a {
 	text-decoration: none;
-	color: #fff;
+	color: #666;
 }
 ul#seed-user-bar a:hover {
 	color: #4488bb;
@@ -77,11 +83,6 @@ form.seed-admin img {
 	position: absolute;
 	top: 5px;
 	right: 15px;
-}
-form.seed-admin fieldset {
-	border-width: 0;
-	padding: 0;
-	position: relative;
 }
 form.seed-admin legend {
 	padding: 0 0 10px 0;
@@ -368,6 +369,7 @@ div#flash-notice, div#flash-warning, div#flash-error {
 	background-color: blue;
 	opacity: 0.5;
 	padding: 1px 40px 1px 5px;
+	z-index: 1000;
 }
 ul#ajax-error {
 	margin-bottom: 10px;

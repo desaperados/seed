@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
   belongs_to :page
   acts_as_list :scope => :page
   has_many :images
-  
+  acts_as_indexed :fields => [:title, :content]
   validates_presence_of :title
   
   def sortable?
