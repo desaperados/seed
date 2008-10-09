@@ -10,4 +10,8 @@ class UserObserver < ActiveRecord::Observer
   def after_destroy(user)
     UserMailer.deliver_termination_notification(user)
   end
+  
+  def after_update(user)
+    UserMailer.deliver_update_notification(user)
+  end
 end

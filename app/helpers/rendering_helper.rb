@@ -29,7 +29,9 @@ module RenderingHelper
   end
   
   def seed_page_components(container="component")
-    render :partial => "components/components", :locals => {:container => container}
+    if !@page.components.size.zero?
+      render :partial => "components/components", :locals => {:container => container}
+    end
   end
   
   def seed_admin_messages

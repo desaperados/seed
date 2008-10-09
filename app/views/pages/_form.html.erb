@@ -31,7 +31,7 @@
     <%= render :partial => "menu_type" %>
   </div>
 
-  <% if action_name == "new" %>
+  <% if action_name != "edit" %>
   	<div class="input-row">
   	  <%= f.label :kind, "Page Type:" %>
   	  <%= f.select(:kind, Page::KIND) %>

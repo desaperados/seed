@@ -262,6 +262,9 @@ table.seed-roles th.editrole span {
 .seed-edit-tag {
 	float: right;
 }
+div.button {
+	margin: 0 0 1em 0;
+}
 
 /********* Document Admin *********/
 div#form-documents {
@@ -276,6 +279,18 @@ div#form-documents a.button {
 }
 table#document-table {
 	margin-top: 1em;
+}
+
+/*********** User Admin ***********/
+div#user {
+	border: 1px solid #ddd;
+	padding: 1em;
+	width: 90%;
+	margin-bottom: 1em;
+	color: #666;
+}
+div#user p {
+	margin: 0 0 0.5em 0;
 }
 
 /********** Image Admin **********/

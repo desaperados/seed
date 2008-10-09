@@ -1,3 +1,41 @@
-<%= @user.login %><br />
-<%= @user.email %><br /><br />
-TODO: Add options for the user to provide more profile info here.
+<div id="user">
+  <p><strong>Name: </strong><%= @user.name %></p>
+  <p><strong>Login name: </strong><%= @user.login %></p>
+  <p><strong>Email Address: </strong><%= @user.email %></p>
+  <p><strong>Account Created: </strong><%= simple_date(@user.created_at) %></p>
+  <p>
+    <strong>Roles:</strong>
+    <% @user.roles.each do |role| -%>
+    	<%= "#{role.name} " -%>
+    <% end -%>
+  </p>
+</div>
+
+
+<div id="seed-admin-form">
+
+<% @user.password = @user.password_confirmation = nil %>
+
+<% form_for @user, :html => {:class => "seed-admin"} do |f| -%>
+  <%= error_messages_for :user %>
+	<fieldset>
+	<div class="input-row">
+		<%= label_tag 'name' %>
+		<%= f.text_field :name %>
+	</div>
+	
+	<div class="input-row">
+		<%= label_tag 'password' %>
+		<%= f.password_field :password %>
+	</div>
+	
+	<div class="input-row">
+		<%= label_tag 'password_confirmation', 'Confirm Password' %>
+		<%= f.password_field :password_confirmation %>
+	</div>
+	</fieldset>
+	<div>
+		<%= submit_tag 'Change Details' %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
+	</div>
+<% end -%>
+</div>

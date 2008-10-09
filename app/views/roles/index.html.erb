@@ -1,6 +1,7 @@
+<div class="button">
 <%= content_tag(:span, link_to("Add Role", :controller => "roles", :action => "new"),
 		            :class => "seed-admin-tag") %>
-		            
+</div>
 <% for role in @roles %>
 	<table class="seed-admin seed-roles" id="<%= role.name %>_table">
 		<tr>

@@ -17,6 +17,13 @@ class UserMailer < ActionMailer::Base
     @body[:url]  = APP_CONFIG[:site_url]
   end
   
+  def update_notification(user)
+    setup_email(user)
+    @subject    += 'Your account details have been updated'
+    @body[:url]  = APP_CONFIG[:site_url]
+    @body[:password] = (user.password == "") ? "[Unchanged]" : user.password
+  end
+  
   protected
     def setup_email(user)
       @recipients  = "#{user.email}"

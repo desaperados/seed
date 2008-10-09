@@ -28,8 +28,17 @@ module ApplicationHelper
   
   # Generate RESTful path for the pages menu according
   # to Page attributes
-  def resource_path(page)
+  def resources_path(page)
     eval ("#{page.kind}_path(#{page.id})")
+  end
+  
+  # Generate a path for component links
+  def resource_path(type, page, resource)
+    if type == "Article"
+      eval ("#{type.downcase.pluralize}_path(#{page})")
+    else
+      eval ("#{type.downcase}_path(#{page}, #{resource})")
+    end
   end
   
   # Generate a link for adding a new resource based on the 

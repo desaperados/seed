@@ -5,7 +5,7 @@ class CreatePages < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.integer :position
-      t.string :kind
+      t.string :kind, :default => "articles"
       t.string :menu_type, :default => "primary"
       t.string :viewable_by, :default => "public"
       t.string :editable_by, :default => "all users"

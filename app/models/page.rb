@@ -32,15 +32,10 @@ class Page < ActiveRecord::Base
   ]
   
   KIND = [
-    [ 'General - Articles', 'articles' ],
-    [ 'News - News items with dates and archive section', 'newsitems' ],
-    [ 'Blog - Dated articles with comments', 'posts' ]
+    [ 'General - Text, Images, Video, Table', 'articles' ],
+    [ 'News    - News items with dates and archive section', 'newsitems' ],
+    [ 'Blog    - Dated articles with comments', 'posts' ]
   ]
-  
-  # TODO - Add some page types
-  #[ 'Blog - Dated articles with comments', 'posts' ],
-  #[ 'Gallery - Image gallery', 'images' ],
-  #[ 'Table - Tabular Information', 'tables' ]
   
   PAGINATION = [
     [ 'No Pagination', '' ],

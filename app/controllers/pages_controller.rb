@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   
   def show
      @page = Page.find(params[:id])
-     redirect_to resource_path(@page) 
+     redirect_to resources_path(@page) 
   end
 
   def edit
@@ -21,7 +21,7 @@ class PagesController < ApplicationController
 
     if @page.save
       flash[:notice] = 'Page was successfully created'
-      redirect_to resource_path(@page) 
+      redirect_to resources_path(@page) 
     else
       pages_menu
       render :action => "new" 
@@ -33,7 +33,7 @@ class PagesController < ApplicationController
 
     if @page.update_attributes(params[:page])
       flash[:notice] = 'Page was successfully updated'
-      redirect_to resource_path(@page) 
+      redirect_to resources_path(@page) 
     else
       pages_menu
       render :action => "edit"
@@ -53,8 +53,8 @@ class PagesController < ApplicationController
   
   private
   
-  def resource_path(page)
-    eval ("#{page.kind}_path(#{page.id})")
+  def resources_path(page)
+    eval ("#{page.kind}_path(#{page.id})") 
   end
   
   def current_page

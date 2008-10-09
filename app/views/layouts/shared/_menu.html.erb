@@ -1,6 +1,6 @@
 <% if viewable?(menu) -%>
 	<li class="level_<%= menu.tree_level %> sortable" id="page_<%= menu.id %>">
-	    <%= link_to menu.name, resource_path(menu) %> 
+	    <%= link_to menu.name, resources_path(menu) %> 
 	    <% if editable?(menu) -%>
 	    	<span class="seed-admin-tag"><%= link_to "edit", edit_page_path(menu) %>|<%= link_to "X", page_path(menu), :confirm => 'Delete this page and all associated articles?', :method => :delete %></span>
 	    	<%= image_tag "icons/drag_handle.gif", :size => "11x11", :class => "handle" %>

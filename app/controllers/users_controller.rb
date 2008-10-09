@@ -1,6 +1,6 @@
 class UsersController < ApplicationController  
 
-  before_filter :login_required, :only => :index
+  before_filter :login_required, :only => [:index, :show]
   require_role "admin", :only => [:index]
   before_filter :pages_menu, :except => [:activate]
   
@@ -54,6 +54,17 @@ class UsersController < ApplicationController
     else 
       flash[:error]  = "We couldn't find a user with that activation code -- check your email? Or maybe you've already activated -- try signing in."
       redirect_back_or_default('/')
+    end
+  end
+  
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "Details successfully updated. Confirmation sent by email."
+      redirect_to user_url(params[:id])
+    else
+      render :action => "show"
     end
   end
   
