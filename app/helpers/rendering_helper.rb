@@ -23,13 +23,15 @@ module RenderingHelper
   end
   
   def seed_secondary_menu(orientation="vertical", container="vertical-menu")
-    container = "horizontal-menu" if orientation == "horizontal"
-    render :partial => "layouts/shared/menu_container", 
-           :locals => {:orientation => orientation, 
-                       :container => container,
-                       :sortable_id => "menupages2",
-                       :type => "secondary",
-                       :collection => @secondary_pages}
+    if secondary_menu?
+      container = "horizontal-menu" if orientation == "horizontal"
+      render :partial => "layouts/shared/menu_container", 
+             :locals => {:orientation => orientation, 
+                         :container => container,
+                         :sortable_id => "menupages2",
+                         :type => "secondary",
+                         :collection => @secondary_pages}
+    end
   end
   
   def seed_page_components(container="component")

@@ -9,6 +9,14 @@ class Article < ActiveRecord::Base
     true
   end
   
+  def to_param
+    "#{id}-#{permalink}"
+  end
+  
+  def permalink
+    title.downcase.gsub(/[^a-z1-9]+/i, '-')
+  end
+  
   IMAGESIZE = [
     [ 'Small', 'thumb100' ],
     [ 'Regular', 'thumb200' ],

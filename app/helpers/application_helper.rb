@@ -13,6 +13,14 @@ module ApplicationHelper
     date.strftime("%B %d %Y")
   end
   
+  def tag_id_for_page(page)
+    if page
+      "#{page.name.downcase.gsub(" ", "-")}"
+    else
+      "admin"
+    end
+  end
+  
   # Convenience methods for checking site settings
   def secondary_menu?
     true unless APP_CONFIG[:enable_secondary_menu] != true
@@ -29,15 +37,15 @@ module ApplicationHelper
   # Generate RESTful path for the pages menu according
   # to Page attributes
   def resources_path(page)
-    eval ("#{page.kind}_path(#{page.id})")
+    eval "#{page.kind}_path('#{page.id}-#{page.permalink}')"
   end
   
   # Generate a path for component links
-  def resource_path(type, page, resource)
-    if type == "Article"
-      eval("#{type.downcase.pluralize}_path(#{page})")
+  def resource_path(page, resource)
+    if page.kind == "articles"
+      eval("articles_path('#{page.id}-#{page.permalink}')")
     else
-      eval("#{type.downcase}_path(#{page}, #{resource})")
+      eval("#{page.kind.singularize}_path('#{page.id}-#{page.permalink}', #{resource})")
     end
   end
   

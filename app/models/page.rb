@@ -8,6 +8,14 @@ class Page < ActiveRecord::Base
   
   validates_presence_of :title, :name
   
+  def to_param
+    "#{id}-#{permalink}"
+  end
+  
+  def permalink
+    name.downcase.gsub(/[^a-z1-9]+/i, '-')
+  end
+  
   def before_destroy
     if self.id == 1
       raise "Can't delete the Home page"

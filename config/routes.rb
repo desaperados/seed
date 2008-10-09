@@ -13,9 +13,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users, :passwords, :roles, :images, :comments, :documents
   map.resources :pages do |page|
     page.resources :components, :name_prefix => nil
-    page.resources :articles, :name_prefix => nil
-    page.resources :newsitems, :name_prefix => nil, :as => "news"
-    page.resources :posts, :name_prefix => nil, :as => "blog"
+    page.resources :articles, :name_prefix => nil, :as => "content"
+    page.resources :newsitems, :name_prefix => nil, :as => "latest"
+    page.resources :posts, :name_prefix => nil, :as => "posts"
   end
   
   # Search
