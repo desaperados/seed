@@ -14,11 +14,15 @@ module ApplicationHelper
   end
   
   def tag_id_for_page(page)
-    if page
+    if page && action_name != "new"
       "#{page.name.downcase.gsub(" ", "-")}"
     else
       "admin"
     end
+  end
+  
+  def clean_id(params)
+    params.gsub(/-[a-z1-9]+/i, "")
   end
   
   # Convenience methods for checking site settings
@@ -27,7 +31,9 @@ module ApplicationHelper
   end
   
   def viewable?(page)
-    page.public? || (logged_in? && page.private?) || (logged_in? && current_user.has_role?("#{page.viewable_by}"))
+    if page
+      page.public? || (logged_in? && page.private?) || (logged_in? && current_user.has_role?("#{page.viewable_by}"))
+    end
   end
   
   def editable?(page)

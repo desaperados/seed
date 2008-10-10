@@ -14,7 +14,7 @@ class Article < ActiveRecord::Base
   end
   
   def permalink
-    title.downcase.gsub(/[^a-z1-9]+/i, '-')
+    title.downcase.gsub(/[^a-z1-9]+/i, '-') unless title.nil?
   end
   
   IMAGESIZE = [

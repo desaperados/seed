@@ -13,7 +13,7 @@ class Page < ActiveRecord::Base
   end
   
   def permalink
-    name.downcase.gsub(/[^a-z1-9]+/i, '-')
+    name.downcase.gsub(/[^a-z1-9]+/i, '-') unless name.nil?
   end
   
   def before_destroy
@@ -57,11 +57,11 @@ class Page < ActiveRecord::Base
     find(:all, :conditions => ["id != ?", current])
   end
   
-  def pages_for_parent_select(thispage, menu_type, action)
+  def self.pages_for_parent_select(page, action)
     if action != "new"
-      conditions = ["id != ? AND menu_type = ? AND parent_id IS NULL", thispage, menu_type]
+      conditions = ["id != ? AND menu_type = ? AND parent_id IS NULL", page.id, page.menu_type]
     else
-      conditions = ["menu_type = ? AND parent_id IS NULL", menu_type]
+      conditions = ["menu_type = ? AND parent_id IS NULL", page.menu_type]
     end
     defaults = Page.new(:name => "Top Level")
     list = Page.find(:all, :select => "id, name", :conditions => conditions, :order => "position DESC")

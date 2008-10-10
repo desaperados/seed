@@ -2,6 +2,7 @@ log/*.log
 .DS_Store
 doc/api
 doc/app
+index/*
 doc/plugins
 tmp/**/*
 public/imageupload

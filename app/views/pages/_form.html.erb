@@ -1,3 +1,4 @@
+<%= debug(params) %>
 <% form_for(@page, :html => {:class => "seed-admin"}) do |f| %>
   <%= f.error_messages %>
   <fieldset>
@@ -19,16 +20,16 @@
   	  <%= f.label :menu_type, "Belongs To:" %>
   	  <%= f.select(:menu_type, Page::MENUS) %>
   	</div>
-	<% observe_id = (params[:id]) ? params[:id] : "0" %>
+	<% observe_id = (params[:id]) ? clean_id(params[:id]) : "0" %>
 	<%= observe_field :page_menu_type, 
 					  :url => { :controller => :javascript, :action => :replace_page_menu_type },
 					  :method => :get,
-					  :with => "'menu_type=' + value + '&action=' + 'new' + '&id=' + #{observe_id}" %>
+					  :with => "'menu_type=' + value + '&actiontype=' + '#{action_name}' + '&id=' + #{observe_id}" %>
   <% end -%>
 
   <div class="input-row">
     <%= f.label :parent_id, "Parent Page:" %>
-    <%= render :partial => "menu_type" %>
+    <%= render :partial => "menu_type", :locals => {:action => action_name} %>
   </div>
 
   <% if action_name != "edit" %>

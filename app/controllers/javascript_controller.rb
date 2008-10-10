@@ -1,20 +1,18 @@
 class JavascriptController < ApplicationController
   
-  #skip_before_filter :verify_authenticity_token
-  
   layout nil
   
   # Used by Pages new and edit actions for menu_type
   # dependent select dropdown
   def replace_page_menu_type
-    if params[:action] == "edit"
+    if params[:actiontype] == "edit"
       @page = Page.find(params[:id]) 
     else
       @page = Page.new
     end
     @page.menu_type = params[:menu_type]
     render :update do |page|
-      page.replace_html "page_parent_id", :partial => "pages/menu_type"
+      page.replace "page_parent_id", :partial => "pages/menu_type", :locals => {:action => params[:actiontype]}
     end
   end
   
