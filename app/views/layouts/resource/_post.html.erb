@@ -1,4 +1,5 @@
 <div class="post">
+  
 	<% if editable?(@page) -%>
 		<span class="seed-admin-tag seed-edit-tag">
 			<%= link_to "edit", edit_post_path(@page, post)%>|<%= link_to "X", post_path(@page, post), :confirm => 'Delete this post?', :method => :delete %>
@@ -7,9 +8,19 @@
 	
 	<h2><%= link_to post.title, post_path(@page, post) %></h2>
 	<h4><%= simple_date(post.created_at) %></h4>
-
+	
+	<div id="images">
+    <% post.images.each do |image| %>
+    	<a href="<%= image.public_filename %>" class="lightview" rel="gallery[<%= post.id %>]">
+        <%= image_tag image.public_filename("#{post.imagesize}") %>
+      </a>
+    <% end -%>
+  </div>
+  
 	<%= textilize(truncate(post.content, 1000, "... #{link_to '[more]', post_path(@page, post)}")) %>
+	
 	<% if post.commentable? %>
-	  <em><%= link_to "#{post.comments.size} comments", post_path(@page, post) %></em>
+	  <em><%= link_to pluralize(post.comments.size, 'comment'), post_path(@page, post) %></em>
 	<% end -%>
+	
 </div>

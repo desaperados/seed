@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 
   before_filter :login_required, :except => [:show]
   before_filter :pages_menu, :except => [:create, :update, :destroy, :show]
+  cache_sweeper :page_sweeper, :only => [:create, :update, :destroy]
 
   def new
     @page = Page.new(:menu_type => "primary")
@@ -57,7 +58,7 @@ class PagesController < ApplicationController
     eval ("#{page.kind}_path(#{page.id})") 
   end
   
-  def current_page
-    @current = Page.find(params[:page_id])
-  end
+  #def current_page
+  #  @current = Page.find(params[:page_id])
+  #end
 end

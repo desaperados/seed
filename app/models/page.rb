@@ -8,6 +8,10 @@ class Page < ActiveRecord::Base
   
   validates_presence_of :title, :name
   
+  def self.all_menu_pages
+    self.find(:all, :conditions => ["parent_id IS NULL"], :include => :children, :order => "position")
+  end
+  
   def to_param
     "#{id}-#{permalink}"
   end

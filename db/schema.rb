@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20081006130719) do
     t.integer  "page_id"
     t.integer  "position"
     t.integer  "comments_count", :default => 0
+    t.integer  "images_count",   :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

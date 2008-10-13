@@ -10,7 +10,7 @@ class Article < ActiveRecord::Base
   end
   
   def to_param
-    "#{id}-#{permalink}"
+    "#{id}-#{permalink}" unless id.nil?
   end
   
   def permalink

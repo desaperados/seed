@@ -1,5 +1,5 @@
 class Image < ActiveRecord::Base
-  belongs_to :article
+  belongs_to :article, :counter_cache => true
   
   named_scope :originals, :conditions => ["parent_id IS NULL"]
   

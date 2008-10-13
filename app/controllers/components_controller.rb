@@ -3,6 +3,7 @@ class ComponentsController < ApplicationController
   before_filter :login_required
   before_filter :pages_menu
   before_filter :get_page
+  cache_sweeper :component_sweeper, :only => [:create, :update, :destroy]
   
   def new
     @component = Component.new

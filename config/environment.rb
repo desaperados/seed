@@ -44,6 +44,8 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   config.active_record.observers = :user_observer
+  
+  config.load_paths << "#{RAILS_ROOT}/app/sweepers"
 end
 
 # Add the template directory to the default rails render path

@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   
   caches_action :index, :unless => :logged_in?
+  caches_action :show, :unless => :logged_in?
+  cache_sweeper :article_sweeper, :only => [:create, :update, :destroy]
   
   before_filter :login_required, :except => [:index, :show]
   before_filter :pages_menu, :only => [:index, :new, :edit, :show]
@@ -59,10 +61,6 @@ class ArticlesController < ApplicationController
   end
   
   private 
-  
-  def get_page
-    @page = Page.find(params[:page_id])
-  end
   
   def resource_index_page(resource)
     if resource.article_type == "post"
