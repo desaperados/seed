@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
     page.resources :articles, :name_prefix => nil, :as => "content"
     page.resources :newsitems, :name_prefix => nil, :as => "latest"
     page.resources :posts, :name_prefix => nil, :as => "posts"
+    page.resources :events, :name_prefix => nil, :as => "list"
   end
   
   # Search

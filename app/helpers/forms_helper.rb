@@ -24,8 +24,11 @@ module FormsHelper
   end
   
   def resource_type(resource)
-    resource.article_type if resource.has_attribute? :article_type
-    resource.component_type if resource.has_attribute? :component_type
+    if resource.has_attribute? :article_type
+      resource.article_type
+    elsif resource.has_attribute? :component_type
+      resource.component_type 
+    end
   end
   
 end

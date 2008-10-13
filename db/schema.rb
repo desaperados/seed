@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081006130719) do
+ActiveRecord::Schema.define(:version => 20081013122308) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(:version => 20081006130719) do
     t.integer  "page_id"
     t.integer  "position"
     t.integer  "comments_count", :default => 0
-    t.integer  "images_count",   :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,6 +64,17 @@ ActiveRecord::Schema.define(:version => 20081006130719) do
     t.datetime "updated_at"
   end
 
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "location"
+    t.datetime "date"
+    t.boolean  "all_day"
+    t.integer  "page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "images", :force => true do |t|
     t.integer  "size"
     t.string   "content_type"
@@ -87,7 +97,6 @@ ActiveRecord::Schema.define(:version => 20081006130719) do
     t.string   "menu_type",        :default => "primary"
     t.string   "viewable_by",      :default => "public"
     t.string   "editable_by",      :default => "all users"
-    t.string   "permalink"
     t.integer  "parent_id"
     t.integer  "paginate"
     t.integer  "components_count", :default => 0

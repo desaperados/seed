@@ -8,7 +8,7 @@ class PostsController < ArticlesController
     elsif params[:year]
       @posts = Post.find_all_in_year(params[:year].to_i, params[:page], @page.paginate)
     else
-      @posts = Post.paginate(:page => params[:page], :per_page => @page.paginate, :order => "created_at DESC")
+      @posts = @page.posts.paginate(:page => params[:page], :per_page => @page.paginate, :order => "created_at DESC")
     end
   end
   

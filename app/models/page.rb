@@ -1,10 +1,11 @@
 class Page < ActiveRecord::Base
   acts_as_tree :order => :position
   acts_as_list :scope => :parent
-  has_many :articles, :order => :position, :dependent => :destroy
-  has_many :newsitems, :order => :position, :conditions => "article_type = 'news'", :dependent => :destroy
-  has_many :posts, :order => :position, :conditions => "article_type = 'post'", :dependent => :destroy
+  has_many :articles, :order => :position, :dependent => :destroy, :include => :images
+  has_many :newsitems, :order => :position, :dependent => :destroy, :include => :images
+  has_many :posts, :order => :position, :dependent => :destroy, :include => :images
   has_many :components, :order => :position, :dependent => :destroy
+  has_many :events, :dependent => :destroy
   
   validates_presence_of :title, :name
   
@@ -44,9 +45,10 @@ class Page < ActiveRecord::Base
   ]
   
   KIND = [
-    [ 'General - Text, Images, Video, Table', 'articles' ],
-    [ 'News    - News items with dates and archive section', 'newsitems' ],
-    [ 'Blog    - Dated articles with comments', 'posts' ]
+    [ 'General  - Text, Images, Video, Table', 'articles' ],
+    [ 'News     - News items with dates and archive section', 'newsitems' ],
+    [ 'Calendar - Calendar event items', 'events' ],
+    [ 'Blog     - Dated articles with comments', 'posts' ]
   ]
   
   PAGINATION = [

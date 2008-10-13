@@ -23,6 +23,7 @@ CURRENT FEATURES:
 - Site wide embedded content creation and editing
 - Override the default layout with a custom template
 - Exception Notification
+- Caching Mechanism
 
 - Page Creation and Management
   - Menu Hierarchy Ordering

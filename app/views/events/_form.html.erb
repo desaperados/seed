@@ -1,0 +1,31 @@
+<% form_for(@event, :url => event_path(@page, @event), :html => {:class => "seed-admin tight"}) do |f| %>
+  <%= f.error_messages %>
+  <fieldset>
+    <div class="input-row">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="input-row">
+      <%= f.label :date %>
+      <%= f.calendar_date_select :date, :class => "date" %>
+    </div>
+    <div class="input-row">
+      <%= f.label :description %>
+      <%= f.text_area :description, :class => "compact" %>
+    </div>
+    <div class="input-row">
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+    </div>
+  </fieldset>
+  <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
+  
+<% end %>
+
+<div id="form-sidebar" class="notabs">
+	<div id="seed-notes">
+		<h4>Calendar:</h4>
+		<h5>Event</h5>
+		<p>Calendar Event</p> 
+	</div>
+</div>

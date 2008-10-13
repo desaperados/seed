@@ -1,0 +1,15 @@
+<div class="event">
+  
+	<% if editable?(@page) -%>
+		<span class="seed-admin-tag seed-edit-tag">
+			<%= link_to "edit", edit_event_path(@page, event)%>|<%= link_to "X", event_path(@page, event), :confirm => 'Delete this event?', :method => :delete %>
+		</span>
+	<% end -%>
+	
+	<h2><%= link_to event.name, event_path(@page, event) %></h2>
+	<h3><%= format_date(event.date, true) %></h3>
+	
+	<%= textilize(event.description) %>
+	<p>Location: <%= event.location %></p>
+	
+</div>
