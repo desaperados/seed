@@ -22,13 +22,16 @@ ActionController::Routing::Routes.draw do |map|
   # Search
   map.search 'search', :controller => "search", :action => "index"
   
+  # Calendar Mapping
+  map.browse 'pages/:page_id/browse/:month/:year', :controller => 'events', :action => 'index'
+  
   # News Archive Mapping
-  map.archive 'pages/:page_id/news/archive/:month/:year', :controller => 'newsitems', :action => 'index'
-  map.annual_archive 'pages/:page_id/news/archive/:year', :controller => 'newsitems', :action => 'index'
+  map.archive 'pages/:page_id/archive/:month/:year', :controller => 'newsitems', :action => 'index'
+  map.annual_archive 'pages/:page_id/archive/:year', :controller => 'newsitems', :action => 'index'
   
   # Blog Archive Mapping
-  map.blog_archive 'pages/:page_id/blog/archive/:month/:year', :controller => 'posts', :action => 'index'
-  map.blog_annual_archive 'pages/:page_id/blog/archive/:year', :controller => 'posts', :action => 'index'
+  map.blog_archive 'pages/:page_id/archive/:month/:year', :controller => 'posts', :action => 'index'
+  map.blog_annual_archive 'pages/:page_id/archive/:year', :controller => 'posts', :action => 'index'
 
   map.home "", :controller => "articles", :page_id => "1"
   map.root :home

@@ -5,7 +5,7 @@ class Page < ActiveRecord::Base
   has_many :newsitems, :order => :position, :dependent => :destroy, :include => :images
   has_many :posts, :order => :position, :dependent => :destroy, :include => :images
   has_many :components, :order => :position, :dependent => :destroy
-  has_many :events, :dependent => :destroy
+  has_many :events, :order => "datetime, from_date ASC", :dependent => :destroy
   
   validates_presence_of :title, :name
   

@@ -4,7 +4,9 @@ class CreateEvents < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :location
-      t.datetime :date
+      t.datetime :datetime
+      t.date :from_date
+      t.date :to_date
       t.boolean :all_day
       t.integer :page_id
       t.timestamps

@@ -119,6 +119,9 @@ form.seed-admin div.input-row input.date {
 div.cds_footer {
 	display: none;
 }
+div.cds_header span {
+	font-size: 11px !important;
+}
 form.seed-admin div.input-row img {
 	position: relative;
 	left: 0px;
@@ -127,7 +130,7 @@ form.ajax div.input-row input,
 form.ajax div.input-row textarea {
 	width: auto;
 }
-form.ajax div.submit, form.tight div.submit {
+form.ajax div.submit, form.tight div.submit, form.seed-admin div.submit {
 	margin-top: 10px;
 }
 form.comment textarea, textarea.compact {

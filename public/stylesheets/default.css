@@ -79,19 +79,19 @@ div#search-results p strong.highlight {
 
 /************ Resources ************/
 
-div.article, div.newsitem, div.post {
+div.article, div.newsitem, div.post, div.event {
 	border-top: 1px solid #e9e9e9;
 	margin-bottom: 20px;
 	padding: 1em;
 }
-div.article h2, div.newsitem h2, div.post h2 {
+div.article h2, div.newsitem h2, div.post h2, div.event h2 {
 	margin: 1em 0;
 	font-size: 16px;
 }
-div.article p, div.newsitem p, div.post p {
+div.article p, div.newsitem p, div.post p, div.event p {
 	margin: 1em 0;
 }
-div.article a, div.newsitem a, div.post a {
+div.article a, div.newsitem a, div.post a, div.event a {
 	text-decoration: none;
 }
 
@@ -244,4 +244,59 @@ div.horizontal-menu ul.menuchild li {
   margin: 2px;
   border: 1px solid #eee;
   color: #ddd;
+}
+
+/************ Calendar ***********/
+
+table.calendar {
+  margin: 0 0 20px 0;
+}
+.monthName th {
+  font-weight: normal;
+  text-align: right;
+  padding-top: 1em;
+  padding-bottom: 0.7em;
+}
+.dayName th {
+  font-size: 0.7em;
+  padding-top: 0.6em;
+  padding-bottom: 0.3em;
+  background-color: #303030;
+  color: white;
+}
+.otherMonth, .day, .specialDay {
+  padding: 0.7em 1em;
+  border-right: 1px solid white;
+}
+.otherMonth {
+  color: #eeeeee;
+  background-color: white;
+}
+.day, .specialDay {
+  text-align: center;
+  border-bottom: 1px dotted #bbbbbb;
+  background-color: #bbccff;
+}
+.specialDay {
+  background-color: #003355;
+  color: white;
+}
+.specialDay a, .specialDay a:visited, .specialDay a:hover {
+  color: white;
+  text-decoration: none;
+  padding: 1em;
+}
+.specialDay a:hover {
+  color: white;
+  background-color: black;
+}
+.weekendDay {
+  background-color: #ffffdd;
+}
+.weekendDay.specialDay {
+  background-color: #ffffee;
+  color: #666;
+}
+.today{
+  background-color: #4682b4;
 }

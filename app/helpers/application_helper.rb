@@ -9,6 +9,10 @@ module ApplicationHelper
      end
   end
   
+  def content_tag_if(tag, content, condition)
+    content_tag(tag, content) unless !condition
+  end
+  
   def simple_date(date)
     date.strftime("%B %d %Y")
   end

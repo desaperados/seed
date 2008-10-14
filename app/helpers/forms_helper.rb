@@ -1,5 +1,15 @@
 module FormsHelper
   
+  def initial_display_style(element)
+    if @event.all_day? && element == :datetime
+      "display:none;"
+    elsif @event.all_day? && element == :from_date
+     "display:inline"
+    elsif element == :from_date
+      "display:none;"
+    end
+  end
+  
   def form_tab_link(name, submittext, resource=nil)
     link_to_function name, :class => selected?(name, resource) do |page| 
     	page.replace_html :tabbedform, :partial => partial_name(name), :locals => {:submit => submittext}

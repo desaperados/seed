@@ -6,10 +6,11 @@
 		</span>
 	<% end -%>
 	
-	<h2><%= link_to event.name, event_path(@page, event) %></h2>
-	<h3><%= format_date(event.date, true) %></h3>
+	<h2><%= event.name %></h2>
+	<h3><%= calendar_date(event.date, event.to_date) %></h3>
+	<%= content_tag_if(:h4, "Time: #{calendar_time(event.date, event.all_day?)}", !event.all_day?) %>
 	
 	<%= textilize(event.description) %>
-	<p>Location: <%= event.location %></p>
+	<%= content_tag_if(:p, "Location: #{event.location}", !event.location.blank?) %>
 	
 </div>

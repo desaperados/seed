@@ -1,14 +1,30 @@
-<% form_for(@event, :url => event_path(@page, @event), :html => {:class => "seed-admin tight"}) do |f| %>
+<% form_for(@event, :url => event_path(@page, @event), :html => {:class => "seed-admin"}) do |f| %>
+  
   <%= f.error_messages %>
   <fieldset>
     <div class="input-row">
-      <%= f.label :name %>
+      <%= f.label :name, "Event Name" %>
       <%= f.text_field :name %>
     </div>
+    
     <div class="input-row">
-      <%= f.label :date %>
-      <%= f.calendar_date_select :date, :class => "date" %>
+      <%= f.label :all_day %>
+      <%= f.check_box :all_day, :onclick => "toggle_when_field(this);" %>
     </div>
+    
+    <div id="_datetime" style="<%= initial_display_style(:datetime) %>" class="input-row">
+        <%= f.label :datetime, "When" %>
+        <%= f.calendar_date_select :datetime, :popup => :force, :month_year => "label", :class => "date" %>
+    </div>
+    <div id="_date" style="<%= initial_display_style(:from_date) %>" class="input-row">
+        <%= f.label :from_date, "From" %>
+        <%= f.calendar_date_select :from_date, :popup => :force, :onchange => "set_to_date_value(this);", :month_year => "label", :class => "date" %>
+        <div class="input-row">
+        <%= f.label :to_date, "To" %>
+        <%= f.calendar_date_select :to_date, :popup => :force, :month_year => "label", :class => "date" %>
+        </div>
+    </div>
+    
     <div class="input-row">
       <%= f.label :description %>
       <%= f.text_area :description, :class => "compact" %>
@@ -18,14 +34,8 @@
       <%= f.text_field :location %>
     </div>
   </fieldset>
-  <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
+  <div class="submit">
+    <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
+  </div>
   
 <% end %>
-
-<div id="form-sidebar" class="notabs">
-	<div id="seed-notes">
-		<h4>Calendar:</h4>
-		<h5>Event</h5>
-		<p>Calendar Event</p> 
-	</div>
-</div>

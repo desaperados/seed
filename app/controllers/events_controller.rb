@@ -8,11 +8,18 @@ class EventsController < ApplicationController
   before_filter :get_page, :except => [:update, :destroy]
   
   def index
-    @events = @page.events.paginate(:page => params[:page], :per_page => @page.paginate)
+    @month = (params[:month]) ? params[:month].to_i : DateTime.now.month
+    @year = (params[:year]) ? params[:year].to_i : DateTime.now.year
+    @events = Event.future_events(@year, @month)
   end
   
   def new
     @event = Event.new
+  end
+  
+  # TODO - Fix this temporary hack. Create the show page
+  def show
+    redirect_to events_url(@page)
   end
   
   def create
