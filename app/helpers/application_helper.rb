@@ -17,7 +17,7 @@ module ApplicationHelper
     date.strftime("%B %d %Y")
   end
   
-  def tag_id_for_page(page)
+  def seed_page_class(page)
     if page && action_name != "new"
       "#{page.name.downcase.gsub(" ", "-")}"
     else

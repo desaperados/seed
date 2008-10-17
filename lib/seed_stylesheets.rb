@@ -12,7 +12,7 @@ module ActionView
         template_css_paths = match("#{RAILS_ROOT}/public/stylesheets/template/") { |p| ext = p[-4...p.size]; ext && ext.downcase == ".css"}
         template_css_paths.each { |f| template_css << seed_stylesheet_link_path(f[/\w+.css\b/])}
       
-        seed_css << "default" unless template_css.find { |x| x == "default.css"}
+        seed_css << "default" unless template_css.find { |x| x =~ /default.css/}
         
         seed_css.concat(template_css).flatten
         

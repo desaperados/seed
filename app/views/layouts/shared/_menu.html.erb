@@ -1,19 +1,23 @@
 <% if viewable?(menu) -%>
 	<li class="level_<%= menu.tree_level %> sortable" id="page_<%= menu.id %>">
-	    <%= link_to menu.name, resources_path(menu) %> 
+	    <span><%= link_to menu.name, resources_path(menu) %></span>
 	    <% if editable?(menu) -%>
-	    	<span class="seed-admin-tag"><%= link_to "edit", edit_page_path(menu) %>|<%= link_to "X", page_path(menu), :confirm => 'Delete this page and all associated articles?', :method => :delete %></span>
-	    	<%= image_tag "icons/drag_handle.gif", :size => "11x11", :class => "handle" %>
+	      <span class="admin">
+	    	  <span class="seed-admin-tag"><%= link_to "edit", edit_page_path(menu) %>|<%= link_to "X", page_path(menu), :confirm => 'Delete this page and all associated articles?', :method => :delete %></span>
+	    	  <%= image_tag "icons/drag_handle.gif", :size => "11x11", :class => "handle" %>
+	    	</span>
 		<% end -%>
 	
 		  <% if menu.children -%>
 		  	 <ul class="menuchild">
 		  	 <% for child in menu.children -%>
 		  	   <li class="level_<%= child.tree_level %> sortable" id="page_<%= child.id %>">
-	  			<%= link_to child.name, articles_path(child) %> 
-	  			<% if editable?(child) -%>
+	  			 <span><%= link_to child.name, articles_path(child) %></span>
+	  			 <% if editable?(child) -%>
+	  			  <span class="childadmin">
 	  			   <span class="seed-admin-tag"><%= link_to "edit", edit_page_path(child) %>|<%= link_to "X", page_path(child), :confirm => 'Delete this page and all associated articles?', :method => :delete %></span>
 	  			   <%= image_tag "icons/drag_handle.gif", :size => "11x11", :class => "handle" %>
+	  			  </span>
 				<% end -%>
 	  		</li>
 		  	 <% end -%>

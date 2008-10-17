@@ -279,6 +279,17 @@ table.seed-roles th.editrole span {
 div.button {
 	margin: 0 0 1em 0;
 }
+li span.admin, li span.childadmin {
+	display: none;
+	width: auto;
+	margin-left: 1em;
+}
+li:hover span.admin {
+	display: inline;
+}
+ul.menuchild li:hover span.childadmin {
+	display: inline;
+}
 
 /********* Document Admin *********/
 div#form-documents {
@@ -377,7 +388,7 @@ div#flash-notice, div#flash-warning, div#flash-error {
 	position: absolute;
 	font-size: 10px;
 	right: 0;
-	top: 25px;
+	top: 20px;
 	color: #fff;
 	background-color: blue;
 	opacity: 0.5;

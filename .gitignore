@@ -6,6 +6,7 @@ index/*
 doc/plugins
 tmp/**/*
 public/imageupload
+public/images/template
 public/documents
 public/stylesheets/application.css
 public/javascripts/all.js
