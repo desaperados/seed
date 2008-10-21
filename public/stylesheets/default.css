@@ -51,6 +51,13 @@ div#right {
 	border-left: 1px solid #ccc;
 	min-width: 350px;
 }
+	div#leftcol {
+		width: 75%;
+		float: left;
+	}
+	div#rightcol {
+		margin-left: 80%;
+	}
 div#foot {
 	border-top: 1px solid #ccc;
 	padding: 20px;

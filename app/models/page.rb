@@ -21,6 +21,10 @@ class Page < ActiveRecord::Base
     end
   end
   
+  def requires_sidebar?
+    true if !self.children.size.zero? || !self.parent_id.nil? || !self.components.size.zero?
+  end
+  
   def to_param
     "#{id}-#{permalink}"
   end
