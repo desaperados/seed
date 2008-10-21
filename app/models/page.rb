@@ -13,6 +13,14 @@ class Page < ActiveRecord::Base
     self.find(:all, :conditions => ["parent_id IS NULL"], :include => :children, :order => "position")
   end
   
+  def flat_child_links
+    if self.parent_id != nil
+      Page.find(:all, :conditions => ["parent_id = ?", self.parent_id])
+    else
+      self.children
+    end
+  end
+  
   def to_param
     "#{id}-#{permalink}"
   end

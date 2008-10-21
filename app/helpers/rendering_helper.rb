@@ -1,5 +1,11 @@
 module RenderingHelper
   
+  # Renders a list of child menu items for the 
+  # given page
+  def seed_flat_child_links(page, tag="li")
+    render :partial => "layouts/shared/flatmenu", :collection => page.flat_child_links, :locals => {:tag => tag}
+  end
+  
   def seed_site_search(container="search", submit="Search")
     render :partial => "search/form", :locals => {:container => container, :submit => submit}
   end
