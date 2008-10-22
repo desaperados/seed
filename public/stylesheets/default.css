@@ -144,6 +144,10 @@ div.comment.even {
 div#components {
 	text-align: left;
 }
+div.component {
+	border-bottom: 1px solid #ddd;
+	padding: 0 0 1em 0;
+}
 
 /*********** Main Menu ************/
 ul.menu {

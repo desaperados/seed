@@ -25,6 +25,10 @@ module ApplicationHelper
     end
   end
   
+  def sanitized_class_name(name)
+    name.downcase.gsub(" ", "-")
+  end
+  
   def clean_id(params)
     params.gsub(/-[a-z1-9]+/i, "")
   end

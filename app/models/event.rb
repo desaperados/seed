@@ -28,6 +28,16 @@ class Event < ActiveRecord::Base
     name
   end
   
+  def component_preview
+    if all_day?
+      todate = "<br />#{to_date.strftime("%A, %d %B")}" unless to_date.blank? || to_date == from_date
+      fromdate = from_date.strftime("%A, %d %B") 
+      "#{fromdate} #{todate}"
+    else
+      datetime.strftime("%A, %d %B %R")
+    end
+  end
+  
   def calendar_date
     (all_day?) ? from_date : Date.parse(datetime.to_s)
   end

@@ -1,4 +1,4 @@
-<div class="component" id="sortablecomponent_<%= component.id %>">
+<div class="component <%= sanitized_class_name(component.title) %>" id="sortablecomponent_<%= component.id %>">
 
     <% if editable?(@page) %>
 	  	<span class="seed-admin-tag seed-edit-tag">
@@ -12,6 +12,7 @@
 	  <% if component.page_feed? %>
       <% component.snippets.each do |snippet| -%>
         <h4><%= link_to(snippet.title, resource_path(component.source, snippet.id)) %></h4>
+        <%= snippet.component_preview %>
       <% end -%>
     <% end -%>
     
@@ -19,6 +20,10 @@
       <% component.documents.each do |document| -%>
         <h4><%= link_to(document.name, document.public_filename) %></h4>
       <% end -%>
+    <% end -%>
+    
+    <% if component.text? %>
+      <%= textilize(component.text) %>
     <% end -%>
 
 </div>

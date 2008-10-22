@@ -17,6 +17,10 @@ class Article < ActiveRecord::Base
     title.downcase.gsub(/[^a-z1-9]+/i, '-') unless title.nil?
   end
   
+  def component_preview
+    content.slice(0, 30) + "..."
+  end
+  
   IMAGESIZE = [
     [ 'Small', 'thumb100' ],
     [ 'Regular', 'thumb200' ],

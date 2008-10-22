@@ -4,6 +4,7 @@
 	<ul id="formtabs">
 		<li class="pagefeedtab"><%= form_tab_link "Page Feed", "Create", "selected" %></li>
 		<li class="documentstab"><%= form_tab_link "Documents", "Create" %></li>
+		<li class="texttab"><%= form_tab_link "Text", "Create" %></li>
 	</ul>
 	<div id="tabbedform">
 		<%= render :partial => "pagefeed", :locals => {:submit => "Create"} %>

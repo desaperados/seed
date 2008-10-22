@@ -14,10 +14,12 @@ class ComponentsController < ApplicationController
   end
   
   def create
-    source = Page.find(params[:component][:source_page], :select => :kind)
-    
     @component = @page.components.new(params[:component])
-    @component.snippet_class = source.kind.singularize.capitalize
+    
+    if params[:component][:source_page]
+      source = Page.find(params[:component][:source_page], :select => :kind)
+      @component.snippet_class = source.kind.singularize.capitalize
+    end
 
     if @component.save
       flash[:notice] = "Component was successfully created"
@@ -29,10 +31,15 @@ class ComponentsController < ApplicationController
   end
   
   def update
-    source = Page.find(params[:component][:source_page], :select => :kind)
-    
     @component = Component.find(params[:id])
-    snippet_class = {:snippet_class => source.kind.singularize.capitalize}
+    
+    if params[:component][:source_page]
+      source = Page.find(params[:component][:source_page], :select => :kind)
+      snippet_class = {:snippet_class => source.kind.singularize.capitalize}
+    else
+      snippet_class = {}
+    end
+
     
     if @component.update_attributes(params[:component].merge(snippet_class))
       flash[:notice] = "Component was successfully updated"

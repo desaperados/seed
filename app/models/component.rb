@@ -17,6 +17,10 @@ class Component < ActiveRecord::Base
     true if component_type == "documents"
   end
   
+  def text?
+    true if component_type == "text"
+  end
+  
   ORDER_OPTIONS = [
     [ 'Created Descending', 'created_at DESC' ],
     [ 'Created Ascending', 'created_at ASC' ],

@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20081013122308) do
     t.string   "order"
     t.string   "snippet_class"
     t.string   "component_type"
+    t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
