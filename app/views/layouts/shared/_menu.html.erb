@@ -1,5 +1,5 @@
 <% if viewable?(menu) -%>
-	<li class="level_<%= menu.tree_level %> sortable <%= 'parent' if !menu.children.size.zero? %>" id="page_<%= menu.id %>">
+	<li class="level_<%= menu.tree_level %> sortable top" id="page_<%= menu.id %>">
 	    <%= link_to menu.name, resources_path(menu) %>
 	    <% if editable?(menu) -%>
 	    	  <span class="seed-admin-tag"><%= link_to "edit", edit_page_path(menu) %>|<%= link_to "X", page_path(menu), :confirm => 'Delete this page and all associated articles?', :method => :delete %></span>

@@ -320,16 +320,8 @@ div.button {
 	margin: 0 0 1em 0;
 }
 /*********** Menu Admin ************/
-ul.menu li img.handle {
-	position: absolute;
-	right: 0;
-	margin-right: 0.5em;
-}
-ul.menu li span {
-	margin-right: 1em;
-}
 ul.menuchild img.handle {
-	margin-right: 0.5em;
+	margin: 0 0.5em;
 }
 
 /********* Document Admin *********/

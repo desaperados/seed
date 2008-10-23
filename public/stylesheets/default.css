@@ -201,53 +201,44 @@ ul.menu li.add a {
 }
 
 /******** Horizontal Menu *********/
-div.horizontal-menu {
-	height: 24px;
-}
-div.horizontal-menu ul.menu, div.horizontal-menu ul.menuchild {
-	margin: 0;
+div.horizontal-menu ul.menu {
 	border-width: 0;
 	float: left;
-	background: #ffffff;
-	width: 100%;
-}
-div.horizontal-menu ul.menu {
-	width: 100%;
 	border-bottom: 1px solid #ddd;
 	margin: 0px !important;
-	z-index: 10; /* for IE */
-	position: relative; /* for IE */
+	width: 100%;
 }
 div.horizontal-menu ul.menu li {
-	float: left;
+	line-height: 24px;
+	padding: 0 1em;
+	background: #f9f9f9;
 	border-width: 0;
-	padding: 0.5em 1em;
+}
+div.horizontal-menu ul.menu li.top {
+	float: left;
 	border-right: 1px solid #ddd;
+	position: relative;
 }
 div.horizontal-menu ul.menuchild {
 	display: none;
-	margin: 0;
-	padding: 0;
 	position: absolute;
-	left: 0;
-	top: 28px;
-	white-space: nowrap;
-	background: #999;
-	width: auto;
+	left: -1px;
+	top: 19px;
+	padding: 0px;
+	background-color: #999;
 	z-index: 1;
+}
+li:hover ul.menuchild, li.over ul.menuchild { 
+	display: block;
+}
+div.horizontal-menu ul.menuchild li > ul.menuchild {
+	top: auto;
+	left: auto;
 }
 div.horizontal-menu ul.menuchild li {
-	border-width: 0;
+	border-left: 1px solid #ddd;
 	border-bottom: 1px solid #ddd;
-	background-color: #f9f9f9;
-	white-space: nowrap;
-	float: none;
-	z-index: 1;
-	position: relative;
-}
-div.horizontal-menu ul.menuchild li a {
-	z-index: 1;
-	position: relative;
+	border-right: 1px solid #ddd;
 }
 
 /********** Pagination ***********/

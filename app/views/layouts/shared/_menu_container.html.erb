@@ -5,7 +5,7 @@
   		<%= render :partial => "layouts/shared/menu", :collection => collection %>
   		<% if logged_in? && current_user.has_role?(:admin) -%>
   		  <% if type == "primary" -%>
-  			  <li class="add"><%= link_to "Add Page", new_page_path %></li> 
+  			  <li class="add top"><%= link_to "Add Page", new_page_path %></li> 
   			<% end -%>
   		<% end -%>
   	</ul>

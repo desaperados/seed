@@ -1,11 +1,11 @@
 // for horizontal menu
 Event.observe(window, 'load', function() {
-	$$('ul.horizontal li.parent').each(function(item) {
+	$$('ul.menu li').each(function(item) {
 		item.observe('mouseover', function() {
-			item.down('ul.menuchild').setStyle({ display: 'block'});
+			item.addClassName('over');
 		});
 		item.observe('mouseout', function() {
-			item.down('ul.menuchild').setStyle({ display: 'none'});
+			item.removeClassName('over');
 		});
 	});
 });
