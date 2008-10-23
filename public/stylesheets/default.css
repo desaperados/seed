@@ -10,6 +10,11 @@ a:visited { color: #4488bb; }
 a:hover { color: #000; }
 table {width:100%;}
 table td { border: 1px solid #ddd}
+h1 {font-size: 22px;}
+h2 {font-size: 18px;}
+h3 {font-size: 12px; margin: 0.5em 0;}
+h4 {font-size: 11px; margin: 0.5em 0;}
+p {margin: 1em 0;}
 
 /********* Create Tags* ***********/
 
@@ -31,33 +36,49 @@ body {
 	line-height: 1.3em;
 	background-color: #fff; 
 	color: #333;
+	min-width: 850px;
 }
 div#container {
 	width: 80%;
 	margin: 0 auto;
 }
 div#head {
-	height: 60px;
+	height: 50px;
+	padding-top: 10px;
 	border-bottom: 1px solid #ccc;
 	position: relative;
 }
+	div#head div#search {
+		float: right;
+		width: 25%;
+		white-space: nowrap;
+	}
+	div#head h1 {
+		margin: 0;
+	}
 div#left {
 	float: left;
+	width: 18%;
 }
 div#right {
-	margin-left: 160px;
-	min-height: 400px;
+	width: 75%;
+	right: 0;
 	padding: 20px;
 	border-left: 1px solid #ccc;
-	min-width: 350px;
+	float: right;
+	min-height: 450px;
+	height: auto !important;
+	height: 450px;
 }
 	div#leftcol {
-		width: 75%;
 		float: left;
+		width: 75%;
 	}
 	div#rightcol {
-		margin-left: 80%;
+		float: right;
+		width: 20%;
 	}
+
 div#foot {
 	border-top: 1px solid #ccc;
 	padding: 20px;
@@ -65,11 +86,6 @@ div#foot {
 }
 
 /************* Search **************/
-div#head div#search {
-	position: absolute;
-	right: 0;
-	top: 0;
-}
 div#search-results h2 {
 	border-bottom: 1px solid #ddd;
 	padding: 0 0 1em 0;
@@ -159,8 +175,8 @@ ul.menu {
 	margin-top: 20px;
 }
 ul.menuchild {
-	margin-left: 1.5em;
-	padding: 0;
+	padding-left: 1.5em;
+	margin: 0.5em 0 -0.5em 0;
 	list-style: none;
 }
 div#secondary-menu ul.menu  {
@@ -168,18 +184,18 @@ div#secondary-menu ul.menu  {
 }
 ul.menu li {
 	border-bottom: 1px solid #ccc;
-	line-height: 2em;
+	white-space: nowrap;
+	padding: 0.5em 0;
 }
 ul.menuchild li {
 	border-width: 0;
-	border-top: 1px solid #ddd;
+	border-top: 1px solid #ccc;
 }
 ul.menu li a {
 	text-decoration: none;
 }
-ul.menu li.add {
-	background-color: #f9f9f9;
-	font-size: 11px;
+ul.menu li.add a {
+	color: #999;
 }
 
 /******** Horizontal Menu *********/
@@ -196,33 +212,38 @@ div.horizontal-menu ul.menu, div.horizontal-menu ul.menuchild {
 div.horizontal-menu ul.menu {
 	width: 100%;
 	border-bottom: 1px solid #ddd;
-	height: 23px;
 	margin: 0px !important;
+	z-index: 10; /* for IE */
+	position: relative; /* for IE */
 }
 div.horizontal-menu ul.menu li {
 	float: left;
-	position: relative;
 	border-width: 0;
-	padding: 0 2%;
+	padding: 0.5em 1em;
 	border-right: 1px solid #ddd;
-	z-index: 1000;
-}
-div.horizontal-menu ul.menu li:hover ul.menuchild {
-	display:block;
 }
 div.horizontal-menu ul.menuchild {
-	display: none;
+	margin: 0;
+	padding: 0;
 	position: absolute;
 	left: 0;
-	top: 24px;
-	width: 100%;
+	top: 28px;
+	white-space: nowrap;
+	background: #999;
+	width: auto;
+	z-index: 1;
 }
 div.horizontal-menu ul.menuchild li {
-	width: 80%;
-	padding: 0 10%;
 	border-width: 0;
 	border-bottom: 1px solid #ddd;
-	background: #f9f9f9;
+	background-color: #f9f9f9;
+	white-space: nowrap;
+	float: none;
+	z-index: 1;
+	position: relative;
+}
+div.horizontal-menu ul.menuchild li a {
+	z-index: 1;
 	position: relative;
 }
 

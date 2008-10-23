@@ -1,13 +1,14 @@
 <div id="seed-admin-form">
-	
+	<%= image_tag "spinner.gif", :id => 'spinner', :size => "31x31", :alt => 'spinner', :style => "display:none;" %>
 	<ul id="ajax-error"></ul>
+	<h2 class="ajax">Document Upload</h2>
 	
 	<% form_for(@document, :html => { :multipart => true, 
 								   :method => :post,
 								   :target => "upload_frame",
 								   :class => "seed-admin ajax", 
 								   :id => "ajax_create" }) do |f| %>
-	  <fieldset id="document">
+	  <fieldset id="ajax">
 	    <div class="input-row">
 	      <%= f.label :name, "Name: <small>(required)</small>" %>
 	      <%= f.text_field :name %>
@@ -15,7 +16,6 @@
 	    <div class="input-row">
 	      <%= f.label :uploaded_data, "Choose a document to upload" %>
 		    <%= f.file_field :uploaded_data %>
-		    <%= image_tag "spinner.gif", :id => 'spinner', :size => "31x31", :alt => 'spinner', :style => "display:none;" %>
 	    </div>
 	  </fieldset>
 	  <div class="submit">
@@ -26,4 +26,3 @@
 
 	<% end -%>
 </div>
-

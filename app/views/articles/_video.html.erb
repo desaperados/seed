@@ -12,10 +12,10 @@
   <p><small>Only YouTube works at the moment.<br />(ie. http://www.youtube.com/v/t2yoOlicmww)</small></p>
   <div class="input-row">
     <%= f.label :content, "Caption" %>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, :class => "compact" %>
   </div>
   </fieldset>
-  <div>
+  <div class="submit">
 	<%= f.hidden_field :page_id %>
 	<%= hidden_field :article, :article_type, {:value => "video"} %>
     <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>

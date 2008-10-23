@@ -54,7 +54,7 @@
 	<%= f.select(:paginate, Page::PAGINATION) %>
   </div>
   </fieldset>
-  <div>
+  <div class="submit">
     <%= f.submit submit %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
   </div>
 <% end %>

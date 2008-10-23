@@ -1,3 +1,29 @@
+// for horizontal menu
+Event.observe(window, 'load', function() {
+	$$('ul.horizontal li.parent').each(function(item) {
+		item.observe('mouseover', function() {
+			item.down('ul.menuchild').setStyle({ display: 'block'});
+		});
+		item.observe('mouseout', function() {
+			item.down('ul.menuchild').setStyle({ display: 'none'});
+		});
+	});
+});
+
+// for hoverable behaviour
+// attaches .hover class to descendents of the .hoverable class
+Event.observe(window, 'load', function() {
+  $$('.hoverable > *').each(function (e) {
+    Event.observe(e, 'mouseover', function() {
+      Element.addClassName(e, 'hover');
+    });  
+
+    Event.observe(e, 'mouseout', function() {
+      Element.removeClassName(e, 'hover');
+    });
+  });
+});
+
 Ajax.Base.prototype.initialize = Ajax.Base.prototype.initialize.wrap( 
    function(p, options){ 
      p(options); 
@@ -28,3 +54,4 @@ function toggle_when_field(checkbox) {
 function set_to_date_value(element) {
 	$("event_to_date").value = element.value;
 }
+

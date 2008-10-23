@@ -47,11 +47,37 @@ ul#seed-user-bar a:hover {
 
 /************* Forms ***************/
 
+div#seed-admin-form {
+	position: relative;
+	width: 600px;
+}
+div#seed-admin-form h2 {
+	margin: 0;
+	font-size: 1em;
+	background: #fff;
+	padding: 5px 1em;
+	color: #16387c;
+	border-top: 1px solid #dbe2e8;
+	border-left: 1px solid #dbe2e8;
+	border-right: 1px solid #dbe2e8;
+	background-image: url('../images/icons/grad_1px.gif');
+	background-position: 0 -228px;
+}
+div#seed-admin-form h2.adjusted {
+	margin-bottom: 1em;
+}
+div#seed-admin-form h2.ajax {
+	width: 375px;
+}
+div#seed-admin-form img#spinner {
+	position: absolute;
+	left: 350px;
+	top: 40px;
+}
 form.seed-admin { 			
-	width: 90%;
 	padding: 1em;
-	border: 1px solid #e9e9e9;
-	background-color: #f8f8f8;
+	border: 1px solid #dbe2e8;
+	background-color: #f1f4f6;
 	margin: 0px;
 }
 form.seed-admin label {
@@ -64,7 +90,7 @@ form.tight {
 	padding: 1em 1.5em;
 }
 form.ajax {
-	width: 370px;
+	width: 375px;
 }
 form.tight label, form.ajax label {
 	float: none;
@@ -79,25 +105,22 @@ form.seed-admin p {
 form.tight p {
 	margin: 0;
 }
-form.seed-admin img {
-	position: absolute;
-	top: 5px;
-	right: 15px;
-}
 form.seed-admin legend {
 	padding: 0 0 10px 0;
 }
 form.seed-admin a {
 	text-decoration: none;
 }
-form.seed-admin fieldset#image {
-	padding: 5px;
-	margin: 5px 5px 15px 5px;
-	background: #fff;
+form.seed-admin fieldset#ajax {
+	margin-top: 1em;
+}
+form.seed-admin fieldset#ajax label {
+	margin-bottom: 0.5em;
 }
 form.seed-admin div.input-row {
 	margin: 2px 0 2px 0;
 	padding: 3px 0 3px 0;
+	text-align: left;
 }
 form.seed-admin div.commentable-row {
 	margin-bottom: 10px;
@@ -130,17 +153,11 @@ form.ajax div.input-row input,
 form.ajax div.input-row textarea {
 	width: auto;
 }
-form.ajax div.submit, form.tight div.submit, form.seed-admin div.submit {
-	margin-top: 10px;
+div.submit {
+	margin: 2em 0;
 }
 form.comment textarea, textarea.compact {
 	height: 90px;
-}
-div#seed-admin-form {
-	position: relative;
-}
-div#seed-admin-form h2 {
-	margin-top: 0;
 }
 
 /********** Form Tab Menu **********/
@@ -148,11 +165,14 @@ ul#formtabs {
 	list-style: none;
 	margin: 20px 0 0 0;
 	padding: 0;
-	height: 17px;
+	height: 19px;
+}
+ul#formtabs li {
+	float: left;
 }
 ul#formtabs li a {
 	float: left;
-	padding: 0 10px 0 10px;
+	padding: 2px 10px 0 10px;
 	margin-right: 2px;
 	border-top: 1px solid #ddd;
 	border-right: 1px solid #ddd;
@@ -160,20 +180,25 @@ ul#formtabs li a {
 	border-bottom: 0px solid #fff;
 	text-decoration: none;
 	height: 16px;
+	background-image: url('../images/icons/grad_1px.gif');
+	background-position: 0 -184px;
+	color: #999;
 }
 ul#formtabs li a.selected {
-	background-color: #f0f0f0;
+	background-image: url('../images/icons/grad_1px.gif');
+	background-position: 0 -234px;
+	color: #4488bb;
 }
 
 /********** Form Sidebar ***********/
 div#form-sidebar {
 	position: absolute;
-	top: 50px;
+	top: 65px;
 	right: 0;
 	width: 20%;
 }
 div#form-sidebar.notabs {
-	top: 29px;
+	top: 35px;
 }
 div#form-sidebar .seed-image-item {
 	margin-right: 0;
@@ -187,13 +212,18 @@ div#seed-admin-form div#image-control a.add {
 	padding: 0 4%;
 	margin: 5px 0;
 	border: 1px solid #ddd;
+	background-image: url('../images/icons/grad_1px.gif');
+	background-position: 0 -385px;
 }
 div#seed-notes {
-	border: 1px solid #e9e9e9;
+	border: 1px solid #dbe2e8;
+	background-color: #f1f4f6;
+	background-image: url('../images/icons/grad_1px.gif');
+	background-position: 0 -1037px;
 }
 div#seed-notes p {
 	margin: 5px;
-	font-size: 10px;
+	font-size: 0.9em;
 	color: #666;
 }
 div#seed-notes a {
@@ -201,7 +231,7 @@ div#seed-notes a {
 }
 div#seed-notes h4, div#seed-notes h5 {
 	margin: 5px;
-	font-size: 10px;
+	font-size: 0.9em;
 	color: #555;
 }
 div#seed-notes h5 {
@@ -220,7 +250,7 @@ table.seed-admin th {
 	font-weight: normal;
 	border-bottom: 1px solid #ccc;
 	padding: 0.2em 0.5em;
-	background: #f0f0f0;
+	background: #f1f4f6;
 }
 table.seed-admin td {
 	border-width: 0px;
@@ -298,9 +328,12 @@ div#form-documents {
 div#form-documents a.button {
 	display: block;
 	border: 1px solid #ddd;
-	width: 100px;
+	width: 200px;
 	text-decoration: none;
 	text-align: center;
+	padding: 0 1em;
+	background-image: url('../images/icons/grad_1px.gif');
+	background-position: 0 -385px;
 }
 table#document-table {
 	margin-top: 1em;

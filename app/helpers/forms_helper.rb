@@ -17,7 +17,7 @@ module FormsHelper
     	  a.removeClassName('selected')
     	end
     	page.select("li.#{partial_name(name)}tab a").first.addClassName('selected')
-    	page.visual_effect :highlight, :changer, :startcolor => '#bbeeff', :endcolor => '#f8f8f8', :duration => 0.5
+    	page.visual_effect :highlight, :changer, :startcolor => '#dae4e5', :endcolor => '#f1f4f6', :duration => 0.5
     end
   end
   

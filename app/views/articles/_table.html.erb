@@ -10,7 +10,7 @@
     <%= f.text_area :content %>
   </div>
   </fieldset>
-  <div>
+  <div class="submit">
 	<%= f.hidden_field :page_id %>
 	<%= hidden_field :article, :article_type, {:value => "table"} %>
     <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>

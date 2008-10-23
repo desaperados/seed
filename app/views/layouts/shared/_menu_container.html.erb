@@ -1,7 +1,7 @@
 <div class="<%= container %>">
   <div id="primary-menu">
     
-  	<ul id="<%= sortable_id %>" class="menu">
+  	<ul id="<%= sortable_id %>" class="menu <%= orientation %>">
   		<%= render :partial => "layouts/shared/menu", :collection => collection %>
   		<% if logged_in? && current_user.has_role?(:admin) -%>
   		  <% if type == "primary" -%>
