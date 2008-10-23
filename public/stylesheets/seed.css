@@ -28,6 +28,8 @@ ul#seed-user-bar {
 	background-color: #ffff99;
 	height: 18px;
 	border-bottom: 1px solid #ccc;
+	background-image: url('../images/icons/grad_1px.gif');
+	background-position: 0 -383px;
 }
 ul#seed-user-bar li {
 	float: right;
@@ -243,7 +245,9 @@ div#seed-notes h5 {
 table.seed-admin {
 	width: 100%;
 	margin-bottom: 2em;
+	border-collapse: separate;
 	border-spacing: 0;
+	*border-collapse: collapse; /* for the IE's */
 }
 table.seed-admin th {
 	text-align: left;
@@ -281,7 +285,7 @@ table.seed-roles th.addlink {
 	padding-right: 0;
 }
 table.seed-roles th.editrole {
-	font-style: normal;
+	font-style: normal !important;
 	padding-left: 3px;
 }
 table.seed-roles th.editrole span {
@@ -292,6 +296,7 @@ table.seed-roles th.editrole span {
 
 .seed-admin-tag { 				
 	font-size: 10px;
+	line-height: 12px;
 	color: #666;
 	background: #f0f0f0;
 }
@@ -301,24 +306,30 @@ table.seed-roles th.editrole span {
 }
 .seed-admin-tag a:hover {
 	background-color: transparent;
-	color: red;
 }
 .seed-edit-tag {
 	float: right;
 }
+.seed-edit-component {
+	text-align: right;
+}
+.seed-edit-component span {
+	float: left;
+}
 div.button {
 	margin: 0 0 1em 0;
 }
-li span.admin, li span.childadmin {
-	display: none;
-	width: auto;
-	margin-left: 1em;
+/*********** Menu Admin ************/
+ul.menu li img.handle {
+	position: absolute;
+	right: 0;
+	margin-right: 0.5em;
 }
-li:hover span.admin {
-	display: inline;
+ul.menu li span {
+	margin-right: 1em;
 }
-ul.menuchild li:hover span.childadmin {
-	display: inline;
+ul.menuchild img.handle {
+	margin-right: 0.5em;
 }
 
 /********* Document Admin *********/
@@ -343,7 +354,7 @@ table#document-table {
 div#user {
 	border: 1px solid #ddd;
 	padding: 1em;
-	width: 90%;
+	width: 575px;
 	margin-bottom: 1em;
 	color: #666;
 }
@@ -417,18 +428,18 @@ div.fieldWithErrors input {
 #errorExplanation ul li {
   	list-style: square;
 }
-div#flash-notice, div#flash-warning, div#flash-error {
+div#flash-notice, div#flash-warning, div#flash-error, div#flash-test {
 	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
 	font-size: 10px;
-	right: 0;
-	top: 20px;
-	color: #fff;
-	background-color: blue;
-	opacity: 0.5;
-	padding: 1px 40px 1px 5px;
+	text-align: center;
+	color: blue;
+	font-weight: bold;
+	padding: 0.3em 0;
 	z-index: 1000;
-}
-ul#ajax-error {
-	margin-bottom: 10px;
+	background-image: url('../images/icons/grad_1px.gif');
+	background-position: 0 -40px;
 }
 

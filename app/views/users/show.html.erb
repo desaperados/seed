@@ -15,7 +15,7 @@
 <div id="seed-admin-form">
 
 <% @user.password = @user.password_confirmation = nil %>
-
+<h2>Edit User</h2>
 <% form_for @user, :html => {:class => "seed-admin"} do |f| -%>
   <%= error_messages_for :user %>
 	<fieldset>

@@ -15,6 +15,7 @@ h2 {font-size: 18px;}
 h3 {font-size: 12px; margin: 0.5em 0;}
 h4 {font-size: 11px; margin: 0.5em 0;}
 p {margin: 1em 0;}
+img {border-width: 0;}
 
 /********* Create Tags* ***********/
 
@@ -163,6 +164,7 @@ div#components {
 div.component {
 	border-bottom: 1px solid #ddd;
 	padding: 0 0 1em 0;
+	margin-bottom: 1em;
 }
 
 /*********** Main Menu ************/
@@ -223,6 +225,7 @@ div.horizontal-menu ul.menu li {
 	border-right: 1px solid #ddd;
 }
 div.horizontal-menu ul.menuchild {
+	display: none;
 	margin: 0;
 	padding: 0;
 	position: absolute;

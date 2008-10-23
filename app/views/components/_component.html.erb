@@ -1,10 +1,12 @@
 <div class="component <%= sanitized_class_name(component.title) %>" id="sortablecomponent_<%= component.id %>">
 
     <% if editable?(@page) %>
-	  	<span class="seed-admin-tag seed-edit-tag">
-	  		<%= link_to "edit", edit_component_path(@page, component)%>|<%= link_to "X", component_path(@page, component), :confirm => 'Delete this component?', :method => :delete %>
-	      <%= image_tag "icons/drag_handle.gif", :size => "11x11", :class => "handle" %>
+    <div class="seed-edit-component">
+	  	<span class="seed-admin-tag">
+	  		<%= link_to "edit", edit_component_path(@page, component)%>|<%= link_to "X", component_path(@page, component), :confirm => 'Delete this component?', :method => :delete %> 
 	  	</span>
+	  	<%= image_tag "icons/drag_handle.gif", :size => "11x11", :class => "handle" %>
+	  </div>
 	  <% end -%>
 	  
 	  <%= content_tag(:h3, component.title) %>

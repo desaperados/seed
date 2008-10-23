@@ -9,7 +9,7 @@
     
     <div class="input-row">
       <%= f.label :all_day %>
-      <%= f.check_box :all_day, :onclick => "toggle_when_field(this);" %>
+      <%= f.check_box :all_day, :onclick => "toggle_when_field(this);", :style => "width:4%;" %>
     </div>
     
     <div id="_datetime" style="<%= initial_display_style(:datetime) %>" class="input-row">

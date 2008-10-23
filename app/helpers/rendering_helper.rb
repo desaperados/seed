@@ -47,7 +47,7 @@ module RenderingHelper
   end
   
   def seed_admin_messages
-    "#{flash_messages} #{content_tag(:div, nil, :id => 'ajax-msg')}"
+    "#{flash_messages}"
   end
   
   def seed_head_elements

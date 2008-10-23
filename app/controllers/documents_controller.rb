@@ -15,7 +15,6 @@ class DocumentsController < ApplicationController
             page << "Lightview.hide();"
             page.insert_html :top, 'document-table', :partial => "documents/document", :object => @document
             page.insert_html :top, 'document-ids', hidden_field_tag("component[document_ids][]", @document.id, :id => "hidden_document_tag_#{@document.id}")
-            page.insert_html :top, 'ajax-msg', "<div id='flash-notice'>Document was successfully uploaded</div>"
         end
       end          
     else

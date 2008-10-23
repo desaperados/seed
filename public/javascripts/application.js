@@ -24,6 +24,17 @@ Event.observe(window, 'load', function() {
   });
 });
 
+// flash message fading
+document.observe("dom:loaded", function() {
+  setTimeout(hideFlashMessages, 2000);
+});
+
+function hideFlashMessages() {
+  $$('div#flash-notice, div#flash-warning, div#flash-error').each(function(e) { 
+    if (e) Effect.Fade(e, { duration: 2.0 });
+  });
+}
+
 Ajax.Base.prototype.initialize = Ajax.Base.prototype.initialize.wrap( 
    function(p, options){ 
      p(options); 
