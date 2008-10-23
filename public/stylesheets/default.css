@@ -17,18 +17,6 @@ h4 {font-size: 11px; margin: 0.5em 0;}
 p {margin: 1em 0;}
 img {border-width: 0;}
 
-/********* Create Tags* ***********/
-
-div#head span.seed-admin-tag {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-}
-div#head span.seed-admin-tag a {
-	border-left: 10px;
-	background: #f0f0f0;
-}
-
 /********** Page Layout ***********/
 
 body { 
@@ -226,7 +214,6 @@ div.horizontal-menu ul.menuchild {
 	top: 19px;
 	padding: 0px;
 	background-color: #999;
-	z-index: 1;
 }
 li:hover ul.menuchild, li.over ul.menuchild { 
 	display: block;

@@ -1,22 +1,9 @@
 <div class="<%= container %>">
-  <div id="primary-menu">
+  <div id="<%= type %>-menu">
     
   	<ul id="<%= sortable_id %>" class="menu <%= orientation %>">
   		<%= render :partial => "layouts/shared/menu", :collection => collection %>
-  		<% if logged_in? && current_user.has_role?(:admin) -%>
-  		  <% if type == "primary" -%>
-  			  <li class="add top"><%= link_to "Add Page", new_page_path %></li> 
-  			<% end -%>
-  		<% end -%>
   	</ul>
-  	<% if logged_in? -%>
-  	<%= sortable_element(sortable_id,  
-  						 :url => {:controller => "javascript", :action => "update_page_order"},
-  						 :tree => true,
-  						 :constraint => false,
-  						 :only => "sortable",
-  						 :handle => 'handle') %>
-  	<% end -%>
   	
   </div>
 </div>

@@ -58,10 +58,6 @@ module RenderingHelper
     content_tag(tag, @page.description) unless !@page
   end
   
-  def seed_create_tags(class_name="seed-admin-tag")
-    add_resource_link(params[:controller], @page, class_name) unless !@page
-  end
-  
   # Sets the section title from Page.title if exists, or a title() if
   # passed, else defaults to the site name.
   def seed_page_title(tag="h1")

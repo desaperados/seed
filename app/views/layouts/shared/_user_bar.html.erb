@@ -2,14 +2,26 @@
   <ul id="<%= container %>">
   	
   	<li class="left">Logged in as: <%= link_to_current_user :content_method => :login %></li>
-  	<li class="left">| <%= link_to "sign out", logout_path, { :title => "Log out" } %></li>
+  	<li class="left">| <%= link_to "sign out", logout_path, :title => "Log out" %></li>
   	
   	<% if current_user.has_role?("admin") %>
-  	  <li><%= link_to "Roles", roles_path %></li>
-  	  <li><%= link_to "Users", users_path %> |</li>
+  	  <li><%= link_to "Page Order", "", :title => "Manage the ordering menu pages" %></li>
+  	  <li><%= link_to "Roles", roles_path, :title => "Manage User Permissions" %> |</li>
+  	  <li><%= link_to "Users", users_path, :title => "Manage Users" %> |</li>
+  	  <li class="icon"><%= image_tag "icons/process.png", :size => "16x16" %></li>
+  	  <% if display_page_edit_tags? %>
+  	    <li>| <%= link_to "new", new_page_path, :title => "Create a new Page" %></li> 
+  	    <li>| <%= link_to "X", page_path(@page), :confirm => 'Delete this page and all associated content?', :method => :delete, :title => "Delete this page and all associated content" %></li>
+    	  <li><%= link_to "edit", edit_page_path(@page), :title => "Edit this page" %></li>
+    	  <li class="title"><%= @page.name %> Page:</li>
+  	  <% end -%>
   	 
-  	  <li><%= image_tag "icons/process.png", :size => "16x16" %></li>
   	<% end -%>
-
+  	
+  	<% if display_page_edit_tags? %>
+  	  <li>| <%= link_to "add component", new_component_path, :title => "Add a component to this page" %></li>
+      <li><%= link_to "add #{params[:controller].singularize}", :controller => params[:controller], :action => "new" %></li>
+    <% end -%>
+    
   </ul>
 <% end -%>

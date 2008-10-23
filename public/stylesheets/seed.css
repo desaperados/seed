@@ -19,7 +19,8 @@ fieldset {
 	position: relative;
 }
 
-/**** Absolute Positioned Tags ***/
+/************ User Bar *************/
+
 ul#seed-user-bar {
 	font-size: 10px;
 	margin: 0;
@@ -38,6 +39,13 @@ ul#seed-user-bar li {
 }
 ul#seed-user-bar li.left {
 	float: left;
+}
+ul#seed-user-bar li.title {
+	margin-left: 1em;
+}
+ul#seed-user-bar li.icon {
+	height: 16px;
+	margin: 0 0.2em 0 1em;
 }
 ul#seed-user-bar a {
 	text-decoration: none;
@@ -318,10 +326,6 @@ table.seed-roles th.editrole span {
 }
 div.button {
 	margin: 0 0 1em 0;
-}
-/*********** Menu Admin ************/
-ul.menuchild img.handle {
-	margin: 0 0.5em;
 }
 
 /********* Document Admin *********/
