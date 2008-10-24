@@ -7,7 +7,7 @@
 	<% end -%>
 	
 	<% if article.article_type == "article" %>
-		<h2><%= article.title %></h2>
+		<h2 class="handle"><%= article.title %></h2>
 		
 		<div id="images">
 		  <% article.images.each do |image| %>
@@ -21,7 +21,7 @@
 	<% end -%>
 	
 	<% if article.article_type == "video" %>
-		<h2><%= article.title %></h2>
+		<h2 class="handle"><%= article.title %></h2>
 		<% if article.video != "" %>
 		<div>
 			<object type="application/x-shockwave-flash" data="<%= article.video %>&amp;hl=en&amp;fs=1" width="425" height="344">
@@ -40,7 +40,7 @@
 		<%= textilize(article.content) %>
 	<% end -%>
 	<% if article.article_type == "table" %>
-		<h2><%= article.title %></h2>
+		<h2 class="handle"><%= article.title %></h2>
 		<%= textilize_without_paragraph(article.content) %>
 	<% end -%>
 	

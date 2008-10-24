@@ -98,7 +98,7 @@ module LightviewHelper
   def get_default_lightview_options
     {
        :autosize => true,
-       :ajax => options_for_javascript({ :evalScripts => true }) # this is so any js in the displayed page is available (e.g. for autocompleter)
+       :ajax => options_for_javascript({ :evalScripts => true, :method => "'get'" }) # this is so any js in the displayed page is available (e.g. for autocompleter)
     }
   end
 

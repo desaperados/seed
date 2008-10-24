@@ -5,6 +5,7 @@
   <% if logged_in? && (collection.first.sortable? if !collection.empty?) %>
   <%= sortable_element('sortableitems',  
   					 :url => {:controller => "javascript", :action => "update_item_order", :class_name => collection.first.class.name},
+  					 :handle => 'handle',
   					 :tag => :div ) %>
   <% end -%>
 </div>

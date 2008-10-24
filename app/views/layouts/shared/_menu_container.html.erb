@@ -4,6 +4,15 @@
   	<ul id="<%= sortable_id %>" class="menu <%= orientation %>">
   		<%= render :partial => "layouts/shared/menu", :collection => collection %>
   	</ul>
-  	
+  	<![if !IE]>
+  	<% if logged_in? && current_user.has_role?(:admin) -%>
+      <%= sortable_element(sortable_id,  
+                 :url => {:controller => "javascript", :action => "update_page_order"},
+                 :tree => true,
+                 :constraint => false,
+                 :only => "sortable",
+                 :handle => 'handle') %>
+    <% end -%>
+    <![endif]>
   </div>
 </div>

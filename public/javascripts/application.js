@@ -24,6 +24,10 @@ Event.observe(window, 'load', function() {
   });
 });
 
+function true_if_not_ie() {
+	true
+}
+
 // flash message fading
 document.observe("dom:loaded", function() {
   setTimeout(hideFlashMessages, 2000);

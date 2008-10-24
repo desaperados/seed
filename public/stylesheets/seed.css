@@ -318,12 +318,6 @@ table.seed-roles th.editrole span {
 .seed-edit-tag {
 	float: right;
 }
-.seed-edit-component {
-	text-align: right;
-}
-.seed-edit-component span {
-	float: left;
-}
 div.button {
 	margin: 0 0 1em 0;
 }
