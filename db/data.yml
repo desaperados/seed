@@ -1,0 +1,245 @@
+
+--- 
+pages: 
+  columns: 
+  - id
+  - title
+  - name
+  - description
+  - position
+  - kind
+  - menu_type
+  - viewable_by
+  - editable_by
+  - parent_id
+  - paginate
+  - components_count
+  - created_at
+  - updated_at
+  records: 
+  - - "1"
+    - Home Page
+    - Home
+    - Default home page for a new seed installation
+    - "1"
+    - articles
+    - primary
+    - public
+    - all users
+    - 
+    - 
+    - "0"
+    - 2008-10-24 16:08:06
+    - 2008-10-24 16:08:06
+  - - "2"
+    - About Page
+    - About
+    - A page where you could write what this site is about
+    - "2"
+    - articles
+    - primary
+    - public
+    - all users
+    - 
+    - 
+    - "0"
+    - 2008-10-24 16:08:06
+    - 2008-10-24 16:08:06
+  - - "3"
+    - News Page
+    - News
+    - A page for news items with dates and archive section
+    - "3"
+    - newsitems
+    - primary
+    - public
+    - all users
+    - 
+    - 
+    - "0"
+    - 2008-10-24 16:08:06
+    - 2008-10-24 16:08:06
+  - - "4"
+    - Blog Page
+    - Blog
+    - Be Creative...
+    - "4"
+    - posts
+    - primary
+    - public
+    - all users
+    - 
+    - 
+    - "0"
+    - 2008-10-24 16:08:06
+    - 2008-10-24 16:08:06
+  - - "5"
+    - Secondary Menu Default Page
+    - Secondary Home
+    - Secondary Menu Default Page
+    - "5"
+    - articles
+    - secondary
+    - public
+    - all users
+    - 
+    - 
+    - "0"
+    - 2008-10-24 16:08:06
+    - 2008-10-24 16:08:06
+
+--- 
+articles: 
+  columns: 
+  - id
+  - title
+  - content
+  - video
+  - article_type
+  - imagesize
+  - imageposition
+  - commentable
+  - author
+  - page_id
+  - position
+  - comments_count
+  - created_at
+  - updated_at
+  records: 
+  - - "1"
+    - Welcome to Seed
+    - |-
+      This is your first seed article! 
+      Login at http://yoursiteurl/login to make changes. 
+      User: admin
+      Password: administrator
+    - 
+    - article
+    - 
+    - 
+    - true
+    - 
+    - "1"
+    - "1"
+    - "0"
+    - 2008-10-24 16:08:06
+    - 2008-10-24 16:08:06
+  - - "2"
+    - Test article 1
+    - An article for testing during development
+    - 
+    - article
+    - 
+    - 
+    - true
+    - 
+    - "2"
+    - "1"
+    - "0"
+    - 2008-10-24 16:08:06
+    - 2008-10-24 16:08:06
+  - - "3"
+    - Test article 2
+    - An article for testing during development
+    - 
+    - article
+    - 
+    - 
+    - true
+    - 
+    - "2"
+    - "2"
+    - "0"
+    - 2008-10-24 16:08:06
+    - 2008-10-24 16:08:06
+  - - "4"
+    - Test article 3
+    - An article for testing during development
+    - 
+    - article
+    - 
+    - 
+    - true
+    - 
+    - "2"
+    - "3"
+    - "0"
+    - 2008-10-24 16:08:06
+    - 2008-10-24 16:08:06
+  - - "5"
+    - Test article 4
+    - An article for testing during development
+    - 
+    - article
+    - 
+    - 
+    - true
+    - 
+    - "2"
+    - "4"
+    - "0"
+    - 2008-10-24 16:08:06
+    - 2008-10-24 16:08:06
+  - - "6"
+    - Test article 5
+    - An article for testing during development
+    - 
+    - article
+    - 
+    - 
+    - true
+    - 
+    - "2"
+    - "5"
+    - "0"
+    - 2008-10-24 16:08:06
+    - 2008-10-24 16:08:06
+
+--- 
+users: 
+  columns: 
+  - id
+  - login
+  - name
+  - email
+  - crypted_password
+  - salt
+  - created_at
+  - updated_at
+  - remember_token
+  - remember_token_expires_at
+  - activation_code
+  - activated_at
+  records: 
+  - - "1"
+    - admin
+    - Default Admin User
+    - dbcurrin@gmail.com
+    - 7a72b0c56058050f26d0489793a63c251d6b2974
+    - 22a601085efecd22c2e80be73ad6cfcd4efe79bd
+    - 2008-10-24 16:08:06
+    - 2008-10-24 16:08:06
+    - 
+    - 
+    - 
+    - 2008-10-24 16:08:06
+
+--- 
+roles: 
+  columns: 
+  - id
+  - name
+  - description
+  records: 
+  - - "1"
+    - admin
+    - Super Users with un-restricted access to all areas
+
+--- 
+roles_users: 
+  columns: 
+  - role_id
+  - user_id
+  records: 
+  - - "1"
+    - "1"
