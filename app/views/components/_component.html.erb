@@ -11,7 +11,7 @@
 	  <% if component.page_feed? %>
       <% component.snippets.each do |snippet| -%>
         <h4><%= link_to(snippet.title, resource_path(component.source, snippet.id)) %></h4>
-        <%= snippet.component_preview %>
+        <p><%= snippet.component_preview %></p>
       <% end -%>
     <% end -%>
     
