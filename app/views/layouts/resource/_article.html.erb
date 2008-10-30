@@ -17,7 +17,7 @@
 		  <% end -%>
 		</div>
 		
-		<%= textilize(article.content) %>
+		<%= textilize(article.content.lstrip) %>
 	<% end -%>
 	
 	<% if article.article_type == "video" %>
@@ -37,7 +37,7 @@
 			</object>
 		</div>
 		<% end -%>
-		<%= textilize(article.content) %>
+		<%= textilize(article.content.lstrip) %>
 	<% end -%>
 	<% if article.article_type == "table" %>
 		<h2 class="handle"><%= article.title %></h2>

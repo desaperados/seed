@@ -3,9 +3,16 @@ class Event < ActiveRecord::Base
   belongs_to :page
   validates_presence_of :name, :date
   
+  # currently unused
   def self.future_events(year, month)
     from = Date.new(year, month)
     find(:all, :conditions => ['datetime >= ? OR from_date >= ?', from, from ], :order => "datetime, from_date ASC")
+  end
+  
+  def self.current_month_events(year, month)
+    from = Date.new(year, month, 1)
+    to = Date.new(year, month, days_in_month(year, month))
+    find(:all, :conditions => ["datetime BETWEEN ? AND ? OR from_date BETWEEN ? AND ? OR to_date BETWEEN ? AND ?", from, to, from, to, from, to], :order => "datetime, from_date ASC")
   end
   
   def sortable?
@@ -64,4 +71,10 @@ class Event < ActiveRecord::Base
     end
   end
   
+end
+
+private
+
+def days_in_month(year, month)
+  Date.new(year, month, -1).day
 end

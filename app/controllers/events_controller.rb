@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   def index
     @month = (params[:month]) ? params[:month].to_i : DateTime.now.month
     @year = (params[:year]) ? params[:year].to_i : DateTime.now.year
-    @events = Event.future_events(@year, @month)
+    @events = Event.current_month_events(@year, @month)
   end
   
   def new
