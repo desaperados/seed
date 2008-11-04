@@ -14,4 +14,5 @@ public/stylesheets/template/*.css
 db/*.sqlite3
 Capfile
 config/settings.yml
+config/deploy.rb
 template/**/*
