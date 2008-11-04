@@ -14,7 +14,7 @@ module ApplicationHelper
   end
   
   def simple_date(date)
-    date.strftime("%B %d %Y")
+    date.strftime("%B %d, %Y")
   end
   
   def seed_page_class(page)
