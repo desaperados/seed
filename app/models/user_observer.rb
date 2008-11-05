@@ -11,7 +11,11 @@ class UserObserver < ActiveRecord::Observer
     UserMailer.deliver_termination_notification(user)
   end
   
-  def after_update(user)
-    UserMailer.deliver_update_notification(user)
-  end
+  #TODO - add if_changed? functionality here
+  
+  # Disabled due to sending emails on login, activation etc
+  
+  # def after_update(user)
+  #  UserMailer.deliver_update_notification(user)
+  # end
 end

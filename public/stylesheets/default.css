@@ -217,6 +217,9 @@ ul.menu li {
 	white-space: nowrap;
 	padding: 0.5em 0;
 }
+ul.menu li.selected {
+	background: #fafafa;
+}
 ul.menuchild li {
 	border-width: 0;
 	border-top: 1px solid #ccc;

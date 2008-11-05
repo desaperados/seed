@@ -9,6 +9,10 @@ module ApplicationHelper
      end
   end
   
+  def menu_current?(menu)
+    "selected" if menu.id == @page.id unless !@page
+  end
+  
   def content_tag_if(tag, content, condition)
     content_tag(tag, content) unless !condition
   end
