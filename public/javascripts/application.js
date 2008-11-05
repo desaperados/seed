@@ -1,6 +1,6 @@
 // for horizontal menu
 Event.observe(window, 'load', function() {
-  $$('ul.menu li').each(function(item) {
+  $$('ul.dropdown li').each(function(item) {
     item.observe('mouseover', function() {
       item.addClassName('over');
     });
@@ -31,7 +31,7 @@ document.observe("dom:loaded", function() {
  
 function hideFlashMessages() {
   $$('div#flash-notice, div#flash-warning, div#flash-error').each(function(e) { 
-    if (e) Effect.Fade(e, { duration: 2.0 });
+    if (e) Effect.Fade(e, { duration: 1.5 });
   });
 }
  

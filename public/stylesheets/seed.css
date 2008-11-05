@@ -22,34 +22,73 @@ fieldset {
 /************ User Bar *************/
 
 ul#seed-user-bar {
-	font-size: 10px;
+	font-size: 12px;
 	margin: 0;
-	padding: 2px 5px 0 5px;
+	padding: 0 5px 0 5px;
 	list-style: none;
-	background-color: #ffff99;
-	height: 18px;
-	border-bottom: 1px solid #ccc;
-	background-image: url('../images/icons/grad_1px.gif');
-	background-position: 0 -383px;
+	background-color: #444;
+	height: 30px;
+	border-bottom: 1px solid #000;
+	background-image: url('../images/bg/dark_grey_diag.png');
 }
 ul#seed-user-bar li {
-	float: right;
-	margin: 0 4px 0 0;
-	color: #999;
-}
-ul#seed-user-bar li.left {
 	float: left;
+	padding: 8px 7px 0 7px;
+	margin: 0 3px 0 0;
+	color: #ccc;
+	position: relative;
+	z-index: 1;
+	height: 23px;
 }
-ul#seed-user-bar li.title {
-	margin-left: 1em;
+ul#seed-user-bar li.right {
+	float: right;
 }
-ul#seed-user-bar li.icon {
-	height: 16px;
-	margin: 0 0.2em 0 1em;
+ul#seed-user-bar li.hover {
+	color: #fff;
+	cursor: pointer;
+}
+ul#seed-user-bar li.edit-page {
+	margin: 0 3px 0 8em;
+	border-left: 1px solid #333;
+	padding-right: 1em;
+}
+ul#seed-user-bar li.first {
+	width: 22px;
+	margin: 0;
+	padding: 0;
+	background-image: url('../images/icons/star_grey.gif');
+	background-position: 5px 8px;
+	background-repeat: no-repeat;
+}
+ul#seed-user-bar ul.sub {
+	display: none;
+	margin: 0;
+	position: absolute;
+	list-style: none;
+	padding: 0;
+	left: 0;
+	top: 30px;
+	*width: 200px;
+	z-index: 1;
+	background: #4488bb;
+	border-top: 1px solid #333;
+}
+ul#seed-user-bar li:hover ul.sub, ul#seed-user-bar li.over ul.sub { 
+	display: block;
+}
+ul#seed-user-bar ul.sub li {
+	float: none;
+	height: 22px;
+	padding: 4px 20px 0 20px;
+	white-space: nowrap;
+	border-bottom: 1px solid #666;
+}
+ul#seed-user-bar ul.sub li a:hover {
+	color: #fff;
 }
 ul#seed-user-bar a {
 	text-decoration: none;
-	color: #666;
+	color: #ccc;
 }
 ul#seed-user-bar a:hover {
 	color: #4488bb;
@@ -62,16 +101,9 @@ div#seed-admin-form {
 	width: 600px;
 }
 div#seed-admin-form h2 {
-	margin: 0;
-	font-size: 1em;
-	background: #fff;
-	padding: 5px 1em;
-	color: #16387c;
-	border-top: 1px solid #dbe2e8;
-	border-left: 1px solid #dbe2e8;
-	border-right: 1px solid #dbe2e8;
-	background-image: url('../images/icons/grad_1px.gif');
-	background-position: 0 -228px;
+	margin: 0 0 1em 0;
+	font: 18px Georgia, "Times New Roman", serif; 
+	letter-spacing: 1px;
 }
 div#seed-admin-form h2.adjusted {
 	margin-bottom: 1em;
@@ -203,12 +235,12 @@ ul#formtabs li a.selected {
 /********** Form Sidebar ***********/
 div#form-sidebar {
 	position: absolute;
-	top: 65px;
+	top: 60px;
 	right: 0;
 	width: 20%;
 }
 div#form-sidebar.notabs {
-	top: 35px;
+	top: 38px;
 }
 div#form-sidebar .seed-image-item {
 	margin-right: 0;
@@ -223,13 +255,11 @@ div#seed-admin-form div#image-control a.add {
 	margin: 5px 0;
 	border: 1px solid #ddd;
 	background-image: url('../images/icons/grad_1px.gif');
-	background-position: 0 -385px;
+	background-position: 0 -185px;
 }
 div#seed-notes {
 	border: 1px solid #dbe2e8;
 	background-color: #f1f4f6;
-	background-image: url('../images/icons/grad_1px.gif');
-	background-position: 0 -1037px;
 }
 div#seed-notes p {
 	margin: 5px;
@@ -334,7 +364,7 @@ div#form-documents a.button {
 	text-align: center;
 	padding: 0 1em;
 	background-image: url('../images/icons/grad_1px.gif');
-	background-position: 0 -385px;
+	background-position: 0 -185px;
 }
 table#document-table {
 	margin-top: 1em;
@@ -342,14 +372,15 @@ table#document-table {
 
 /*********** User Admin ***********/
 div#user {
-	border: 1px solid #ddd;
-	padding: 1em;
-	width: 575px;
-	margin-bottom: 1em;
+	width: 600px;
+	margin-top: 2em;
 	color: #666;
 }
 div#user p {
-	margin: 0 0 0.5em 0;
+	margin: 0 0 3px 0;
+	padding-left: 1em;
+	padding-bottom: 3px;
+	border-bottom: 1px solid #ddd;
 }
 
 /********** Image Admin **********/
@@ -423,13 +454,14 @@ div#flash-notice, div#flash-warning, div#flash-error, div#flash-test {
 	top: 0;
 	left: 0;
 	width: 100%;
-	font-size: 10px;
+	font-size: 12px;
+	padding: 7px 0 0 0;
+	height: 23px;
+	color: #333;
+	border-bottom: 1px solid #ddd;
 	text-align: center;
-	color: blue;
-	font-weight: bold;
-	padding: 0.3em 0;
 	z-index: 1000;
-	background-image: url('../images/icons/grad_1px.gif');
-	background-position: 0 -40px;
+	background: #444;
+	background-image: url('../images/bg/grey_diag.png');
 }
 

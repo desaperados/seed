@@ -1,25 +1,33 @@
 <% if logged_in? -%>
-  <ul id="<%= container %>">
+  <ul id="<%= container %>" class="hoverable dropdown">
   	
-  	<li class="left">Logged in as: <%= link_to_current_user :content_method => :login %></li>
-  	<li class="left">| <%= link_to "sign out", logout_path, :title => "Log out" %></li>
+  	<li class="first"></li>
+  	<li><%= link_to_current_user :content_method => :login %></li>
+  	<li><%= link_to "Sign Out", logout_path, :title => "Log out" %></li>
   	
   	<% if current_user.has_role?("admin") %>
-  	  <li><%= link_to "Roles", roles_path, :title => "Manage User Permissions" %></li>
-  	  <li><%= link_to "Users", users_path, :title => "Manage Users" %> |</li>
-  	  <li class="icon"><%= image_tag "icons/process.png", :size => "16x16" %></li>
+  	  <li class="right"><%= link_to "Roles", roles_path, :title => "Manage User Permissions" %></li>
+  	  <li class="right"><%= link_to "Users", users_path, :title => "Manage Users" %></li>
+  	  
   	  <% if display_page_edit_tags? %>
-  	    <li>| <%= link_to "new", new_page_path, :title => "Create a new Page" %></li> 
-  	    <li>| <%= link_to "X", page_path(@page), :confirm => 'Delete this page and all associated content?', :method => :delete, :title => "Delete this page and all associated content" %></li>
-    	  <li><%= link_to "edit", edit_page_path(@page), :title => "Edit this page" %></li>
-    	  <li class="title"><%= @page.name %> Page:</li>
+  	  <li class="edit-page"></li>
+  	  <li><%= @page.name %> Page
+  	    <ul class="sub">
+  	      <li><%= link_to "Edit", edit_page_path(@page), :title => "Edit this page" %></li>
+  	      <li><%= link_to "Delete", page_path(@page), :confirm => 'Delete this page and all associated content?', :method => :delete, :title => "Delete this page and all associated content" %></li>
+    	    <li><%= link_to "Create a New Page", new_page_path, :title => "Create a new Page" %></li>
+    	  </ul>
+    	</li>
   	  <% end -%>
-  	 
   	<% end -%>
   	
   	<% if display_page_edit_tags? %>
-  	  <li>| <%= link_to "add component", new_component_path, :title => "Add a component to this page" %></li>
-      <li><%= link_to "add #{params[:controller].singularize}", :controller => params[:controller], :action => "new" %></li>
+  	<li>Add Content
+  	  <ul class="sub">
+  	    <li><%= link_to "#{params[:controller].singularize.capitalize}", :controller => params[:controller], :action => "new" %></li>
+  	    <li><%= link_to "Component", new_component_path, :title => "Add a component to this page" %></li>
+      </ul>
+    </li>
     <% end -%>
     
   </ul>

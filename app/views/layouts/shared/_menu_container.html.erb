@@ -1,7 +1,7 @@
 <div class="<%= container %>">
   <div id="<%= type %>-menu">
     
-  	<ul id="<%= sortable_id %>" class="menu <%= orientation %>">
+  	<ul id="<%= sortable_id %>" class="menu <%= orientation %> dropdown">
   		<%= render :partial => "layouts/shared/menu", :collection => collection %>
   	</ul>
   	<![if !IE]>
