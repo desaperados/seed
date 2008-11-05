@@ -4,9 +4,9 @@ class ArticlesController < ApplicationController
   caches_action :show, :unless => :logged_in?
   cache_sweeper :article_sweeper, :only => [:create, :update, :destroy]
   
-  before_filter :login_required, :except => [:index, :show]
-  before_filter :pages_menu, :only => [:index, :new, :edit, :show]
-  before_filter :get_page, :only => [:index, :new, :edit, :show]
+  before_filter :login_required, :except => [:index, :show, :archive]
+  before_filter :pages_menu, :only => [:index, :new, :edit, :show, :archive]
+  before_filter :get_page, :only => [:index, :new, :edit, :show, :archive]
   
   def index
     @articles = @page.articles.paginate(:page => params[:page], :per_page => @page.paginate)

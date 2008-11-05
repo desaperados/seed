@@ -2,15 +2,25 @@
 # with just News
 class NewsitemsController < ArticlesController
   
+  caches_action :archive, :cache_path => Proc.new { |controller|
+    controller.params[:month] ?
+        controller.send(:archive_url, controller.params[:page_id], controller.params[:month], controller.params[:year]) :
+        controller.send(:annual_archive_url, controller.params[:page_id], controller.params[:year])
+  }, :unless => :logged_in?
+  
   def index
     archive_menu
-    if params[:year] && params[:month]
+    @newsitems = @page.newsitems.paginate(:page => params[:page], :per_page => @page.paginate, :order => "created_at DESC")
+  end
+  
+  def archive
+    archive_menu
+    if params[:month]
       @newsitems = Newsitem.find_all_in_month(params[:year].to_i, params[:month].to_i, params[:page], @page.paginate)
-    elsif params[:year]
-      @newsitems = Newsitem.find_all_in_year(params[:year].to_i, params[:page], @page.paginate)
     else
-      @newsitems = @page.newsitems.paginate(:page => params[:page], :per_page => @page.paginate, :order => "created_at DESC")
+      @newsitems = Newsitem.find_all_in_year(params[:year].to_i, params[:page], @page.paginate)
     end
+    render :template => "newsitems/index"
   end
   
   def show

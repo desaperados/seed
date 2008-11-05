@@ -1,7 +1,12 @@
 class EventsController < ApplicationController
   
-  caches_action :index, :unless => :logged_in?
-  caches_action :show, :unless => :logged_in?
+  cache_sweeper :event_sweeper, :only => [:create, :update, :destroy]
+  
+  caches_action :index, :cache_path => Proc.new { |controller|
+    controller.params[:month] ?
+        controller.send(:browse_url, controller.params[:page_id], controller.params[:month], controller.params[:year]) :
+        controller.send(:events_url, controller.params[:page_id])
+  }, :unless => :logged_in?
   
   before_filter :login_required, :except => [:index, :show]
   before_filter :pages_menu, :only => [:index, :new, :edit, :show]

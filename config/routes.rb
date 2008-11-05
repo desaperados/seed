@@ -14,8 +14,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :pages do |page|
     page.resources :components, :name_prefix => nil
     page.resources :articles, :name_prefix => nil, :as => "content"
-    page.resources :newsitems, :name_prefix => nil, :as => "latest"
-    page.resources :posts, :name_prefix => nil, :as => "posts"
+    page.resources :newsitems, :name_prefix => nil, :as => "latest", :collection => {:archive => :get}
+    page.resources :posts, :name_prefix => nil, :as => "posts", :collection => {:archive => :get}
     page.resources :events, :name_prefix => nil, :as => "list"
   end
   
@@ -26,12 +26,12 @@ ActionController::Routing::Routes.draw do |map|
   map.browse 'pages/:page_id/browse/:month/:year', :controller => 'events', :action => 'index'
   
   # News Archive Mapping
-  map.archive 'pages/:page_id/archive/:month/:year', :controller => 'newsitems', :action => 'index'
-  map.annual_archive 'pages/:page_id/archive/:year', :controller => 'newsitems', :action => 'index'
+  map.archive 'pages/:page_id/archive/:month/:year', :controller => 'newsitems', :action => 'archive'
+  map.annual_archive 'pages/:page_id/archive/:year', :controller => 'newsitems', :action => 'archive'
   
   # Blog Archive Mapping
-  map.blog_archive 'pages/:page_id/archive/:month/:year', :controller => 'posts', :action => 'index'
-  map.blog_annual_archive 'pages/:page_id/archive/:year', :controller => 'posts', :action => 'index'
+  map.blog_archive 'pages/:page_id/archived/:month/:year', :controller => 'posts', :action => 'archive'
+  map.blog_annual_archive 'pages/:page_id/archived/:year', :controller => 'posts', :action => 'archive'
 
   map.home "", :controller => "articles", :page_id => "1"
   map.root :home
