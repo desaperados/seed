@@ -10,5 +10,3 @@ namespace :sessions do
     CGI::Session::ActiveRecordStore::Session.delete_all ["updated_at < ?", 2.weeks.ago]
   end
 end
-
- rsync -e 'ssh -p 1414' -avl --delete --stats --progress --exclude-from 'Users/davidcurrin/Backup/exclude.txt' dbcurrin@mediacollectiveslice.com:/home/dbcurrin Backup
