@@ -305,29 +305,8 @@ table.seed-admin tr.even {
 table.seed-admin td.right {
 	text-align: right;
 }
-table.seed-roles td.role {
-	width: 20%;
-}
-table.seed-roles tr.role {
-	background-color: #f0f0f0;
-}
-table.seed-roles th {
-	background: #fff;
-}
-table.seed-roles tr.usertitle th {
-	font-style: italic;
-	background: #f7f7f7;
-}
-table.seed-roles th.addlink {
-	text-align: right;
-	padding-right: 0;
-}
-table.seed-roles th.editrole {
-	font-style: normal !important;
-	padding-left: 3px;
-}
-table.seed-roles th.editrole span {
-	float: left;
+table.users {
+	margin-top: 2em;
 }
 
 /******* CRUD Anchor Tags **********/
@@ -381,6 +360,22 @@ div#user p {
 	padding-left: 1em;
 	padding-bottom: 3px;
 	border-bottom: 1px solid #ddd;
+}
+
+/*********** Users Admin **********/
+div#seed-role-menu {
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 0.5em;
+	text-align: right;
+	margin-bottom: 1em;
+}
+div#seed-role-menu select {
+	min-width: 200px;
+}
+#role-info p {
+	margin: 2px 0 0 0;
+	font-style: italic;
+	color: #666;
 }
 
 /********** Image Admin **********/

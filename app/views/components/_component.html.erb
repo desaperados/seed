@@ -16,7 +16,7 @@
     <% end -%>
     
     <% if component.documents? %>
-      <% component.documents.each do |document| -%>
+      <% component.ordered_documents.each do |document| -%>
         <h4><%= link_to(document.name, document.public_filename) %></h4>
       <% end -%>
     <% end -%>

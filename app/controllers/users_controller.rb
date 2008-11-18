@@ -5,7 +5,12 @@ class UsersController < ApplicationController
   before_filter :pages_menu, :except => [:activate]
   
   def index
-    @users = User.find(:all)
+    if params[:role]
+      @role = Role.find(params[:role])
+      @users = @role.users
+    else
+      @users = User.find(:all)
+    end
   end
   
   def new

@@ -7,7 +7,7 @@
     </div>
     <div class="input-row">
       <%= f.label :order, "Sort Order" %>
-      <%= f.select(:order, Component::ORDER_OPTIONS) %>
+      <%= f.select(:order, Document::ORDER_OPTIONS) %>
     </div>
   </fieldset>
   <%= f.hidden_field :component_type, :value => "documents" %>

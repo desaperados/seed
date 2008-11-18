@@ -1,0 +1,87 @@
+<table class="seed-admin">
+  <tr>
+	 <th>Page</th>
+	 <th>Viewable By</th>
+	 <th>Editable By</th>
+	</tr>
+	<% for primary in @primary_pages %>
+	    <tr>
+	      <td><%= primary.name %></td>
+	      <td>
+	        <select id="page_<%= primary.id %>_viewable" name="role[viewable_by]">
+	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', primary.viewable_by) %>
+	        </select>
+          <%= observe_field "page_#{primary.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => primary.id },
+                                       :with => "role" %>
+	      </td>
+	      <td>
+	        <select id="page_<%= primary.id %>_editable" name="role[editable_by]">
+	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', primary.editable_by) %>
+	        </select>
+          <%= observe_field "page_#{primary.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => primary.id },
+                                       :with => "role" %>
+	      </td>
+	    </tr>
+	    
+	    <% for child in primary.children -%>
+	     <tr>
+         <td><%= child.name %></td>
+         <td>
+ 	        <select id="page_<%= child.id %>_viewable" name="role[viewable_by]">
+ 	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', child.viewable_by) %>
+ 	        </select>
+           <%= observe_field "page_#{child.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => child.id },
+                                        :with => "role" %>
+ 	      </td>
+ 	      <td>
+ 	        <select id="page_<%= primary.id %>_editable" name="role[editable_by]">
+ 	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', primary.editable_by) %>
+ 	        </select>
+           <%= observe_field "page_#{primary.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => primary.id },
+                                        :with => "role" %>
+ 	      </td>
+       </tr>
+	    <% end -%>
+	<% end -%>
+	
+	<% for secondary in @secondary_pages %>
+	    <tr>
+	      <td><%= secondary.name %></td>
+	      <td>
+ 	        <select id="page_<%= secondary.id %>_viewable" name="role[viewable_by]">
+ 	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', secondary.viewable_by) %>
+ 	        </select>
+           <%= observe_field "page_#{secondary.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => secondary.id },
+                                        :with => "role" %>
+ 	      </td>
+ 	      <td>
+ 	        <select id="page_<%= primary.id %>_editable" name="role[editable_by]">
+ 	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', primary.editable_by) %>
+ 	        </select>
+           <%= observe_field "page_#{primary.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => primary.id },
+                                        :with => "role" %>
+ 	      </td>
+	    </tr>
+	    
+	    <% for schild in secondary.children -%>
+	     <tr>
+         <td><%= schild.name %></td>
+         <td>
+  	        <select id="page_<%= schild.id %>_viewable" name="role[viewable_by]">
+  	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', schild.viewable_by) %>
+  	        </select>
+            <%= observe_field "page_#{schild.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => schild.id },
+                                         :with => "role" %>
+  	      </td>
+  	      <td>
+  	        <select id="page_<%= primary.id %>_editable" name="role[editable_by]">
+  	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', primary.editable_by) %>
+  	        </select>
+            <%= observe_field "page_#{primary.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => primary.id },
+                                         :with => "role" %>
+  	      </td>
+       </tr>
+	    <% end -%>
+	 
+	 <% end -%>
+</table>

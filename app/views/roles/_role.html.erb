@@ -1,0 +1,10 @@
+<strong id="role-name"><%= @role.name %></strong>	|  
+<span class="seed-admin-tag">
+<%= link_to_lightview( "Add a User to #{@role.name}",
+		{:controller => 'javascript', :action => 'list_users', :role => @role.id}, 
+  			{}, 
+  			{:title => "'Click to add to #{@role.name} group'"}, 
+  			{:autosize => false, :width => 250, :height => 350} 
+		)%>	
+</span>
+<p id="role-description"><%= @role.description %></p>

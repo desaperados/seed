@@ -10,8 +10,8 @@ module Seed
       end
       
       case operation
-        when "default"
-          Setup.new.default
+        when "demo"
+          Setup.new.demo
         when "clean"
           puts "Clean setup not yet implemented"
         when "custom"
@@ -25,8 +25,8 @@ module Seed
   
   class Setup
     
-    def default
-      puts "Doing Default Setup"
+    def demo
+      puts "Doing Demo Setup"
       Dir['config/examples/*'].each do |source|
         destination = "config/#{File.basename(source)}"
         unless File.exist? destination
@@ -49,7 +49,7 @@ module Seed
   
         Please specify a valid option:
   
-        1. script/setup default
+        1. script/setup demo
         The default version of seed with single vertical menu and 
         a selection of pages and content
   

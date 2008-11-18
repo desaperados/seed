@@ -20,6 +20,11 @@ class Role < ActiveRecord::Base
     (roles_for_dropdown << default).reverse
   end
   
+  def self.all_for_user_filter
+    default = Role.new(:name => "- all")
+    roles_for_dropdown.insert(0, default)
+  end
+  
   def capitalised_name
     name.gsub(/^[a-z]|\s+[a-z]/) { |a| a.upcase }
   end
@@ -27,7 +32,7 @@ class Role < ActiveRecord::Base
   private
   
   def self.roles_for_dropdown
-    self.find(:all, :select => "name")
+    self.find(:all, :select => "id, name", :order => "name ASC")
   end
   
 end

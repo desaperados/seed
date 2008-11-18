@@ -9,6 +9,15 @@ module ApplicationHelper
      end
   end
   
+  # Remove whitespace when using Redcloth
+  def textilize(text)
+    if text.blank?
+     ""
+    else
+      RedCloth.new(text.lstrip).to_html
+    end
+  end
+  
   def menu_current?(menu)
     "selected" if menu.id == @page.id unless !@page
   end

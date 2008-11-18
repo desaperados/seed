@@ -21,6 +21,10 @@ class Component < ActiveRecord::Base
     true if component_type == "text"
   end
   
+  def ordered_documents
+    Document.find(:all, :conditions => ["component_id = ?", self.id], :order => order)
+  end
+  
   ORDER_OPTIONS = [
     [ 'Created Descending', 'created_at DESC' ],
     [ 'Created Ascending', 'created_at ASC' ],

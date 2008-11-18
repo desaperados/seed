@@ -3,6 +3,11 @@ class PagesController < ApplicationController
   before_filter :login_required, :except => [:show]
   before_filter :pages_menu, :except => [:create, :update, :destroy, :show]
   cache_sweeper :page_sweeper, :only => [:create, :update, :destroy]
+  
+  def index
+    @viewable = Role.pages_for_viewable_by
+    @editable = Role.pages_for_editable_by
+  end
 
   def new
     @page = Page.new(:menu_type => "primary")
