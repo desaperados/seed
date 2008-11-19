@@ -1,7 +1,7 @@
 class UsersController < ApplicationController  
 
   before_filter :login_required, :only => [:index, :show]
-  require_role "admin", :only => [:index]
+  require_role "admin", :only => [:index, :destroy]
   before_filter :pages_menu, :except => [:activate]
   
   def index
@@ -18,7 +18,11 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:id])
+    if params[:id] == current_user.id.to_s
+      @user = User.find(params[:id])
+    else
+      render :nothing => true, :status => 401
+    end
   end
  
   # Create behaviour allows for users to be created by an admin user

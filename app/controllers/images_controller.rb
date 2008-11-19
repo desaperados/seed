@@ -24,6 +24,7 @@ class ImagesController < ApplicationController
       responds_to_parent do
         render :update do |page|
             page["spinner"].hide
+            page.replace_html 'ajax-error', ""
             page.insert_html :top, 'ajax-error', @image.errors.collect{|k,v| "<li>The #{k} #{v}</li>"}.to_s
         end
       end          

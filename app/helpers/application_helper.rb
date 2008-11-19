@@ -9,12 +9,17 @@ module ApplicationHelper
      end
   end
   
+  # Display speech marks stripped on save
+  def display_speech_marks(content)
+    content.gsub(/\[s-mark\]/, '"')
+  end
+  
   # Remove whitespace when using Redcloth
   def textilize(text)
     if text.blank?
      ""
     else
-      RedCloth.new(text.lstrip).to_html
+      RedCloth.new(display_speech_marks(text.lstrip)).to_html
     end
   end
   

@@ -1,7 +1,6 @@
 <div id="seed-admin-form">
 	<%= image_tag "spinner.gif", :id => 'spinner', :size => "31x31", :alt => 'spinner', :style => "display:none;" %>
 	<ul id="ajax-error"></ul>
-	<h2 class="ajax">Document Upload</h2>
 	
 	<% form_for(@document, :html => { :multipart => true, 
 								   :method => :post,

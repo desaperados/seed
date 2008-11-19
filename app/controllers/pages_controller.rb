@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   before_filter :login_required, :except => [:show]
   before_filter :pages_menu, :except => [:create, :update, :destroy, :show]
   cache_sweeper :page_sweeper, :only => [:create, :update, :destroy]
+  require_role "admin"
   
   def index
     @viewable = Role.pages_for_viewable_by
@@ -62,8 +63,5 @@ class PagesController < ApplicationController
   def resources_path(page)
     eval ("#{page.kind}_path(#{page.id})") 
   end
-  
-  #def current_page
-  #  @current = Page.find(params[:page_id])
-  #end
+
 end

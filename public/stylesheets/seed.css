@@ -108,9 +108,6 @@ div#seed-admin-form h2 {
 div#seed-admin-form h2.adjusted {
 	margin-bottom: 1em;
 }
-div#seed-admin-form h2.ajax {
-	width: 375px;
-}
 div#seed-admin-form img#spinner {
 	position: absolute;
 	left: 350px;
@@ -133,6 +130,7 @@ form.tight {
 }
 form.ajax {
 	width: 375px;
+	margin-top: 1em;
 }
 form.tight label, form.ajax label {
 	float: none;
@@ -443,6 +441,10 @@ div.fieldWithErrors input {
 }
 #errorExplanation ul li {
   	list-style: square;
+}
+ul#ajax-error {
+	margin: 0;
+	padding: 0;
 }
 div#flash-notice, div#flash-warning, div#flash-error, div#flash-test {
 	position: absolute;

@@ -36,7 +36,7 @@
 	<div id="image-control">
 		<%= link_to_lightview( "Add Image",
 				new_image_path, 
-				{:class => "add"}, {}, {:autosize => false, :width => 400, :height => 200} )%>
+				{:class => "add"}, {:title => "'Image Upload'"}, {:autosize => false, :width => 400, :height => 250} )%>
 		<div id="image-list">
 			<%= render :partial => "images/image_item", :collection => @images %>
 		</div>

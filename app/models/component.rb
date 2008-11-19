@@ -5,6 +5,11 @@ class Component < ActiveRecord::Base
   has_many :documents
   validates_presence_of :title
   
+  # Strip any speech marks and replace with a marker
+  def before_save
+    self.text = text.gsub(/["]/, '[s-mark]')
+  end
+  
   def snippets
     snippet_class.constantize.find(:all, :order => order, :limit => limit, :conditions => ["page_id = ?", source_page])
   end

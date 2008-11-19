@@ -273,7 +273,7 @@ div#lightview-content ul.roles li.even {
 
 .lv_Close, .lv_Data { margin: 6px 0 0 0; }
 .lv_Close {
-    position: relative;
+  position: relative;
 	float: right;
 	overflow: hidden;
 	width: 100%;
@@ -294,8 +294,10 @@ div#lightview-content ul.roles li.even {
 }
 .lv_DataText { width: 100%; }
 .lv_DataText .lv_Title {
-	font-weight: bold;
-	margin-bottom: 2px;
+	margin: 0;
+	font: 18px Georgia, "Times New Roman", serif; 
+	letter-spacing: 1px;
+	color: #333;
 }
 .lv_DataText .lv_Caption { clear: both; }
 .lv_Data .lv_ImgNumber {

@@ -5,6 +5,11 @@ class Article < ActiveRecord::Base
   acts_as_indexed :fields => [:title, :content]
   validates_presence_of :title
   
+  # Strip any speech marks and replace with a marker
+  def before_save
+    self.content = content.gsub(/["]/, '[s-mark]')
+  end
+  
   def sortable?
     true
   end

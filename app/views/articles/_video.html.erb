@@ -12,7 +12,7 @@
   <p><small>Only YouTube works at the moment.<br />(ie. http://www.youtube.com/v/t2yoOlicmww)</small></p>
   <div class="input-row">
     <%= f.label :content, "Caption" %>
-    <%= f.text_area :content, :class => "compact" %>
+    <%= display_speech_marks(f.text_area :content, :class => "compact") %>
   </div>
   </fieldset>
   <div class="submit">

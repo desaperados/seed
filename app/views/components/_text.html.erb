@@ -7,7 +7,7 @@
     </div>
     <div class="input-row">
       <%= f.label :text %>
-      <%= f.text_area :text %>
+      <%= display_speech_marks(f.text_area :text) %>
     </div>
   </fieldset>
   <%= f.hidden_field :component_type, :value => "text" %>

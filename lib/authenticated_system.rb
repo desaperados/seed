@@ -1,5 +1,17 @@
 module AuthenticatedSystem
   protected
+    
+    # A couple of methods added for checking page permissions
+    def viewable?(page)
+      if page
+        page.public? || (logged_in? && page.private?) || (logged_in? && current_user.has_role?("#{page.viewable_by}"))
+      end
+    end
+
+    def editable?(page)
+      (logged_in? && page.all_users?) || (logged_in? && current_user.has_role?("#{page.editable_by}"))
+    end
+    
     # Returns true or false if the user is logged in.
     # Preloads @current_user with the user model if they're logged in.
     def logged_in?

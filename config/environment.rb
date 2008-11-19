@@ -52,4 +52,3 @@ end
 ActionController::Base.prepend_view_path('template')
 
 require 'seed_stylesheets'
-
