@@ -19,7 +19,6 @@ class CreatePages < ActiveRecord::Migration
      Page.create(:title => "About Page", :menu_type => "primary",:kind => "articles", :name => "About", :description => "A page where you could write what this site is about")
      Page.create(:title => "News Page", :menu_type => "primary", :kind => "newsitems", :name => "News", :description => "A page for news items with dates and archive section")
      Page.create(:title => "Blog Page", :menu_type => "primary", :kind => "posts", :name => "Blog", :description => "Be Creative...")
-     Page.create(:title => "Secondary Menu Default Page", :menu_type => "secondary", :kind => "articles", :name => "Secondary Home", :description => "Secondary Menu Default Page")
   end
 
   def self.down
