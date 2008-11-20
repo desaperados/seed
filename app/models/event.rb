@@ -3,10 +3,9 @@ class Event < ActiveRecord::Base
   belongs_to :page
   validates_presence_of :name, :date
   
-  # currently unused
-  def self.future_events(year, month)
-    from = Date.new(year, month)
-    find(:all, :conditions => ['datetime >= ? OR from_date >= ?', from, from ], :order => "datetime, from_date ASC")
+  def self.future_events(thisyear, thismonth, limit=30)
+    from = Date.new(thisyear, thismonth)
+    find(:all, :conditions => ['datetime >= ? OR from_date >= ?', from, from ], :order => "datetime, from_date ASC", :limit => limit)
   end
   
   def self.current_month_events(year, month)

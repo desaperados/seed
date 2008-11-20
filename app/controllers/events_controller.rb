@@ -25,9 +25,10 @@ class EventsController < ApplicationController
     @event = Event.new
   end
   
-  # TODO - Fix this temporary hack. Create the show page
+  # Redirect to browse url
   def show
-    redirect_to events_url(@page)
+    event = Event.find(params[:id])
+    redirect_to browse_url(@page, event.date.month, event.date.year)
   end
   
   def create

@@ -11,7 +11,11 @@ class Component < ActiveRecord::Base
   end
   
   def snippets
-    snippet_class.constantize.find(:all, :order => order, :limit => limit, :conditions => ["page_id = ?", source_page])
+    if snippet_class == "Event"
+      Event.future_events(DateTime.now.year, DateTime.now.month, limit)
+    else
+      snippet_class.constantize.find(:all, :order => order, :limit => limit, :conditions => ["page_id = ?", source_page])
+    end
   end
   
   def page_feed?
