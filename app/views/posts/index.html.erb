@@ -5,21 +5,21 @@
 	
 	<div id="archive">
 		<h3>Archive</h3>
-		<% @archive_years.each do |year, value| -%>
+		<% @years.sort.each do |year, dates| %>
 			<div class="year">
-				<h4 class="year"><%= link_to year, blog_annual_archive_path(@page, year) %></h4>
-				<% iterations = 0 %>
-				<% @archive_months.each do |month, value| -%>
-					<h4 class="month">
-						<%= link_to "#{month} (#{@archive_months.values[iterations].size})", blog_archive_path(@page, Date.parse(month).month, year) %>
-						<%  iterations += 1 -%>
-					</h4>
-				<% end -%>
-			</div>
+			<h4 class="year"><%= link_to year, annual_archive_path(@page, year) %></h4>
+			
+			<% dates.group_by { |m| m.created_at.strftime('%B')}.each do |month, items| %>
+			  <h4 class="month">
+			    <%= link_to "#{month} (#{items.size})", archive_path(@page, Date.parse(month).month, year) %>
+			  </h4>
+		  <% end -%>
+		  
+		  </div>
 		<% end -%>
 		
 		<%= seed_page_components %>
-    
+		
 	</div>
 </div>
 

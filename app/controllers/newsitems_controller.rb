@@ -31,8 +31,7 @@ class NewsitemsController < ArticlesController
   
   def archive_menu
     @archive = Newsitem.find(:all, :select => "created_at")
-    @archive_months = @archive.group_by {|a| a.created_at.strftime('%B')}
-    @archive_years = @archive.group_by {|a| a.created_at.strftime('%Y')}
+    @years = @archive.group_by {|a| a.created_at.strftime('%Y')}
   end
   
 end
