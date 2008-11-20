@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   before_filter :login_required, :except => [:index, :show, :archive]
   before_filter :pages_menu, :only => [:index, :new, :edit, :show, :archive]
   before_filter :get_page, :only => [:index, :new, :edit, :show, :archive]
-  before_filter :check_access, :only => [:index]
+  before_filter :check_view_rights, :only => [:index]
   before_filter :check_edit_rights, :only => [:new, :edit]
   
   def index
@@ -63,35 +63,6 @@ class ArticlesController < ApplicationController
   end
   
   private 
-  
-  #TODO - clean this up and move to a more appropriate place
-  def check_access
-    if logged_in? 
-      if !viewable?
-        redirect_to root_url
-      end
-    elsif @page.viewable_by != "public"
-      redirect_to root_url
-    end
-  end
-  
-  def check_edit_rights
-    if logged_in? 
-      if !viewable?
-        redirect_to root_url
-      end
-    else 
-      redirect_to root_url
-    end
-  end
-  
-  def viewable?
-    current_user.has_role?("#{@page.viewable_by}") || @page.viewable_by != "all users"
-  end
-  
-  def editable?
-    current_user.has_role?("#{@page.editable_by}") || @page.editable_by != "all users"
-  end
   
   def resource_index_page(resource)
     if resource.article_type == "post"

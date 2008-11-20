@@ -14,6 +14,10 @@ class Article < ActiveRecord::Base
     true
   end
   
+  def parsed_video
+    video.gsub('watch?v=','v/')
+  end
+  
   def to_param
     "#{id}-#{permalink}" unless id.nil?
   end

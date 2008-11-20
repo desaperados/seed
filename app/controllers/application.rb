@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include AuthenticatedSystem
   include RoleRequirementSystem
   include ExceptionNotifiable
+  include SeedAccessRights
 
   helper :all # include all helpers, all the time
   protect_from_forgery :secret => '8c4c66a250987cb59c7eb90053e840e4'

@@ -12,6 +12,9 @@ class EventsController < ApplicationController
   before_filter :pages_menu, :only => [:index, :new, :edit, :show]
   before_filter :get_page, :except => [:update, :destroy]
   
+  before_filter :check_view_rights, :only => [:index]
+  before_filter :check_edit_rights, :only => [:new, :edit]
+  
   def index
     @month = (params[:month]) ? params[:month].to_i : DateTime.now.month
     @year = (params[:year]) ? params[:year].to_i : DateTime.now.year

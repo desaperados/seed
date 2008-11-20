@@ -1,13 +1,4 @@
 <tr class="<%= cycle("odd", "even") %>" id="user_<%= user.id %>">
-  <% if @role %>
-    <td><span class="seed-admin-tag">
-	  <%= link_to_remote("remove", 
-	  :url => {:controller => "javascript",
-	  		 :action => "remove_role", 
-	  		 :id => user.id, 
-	  		 :role => @role,
-	  }) %></td>
-	<% end -%>
 	<td><strong><%= user.name %></strong></td>
 	<td><%= user.login %></td>
 	<td><%= user.email %></td>
@@ -17,6 +8,15 @@
 			<%= "#{role.name} " %>
 		<% end -%>
 	</td>
+	<% if @role %>
+    <td><span class="seed-admin-tag">
+	  <%= link_to_remote("remove", 
+	  :url => {:controller => "javascript",
+	  		 :action => "remove_role", 
+	  		 :id => user.id, 
+	  		 :role => @role,
+	  }) %></td>
+	<% end -%>
 	<td>
 	   <span class="seed-admin-tag seed-edit-tag">
 	   	<%= link_to "X", user_path(user), :confirm => 'Delete this user?', :method => :delete %>

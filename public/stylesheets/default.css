@@ -2,9 +2,9 @@
    Edit or overide these styles 
    to create a custom layout
 */
-
+ 
 /********* Tag Defaults ***********/
-
+ 
 a { color: #4488bb; }
 a:visited { color: #4488bb; }
 a:hover { color: #000; }
@@ -16,286 +16,290 @@ h3 {font-size: 12px; margin: 0.5em 0;}
 h4 {font-size: 11px; margin: 0.5em 0;}
 p {margin: 1em 0; line-height: 1.7em;}
 img {border-width: 0;}
-
+ 
 /********** Page Layout ***********/
-
+ 
 body { 
-	font-family: verdana, arial, helvetica, sans-serif;
-	font-size: 11px;
-	line-height: 1.3em;
-	background-color: #fff; 
-	color: #333;
-	min-width: 850px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 1.3em;
+  background-color: #fff; 
+  color: #333;
+  min-width: 850px;
 }
 div#container {
-	width: 80%;
-	margin: 0 auto;
+  width: 80%;
+  margin: 0 auto;
 }
 div#head {
-	height: 55px;
-	padding-top: 10px;
-	border-bottom: 1px solid #ccc;
-	position: relative;
+  height: 55px;
+  padding-top: 10px;
+  border-bottom: 1px solid #ccc;
+  position: relative;
 }
-	div#head div#search {
-		float: right;
-		width: 25%;
-		white-space: nowrap;
-	}
-	div#head h1 {
-		margin: 0;
-		font: 24px Georgia, "Times New Roman", serif; letter-spacing: 1px;
-	}
-	div#head p {
-		margin: 0;
-		font-style: italic;
-	}
+  div#head div#search {
+    float: right;
+    width: 25%;
+    white-space: nowrap;
+  }
+  div#head h1 {
+    margin: 0;
+    font: 24px Georgia, "Times New Roman", serif; letter-spacing: 1px;
+  }
+  div#head p {
+    margin: 0;
+    font-style: italic;
+  }
 div#left {
-	float: left;
-	width: 18%;
+  float: left;
+  width: 18%;
 }
 div#right {
-	width: 75%;
-	right: 0;
-	padding: 20px;
-	border-left: 1px solid #ccc;
-	float: right;
-	min-height: 450px;
-	height: auto !important;
-	height: 450px;
+  width: 75%;
+  right: 0;
+  padding: 20px;
+  border-left: 1px solid #ccc;
+  float: right;
+  min-height: 450px;
+  height: auto !important;
+  height: 450px;
 }
-	div#leftcol {
-		float: left;
-		width: 75%;
-	}
-	div#rightcol {
-		float: right;
-		width: 20%;
-	}
-
+  div#leftcol {
+    float: left;
+    width: 75%;
+  }
+  div#rightcol {
+    float: right;
+    width: 20%;
+  }
+ 
 div#foot {
-	border-top: 1px solid #ccc;
-	padding: 20px;
-	clear: both;
+  border-top: 1px solid #ccc;
+  padding: 20px;
+  clear: both;
 }
-
+ 
 /************* Search **************/
 div#search-results h2 {
-	border-bottom: 1px solid #ddd;
-	padding: 0 0 0.5em 0;
-	font: 18px Georgia, "Times New Roman", serif; 
+  border-bottom: 1px solid #ddd;
+  padding: 0 0 0.5em 0;
+  font: 18px Georgia, "Times New Roman", serif; 
 }
 div#search-results h3 {
-	font-weight: normal;
+  font-weight: normal;
 }
 div#search-results div.result-group {
-	margin-bottom: 4em;
+  margin-bottom: 4em;
 }
 div#search-results p strong.highlight {
-	background-color: #ffff66;
+  background-color: #ffff66;
 }
-
+ 
 /************ Resources ************/
-
+ 
 div.article, div.newsitem, div.post, div.event {
-	border-bottom: 1px solid #e9e9e9;
-	margin-bottom: 20px;
-	padding: 0 1em 1em 1em;
+  border-bottom: 1px solid #e9e9e9;
+  margin-bottom: 20px;
+  padding: 0 1em 1em 1em;
 }
 div.article h2, div.newsitem h2, div.post h2, div.event h2 {
-	margin: 0 0 1em 0;
-	font: 18px Georgia, "Times New Roman", serif; 
-	letter-spacing: 1px;
+  margin: 0 0 1em 0;
+  font: 18px Georgia, "Times New Roman", serif; 
+  letter-spacing: 1px;
 }
 div.article p, div.newsitem p, div.post p, div.event p {
-	margin: 1em 0;
+  margin: 1em 0;
 }
 div.article a, div.newsitem a, div.post a, div.event a {
-	text-decoration: none;
+  text-decoration: none;
 }
 div.article img, div.newsitem img, div.post img {
-	float: right;
-	margin: 1em 0 1em 1.5em;
+  float: right;
+  margin: 1em 0 1em 1.5em;
 }
 div.post, div.newsitem {
-	border-width: 0;
+  border-width: 0;
 }
 div.post h2, div.newsitem h2 {
-	margin: 0 0 0.5em 0;
-	text-align: center;
+  margin: 0 0 0.5em 0;
+  text-align: center;
 }
 div.post h4, div.newsitem h4 {
-	text-transform: uppercase;
-	text-align: center;
-	font-weight: normal;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-	padding: 0.5em 0;
-	background: #fafafa;
-	margin-bottom: 2em;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: normal;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5em 0;
+  background: #fafafa;
+  margin-bottom: 2em;
 }
-
+ 
 /*********** News & Blog **********/
 div#news, div#blog {
-	position: relative;
+  position: relative;
 }
 div#news div#newsitems, div#blog div#blogposts {
-	width: 75%;
+  width: 75%;
 }
 div#archive {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 20%;
-	padding-left: 3%;
-	font-size: 0.9em;
-	text-align: right;
-	border-left: 1px solid #ddd;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  padding-left: 3%;
+  font-size: 0.9em;
+  text-align: right;
+  border-left: 1px solid #ddd;
 }
 div#archive div.year {
-	border-bottom: 1px solid #ddd;
-	padding-bottom: 1em;
-	margin-bottom: 1.5em;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1em;
+  margin-bottom: 1.5em;
 }
 div#archive h4 {
-	margin: 0 0 0.5em 0;
-	font-weight: normal;
+  margin: 0 0 0.5em 0;
+  font-weight: normal;
 }
 div#archive h4.year a {
-	color: #666;
+  color: #666;
 }
-
+ 
 /************ Comments ************/
 div.comment {
-	background: #f8f8f8;
-	border-top: 1px solid #ddd;
-	padding: 1em;
+  background: #f8f8f8;
+  border-top: 1px solid #ddd;
+  padding: 1em;
 }
 div.comment.even {
-	background: #fbfbfb;
+  background: #fbfbfb;
 }
-
+div#commentform {
+	clear: both;
+	margin-top: 2em;
+}
+ 
 /*********** Components ***********/
 div#components {
-	text-align: left;
+  text-align: left;
 }
 div.component {
-	border-bottom: 1px solid #ddd;
-	padding: 0 0 1em 0;
-	margin-bottom: 2em;
-	font-size: 0.9em;
-	text-align: left;
+  border-bottom: 1px solid #ddd;
+  padding: 0 0 1em 0;
+  margin-bottom: 2em;
+  font-size: 0.9em;
+  text-align: left;
 }
 div.component h3, div#archive h3 {
-	font: 14px Georgia, "Times New Roman", serif; 
-	letter-spacing: 0px;
-	margin-top: 0;
+  font: 14px Georgia, "Times New Roman", serif; 
+  letter-spacing: 0px;
+  margin-top: 0;
 }
 div#archive div.component {
-	font-size: 1em;
+  font-size: 1em;
 }
-
+ 
 /*********** Main Menu ************/
 ul.menu {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	font-size: 12px;
-	border-top: 1px solid #ccc;
-	margin-top: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
 }
 ul.menuchild {
-	padding-left: 1.5em;
-	margin: 0.5em 0 -0.5em 0;
-	list-style: none;
+  padding-left: 1.5em;
+  margin: 0.5em 0 -0.5em 0;
+  list-style: none;
 }
 div#secondary-menu ul.menu  {
-	margin-top: 45px;
+  margin-top: 45px;
 }
 ul.menu li {
-	border-bottom: 1px solid #ccc;
-	white-space: nowrap;
-	padding: 0.5em 0;
+  border-bottom: 1px solid #ccc;
+  white-space: nowrap;
+  padding: 0.5em 0;
 }
 ul.menu li.selected {
-	background: #fafafa;
+  background: #fafafa;
 }
 ul.menuchild li {
-	border-width: 0;
-	border-top: 1px solid #ccc;
+  border-width: 0;
+  border-top: 1px solid #ccc;
 }
 ul.menu li a {
-	text-decoration: none;
+  text-decoration: none;
 }
 ul.menu li.add a {
-	color: #999;
+  color: #999;
 }
-
+ 
 /******** Horizontal Menu *********/
 div.horizontal-menu ul.menu {
-	border-width: 0;
-	float: left;
-	border-bottom: 1px solid #ddd;
-	margin: 0px !important;
-	width: 100%;
+  border-width: 0;
+  float: left;
+  border-bottom: 1px solid #ddd;
+  margin: 0px !important;
+  width: 100%;
 }
 div.horizontal-menu ul.menu li {
-	line-height: 24px;
-	padding: 0 1em;
-	background: #f9f9f9;
-	border-width: 0;
+  line-height: 24px;
+  padding: 0 1em;
+  background: #f9f9f9;
+  border-width: 0;
 }
 div.horizontal-menu ul.menu li.top {
-	float: left;
-	border-right: 1px solid #ddd;
-	position: relative;
-	z-index: 1;
+  float: left;
+  border-right: 1px solid #ddd;
+  position: relative;
+  z-index: 1;
 }
 div.horizontal-menu ul.menuchild {
-	display: none;
-	position: absolute;
-	left: -1px;
-	top: 19px;
-	padding: 0px;
-	background-color: #999;
-	z-index: 1;
+  display: none;
+  position: absolute;
+  left: -1px;
+  top: 19px;
+  padding: 0px;
+  background-color: #999;
+  z-index: 1;
 }
 li:hover ul.menuchild, li.over ul.menuchild { 
-	display: block;
+  display: block;
 }
 div.horizontal-menu ul.menuchild li > ul.menuchild {
-	top: auto;
-	left: auto;
+  top: auto;
+  left: auto;
 }
 div.horizontal-menu ul.menuchild li {
-	border-left: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-	border-right: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
 }
-
+ 
 /********** Pagination ***********/
 .pagination {
-  	padding: 3px;
-  	margin: 3px;
-  	text-align: center;
+    padding: 3px;
+    margin: 3px;
+    text-align: center;
 }
 .pagination a {
-  	padding: 1px 5px 1px 5px;
-  	margin: 2px;
-  	border: 1px solid #ccc;
-  	text-decoration: none;
+    padding: 1px 5px 1px 5px;
+    margin: 2px;
+    border: 1px solid #ccc;
+    text-decoration: none;
 }
 .pagination a:hover, .pagination a:active {
-  	border: 1px solid #4488bb;
-  	color: #333;
+    border: 1px solid #4488bb;
+    color: #333;
 }
 .pagination span.current {
-  	padding: 1px 5px 1px 5px;
-  	margin: 2px;
-  	border: 1px solid #4488bb;
-  	font-weight: bold;
-  	background-color: #4488bb;
-  	color: #fff;
+    padding: 1px 5px 1px 5px;
+    margin: 2px;
+    border: 1px solid #4488bb;
+    font-weight: bold;
+    background-color: #4488bb;
+    color: #fff;
 }
 .pagination span.disabled {
   padding: 2px 5px 2px 5px;
@@ -303,19 +307,19 @@ div.horizontal-menu ul.menuchild li {
   border: 1px solid #eee;
   color: #ddd;
 }
-
+ 
 /************ Calendar ***********/
-
+ 
 table.calendar {
   margin: 0 0 20px 0;
 }
 table.calendar td {
-	border-width: 0;
-	border-bottom: 1px solid #ddd;
+  border-width: 0;
+  border-bottom: 1px solid #ddd;
 }
 table.calendar th a {
-	font: 28px Georgia, "Times New Roman", serif; 
-	text-decoration: none;
+  font: 28px Georgia, "Times New Roman", serif; 
+  text-decoration: none;
 }
 .monthName {
   font: 18px Georgia, "Times New Roman", serif; 
