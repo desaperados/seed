@@ -11,7 +11,7 @@
 	<div id="images">
     <% newsitem.images.each do |image| %>
     	<a href="<%= image.public_filename %>" class="lightview" rel="gallery[<%= newsitem.id %>]">
-        <%= image_tag image.public_filename("#{newsitem.imagesize}") %>
+        <%= image_tag image.public_filename("#{newsitem.imagesize}"), :size => image.thumbnail_size("#{newsitem.imagesize}") %>
       </a>
     <% end -%>
   </div>

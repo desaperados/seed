@@ -16,4 +16,11 @@ class Image < ActiveRecord::Base
 
   validates_as_attachment
   
+  def thumbnail_size(thumb)
+    i = Image.find(:first, 
+                   :select => "height, width", 
+                   :conditions => ["parent_id = ? AND thumbnail = ?", self.id, thumb])
+    return "#{i.width}x#{i.height}"
+  end
+  
 end
