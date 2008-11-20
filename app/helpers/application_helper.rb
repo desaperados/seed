@@ -1,5 +1,10 @@
 module ApplicationHelper
   
+  # Add a path helper for template images
+  def template_image_path(source)
+    compute_public_path(source, 'images/template')
+  end
+  
   def format_date(date, use_time = false)
      if use_time == true
          ampm = date.strftime("%p").downcase
