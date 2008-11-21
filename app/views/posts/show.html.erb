@@ -2,7 +2,7 @@
 	
 	<% if editable?(@page) -%>
 		<div id="edit-link-<%= @post.id %>" style="display:none">
-			<div><%= link_to "edit", edit_post_path(@page, @post)%></div>
+			<div class="first"><%= link_to "edit", edit_post_path(@page, @post)%></div>
 			<div><%= link_to "delete", post_path(@page, @post), :confirm => 'Delete this post?', :method => :delete %></div>
 		</div>
 	<% end -%>

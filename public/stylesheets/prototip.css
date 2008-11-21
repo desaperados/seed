@@ -32,14 +32,17 @@
 .prototip .seed-edit-article .content {
 	background: #fff;
 }
-.prototip .seed-edit-article .content div.first {
-	border-bottom: 2px solid #116497;
-}
 .prototip .seed-edit-article .content a {
 	display: block;
 	text-decoration: none;
 	padding: 5px 10px;
 	background: #fafafa;
+}
+.prototip .seed-edit-article .content div.first a {
+	border-bottom: 2px solid #116497;
+}
+.prototip .seed-edit-article .content div.handle a {
+	border-top: 2px solid #116497;
 }
 .prototip .seed-edit-article .content a:hover {
 	background-color: #4488bb;

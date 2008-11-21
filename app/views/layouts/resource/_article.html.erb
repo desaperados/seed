@@ -2,7 +2,7 @@
   
 	<% if editable?(@page) -%>
 		<div id="edit-link-<%= article.id %>" style="display:none">
-			<div><%= link_to "edit", edit_article_path(@page, article)%></div>
+			<div class="first"><%= link_to "edit", edit_article_path(@page, article)%></div>
 			<div><%= link_to "delete", article_path(@page, article), :confirm => 'Delete this article?', :method => :delete %></div>
 			<!--[if !IE]>--> 
 			<div class="handle"><a>re-order</a></div>

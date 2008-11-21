@@ -2,7 +2,7 @@
 	
 	<% if editable?(@page) -%>
 		<div id="edit-event-<%= event.id %>" style="display:none">
-			<div><%= link_to "edit", edit_event_path(@page, event)%></div>
+			<div class="first"><%= link_to "edit", edit_event_path(@page, event)%></div>
 			<div><%= link_to "delete", event_path(@page, event), :confirm => 'Delete this event?', :method => :delete %></div>
 		</div>
 	<% end -%>
