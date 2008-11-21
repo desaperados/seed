@@ -1,8 +1,10 @@
-<div class="newsitem">
-	<% if editable?(@page) -%>
-		<span class="seed-admin-tag seed-edit-tag">
-			<%= link_to "edit", edit_newsitem_path(@page, newsitem)%>|<%= link_to "X", newsitem_path(@page, newsitem), :confirm => 'Delete this newsitem?', :method => :delete %>
-		</span>
+<div class="newsitem" id="newsitem_<%= newsitem.id %>">
+  
+  <% if editable?(@page) -%>
+		<div id="edit-link-<%= newsitem.id %>" style="display:none">
+			<div><%= link_to "edit", edit_newsitem_path(@page, newsitem)%></div>
+			<div><%= link_to "delete", newsitem_path(@page, newsitem), :confirm => 'Delete this newsitem?', :method => :delete %></div>
+		</div>
 	<% end -%>
 	
 	<h2><%= link_to newsitem.title, newsitem_path(@page, newsitem) %></h2>
@@ -17,5 +19,9 @@
   </div>
 	
 	<%= textilize(truncate(newsitem.content, 1000, "... #{link_to '[read more]', newsitem_path(@page, newsitem)}")) %>
-	
 </div>
+<% if editable?(@page) -%>
+  <script>
+  	new Tip($("newsitem_<%= newsitem.id %>").down('h2'), $("edit-link-<%= newsitem.id %>"), {style: 'seed-edit'});
+  </script>
+<% end -%>

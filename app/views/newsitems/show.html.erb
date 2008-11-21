@@ -1,8 +1,10 @@
-<div class="newsitem">
+<div class="newsitem" id="newsitem_<%= @newsitem.id %>">
+	
 	<% if editable?(@page) -%>
-		<span class="seed-admin-tag seed-edit-tag">
-			<%= link_to "edit", edit_newsitem_path(@page, @newsitem)%>|<%= link_to "X", newsitem_path(@page, @newsitem), :confirm => 'Delete this News item?', :method => :delete %>
-		</span>
+		<div id="edit-link-<%= @newsitem.id %>" style="display:none">
+			<div><%= link_to "edit", edit_newsitem_path(@page, @newsitem)%></div>
+			<div><%= link_to "delete", newsitem_path(@page, @newsitem), :confirm => 'Delete this newsitem?', :method => :delete %></div>
+		</div>
 	<% end -%>
 	
 	<h2><%= @newsitem.title %></h2>
@@ -20,3 +22,8 @@
 	
 	<%= link_to "Read more news items...", newsitems_path(@page) %>
 </div>
+<% if editable?(@page) -%>
+  <script>
+  	new Tip($("newsitem_<%= @newsitem.id %>").down('h2'), $("edit-link-<%= @newsitem.id %>"), {style: 'seed-edit'});
+  </script>
+<% end -%>

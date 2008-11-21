@@ -4,9 +4,12 @@
   </div>
 </div>
 <% if logged_in? %>
+<!--[if !IE]>-->  
 <%= sortable_element('sortablecomponents',  
 					 :url => {:controller => "javascript", :action => "update_item_order", :class_name => "Component"},
 					 :handle => "handle",
 					 :constraint => false,
+					 :scroll => 'window',
 					 :tag => :div ) %>
+<!--<![endif]-->
 <% end -%>

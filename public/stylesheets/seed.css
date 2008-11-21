@@ -448,7 +448,7 @@ ul#ajax-error {
 }
 div#flash-notice, div#flash-warning, div#flash-error, div#flash-test {
 	position: absolute;
-	top: 0;
+	top: 31px;
 	left: 0;
 	width: 100%;
 	font-size: 12px;

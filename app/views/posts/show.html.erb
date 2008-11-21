@@ -1,8 +1,10 @@
-<div class="post">
+<div class="post" id="post_<%= @post.id %>">
+	
 	<% if editable?(@page) -%>
-		<span class="seed-admin-tag seed-edit-tag">
-			<%= link_to "edit", edit_post_path(@page, @post)%>|<%= link_to "X", post_path(@page, @post), :confirm => 'Delete this post?', :method => :delete %>
-		</span>
+		<div id="edit-link-<%= @post.id %>" style="display:none">
+			<div><%= link_to "edit", edit_post_path(@page, @post)%></div>
+			<div><%= link_to "delete", post_path(@page, @post), :confirm => 'Delete this post?', :method => :delete %></div>
+		</div>
 	<% end -%>
 	
 	<h2><%= @post.title %></h2>
@@ -18,6 +20,11 @@
 	
 	<%= textilize(@post.content) %>
 </div>
+<% if editable?(@page) -%>
+  <script>
+  	new Tip($("post_<%= @post.id %>").down('h2'), $("edit-link-<%= @post.id %>"), {style: 'seed-edit'});
+  </script>
+<% end -%>
 
 <div id="comments">
 	<% if !@post.comments.size.zero? %>

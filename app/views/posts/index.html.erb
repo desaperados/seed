@@ -5,7 +5,7 @@
 	
 	<div id="archive">
 		<h3>Archive</h3>
-		<% @years.sort.each do |year, dates| %>
+		<% @years.sort.reverse.each do |year, dates| %>
 			<div class="year">
 			<h4 class="year"><%= link_to year, annual_archive_path(@page, year) %></h4>
 			

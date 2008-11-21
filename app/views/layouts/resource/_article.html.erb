@@ -1,13 +1,17 @@
 <div id="sortableitem_<%= article.id %>" class="article">
   
-	<% if editable?(@page) %>
-		<span class="seed-admin-tag seed-edit-tag">
-			<%= link_to "edit", edit_article_path(@page, article)%>|<%= link_to "X", article_path(@page, article), :confirm => 'Delete this article?', :method => :delete %>
-		</span>
+	<% if editable?(@page) -%>
+		<div id="edit-link-<%= article.id %>" style="display:none">
+			<div><%= link_to "edit", edit_article_path(@page, article)%></div>
+			<div><%= link_to "delete", article_path(@page, article), :confirm => 'Delete this article?', :method => :delete %></div>
+			<!--[if !IE]>--> 
+			<div class="handle"><a>re-order</a></div>
+			<!--<![endif]-->
+		</div>
 	<% end -%>
 	
 	<% if article.article_type == "article" %>
-		<h2 class="handle"><%= article.title %></h2>
+		<h2><%= article.title %></h2>
 		
 		<div id="images">
 		  <% article.images.each do |image| %>
@@ -45,3 +49,8 @@
 	<% end -%>
 	
 </div>
+<% if editable?(@page) -%>
+  <script>
+  	new Tip($("sortableitem_<%= article.id %>").down('h2'), $("edit-link-<%= article.id %>"), {style: 'seed-edit'});
+  </script>
+<% end -%>

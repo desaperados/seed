@@ -1,9 +1,10 @@
-<div class="event">
-  
+<div class="event" id="event_<%= event.id %>">
+	
 	<% if editable?(@page) -%>
-		<span class="seed-admin-tag seed-edit-tag">
-			<%= link_to "edit", edit_event_path(@page, event)%>|<%= link_to "X", event_path(@page, event), :confirm => 'Delete this event?', :method => :delete %>
-		</span>
+		<div id="edit-event-<%= event.id %>" style="display:none">
+			<div><%= link_to "edit", edit_event_path(@page, event)%></div>
+			<div><%= link_to "delete", event_path(@page, event), :confirm => 'Delete this event?', :method => :delete %></div>
+		</div>
 	<% end -%>
 	
 	<h2><%= event.name %></h2>
@@ -14,3 +15,8 @@
 	<%= content_tag_if(:p, "Location: #{event.location}", !event.location.blank?) %>
 	
 </div>
+<% if editable?(@page) -%>
+  <script>
+  	new Tip($("event_<%= event.id %>").down('h2'), $("edit-event-<%= event.id %>"), {style: 'seed-edit'});
+  </script>
+<% end -%>
