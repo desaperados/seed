@@ -1,11 +1,11 @@
 # Blog Posts Controller
 class PostsController < ArticlesController
   
-  caches_action :archive, :cache_path => Proc.new { |controller|
-    controller.params[:month] ?
-        controller.send(:blog_archive_url, controller.params[:page_id], controller.params[:month], controller.params[:year]) :
-        controller.send(:blog_annual_archive_url, controller.params[:page_id], controller.params[:year])
-  }, :unless => :logged_in?
+  #caches_action :archive, :cache_path => Proc.new { |controller|
+  #  controller.params[:month] ?
+  #      controller.send(:blog_archive_url, controller.params[:page_id], controller.params[:month], controller.params[:year]) :
+  #      controller.send(:blog_annual_archive_url, controller.params[:page_id], controller.params[:year])
+  #}, :unless => :logged_in?
   
   def index
     archive_menu

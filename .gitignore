@@ -4,6 +4,7 @@ doc/api
 doc/app
 index/*
 doc/plugins
+tmp/*
 tmp/**/*
 public/imageupload
 public/images/template
@@ -14,5 +15,6 @@ public/stylesheets/template/*.css
 db/*.sqlite3
 Capfile
 config/settings.yml
+config/database.yml
 config/deploy.rb
 template/**/*

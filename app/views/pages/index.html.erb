@@ -4,7 +4,7 @@
 	 <th>Viewable By</th>
 	 <th>Editable By</th>
 	</tr>
-	<% for primary in @primary_pages %>
+	<% for primary in Page.pages_menu %>
 	    <tr>
 	      <td><%= primary.name %></td>
 	      <td>
@@ -44,9 +44,9 @@
 	    <% end -%>
 	<% end -%>
 	
-	<% if @secondary_pages %>
+	<% if secondary_menu? %>
 	
-	<% for secondary in @secondary_pages %>
+	<% for secondary in Page.pages_menu("secondary") %>
 	    <tr>
 	      <td><%= secondary.name %></td>
 	      <td>

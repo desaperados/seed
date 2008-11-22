@@ -2,7 +2,6 @@ class RolesController < ApplicationController
   
   before_filter :login_required
   require_role "admin"
-  before_filter :pages_menu, :except => [:create, :update, :destroy]
   
   def new
     @role = Role.new
@@ -19,7 +18,6 @@ class RolesController < ApplicationController
       flash[:notice] = 'Role was successfully updated'
       redirect_to users_path(:role => @role.id)
     else
-      pages_menu
       render :action => "edit" 
     end
   end
@@ -31,7 +29,6 @@ class RolesController < ApplicationController
       flash[:notice] = 'Role was successfully created'
       redirect_to users_path(:role => @role.id)
     else
-      pages_menu
       render :action => "new" 
     end
   end

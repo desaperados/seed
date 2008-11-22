@@ -1,8 +1,9 @@
+<% cache "#{type}_menu" do %>
 <div class="<%= container %>">
   <div id="<%= type %>-menu">
     
   	<ul id="<%= sortable_id %>" class="menu <%= orientation %> dropdown">
-  		<%= render :partial => "layouts/shared/menu", :collection => collection %>
+  		<%= render :partial => "layouts/shared/menu", :collection => Page.pages_menu(type) %>
   	</ul>
   	<![if !IE]>
   	<% if logged_in? && current_user.has_role?(:admin) -%>
@@ -16,3 +17,4 @@
     <![endif]>
   </div>
 </div>
+<% end -%>

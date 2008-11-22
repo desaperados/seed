@@ -9,8 +9,19 @@ class Page < ActiveRecord::Base
   
   validates_presence_of :title, :name
   
-  def self.all_menu_pages
-    self.find(:all, :conditions => ["parent_id IS NULL"], :include => :children, :order => "position")
+  named_scope :all_menu_pages, :conditions => ["parent_id IS NULL"], :include => :children, :order => "position"
+  
+  # unused cache experimentation method
+  def self.cached_menu_pages
+    if RAILS_ENV == "development"
+      self.all_menu_pages
+    else
+      Rails.cache.fetch('Page.cached_menu_pages') {self.all_menu_pages}
+    end
+  end
+  
+  def self.pages_menu(type="primary")
+    all_menu_pages.group_by { |p| p[:menu_type] }[type]
   end
   
   def flat_child_links

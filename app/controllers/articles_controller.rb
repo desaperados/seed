@@ -1,11 +1,10 @@
 class ArticlesController < ApplicationController
   
-  caches_action :index, :unless => :logged_in?
-  caches_action :show, :unless => :logged_in?
+  #caches_action :index, :unless => :logged_in?
+  #caches_action :show, :unless => :logged_in?
   cache_sweeper :article_sweeper, :only => [:create, :update, :destroy]
   
   before_filter :login_required, :except => [:index, :show, :archive]
-  before_filter :pages_menu, :only => [:index, :new, :edit, :show, :archive]
   before_filter :get_page, :only => [:index, :new, :edit, :show, :archive]
   before_filter :check_view_rights, :only => [:index]
   before_filter :check_edit_rights, :only => [:new, :edit]
@@ -36,7 +35,6 @@ class ArticlesController < ApplicationController
     else
       @images = @article.images
       get_page
-      pages_menu
       render :action => "new" 
     end
   end
@@ -50,7 +48,6 @@ class ArticlesController < ApplicationController
     else
       @images = @article.images
       get_page
-      pages_menu
       render :action => "edit"
     end
   end

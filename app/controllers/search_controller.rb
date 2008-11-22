@@ -1,7 +1,5 @@
 class SearchController < ApplicationController
   
-  before_filter :pages_menu
-  
   def index
     if params[:query]
       @results = Article.paginate_search params[:query], :page => params[:page], :per_page => 20

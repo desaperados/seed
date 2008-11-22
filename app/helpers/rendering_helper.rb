@@ -24,8 +24,7 @@ module RenderingHelper
            :locals => {:orientation => orientation, 
                        :container => container,
                        :sortable_id => "menupages",
-                       :type => "primary",
-                       :collection => @primary_pages}
+                       :type => "primary"}
   end
   
   def seed_secondary_menu(orientation="vertical", container="vertical-menu")
@@ -35,8 +34,7 @@ module RenderingHelper
              :locals => {:orientation => orientation, 
                          :container => container,
                          :sortable_id => "menupages2",
-                         :type => "secondary",
-                         :collection => @secondary_pages}
+                         :type => "secondary"}
     end
   end
   

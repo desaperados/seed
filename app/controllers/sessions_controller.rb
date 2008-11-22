@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  
-  before_filter :pages_menu, :except => [:create, :destroy]
 
   def new
   end
@@ -19,7 +17,6 @@ class SessionsController < ApplicationController
       redirect_back_or_default('/')
       flash[:notice] = "Logged in successfully"
     else
-      pages_menu
       note_failed_signin
       @login       = params[:login]
       @remember_me = params[:remember_me]

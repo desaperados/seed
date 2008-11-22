@@ -2,14 +2,13 @@ class EventsController < ApplicationController
   
   cache_sweeper :event_sweeper, :only => [:create, :update, :destroy]
   
-  caches_action :index, :cache_path => Proc.new { |controller|
-    controller.params[:month] ?
-        controller.send(:browse_url, controller.params[:page_id], controller.params[:month], controller.params[:year]) :
-        controller.send(:events_url, controller.params[:page_id])
-  }, :unless => :logged_in?
+  #caches_action :index, :cache_path => Proc.new { |controller|
+  #  controller.params[:month] ?
+  #      controller.send(:browse_url, controller.params[:page_id], controller.params[:month], controller.params[:year]) :
+  #      controller.send(:events_url, controller.params[:page_id])
+  #}, :unless => :logged_in?
   
   before_filter :login_required, :except => [:index, :show]
-  before_filter :pages_menu, :only => [:index, :new, :edit, :show]
   before_filter :get_page, :except => [:update, :destroy]
   
   before_filter :check_view_rights, :only => [:index]
@@ -38,7 +37,6 @@ class EventsController < ApplicationController
       flash[:notice] = "Event was successfully created"
       redirect_to events_url(@page)
     else
-      pages_menu
       render :action => "new" 
     end
   end
@@ -55,7 +53,6 @@ class EventsController < ApplicationController
       redirect_to events_url(@event.page_id)
     else
       get_page
-      pages_menu
       render :action => "edit"
     end
   end

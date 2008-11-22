@@ -1,6 +1,4 @@
 class PasswordsController < ApplicationController
-  
-  before_filter :pages_menu, :only => [:new, :create, :reset]
 
   def new
     @password = Password.new

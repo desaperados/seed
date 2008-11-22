@@ -15,7 +15,7 @@ class Article < ActiveRecord::Base
   end
   
   def parsed_video
-    video.gsub('watch?v=','v/')
+    @parsed_video ||= video.gsub('watch?v=','v/')
   end
   
   def to_param

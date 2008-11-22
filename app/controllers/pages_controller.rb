@@ -1,7 +1,6 @@
 class PagesController < ApplicationController
 
   before_filter :login_required, :except => [:show]
-  before_filter :pages_menu, :except => [:create, :update, :destroy, :show]
   cache_sweeper :page_sweeper, :only => [:create, :update, :destroy]
   require_role "admin"
   
@@ -30,7 +29,6 @@ class PagesController < ApplicationController
       flash[:notice] = 'Page was successfully created'
       redirect_to resources_path(@page) 
     else
-      pages_menu
       render :action => "new" 
     end
   end
@@ -42,7 +40,6 @@ class PagesController < ApplicationController
       flash[:notice] = 'Page was successfully updated'
       redirect_to resources_path(@page) 
     else
-      pages_menu
       render :action => "edit"
     end
   end

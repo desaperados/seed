@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   before_filter :login_required, :only => [:index, :show]
   require_role "admin", :only => [:index, :destroy]
-  before_filter :pages_menu, :except => [:activate]
   
   def index
     if params[:role]

@@ -122,7 +122,7 @@ class BundleFu
         end
         
         if File.exists?(abs_path) && options[:bundle_fu]
-          concat( filetype==:css ? stylesheet_link_tag(output_filename) : javascript_include_tag(output_filename), block.binding)
+          concat( filetype==:css ? stylesheet_link_tag(output_filename) : javascript_include_tag(output_filename))
         end
       }
       
