@@ -10,6 +10,7 @@
 	<h2><%= link_to newsitem.title, newsitem_path(@page, newsitem) %></h2>
 	<h4><%= simple_date(newsitem.created_at) %></h4>
 	
+	<% cache "article-#{newsitem.id}-images" do %>
 	<div id="images">
     <% newsitem.images.each do |image| %>
     	<a href="<%= image.public_filename %>" class="lightview" rel="gallery[<%= newsitem.id %>]">
@@ -17,6 +18,7 @@
       </a>
     <% end -%>
   </div>
+  <% end -%>
 	
 	<%= textilize(truncate(newsitem.content, 1000, "... #{link_to '[read more]', newsitem_path(@page, newsitem)}")) %>
 </div>

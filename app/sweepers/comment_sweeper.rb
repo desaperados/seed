@@ -10,7 +10,6 @@ class CommentSweeper < ActionController::Caching::Sweeper
   end
   
   def expire_cache(comment)
-    FileUtils.rm_rf(Dir["tmp/cache/*/*/pages/[#{comment.post.page_id}+]*"])
   end
 
 end

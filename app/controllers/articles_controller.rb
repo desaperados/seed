@@ -1,7 +1,5 @@
 class ArticlesController < ApplicationController
   
-  #caches_action :index, :unless => :logged_in?
-  #caches_action :show, :unless => :logged_in?
   cache_sweeper :article_sweeper, :only => [:create, :update, :destroy]
   
   before_filter :login_required, :except => [:index, :show, :archive]

@@ -13,6 +13,7 @@
 	<% if article.article_type == "article" %>
 		<h2><%= article.title %></h2>
 		
+		<% cache "article-#{article.id}-images" do %>
 		<div id="images">
 		  <% article.images.each do |image| %>
 		  	<a href="<%= image.public_filename %>" class="lightview" rel="gallery[<%= article.id %>]">
@@ -20,6 +21,7 @@
         </a>
 		  <% end -%>
 		</div>
+		<% end -%>
 		
 		<%= textilize(article.content.lstrip) %>
 	<% end -%>

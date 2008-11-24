@@ -10,7 +10,18 @@ class ArticleSweeper < ActionController::Caching::Sweeper
   end
   
   def expire_cache(article)
-    FileUtils.rm_rf(Dir["tmp/cache/*/*/pages/[#{article.page_id}+]*"])
+    expire_archive(article) if article.article_type == "post" || article.article_type == "news"
+    expire_images(article)
+  end
+  
+  private
+  
+  def expire_archive(article)
+    expire_fragment "page-#{article.page_id}-archive"
+  end
+  
+  def expire_images(article)
+    expire_fragment "article-#{article.id}-images"
   end
 
 end

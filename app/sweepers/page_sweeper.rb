@@ -12,7 +12,6 @@ class PageSweeper < ActionController::Caching::Sweeper
   def expire_cache
     expire_fragment 'primary_menu'
     expire_fragment 'secondary_menu'
-    FileUtils.rm_rf(Dir['tmp/cache/[^.]*'])
   end
 
 end

@@ -1,6 +1,7 @@
 class JavascriptController < ApplicationController
   
   layout nil
+  cache_sweeper :page_sweeper, :only => [:update_page_order]
   
   # Page Access Control 
   def update_page_viewable

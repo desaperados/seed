@@ -10,7 +10,6 @@ class EventSweeper < ActionController::Caching::Sweeper
   end
   
   def expire_cache(event)
-    FileUtils.rm_rf(Dir["tmp/cache/*/*/pages/[#{event.page_id}+]*"])
   end
 
 end

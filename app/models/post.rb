@@ -23,6 +23,10 @@ class Post < Article
     self.paginate(:page => page, :per_page => per_page, :include => :images, :conditions => conditions, :order => "created_at DESC")
   end
   
+  def self.archive_links
+    self.find(:all, :select => "created_at").group_by {|a| a.created_at.strftime('%Y')}.sort.reverse
+  end
+  
   private
 
   def self.days_in_month(year, month)

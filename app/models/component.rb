@@ -7,7 +7,7 @@ class Component < ActiveRecord::Base
   
   # Strip any speech marks and replace with a marker
   def before_save
-    self.text = text.gsub(/["]/, '[s-mark]')
+    self.text = text.gsub(/["]/, '[s-mark]') unless !self.text_changed?
   end
   
   def snippets

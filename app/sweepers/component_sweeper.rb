@@ -10,7 +10,7 @@ class ComponentSweeper < ActionController::Caching::Sweeper
   end
   
   def expire_cache(component)
-    FileUtils.rm_rf(Dir["tmp/cache/*/*/pages/[#{component.page_id}+]*"])
+    expire_fragment "component-#{component.id}"
   end
 
 end
