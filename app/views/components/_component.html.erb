@@ -1,37 +1,39 @@
-<% cache "component-#{component.id}" do %>
 <div class="component <%= sanitized_class_name(component.title) %>" id="sortablecomponent_<%= component.id %>">
 
-	  <%= content_tag(:h3, component.title) %>
-	  
-	  <% if component.page_feed? %>
-      <% component.snippets.each do |snippet| -%>
-        <h4><%= link_to(snippet.title, resource_path(component.source, snippet.id)) %></h4>
-        <%= textilize(snippet.component_preview) %>
-      <% end -%>
+	  <% if editable?(@page) -%>
+    	<div id="edit-component-<%= component.id %>" style="display:none">
+    		<div class="first"><%= link_to "edit", edit_component_path(@page, component)%></div>
+    		<div><%= link_to "delete", component_path(@page, component), :confirm => 'Delete this component?', :method => :delete %> </div>
+    		<!--[if !IE]>-->  
+    		<div class="handle"><a>re-order</a></div>
+    		<!--<![endif]-->
+    	</div>
     <% end -%>
     
-    <% if component.documents? %>
-      <% component.ordered_documents.each do |document| -%>
-        <h4><%= link_to(document.name, document.public_filename) %></h4>
+    <% cache "component-#{component.id}" do %>
+	    <%= content_tag(:h3, component.title) %>
+	    
+	    <% if component.page_feed? %>
+        <% component.snippets.each do |snippet| -%>
+          <h4><%= link_to(snippet.title, resource_path(component.source, snippet.id)) %></h4>
+          <%= textilize(snippet.component_preview) %>
+        <% end -%>
       <% end -%>
-    <% end -%>
-    
-    <% if component.text? %>
-      <%= textilize(component.text) %>
+      
+      <% if component.documents? %>
+        <% component.ordered_documents.each do |document| -%>
+          <h4><%= link_to(document.name, document.public_filename) %></h4>
+        <% end -%>
+      <% end -%>
+      
+      <% if component.text? %>
+        <%= textilize(component.text) %>
+      <% end -%>
     <% end -%>
 
 </div>
-<% end -%>
 
 <% if editable?(@page) -%>
-	<div id="edit-component-<%= component.id %>" style="display:none">
-		<div class="first"><%= link_to "edit", edit_component_path(@page, component)%></div>
-		<div><%= link_to "delete", component_path(@page, component), :confirm => 'Delete this component?', :method => :delete %> </div>
-		<!--[if !IE]>-->  
-		<div class="handle"><a>re-order</a></div>
-		<!--<![endif]-->
-	</div>
-
   <script>
   	new Tip($("sortablecomponent_<%= component.id %>").down('h3'), $("edit-component-<%= component.id %>"), {style: 'seed-edit'});
   </script>
