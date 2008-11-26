@@ -11,6 +11,18 @@ class ComponentSweeper < ActionController::Caching::Sweeper
   
   def expire_cache(component)
     expire_fragment "component-#{component.id}"
+    
+    # clear page index action
+    expire_article_index(component)
+  end
+  
+  private
+  
+  def expire_article_index(component)
+    expire_action(component.page.to_param)
+    if component.page_id == 1
+      expire_action("#{component.page_id}")
+    end
   end
 
 end

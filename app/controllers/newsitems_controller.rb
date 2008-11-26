@@ -2,6 +2,14 @@
 # with just News
 class NewsitemsController < ArticlesController
   
+  caches_action :show,
+                :unless => :logged_in?, 
+                :cache_path => Proc.new { |c| c.params[:id] }
+                
+  caches_action :archive,
+                :unless => :logged_in?, 
+                :cache_path => Proc.new { |c| "page-#{c.params[:page_id]}-archive-#{c.params[:year]}#{c.params[:month]}" }
+  
   def index
     @newsitems = @page.newsitems.paginate(:page => params[:page], :per_page => @page.paginate, :order => "created_at DESC")
   end

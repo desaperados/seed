@@ -306,6 +306,10 @@ table.seed-admin td.right {
 table.users {
 	margin-top: 2em;
 }
+table.clean td {
+	border-width: 0px;
+	padding: 0.2em;
+}
 
 /******* CRUD Anchor Tags **********/
 
@@ -446,9 +450,9 @@ ul#ajax-error {
 	margin: 0;
 	padding: 0;
 }
-div#flash-notice, div#flash-warning, div#flash-error, div#flash-test {
+div#flash-notice, div#flash-warning, div#flash-error, div#flash-test, div#flash-public {
 	position: absolute;
-	top: 31px;
+	top: 0;
 	left: 0;
 	width: 100%;
 	font-size: 12px;
@@ -460,5 +464,8 @@ div#flash-notice, div#flash-warning, div#flash-error, div#flash-test {
 	z-index: 1000;
 	background: #444;
 	background-image: url('../images/bg/grey_diag.png');
+}
+div#flash-error {
+	top: 0;
 }
 

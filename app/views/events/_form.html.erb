@@ -14,14 +14,14 @@
     
     <div id="_datetime" style="<%= initial_display_style(:datetime) %>" class="input-row">
         <%= f.label :datetime, "When" %>
-        <%= f.calendar_date_select :datetime, :popup => :force, :month_year => "label", :class => "date" %>
+        <%= f.calendar_date_select :datetime, :popup => :force, :class => "date" %>
     </div>
     <div id="_date" style="<%= initial_display_style(:from_date) %>" class="input-row">
         <%= f.label :from_date, "From" %>
-        <%= f.calendar_date_select :from_date, :popup => :force, :onchange => "set_to_date_value(this);", :month_year => "label", :class => "date" %>
+        <%= f.calendar_date_select :from_date, :popup => :force, :onchange => "set_to_date_value(this);", :class => "date" %>
         <div class="input-row">
         <%= f.label :to_date, "To" %>
-        <%= f.calendar_date_select :to_date, :popup => :force, :month_year => "label", :class => "date" %>
+        <%= f.calendar_date_select :to_date, :popup => :force, :class => "date" %>
         </div>
     </div>
     

@@ -166,6 +166,10 @@ div#archive h4.year a {
 }
  
 /************ Comments ************/
+div#comments {
+	clear: both;
+	margin-top: 2em;
+}
 div.comment {
   background: #f8f8f8;
   border-top: 1px solid #ddd;

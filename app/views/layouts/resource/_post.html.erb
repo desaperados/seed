@@ -1,12 +1,5 @@
 <div class="post" id="post_<%= post.id %>">
 	
-	<% if editable?(@page) -%>
-		<div id="edit-link-<%= post.id %>" style="display:none">
-			<div class="first"><%= link_to "edit", edit_post_path(@page, post)%></div>
-			<div><%= link_to "delete", post_path(@page, post), :confirm => 'Delete this post?', :method => :delete %></div>
-		</div>
-	<% end -%>
-	
 	<h2><%= link_to post.title, post_path(@page, post) %></h2>
 	<h4><%= simple_date(post.created_at) %></h4>
 	
@@ -23,11 +16,18 @@
 	<%= textilize(truncate(post.content, 1000, "... #{link_to '[more]', post_path(@page, post)}")) %>
 	
 	<% if post.commentable? %>
-	  <em><%= link_to pluralize(post.comments.size, 'comment'), post_path(@page, post) %></em>
+	  <% cache "post-#{post.id}-commentcount" do %>
+	  <em><%= link_to pluralize(post.comments.approved.count, 'comment'), post_path(@page, post) %></em>
+	  <% end -%>
 	<% end -%>
 	
 </div>
+
 <% if editable?(@page) -%>
+	<div id="edit-link-<%= post.id %>" style="display:none">
+		<div class="first"><%= link_to "edit", edit_post_path(@page, post)%></div>
+		<div><%= link_to "delete", post_path(@page, post), :confirm => 'Delete this post?', :method => :delete %></div>
+	</div>
   <script>
   	new Tip($("post_<%= post.id %>").down('h2'), $("edit-link-<%= post.id %>"), {style: 'seed-edit'});
   </script>

@@ -1,7 +1,7 @@
 class Page < ActiveRecord::Base
   acts_as_tree :order => :position
   acts_as_list :scope => :parent
-  has_many :articles, :order => :position, :dependent => :destroy, :include => :images
+  has_many :articles, :order => :position, :dependent => :destroy
   has_many :newsitems, :order => :position, :dependent => :destroy, :include => :images
   has_many :posts, :order => :position, :dependent => :destroy, :include => :images
   has_many :components, :order => :position, :dependent => :destroy

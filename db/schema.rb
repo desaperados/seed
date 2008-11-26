@@ -9,20 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081013122308) do
+ActiveRecord::Schema.define(:version => 20081126094156) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
     t.string   "content"
     t.string   "video"
-    t.string   "article_type",   :default => "article"
+    t.string   "article_type",  :default => "article"
     t.string   "imagesize"
     t.string   "imageposition"
-    t.boolean  "commentable",    :default => true
+    t.boolean  "commentable",   :default => true
     t.string   "author"
     t.integer  "page_id"
     t.integer  "position"
-    t.integer  "comments_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -132,8 +131,8 @@ ActiveRecord::Schema.define(:version => 20081013122308) do
     t.datetime "updated_at"
   end
 
-  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40

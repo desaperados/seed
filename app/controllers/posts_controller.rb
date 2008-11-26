@@ -1,6 +1,15 @@
 # Blog Posts Controller
 class PostsController < ArticlesController
   
+  caches_action :show,
+                :unless => :logged_in?, 
+                :if => Proc.new { |c| c.params[:nocache] == "t"},
+                :cache_path => Proc.new { |c| c.params[:id] }
+                
+  caches_action :archive,
+                :unless => :logged_in?, 
+                :cache_path => Proc.new { |c| "page-#{c.params[:page_id]}-archive-#{c.params[:year]}#{c.params[:month]}" }
+  
   def index
     @posts = @page.posts.paginate(:page => params[:page], :per_page => @page.paginate, :order => "created_at DESC")
   end

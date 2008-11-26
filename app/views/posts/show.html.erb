@@ -1,12 +1,5 @@
 <div class="post" id="post_<%= @post.id %>">
 	
-	<% if editable?(@page) -%>
-		<div id="edit-link-<%= @post.id %>" style="display:none">
-			<div class="first"><%= link_to "edit", edit_post_path(@page, @post)%></div>
-			<div><%= link_to "delete", post_path(@page, @post), :confirm => 'Delete this post?', :method => :delete %></div>
-		</div>
-	<% end -%>
-	
 	<h2><%= @post.title %></h2>
 	<h4>By <%= @post.author %>, <%= simple_date(@post.created_at) %></h4>
 	
@@ -20,17 +13,39 @@
 	
 	<%= textilize(@post.content) %>
 </div>
+
 <% if editable?(@page) -%>
+	<div id="edit-link-<%= @post.id %>" style="display:none">
+		<div class="first"><%= link_to "edit", edit_post_path(@page, @post)%></div>
+		<div><%= link_to "delete", post_path(@page, @post), :confirm => 'Delete this post?', :method => :delete %></div>
+	</div>
   <script>
   	new Tip($("post_<%= @post.id %>").down('h2'), $("edit-link-<%= @post.id %>"), {style: 'seed-edit'});
   </script>
 <% end -%>
 
 <div id="comments">
-	<% if !@post.comments.size.zero? %>
-	  <h3>Comments (<%= @post.comments.size %>)</h3>
-	  <%= render :partial => "comment", :collection => @post.comments %>
-	<% end -%>
+
+	  <h3>Comments (<%= @post.comments.approved.size %>)</h3>
+	  <%= render :partial => "comment", :collection => @post.comments.approved %>
+	  
+	  <% if editable?(@page) -%>
+	    <h3>Rejected Comments</h3>
+	    <% form_tag destroy_multiple_comments_path(:page_id => params[:page_id], :postid => params[:id]), :method => :delete do %>
+	      <table class="clean">
+	      <% for comment in Comment.unapproved.recent(50) %>
+	        <tr>
+	         <td><%= check_box_tag "comment_ids[]", comment.id, true %></td>
+	         <td><%= link_to_unless(comment.website.blank?, content_tag(:strong, comment.name), comment.website) -%></td>
+	         <td><%=h truncate(comment.comment, 30) %></td>
+	         <td><%= link_to "not spam", approve_comment_path(comment, :page_id => params[:page_id]), :confirm => "Are you sure?", :method => :put %></td>
+	        </tr>
+	      <% end -%>
+	      </table>
+	      <p><%= submit_tag "Destroy Checked" %></p>
+	    <% end -%>
+	  <% end -%>
+
 </div>
 
 <% if @post.commentable? %>

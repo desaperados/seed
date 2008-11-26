@@ -10,6 +10,8 @@ class EventSweeper < ActionController::Caching::Sweeper
   end
   
   def expire_cache(event)
+    expire_action "page-#{event.page.to_param}-events"
+    expire_action "page-#{event.page.to_param}-events#{event.date.month}#{event.date.year}"
   end
 
 end

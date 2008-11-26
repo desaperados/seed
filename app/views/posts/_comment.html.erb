@@ -2,9 +2,10 @@
 	<% if editable?(@page) -%>
 		<span class="seed-admin-tag seed-edit-tag">
 			<%= link_to "X", comment_path(comment, :page_id => params[:page_id]), :confirm => 'Delete this comment?', :method => :delete %>
+			<%= link_to "spam", reject_comment_path(comment, :page_id => params[:page_id]), :method => :put %>
 		</span>
 	<% end -%>
-	Posted by: <%= link_to_unless(comment.website.blank?, comment.name, comment.website) -%>
+	Posted by: <%= link_to_unless(comment.website.blank?, content_tag(:strong, comment.name), comment.website) -%>
 	<%= time_ago_in_words(comment.created_at) %> ago
 	<%= textilize(comment.comment) %>
 </div>

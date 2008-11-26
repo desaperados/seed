@@ -1,16 +1,13 @@
 class EventsController < ApplicationController
   
-  cache_sweeper :event_sweeper, :only => [:create, :update, :destroy]
+  caches_action :index,
+                :unless => :logged_in?, 
+                :cache_path => Proc.new { |c| "page-#{c.params[:page_id]}-events#{c.params[:month]}#{c.params[:year]}" }
   
-  #caches_action :index, :cache_path => Proc.new { |controller|
-  #  controller.params[:month] ?
-  #      controller.send(:browse_url, controller.params[:page_id], controller.params[:month], controller.params[:year]) :
-  #      controller.send(:events_url, controller.params[:page_id])
-  #}, :unless => :logged_in?
+  cache_sweeper :event_sweeper, :only => [:create, :update, :destroy]
   
   before_filter :login_required, :except => [:index, :show]
   before_filter :get_page, :except => [:update, :destroy]
-  
   before_filter :check_view_rights, :only => [:index]
   before_filter :check_edit_rights, :only => [:new, :edit]
   
