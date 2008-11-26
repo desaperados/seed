@@ -8,9 +8,7 @@ class Page < ActiveRecord::Base
   has_many :events, :order => "datetime, from_date ASC", :dependent => :destroy
   
   validates_presence_of :title, :name
-  
-  named_scope :all_menu_pages, :conditions => ["parent_id IS NULL"], :include => :children, :order => "position"
-  
+
   # unused cache experimentation method
   def self.cached_menu_pages
     if RAILS_ENV == "development"
@@ -22,6 +20,10 @@ class Page < ActiveRecord::Base
   
   def self.pages_menu(type="primary")
     all_menu_pages.group_by { |p| p[:menu_type] }[type]
+  end
+  
+  def self.all_menu_pages
+    find(:all, :conditions => ["parent_id IS NULL"], :include => :children, :order => "position")
   end
   
   def flat_child_links
