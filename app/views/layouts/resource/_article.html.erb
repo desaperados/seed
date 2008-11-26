@@ -4,7 +4,7 @@
 		<h2><%= article.title %></h2>
 		
 		<% cache "article-#{article.id}-images" do %>
-		<div id="images">
+		<div class="images">
 		  <% article.images.each do |image| %>
 		  	<a href="<%= image.public_filename %>" class="lightview" rel="gallery[<%= article.id %>]">
           <%= image_tag image.public_filename("#{article.imagesize}"), :size => image.thumbnail_size("#{article.imagesize}") %>
