@@ -8,6 +8,7 @@
 a { color: #4488bb; }
 a:visited { color: #4488bb; }
 a:hover { color: #000; }
+a:focus {outline: none;}
 table {width:100%;}
 table td { border: 1px solid #ddd}
 h1 {font-size: 22px;}
