@@ -50,6 +50,6 @@ Rails::Initializer.run do |config|
 end
 
 # Add the template directory to the default rails render path
-ActionController::Base.prepend_view_path('template')
+ActionController::Base.prepend_view_path("vendor/plugins/#{APP_CONFIG[:app_name]}_engine/app/views")
 
 require 'seed_stylesheets'

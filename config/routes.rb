@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   
+  map.from_plugin APP_CONFIG[:app_name] + "_engine"
+  
   #Restful Authentication
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
