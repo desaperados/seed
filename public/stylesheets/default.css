@@ -102,6 +102,9 @@ div.article, div.newsitem, div.post, div.event {
   border-bottom: 1px solid #e9e9e9;
   margin-bottom: 20px;
   padding: 0 1em 1em 1em;
+	clear: both;
+	float: left;
+	width: 100%;
 }
 div.article h2, div.newsitem h2, div.post h2, div.event h2 {
   margin: 0 0 1em 0;
@@ -116,7 +119,7 @@ div.article a, div.newsitem a, div.post a, div.event a {
 }
 div.article img, div.newsitem img, div.post img {
   float: right;
-  margin: 1em 0 1em 1.5em;
+  margin: 0 0 1em 1.5em;
 }
 div.post, div.newsitem {
   border-width: 0;
