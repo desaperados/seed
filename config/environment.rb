@@ -6,6 +6,8 @@ require File.join(File.dirname(__FILE__), 'boot')
 require File.join(File.dirname(__FILE__), '../vendor/plugins/engines/boot')
 
 Rails::Initializer.run do |config|
+  
+  config.plugin_paths += ["#{RAILS_ROOT}/vendor/plugins/seed"]
 
   # Skip frameworks you're not going to use. 
   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]

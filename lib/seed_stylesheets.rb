@@ -5,7 +5,13 @@ module ActionView
       
       require 'find'
       
-      def seed_stylesheets
+      def seed_includes
+        css = stylesheet_link_tag(discover_stylesheets)
+        js = javascript_include_tag('prototype', 'scriptaculous', 'effects', 'dragdrop', 'prototip', 'application')
+        "#{css}\n#{js}"
+      end
+      
+      def discover_stylesheets
         seed_css = ["seed", "lightview", "prototip"]
         
         engine_css = []
