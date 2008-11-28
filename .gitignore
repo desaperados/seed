@@ -11,6 +11,7 @@ public/images/template
 public/documents
 public/stylesheets/cache/*
 public/javascripts/cache/*
+public/plugin_assets
 public/stylesheets/template/*.css
 db/*.sqlite3
 Capfile
