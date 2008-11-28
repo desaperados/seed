@@ -2,7 +2,7 @@ module ApplicationHelper
   
   # Add a path helper for template images
   def template_image_path(source)
-    compute_public_path(source, 'images/template')
+    compute_public_path(source, "plugin_assets/#{APP_CONFIG[:app_name]}_engine/images")
   end
   
   def format_date(date, use_time = false)

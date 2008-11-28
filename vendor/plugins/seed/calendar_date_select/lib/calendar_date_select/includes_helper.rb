@@ -1,10 +1,15 @@
 class CalendarDateSelect
   module IncludesHelper
+    
+    def asset_path(type)
+      "/plugin_assets/calendar_date_select/#{type}/calendar_date_select/"
+    end
+    
     def calendar_date_select_stylesheets(options = {})
       options.assert_valid_keys(:style, :format, :locale)
       
       style = options[:style]
-      cds_css_file = style ? "calendar_date_select/#{style}" : "calendar_date_select/default"
+      cds_css_file = style ? asset_path('stylesheets') + "/#{style}" : asset_path('stylesheets') + "/default"
       return cds_css_file
     end
 
@@ -13,11 +18,11 @@ class CalendarDateSelect
       
       style = options[:style]
       locale = options[:locale]
-      cds_css_file = style ? "calendar_date_select/#{style}" : "calendar_date_select/default"
+      cds_css_file = style ? asset_path('javascripts') + "/#{style}" : asset_path('javascripts') + "/default"
       
       output = []
-      output << "calendar_date_select/calendar_date_select"
-      output << "calendar_date_select/locale/#{locale}" if locale
+      output << "#{asset_path('javascripts')}/calendar_date_select"
+      output << "#{asset_path('javascripts')}/locale/#{locale}" if locale
       output << CalendarDateSelect.javascript_format_include if CalendarDateSelect.javascript_format_include
       return output
     end
