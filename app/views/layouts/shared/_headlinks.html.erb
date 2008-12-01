@@ -1,7 +1,7 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-
+<% bundle do %>
   <%= seed_includes %>
   <%= calendar_date_select_includes %>
-
+<% end -%>
 <script type="text/javascript" charset="utf-8">window._token = '<%= form_authenticity_token -%>';</script>
 <%= javascript_include_tag 'lightview' %>

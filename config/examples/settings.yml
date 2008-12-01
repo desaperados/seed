@@ -1,30 +1,40 @@
+universal: &common_settings
+  app_name: seed
+  enable_secondary_menu: false
+  use_engine_plugin: false
+  
 development: &non_production_settings
   
   # General Settins
   site_url: http://localhost:3000
   site_name: Seed
   site_description: a Common Sense CMS from The Media Collective
-  admin_email: example@gmail.com
+  admin_email: example@example.com
   
   # Akismet api key for comment spam protection
   # http://akismet.com/
   akismet_key: abc123
   
-  # Layout Settings
-  enable_secondary_menu: false
+  <<: *common_settings
+  
+production: &production_settings
+  
+  # General Settins
+  site_url: http://www.themediacollective.eu
+  site_name: Seed
+  site_description: a Common Sense CMS from The Media Collective
+  admin_email: example@example.com
+  
+  # Akismet api key for comment spam protection
+  # http://akismet.com/
+  akismet_key: abc123
+
+  <<: *common_settings
   
 test:
   <<: *non_production_settings
   
-production:
-  site_url: http://www.example.com
-  site_name: Seed
-  site_description: a Common Sense CMS from The Media Collective
-  admin_email: example@gmail.com
+staging:
+  <<: *production_settings
   
-  # Akismet api key for comment spam protection
-  # http://akismet.com/
-  akismet_key: abc123
   
-  # Layout Settings
-  enable_secondary_menu: false

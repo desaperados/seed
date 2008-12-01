@@ -19,5 +19,10 @@ namespace :db do
 		task(:load => :environment) do
 			YamlDb.load db_dump_data_file
 		end
+		
+		desc "Load contents of db/demo.yml into database"
+		task(:load_demo => :environment) do
+			YamlDb.load "#{RAILS_ROOT}/db/demo.yml"
+		end
 	end
 end

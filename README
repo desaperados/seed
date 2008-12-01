@@ -1,27 +1,20 @@
 seed | a Common Sense CMS from The Media Collective
 
-Status: 
-Currently under intense development. 
-
 USAGE
 
 1. Grab the app:
 git clone git://github.com/desaperados/seed.git
 
-2. Copy config/settings.example.yml to config/settings.yml and edit accordingly
+2. Run script/setup 
 
-3. Generate the database: (default is sqlite3)
-rake db:migrate
-
-4. Start your server:
+3. Start your server:
 script/server
 
-5. Start using seed
+4. Start using seed
 
 CURRENT FEATURES:
 
 - Site wide embedded content creation and editing
-- Override the default layout with a custom template
 - Exception Notification
 - Caching Mechanism
 
@@ -54,9 +47,3 @@ CURRENT FEATURES:
   - Roles
   - Account activation via email
   - Forgotten password handling
-
-
-NOTES:
-
-Uses Lightview by Nick Stakenburg which requires a Creative Commons Licence
-http://www.nickstakenburg.com/projects/lightview/
