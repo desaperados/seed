@@ -1,4 +1,4 @@
-!/images/demo.png!
+!http://seed.mediacollectiveslice.com/images/demo.png!
 
 h1. Seed
 
