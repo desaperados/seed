@@ -21,6 +21,20 @@ pages:
     - Home Page
     - Home
     - Default home page for a new seed installation
+    - "0"
+    - articles
+    - primary
+    - public
+    - all users
+    - 
+    - 
+    - "3"
+    - 2008-10-24 16:08:06
+    - 2008-11-29 06:39:18
+  - - "2"
+    - Articles Page
+    - Articles
+    - Let's try writing a few articles....
     - "1"
     - articles
     - primary
@@ -28,51 +42,260 @@ pages:
     - all users
     - 
     - 
-    - "0"
-    - 2008-12-01 08:53:24
-    - 2008-12-01 08:53:24
-  - - "2"
-    - About Page
-    - About
-    - A page where you could write what this site is about
     - "2"
-    - articles
-    - primary
-    - public
-    - all users
-    - 
-    - 
-    - "0"
-    - 2008-12-01 08:53:24
-    - 2008-12-01 08:53:24
+    - 2008-10-24 16:08:06
+    - 2008-11-29 06:39:18
   - - "3"
     - News Page
     - News
     - A page for news items with dates and archive section
-    - "3"
+    - "2"
     - newsitems
     - primary
     - public
-    - all users
+    - News editor
     - 
     - 
     - "0"
-    - 2008-12-01 08:53:24
-    - 2008-12-01 08:53:24
+    - 2008-10-24 16:08:06
+    - 2008-11-29 06:39:18
   - - "4"
     - Blog Page
     - Blog
     - Be Creative...
-    - "4"
+    - "3"
     - posts
     - primary
     - public
     - all users
     - 
     - 
+    - "1"
+    - 2008-10-24 16:08:06
+    - 2008-11-29 06:39:18
+  - - "5"
+    - Secondary Menu Default Page
+    - Secondary Home
+    - Secondary Menu Default Page
+    - "4"
+    - articles
+    - secondary
+    - public
+    - all users
+    - 
+    - 
     - "0"
-    - 2008-12-01 08:53:24
-    - 2008-12-01 08:53:24
+    - 2008-10-24 16:08:06
+    - 2008-10-24 16:08:06
+  - - "6"
+    - Calendar
+    - Calendar
+    - Empty Calendar? Add some events...
+    - "4"
+    - events
+    - primary
+    - public
+    - all users
+    - 
+    - 
+    - "0"
+    - 2008-10-29 23:35:32
+    - 2008-11-29 06:39:18
+  - - "7"
+    - Video Page
+    - Video
+    - "Lets embed some Youtube "
+    - "5"
+    - articles
+    - primary
+    - public
+    - all users
+    - 
+    - 
+    - "1"
+    - 2008-11-04 15:37:39
+    - 2008-11-29 06:39:18
+
+--- 
+images: 
+  columns: 
+  - id
+  - size
+  - content_type
+  - filename
+  - height
+  - width
+  - parent_id
+  - thumbnail
+  - article_id
+  - created_at
+  - updated_at
+  records: 
+  - - "11"
+    - "79163"
+    - image/jpeg
+    - 2921043323_1f513d8434_o.jpg
+    - "392"
+    - "500"
+    - 
+    - 
+    - "3"
+    - 2008-11-04 15:12:58
+    - 2008-11-04 15:13:03
+  - - "12"
+    - "79201"
+    - image/jpeg
+    - 2921043323_1f513d8434_o_thumb400.jpg
+    - "314"
+    - "400"
+    - "11"
+    - thumb400
+    - 
+    - 2008-11-04 15:12:58
+    - 2008-11-04 15:13:03
+  - - "13"
+    - "79201"
+    - image/jpeg
+    - 2921043323_1f513d8434_o_thumb100.jpg
+    - "78"
+    - "100"
+    - "11"
+    - thumb100
+    - 
+    - 2008-11-04 15:12:58
+    - 2008-11-04 15:13:03
+  - - "14"
+    - "79201"
+    - image/jpeg
+    - 2921043323_1f513d8434_o_thumb200.jpg
+    - "157"
+    - "200"
+    - "11"
+    - thumb200
+    - 
+    - 2008-11-04 15:12:58
+    - 2008-11-04 15:13:04
+  - - "15"
+    - "79201"
+    - image/jpeg
+    - 2921043323_1f513d8434_o_thumb300.jpg
+    - "235"
+    - "300"
+    - "11"
+    - thumb300
+    - 
+    - 2008-11-04 15:12:58
+    - 2008-11-04 15:13:04
+  - - "21"
+    - "27248"
+    - image/jpeg
+    - 05-06-07_1519.jpg
+    - "375"
+    - "500"
+    - 
+    - 
+    - "13"
+    - 2008-11-05 21:31:43
+    - 2008-11-05 21:31:54
+  - - "22"
+    - "27260"
+    - image/jpeg
+    - 05-06-07_1519_thumb100.jpg
+    - "75"
+    - "100"
+    - "21"
+    - thumb100
+    - 
+    - 2008-11-05 21:31:43
+    - 2008-11-05 21:31:54
+  - - "23"
+    - "27260"
+    - image/jpeg
+    - 05-06-07_1519_thumb200.jpg
+    - "150"
+    - "200"
+    - "21"
+    - thumb200
+    - 
+    - 2008-11-05 21:31:43
+    - 2008-11-05 21:31:54
+  - - "24"
+    - "27260"
+    - image/jpeg
+    - 05-06-07_1519_thumb300.jpg
+    - "225"
+    - "300"
+    - "21"
+    - thumb300
+    - 
+    - 2008-11-05 21:31:43
+    - 2008-11-05 21:31:54
+  - - "25"
+    - "27260"
+    - image/jpeg
+    - 05-06-07_1519_thumb400.jpg
+    - "300"
+    - "400"
+    - "21"
+    - thumb400
+    - 
+    - 2008-11-05 21:31:43
+    - 2008-11-05 21:31:55
+  - - "31"
+    - "47768"
+    - image/jpeg
+    - mini.jpg
+    - "402"
+    - "400"
+    - 
+    - 
+    - "16"
+    - 2008-11-27 12:39:07
+    - 2008-11-27 12:39:45
+  - - "32"
+    - "47732"
+    - image/jpeg
+    - mini_thumb200.jpg
+    - "200"
+    - "199"
+    - "31"
+    - thumb200
+    - 
+    - 2008-11-27 12:39:08
+    - 2008-11-27 12:39:45
+  - - "33"
+    - "47732"
+    - image/jpeg
+    - mini_thumb300.jpg
+    - "300"
+    - "299"
+    - "31"
+    - thumb300
+    - 
+    - 2008-11-27 12:39:08
+    - 2008-11-27 12:39:45
+  - - "34"
+    - "47732"
+    - image/jpeg
+    - mini_thumb400.jpg
+    - "400"
+    - "398"
+    - "31"
+    - thumb400
+    - 
+    - 2008-11-27 12:39:08
+    - 2008-11-27 12:39:45
+  - - "35"
+    - "47732"
+    - image/jpeg
+    - mini_thumb100.jpg
+    - "100"
+    - "100"
+    - "31"
+    - thumb100
+    - 
+    - 2008-11-27 12:39:08
+    - 2008-11-27 12:39:45
 
 --- 
 users: 
@@ -93,33 +316,15 @@ users:
   - - "1"
     - admin
     - Default Admin User
-    - dbcurrin@gmail.com
-    - f249a3ab993a28d2c50fe2fd050c8ceef47abb31
-    - e7f5c2205c8197a1ebb57b6490b30b02d6705b94
-    - 2008-12-01 08:53:24
-    - 2008-12-01 08:53:24
+    - example@example.com
+    - 7a72b0c56058050f26d0489793a63c251d6b2974
+    - 22a601085efecd22c2e80be73ad6cfcd4efe79bd
+    - 2008-10-24 16:08:06
+    - 2008-11-11 21:02:29
     - 
     - 
     - 
-    - 2008-12-01 08:53:24
-
---- 
-sessions: 
-  columns: 
-  - id
-  - session_id
-  - data
-  - created_at
-  - updated_at
-  records: 
-  - - "1"
-    - fa836462e8ba3290738be1f6285ea807
-    - |
-      BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
-      SGFzaHsABjoKQHVzZWR7AA==
-
-    - 2008-12-01 08:53:26
-    - 2008-12-01 08:53:26
+    - 2008-10-24 16:08:06
 
 --- 
 roles: 
@@ -131,6 +336,15 @@ roles:
   - - "1"
     - admin
     - Super Users with un-restricted access to all areas
+  - - "2"
+    - Sub admin
+    - Feels like you can do anything, but you can't.
+  - - "3"
+    - Blog Editor
+    - Can edit news items
+  - - "4"
+    - News editor
+    - can edit news pages only
 
 --- 
 roles_users: 
@@ -140,6 +354,110 @@ roles_users:
   records: 
   - - "1"
     - "1"
+
+--- 
+components: 
+  columns: 
+  - id
+  - title
+  - page_id
+  - source_page
+  - limit
+  - position
+  - order
+  - snippet_class
+  - component_type
+  - text
+  - created_at
+  - updated_at
+  records: 
+  - - "1"
+    - Pages
+    - "1"
+    - 
+    - 
+    - "0"
+    - 
+    - 
+    - text
+    - To edit settings for this or any other page click the edit page link in the admin bar at the top of the screen. You can also create a new page by clicking the new page link.
+    - 2008-11-04 16:24:24
+    - 2008-11-11 21:02:47
+  - - "2"
+    - Articles
+    - "1"
+    - "2"
+    - "3"
+    - "2"
+    - created_at DESC
+    - Article
+    - pagefeed
+    - 
+    - 2008-11-04 16:25:03
+    - 2008-11-04 16:25:13
+  - - "3"
+    - User Management
+    - "1"
+    - 
+    - 
+    - "1"
+    - 
+    - 
+    - text
+    - Users belonging to the admin group can manage users via the Users link in the admin bar. They can also create and assign Roles to users which can then be assigned to Pages to control who has permissions to view and edit a given page.
+    - 2008-11-04 16:28:01
+    - 2008-11-11 21:02:47
+  - - "4"
+    - Blog Page
+    - "4"
+    - 
+    - 
+    - "0"
+    - 
+    - 
+    - text
+    - A blog style page gives you simple blog functionality - Posts ordered by date with truncated text and a link to the full article. Commenting can be enabled or disabled on a per post basis. Comments are checked against an intelligent spam filter and deleted if considered spam. Admin users have the ability to delete comments if required.
+    - 2008-11-04 16:41:29
+    - 2008-11-04 16:41:29
+  - - "5"
+    - About
+    - "7"
+    - 
+    - 
+    - "1"
+    - 
+    - 
+    - text
+    - This is a general content page which can contain articles with text and images, tables and also video. For now we've just posted a video style article on this page.
+    - 2008-11-04 16:44:48
+    - 2008-11-04 16:44:48
+  - - "6"
+    - About
+    - "2"
+    - 
+    - 
+    - "1"
+    - 
+    - 
+    - text
+    - |-
+      A general articles page. You can add articles with images, videos from youtube or table style content. To change the position of an article click on the title and drag. 
+      
+      The same goes for this text component. Just click on the title and drag to reposition.
+    - 2008-11-04 16:47:31
+    - 2008-11-04 16:49:15
+  - - "7"
+    - Blog Links
+    - "2"
+    - "4"
+    - "3"
+    - "2"
+    - created_at DESC
+    - Post
+    - pagefeed
+    - 
+    - 2008-11-04 16:48:02
+    - 2008-11-04 16:48:02
 
 --- 
 articles: 
@@ -161,82 +479,169 @@ articles:
   - - "1"
     - Welcome to Seed
     - |-
-      This is your first seed article! 
-      Login at http://yoursiteurl/login to make changes. 
-      User: admin
-      Password: administrator
+      This is the demo site for Seed, a Content Management System developed by the [s-mark]Media Collective[s-mark]:http://www.the-media-collective.com. Our aim is for seed to be simple and easy to use whilst being flexible enough to suit differing needs. 
+      
+      We're constantly working on Seed to make it more useful so the features you see here are likely to grow. Here's a brief overview:
+      
+      * Site wide embedded content creation and editing
+      * Fully configurable using custom templates
+      * Caching Mechanism for faster page loading
+      * Site-wide Search
+      
+      * Page Creation and Management with
+      ** Menu Hierarchy Ordering
+      ** Pagination Control
+      ** Drag and drop Article Ordering
+      ** Integrated image upload
+      ** Video Embedding
+      ** News and Blog Style Pages with archive
+      ** Comments with spam protection
+      ** Ability to pull feeds from other pages on the site
+      
+      * Users Module with
+      ** Roles management
+      ** Account activation via email
+      ** Forgotten password handling
+      
+      If you're wondering why the site looks so plain, that's because we've only applied minimal styling to the demo version. With some clever styling Seed can be fully customised to suit any look.
+      
+      *To try out Seed's functionality for yourself [s-mark]log in[s-mark]:/login and have a play* using Login 'admin' and Password 'administrator'. 
+      
+      The site will be re-set back to it's default state every hour so any changes you make won't be around for long.
     - 
     - article
-    - 
+    - thumb100
     - 
     - true
     - 
     - "1"
-    - "1"
-    - 2008-12-01 08:53:24
-    - 2008-12-01 08:53:24
+    - "0"
+    - 2008-10-24 16:08:06
+    - 2008-12-02 11:46:03
   - - "2"
-    - Test article 1
-    - An article for testing during development
+    - The Atlas of Hidden Water
+    - "An 'atlas of hidden water' has been created to reveal where the world's freshwater aquifers really lie. The hope, New Scientist reports, is that it will help pave the way to an international law to govern how water is shared around the world.\r\n\
+      \r\n\
+      This prospective hydro-geopolitical legislation currently includes a draft Convention on transboundary aquifers.\r\n\
+      \r\n\
+      What the UNESCO map reveals, New Scientist adds, is just how many aquifers cross international borders. So far, the organisation has identified 273 trans-boundary aquifers: 68 in the Americas, 38 in Africa, 155 in Eastern and Western Europe and 12 in Asia. One of these is the Nubian Sandstone Aquifer System, whose waters are nearly a million years old. \r\n\
+      \r\n\
+      According \xE2\x80\x93 somewhat oddly \xE2\x80\x93 to the International Atomic Energy Agency:\r\n\
+      \r\n\
+      The ancient system\xE2\x80\x99s massive reserves, estimated at 375,000 cu km of water (equivalent to about 500 years of Nile River discharge), are confined deep inside the earth\xE2\x80\x99s underground chambers \xE2\x80\x93 staggered, tiered, and pooled beneath the sands of the Sahara Desert, oasis settlements, wadis (dry riverbeds that contain water only during times of heavy rain), small villages, towns, and large cities.\r\n\
+      \r\n\
+      If the surface landscapes there are already so beautiful, how exciting would it be to explore those underground staggered tiers and pools...\r\n\
+      A more detailed map is due out in 2009 \xE2\x80\x93 meanwhile, several more can be downloaded here."
     - 
     - article
-    - 
+    - thumb200
     - 
     - true
     - 
     - "2"
+    - "0"
+    - 2008-10-24 16:08:06
+    - 2008-11-27 12:40:12
+  - - "8"
+    - Don't Vote
+    - ""
+    - http://www.youtube.com/v/5cGvqs-jf_w
+    - video
+    - 
+    - 
+    - true
+    - 
+    - "7"
     - "1"
-    - 2008-12-01 08:53:24
-    - 2008-12-01 08:53:24
-  - - "3"
-    - Test article 2
-    - An article for testing during development
+    - 2008-11-04 15:38:04
+    - 2008-11-04 15:39:22
+  - - "9"
+    - Tesla Roadster Crashes at 100mph
+    - During a demonstration run of a Tesla Roadster in Southern France, the driver (who was demoing it for the passenger) attempted to take a wet corner a bit too fast and ended up going off the road, smashing the front left and rear right quarters of the car. The passenger was thrown clear, luckily not through the windshield, but miraculously neither party was seriously injured.
     - 
-    - article
-    - 
-    - 
-    - true
-    - 
-    - "2"
-    - "2"
-    - 2008-12-01 08:53:24
-    - 2008-12-01 08:53:24
-  - - "4"
-    - Test article 3
-    - An article for testing during development
-    - 
-    - article
-    - 
+    - post
+    - thumb300
     - 
     - true
-    - 
-    - "2"
-    - "3"
-    - 2008-12-01 08:53:24
-    - 2008-12-01 08:53:24
-  - - "5"
-    - Test article 4
-    - An article for testing during development
-    - 
-    - article
-    - 
-    - 
-    - true
-    - 
-    - "2"
+    - Default Admin User
     - "4"
-    - 2008-12-01 08:53:24
-    - 2008-12-01 08:53:24
-  - - "6"
-    - Test article 5
-    - An article for testing during development
+    - "1"
+    - 2008-11-04 16:34:50
+    - 2008-11-04 16:45:38
+  - - "10"
+    - 5 Useless Gadgets You Should Throw in the Trash Right Now
+    - "Your house is full of crap, and you know it. Along with that old suit you'll \"fit into again one day\" and the cupboard full of juicers and lemon squeezers, it's likely you have a lot of computer hardware you'll never use again. That's normal though, right? Everyone has a collection of USB card readers, cables and battery chargers in the bottom drawer, after all.\r\n\
+      \r\n\
+      But I'm talking about big, modern gadgets you may even have just bought. Things that you think you need, but were clearly a waste of your money. Here's a list of five things that are useless, and which you should send to the thrift store right now.\r\n\
+      \r\n\
+      First, an anti hate-mail caveat: Some of this kit is still useful in a professional context. If you use this stuff every day, you know who you are -- please don't write in. But for the rest of us, these hunks of plastic are just taking up space and electricity.\r\n\
+      \r\n\
+      Printers\r\n\
+      \r\n\
+      Buying a printer is like buying a timeshare in a vacation home. It looks cheap until you figure out all the extra costs, and that you don't ever use it after the first year. Outside of an office or a photographer's studio, they're obsolete -- myriad online printing sites will take care of your photos, at a better quality and lower price than you'll get at home.\r\n\
+      \r\n\
+      Still printing articles to \"read later\"? Get over it. Almost any cellphone has a good enough screen to read text. If you have an iPhone, you can even use the \"Instapaper\" application to automate the process -- hit the Read Later bookmarklet and enjoy the article later, away from your desk. The forests will thank you for it.\r\n\
+      \r\n\
+      Scanners\r\n\
+      \r\n\
+      Related to printers, only even less useful. Slow, clunky and noisy, scanners used to be good for digitizing photos and text. Now, your camera or even your phone will do the same. Almost nobody uses film anymore, and for those who do, the lab will pop a CD of your photos, already digitized and dust-free, into the envelope along with the prints.\r\n\
+      \r\n\
+      If you regularly scan text documents and use OCR (optical character recognition) to make them into something other than dead trees, you can forget that, too. The average cameraphone can take a clear enough picture to read the text, and from there you can either email it to a service like ScanR (which converts your pictures to editable PDFs) or just drop it into EverNote, a cross platform application which does the same. Your filing cabinet has never been so empty.\r\n\
+      \r\n\
+      Built-In Optical Drives\r\n\
+      \r\n\
+      This one is a qualified entry on the list -- you sometimes still need a DVD or CD drive to actually get information onto your computer. Once it's on there, however \xE2\x80\x93 in the form of an OS installation or a ripped CD \xE2\x80\x93 you don't need it anymore. Putting an optical drive in a notebook seems, well, old fashioned.\r\n\
+      \r\n\
+      In fact, a modern optical drive just isn't that useful anymore: Hard drives are so cheap that backing up to multiple DVDs is pointlessly slow and painful. CDs don't need to be burned when you can just email a MP3 file, and actually taking a DVD on a trip to watch on, say, the plane, is an extravagance your laptop's battery won't appreciate in this day of fast DVD rips and movie downloads. Buy a MacBook Air or a netbook and keep a $20 burner around for emergencies.\r\n\
+      \r\n\
+      Fax Machines\r\n\
+      \r\n\
+      Still sending faxes? Hi grandad! The fax was useful when it was the only way to move documents around faster than mailing them. Now it's pointless. Most documents never exist in paper form anyway, so you'll need a printer just to get started with the sending. And if you fax directly from your computer, that's no excuse, either -- why not just email the PDF?\r\n\
+      \r\n\
+      An email is as trackable as a fax, and harder to fake (I may or may not have altered faxed documents for previous employers). It's also a lot harder to lose, and a lot easier to find if you do. Granted, a trip to the fax machine buys you a few minutes away from the desk, but then, why not just quit the office altogether and work, like I do, from the comfort of your bed?\r\n\
+      \r\n\
+      Landline Phones\r\n\
+      \r\n\
+      There's one big reason that people keep a landline at home: 911 calls. The landline runs off power from the telephone line itself (a neat precursor to power over ethernet) so if there's a blackout, the calls still go through (unless you have a cordless handset, of course). And because a landline is tied directly to a single address, the emergency services know where you are.\r\n\
+      \r\n\
+      But a cellphone is always with you, even when you're hiding under the bed from burglars or murderers. What if your battery dies? Borrow another phone -- there's always somebody around. And if you're stuck in the middle of nowhere and things get ugly, a landline won't help you anyway. What about coverage? It's true that cellphone coverage in the US is not exactly ubiquitous, but again, if you're out in the sticks with no signal, you're unlikely to find a landline anyway.\r\n\
+      \r\n\
+      The emergency services still know where you are, too. Your rough location is tracked by the cell tower routing your call, so you'll be directed to a local call center. With GPS enabled phones, things will only get better.\r\n\
+      \r\n\
+      Burglar alarms? File under the caveat above. If you have a dedicated line, fine. Just don't rent a second one just to hook up a handset you don't need.\r\n\
+      \r\n\
+      There's one other problem with a landline, or rather, with your brain: You don't remember anyone's number anymore. Stick with the mobile, and learn to be less paranoid.\r\n\
+      \r\n\
+      Anything else? What junk do you have at home that does nothing but collect dust? Tell us in the comments!\r\n\
+      \r\n"
     - 
-    - article
+    - post
+    - 
+    - 
+    - true
+    - Default Admin User
+    - "4"
+    - "2"
+    - 2008-11-04 16:37:43
+    - 2008-11-04 16:37:43
+  - - "12"
+    - Unseasonable heavy snow hits New Zealand
+    - "A cold blast of weather hit New Zealand\xE2\x80\x99s South Island Tuesday night, with Southlanders waking this morning to a scene more akin to the depths of winter.\r\n\
+      \r\n\
+      With the country now well into the throes of spring, the cold weather brought an unseasonable blanket of snow and hail across parts of Southland, Fiordland and Central Otago (all districts of South Island). The snow was heavy in places and not merely restricted to the mountains, but falling at lower levels too. \r\n\
+      \r\n\
+      Organisers of the Tour of Southland cycle race were forced to shorten some stages of the race, hit by the atrocious conditions. As much as 20cm (8 inches) of snow fell across parts of northern Southland with locals describing it as the worst November snowfall they had seen in 30 years.\r\n\
+      \r\n\
+      The New Zealand Met Service has warnings in force today for further snow, mostly affecting the hills of South Island plus North Island\xE2\x80\x99s Central Plateau. A further 10 to 15cm (4 to 6 inches) of snow is expected.\r\n\
+      \r\n\
+      A very cold southwesterly airflow is responsible for the snow and lowering temperatures across the country, with the threat of snow showers expected to last at least into Thursday."
+    - 
+    - news
     - 
     - 
     - true
     - 
-    - "2"
-    - "5"
-    - 2008-12-01 08:53:24
-    - 2008-12-01 08:53:24
+    - "3"
+    - "1"
+    - 2008-11-05 14:55:46
+    - 2008-11-05 14:55:46

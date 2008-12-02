@@ -15,14 +15,6 @@ class CreateArticles < ActiveRecord::Migration
 
       t.timestamps
     end
-    Article.create(:title => "Welcome to Seed", :content => "This is your first seed article! \nLogin at http://yoursiteurl/login to make changes. \nUser: admin\nPassword: administrator", :page_id => 1)
-  
-    # Some test articles for development
-     Article.create(:title => "Test article 1", :content => "An article for testing during development", :page_id => 2)
-     Article.create(:title => "Test article 2", :content => "An article for testing during development", :page_id => 2)
-     Article.create(:title => "Test article 3", :content => "An article for testing during development", :page_id => 2)
-     Article.create(:title => "Test article 4", :content => "An article for testing during development", :page_id => 2)
-     Article.create(:title => "Test article 5", :content => "An article for testing during development", :page_id => 2)
   end
 
   def self.down

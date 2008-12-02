@@ -1,0 +1,38 @@
+!/images/demo.png!
+
+h1. Seed
+
+a Common Sense CMS from The Media Collective.
+
+Straightforward in-line content management without endless back-end screens and preference panes. 
+Create and manage General, News, Blog and Event style pages, add content or components to pages for
+extra functionality. 
+
+User account creation with activation via e-mail and a permissions system for viewing and editing pages.
+
+Default styles and views easily overridden by adding to the plug-in engine directory
+
+Extend, Override, Add Controllers, Helpers, Models using plug-in engine technique
+
+h2. Quick Start
+<pre><code>
+git clone git://github.com/desaperados/seed.git seed
+cd seed
+script/setup demo
+script/server
+
+Load http://localhost:3000/admin in your browser
+</pre></code>
+
+h2. More Info
+
+"A quick introduction":http://www.vimeo.com/2361856 
+"Live Demo Site":http://seed.mediacollectiveslice.com
+
+h2. Author
+
+David Currin
+
+h2. Licence
+
+See LICENCE

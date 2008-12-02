@@ -15,10 +15,6 @@ class CreatePages < ActiveRecord::Migration
 
       t.timestamps
     end
-     Page.create(:title => "Home Page", :menu_type => "primary", :kind => "articles", :name => "Home", :description => "Default home page for a new seed installation")
-     Page.create(:title => "About Page", :menu_type => "primary",:kind => "articles", :name => "About", :description => "A page where you could write what this site is about")
-     Page.create(:title => "News Page", :menu_type => "primary", :kind => "newsitems", :name => "News", :description => "A page for news items with dates and archive section")
-     Page.create(:title => "Blog Page", :menu_type => "primary", :kind => "posts", :name => "Blog", :description => "Be Creative...")
   end
 
   def self.down

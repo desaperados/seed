@@ -19,6 +19,7 @@ public/javascripts/cache/*
 public/plugin_assets
 
 db/*.sqlite3
+db/data.yml
 
 config/settings.yml
 config/database.yml
