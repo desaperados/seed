@@ -12,6 +12,20 @@ class PageSweeper < ActionController::Caching::Sweeper
   def expire_cache
     expire_fragment 'primary_menu'
     expire_fragment 'secondary_menu'
+     
+    # expire all pages
+    Page.find(:all, :select => "id, name").each do |p|
+      expire_page(p)
+    end 
+  end
+  
+  private
+  
+  def expire_page(page)
+    expire_action(page.to_param)
+    if page.id == 1
+      expire_action("1")
+    end
   end
 
 end
