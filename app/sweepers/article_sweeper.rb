@@ -16,10 +16,21 @@ class ArticleSweeper < ActionController::Caching::Sweeper
     end
     
     expire_images(article)
-    expire_article_index(article)
+    expire_page(article)
+    
+    # Expire components linked to this article
+    components = Component.find(:all, :conditions => ["source_page = ?", article.page_id])
+    components.each do |component|
+      expire_component(component)
+      expire_page(component)
+    end
   end
   
   private
+  
+  def expire_component(component)
+    expire_fragment "component-#{component.id}"
+  end
   
   def expire_archive(article)
     # Archive menu fragment
@@ -33,10 +44,10 @@ class ArticleSweeper < ActionController::Caching::Sweeper
     expire_fragment "article-#{article.id}-images"
   end
   
-  def expire_article_index(article)
-    expire_action(article.page.to_param)
-    if article.page_id == 1
-      expire_action("#{article.page_id}")
+  def expire_page(resource)
+    expire_action(resource.page.to_param)
+    if resource.page_id == 1
+      expire_action("#{resource.page_id}")
     end
   end
   

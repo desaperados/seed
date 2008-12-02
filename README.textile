@@ -27,8 +27,8 @@ Load http://localhost:3000 in your browser
 
 h2. More Info
 
-"A quick introduction":http://www.vimeo.com/2361856 
-"Live Demo Site":http://seed.mediacollectiveslice.com
+* "A quick introduction":http://www.vimeo.com/2361856 
+* "Live Demo Site":http://seed.mediacollectiveslice.com
 
 h2. Author
 
