@@ -25,6 +25,41 @@ script/server
 Load http://localhost:3000 in your browser
 </pre></code>
 
+h2. Customising
+
+All customisation is handled inside vendor/plugins/yourappname_engine
+
+To override the default stylesheet create a file named default.css
+in vendor/plugins/yourappname_engine/public/stylesheets/default.css
+
+Additional stylesheets in this directory will be automatically detected
+and included in the document head.
+
+You can override default views by replicating the main seed view directory 
+in yourappname_engine/app/views. For example to override the default articles
+index:
+
+<pre>
+seed
+  /app
+    /views
+      /articles
+        index.html.erb
+</pre>
+        
+Create your own index.html.erb here:
+
+<pre>
+seed
+  /vendor
+    /plugins
+      /yourappname_engine
+        /app
+          /articles
+            index.html.erb
+</pre>
+        
+
 h2. More Info
 
 * "A quick introduction":http://www.vimeo.com/2361856 
