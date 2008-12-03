@@ -24,21 +24,29 @@ fieldset {
 ul#seed-user-bar {
 	font-size: 12px;
 	margin: 0;
-	padding: 0 5px 0 5px;
+	padding: 0 10px 0 5px;
 	list-style: none;
 	background-color: #444;
-	height: 30px;
+	height: 35px;
 	border-bottom: 1px solid #000;
 	background-image: url('../images/bg/dark_grey_diag.png');
 }
 ul#seed-user-bar li {
 	float: left;
-	padding: 8px 7px 0 7px;
-	margin: 0 3px 0 0;
+	padding: 9px 7px 0 7px;
+	margin: 3px 5px 0 0;
 	color: #ccc;
 	position: relative;
 	z-index: 1;
-	height: 23px;
+	height: 24px;
+}
+ul#seed-user-bar li.add-stuff {
+	background-color: #4488bb;
+	padding-right: 25px;
+	padding-left: 25px;
+}
+ul#seed-user-bar li.img {
+	padding: 0;
 }
 ul#seed-user-bar li.right {
 	float: right;
@@ -48,17 +56,15 @@ ul#seed-user-bar li.hover {
 	cursor: pointer;
 }
 ul#seed-user-bar li.edit-page {
-	margin: 0 3px 0 8em;
+	margin: 3px 3px 0 8em;
 	border-left: 1px solid #333;
 	padding-right: 1em;
 }
 ul#seed-user-bar li.first {
-	width: 22px;
-	margin: 0;
-	padding: 0;
-	background-image: url('../images/icons/star_grey.gif');
-	background-position: 5px 8px;
-	background-repeat: no-repeat;
+	margin-left: 10px;
+}
+ul#seed-user-bar li.plain {
+	background: #4f4f4f;
 }
 ul#seed-user-bar ul.sub {
 	display: none;
@@ -67,8 +73,8 @@ ul#seed-user-bar ul.sub {
 	list-style: none;
 	padding: 0;
 	left: 0;
-	top: 30px;
-	*width: 200px;
+	top: 32px;
+	width: 200px;
 	z-index: 1;
 	background: #4488bb;
 	border-top: 1px solid #333;
@@ -77,9 +83,11 @@ ul#seed-user-bar li:hover ul.sub, ul#seed-user-bar li.over ul.sub {
 	display: block;
 }
 ul#seed-user-bar ul.sub li {
+	background: transparent;
+	margin: 0;
 	float: none;
-	height: 22px;
-	padding: 4px 20px 0 20px;
+	height: 24px;
+	padding: 8px 20px 0 25px;
 	white-space: nowrap;
 	border-bottom: 1px solid #666;
 }
@@ -456,8 +464,8 @@ div#flash-notice, div#flash-warning, div#flash-error, div#flash-test, div#flash-
 	left: 0;
 	width: 100%;
 	font-size: 12px;
-	padding: 7px 0 0 0;
-	height: 23px;
+	padding: 11px 0 0 0;
+	height: 24px;
 	color: #333;
 	border-bottom: 1px solid #ddd;
 	text-align: center;

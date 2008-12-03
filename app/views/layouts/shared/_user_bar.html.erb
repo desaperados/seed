@@ -1,31 +1,27 @@
 <% if logged_in? -%>
   <ul id="<%= container %>" class="hoverable dropdown">
   	
-  	<li class="first"></li>
-  	<li><%= link_to_current_user :content_method => :login %></li>
-  	<li><%= link_to "Sign Out", logout_path, :title => "Log out" %></li>
+  	<li class="first plain"><%= link_to_current_user :content_method => :name %></li>
+  	<li class="plain"><%= link_to "Sign Out", logout_path, :title => "Log out" %></li>
+  	<li class="edit-page"></li>
   	
   	<% if current_user.has_role?("admin") %>
-  	  <li class="right"><%= link_to "Access", pages_path, :title => "Manage Page Access" %></li>
-  	  <li class="right"><%= link_to "Users", users_path, :title => "Manage Users and Roles" %></li>
+  	  <li class="right img"><%= link_to link_to image_tag("bg/ub_access.png", :size => "33x33", :alt => "Access"), pages_path, :title => "Manage Page Access" %></li>
+  	  <li class="right img"><%= link_to image_tag("bg/ub_users.png", :size => "33x33", :alt => "Users"), users_path, :title => "Manage Users and Roles" %></li>
   	  
   	  <% if display_page_edit_tags? %>
-  	  <li class="edit-page"></li>
-  	  <li><%= @page.name %> Page
-  	    <ul class="sub">
-  	      <li><%= link_to "Edit", edit_page_path(@page), :title => "Edit this page" %></li>
-  	      <li><%= link_to "Delete", page_path(@page), :confirm => 'Delete this page and all associated content?', :method => :delete, :title => "Delete this page and all associated content" %></li>
-    	    <li><%= link_to "Create a New Page", new_page_path, :title => "Create a new Page" %></li>
-    	  </ul>
-    	</li>
+  	  <li class="img"><%= link_to image_tag("bg/ub_settings.png", :size => "33x33", :alt => "Settings"), edit_page_path(@page), :title => "Page settings" %></li>
   	  <% end -%>
   	<% end -%>
   	
   	<% if display_page_edit_tags? %>
-  	<li>Add Content
+  	<li class="add-stuff">Add Stuff
   	  <ul class="sub">
   	    <li><%= link_to "#{params[:controller].singularize.capitalize}", :controller => params[:controller], :action => "new" %></li>
   	    <li><%= link_to "Component", new_component_path, :title => "Add a component to this page" %></li>
+  	    <% if current_user.has_role?("admin") %>
+  	    <li><%= link_to "New Page", new_page_path, :title => "Create a new Page" %></li>
+  	    <% end -%>
       </ul>
     </li>
     <% end -%>

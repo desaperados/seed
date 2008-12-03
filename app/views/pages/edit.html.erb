@@ -1,5 +1,10 @@
 <div id="seed-admin-form">
-<h2>Edit page</h2>
+<h2>Page Settings</h2>
 
 <%= render :partial => "form", :locals => {:submit => "Update"} %>
-</div>
+</div><br />
+
+<%= link_to "Delete this page", page_path(@page), 
+      :confirm => 'Delete this page and all associated content?', 
+      :method => :delete, 
+      :title => "Delete this page and all associated content" %>
