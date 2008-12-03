@@ -39,6 +39,7 @@ ul#seed-user-bar li {
 	position: relative;
 	z-index: 1;
 	height: 24px;
+	display: inline; /* for IE 6 */
 }
 ul#seed-user-bar li.add-stuff {
 	background-color: #4488bb;
@@ -84,6 +85,7 @@ ul#seed-user-bar li:hover ul.sub, ul#seed-user-bar li.over ul.sub {
 }
 ul#seed-user-bar ul.sub li {
 	background: transparent;
+	display: block;
 	margin: 0;
 	float: none;
 	height: 24px;
@@ -97,6 +99,11 @@ ul#seed-user-bar ul.sub li a:hover {
 ul#seed-user-bar a {
 	text-decoration: none;
 	color: #ccc;
+}
+ul#seed-user-bar img {
+	float: left; /* for IE 6 */
+	margin: 0;
+	padding: 0;
 }
 ul#seed-user-bar a:hover {
 	color: #4488bb;
