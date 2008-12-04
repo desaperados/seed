@@ -11,6 +11,8 @@ class ArticlesController < ApplicationController
   before_filter :check_view_rights, :only => [:index]
   before_filter :check_edit_rights, :only => [:new, :edit]
   
+  layout :determine_layout
+  
   def index
     @articles = @page.articles.paginate(:page => params[:page], :per_page => @page.paginate)
     if @page.id == 1
@@ -71,6 +73,10 @@ class ArticlesController < ApplicationController
     else
       articles_path(resource.page_id) 
     end
+  end
+  
+  def determine_layout
+    (action_name == "edit" || action_name == "new") ? "admin" : "application"
   end
   
 end

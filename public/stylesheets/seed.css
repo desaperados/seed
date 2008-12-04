@@ -4,15 +4,6 @@
 
 /********* Tag Defaults **********/
 
-body {
-	margin: 0;
-}
-
-pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
-}
 fieldset {
 	border-width: 0;
 	padding: 0;
@@ -112,8 +103,7 @@ ul#seed-user-bar a:hover {
 /************* Forms ***************/
 
 div#seed-admin-form {
-	position: relative;
-	width: 600px;
+	
 }
 div#seed-admin-form h2 {
 	margin: 0 0 1em 0;

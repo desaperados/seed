@@ -1,4 +1,4 @@
-<% form_for(@article, :url => article_path(@page, @article), :html => {:class => "seed-admin tight", :id => "changer"}) do |f| %>
+<% form_for(@article, :url => article_path(@page, @article), :html => {:class => "span-10", :id => "changer"}) do |f| %>
   <%= f.error_messages %>
   <fieldset>
   <div class="input-row">
@@ -26,7 +26,7 @@
   
 <% end %>
 
-<div id="form-sidebar">
+<div class="span-5">
 	<div id="seed-notes">
 		<h4>Post Style:</h4>
 		<h5>Article</h5>
