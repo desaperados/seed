@@ -1,3 +1,4 @@
+<div class="span-14">
 <% form_for(@event, :url => event_path(@page, @event), :html => {:class => "seed-admin"}) do |f| %>
   
   <%= f.error_messages %>
@@ -37,5 +38,5 @@
   <div class="submit">
     <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
   </div>
-  
 <% end %>
+</div>

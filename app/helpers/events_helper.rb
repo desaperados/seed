@@ -10,10 +10,12 @@ module EventsHelper
     end
   end
   
-  def calendar_date(from, to)
+  def calendar_date(from, to, all_day)
     todate = "- #{to.strftime("%b %d")}" unless to.blank? || to == from
     fromdate = from.strftime("%b %d") 
-    "#{fromdate} #{todate}"
+    ampm = from.strftime("%p").downcase
+    time = "at #{from.strftime("%l:%M" + ampm)}" unless all_day
+    "#{fromdate} #{todate} #{time}"
   end
   
   def calendar_time(date, all_day)

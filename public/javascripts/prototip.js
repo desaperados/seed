@@ -45,7 +45,7 @@ Prototip.Styles = {
     borderColor: '#116497',
     radius: 2,
     hook: { tip: 'topLeft', mouse: false },
-		offset: { x: 0, y: 24 },
+		offset: { x: 0, y: 32 },
 		hideOn: { element: 'tip', event: 'mouseout' },
 		hideOthers: true
   },

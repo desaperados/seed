@@ -1,8 +1,7 @@
-<div id="blog">
+<div id="blog" class="span-14 colborder">
   <%= seed_render_all @posts, "blogposts" %>
 	
 	<%= will_paginate @posts %>
 	
-	<%= render :partial => "layouts/shared/archive", :locals => {:classname => "Post"} %>
 </div>
-
+<%= render :partial => "layouts/shared/archive", :locals => {:classname => "Post"} %>

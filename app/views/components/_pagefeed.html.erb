@@ -1,30 +1,31 @@
-<% form_for @component, :url => component_path(@page, @component), :html => {:class => "seed-admin tight", :id => "changer"} do |f| -%>
-  <%= f.error_messages %>
-  <fieldset>
-    <div class="input-row">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
+<div class="span-12">
+  <% form_for @component, :url => component_path(@page, @component), :html => {:class => "seed-admin tight", :id => "changer"} do |f| -%>
+    <%= f.error_messages %>
+    <fieldset>
+      <div class="input-row">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="input-row">
+        <%= f.label :source_page %>
+        <%= f.collection_select(:source_page, Page.all_pages_excluding_current(params[:page_id]), :id, :name) %>
+      </div>
+      <div class="input-row">
+        <%= f.label :order, "Sort Order" %>
+        <%= f.select(:order, Component::ORDER_OPTIONS) %>
+      </div>
+      <div class="input-row">
+        <%= f.label :limit %>
+        <%= f.select(:limit, Component::LIMIT_OPTIONS) %>
+      </div>
+    </fieldset>
+    <%= f.hidden_field :component_type, :value => "pagefeed" %>
+    <div class="submit">
+      <%= f.submit submit %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
     </div>
-    <div class="input-row">
-      <%= f.label :source_page %>
-      <%= f.collection_select(:source_page, Page.all_pages_excluding_current(params[:page_id]), :id, :name) %>
-    </div>
-    <div class="input-row">
-      <%= f.label :order, "Sort Order" %>
-      <%= f.select(:order, Component::ORDER_OPTIONS) %>
-    </div>
-    <div class="input-row">
-      <%= f.label :limit %>
-      <%= f.select(:limit, Component::LIMIT_OPTIONS) %>
-    </div>
-  </fieldset>
-  <%= f.hidden_field :component_type, :value => "pagefeed" %>
-  <div class="submit">
-    <%= f.submit submit %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
-  </div>
-<% end %>
-
-<div id="form-sidebar">
+  <% end %>
+</div>
+<div class="span-5">
 	<div id="seed-notes">
 		<h4>Component Type:</h4>
 		<h5>Page Feed</h5>

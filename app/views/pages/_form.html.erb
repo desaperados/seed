@@ -1,3 +1,5 @@
+<div class="span-15">
+  
 <% form_for(@page, :html => {:class => "seed-admin"}) do |f| %>
   <%= f.error_messages %>
   <fieldset>
@@ -58,3 +60,5 @@
     <%= f.submit submit %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
   </div>
 <% end %>
+
+</div>

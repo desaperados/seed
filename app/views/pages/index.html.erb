@@ -6,7 +6,7 @@
 	 <th>Editable By</th>
 	</tr>
 	<% for primary in Page.pages_menu %>
-	    <tr>
+	    <tr class="<%= cycle("odd", "even") %>">
 	      <td><%= primary.name %></td>
 	      <td>
 	        <select id="page_<%= primary.id %>_viewable" name="role[viewable_by]">

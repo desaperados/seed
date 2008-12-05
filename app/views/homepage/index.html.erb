@@ -1,9 +1,9 @@
 <% if @page.requires_sidebar? %>
-  <div class="span-14">
+  <div class="span-14 colborder">
     <%= seed_render_all @articles, "home" %>
     <%= will_paginate @articles %>
   </div>
-  <div class="span-5 last">
+  <div class="span-4 last">
     <%= seed_page_components %>
     <ul><%= seed_flat_child_links(@page) %></ul>
   </div>

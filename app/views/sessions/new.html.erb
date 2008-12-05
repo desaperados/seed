@@ -1,5 +1,5 @@
-<div id="seed-admin-form">
-	<%= title "Login", :h2 %>
+<div class="span-10">
+	<%= title "Login", :h2, :class => "admin" %>
 	
 	<% form_tag session_path, :class => "seed-admin" do -%>
 	<fieldset>
@@ -19,7 +19,7 @@
 	</div>
 
 	</fieldset>
-	<div>
+	<div class="submit">
 		<%= submit_tag 'Login' %>
 		<%= link_to '(I forgot my password)', forgot_password_path %>
 	</div>

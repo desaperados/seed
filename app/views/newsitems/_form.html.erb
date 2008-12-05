@@ -1,3 +1,4 @@
+<div class="span-12">
 <% form_for(@article, :url => newsitem_path(@page, @article), :html => {:class => "seed-admin tight"}) do |f| %>
   <%= f.error_messages %>
   <fieldset>
@@ -18,16 +19,16 @@
   <%= f.hidden_field :page_id %>
   <%= hidden_field :article, :article_type, {:value => "news"} %>
 
-  <div id="image-ids">
+  <div id="image-ids" class="submit">
 	<% @article.images.each do |image| %>
 		<%= hidden_field_tag "article[image_ids][]", image.id, :id => "hidden_image_tag_#{image.id}" %>
 	<% end -%>
     <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
   </div>
-  
 <% end %>
+</div>
 
-<div id="form-sidebar" class="notabs">
+<div class="span-5">
 	<div id="seed-notes">
 		<h4>News Item:</h4>
 		<p>May contain text and images. Ordered by creation date</p> 

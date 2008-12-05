@@ -1,22 +1,24 @@
-<% form_for @component, :url => component_path(@page, @component), :html => {:class => "seed-admin tight", :id => "changer"} do |f| -%>
-  <%= f.error_messages %>
-  <fieldset>
-    <div class="input-row">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
+<div class="span-12">
+  <% form_for @component, :url => component_path(@page, @component), :html => {:class => "seed-admin tight", :id => "changer"} do |f| -%>
+    <%= f.error_messages %>
+    <fieldset>
+      <div class="input-row">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="input-row">
+        <%= f.label :text %>
+        <%= display_speech_marks(f.text_area :text) %>
+      </div>
+    </fieldset>
+    <%= f.hidden_field :component_type, :value => "text" %>
+    <div class="submit">
+      <%= f.submit submit %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
     </div>
-    <div class="input-row">
-      <%= f.label :text %>
-      <%= display_speech_marks(f.text_area :text) %>
-    </div>
-  </fieldset>
-  <%= f.hidden_field :component_type, :value => "text" %>
-  <div class="submit">
-    <%= f.submit submit %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
-<div id="form-sidebar">
+<div class="span-5">
 	<div id="seed-notes">
 		<h4>Component Type:</h4>
 		<h5>Text</h5>

@@ -1,8 +1,6 @@
-<div id="seed-admin-form">
-
 <% @user.password = @user.password_confirmation = nil %>
-<h2>Account Details</h2>
-<% form_for @user, :html => {:class => "seed-admin"} do |f| -%>
+<h2 class="admin">Account Details</h2>
+<% form_for @user, :html => {:class => "seed-admin user"} do |f| -%>
   <%= error_messages_for :user %>
 	<fieldset>
 	<div class="input-row">
@@ -24,7 +22,6 @@
 		<%= submit_tag 'Change Details' %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
 	</div>
 <% end -%>
-</div>
 
 <div id="user">
   <p><strong>Name: </strong><%= @user.name %></p>

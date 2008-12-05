@@ -2,7 +2,6 @@
   color:white;
   border:#777 1px solid;
   display:block;
-  width:195px;
   z-index: 1000;
 }
 /* this is a fun ie6 hack to get drop downs to stay behind the popup window.  This should always be just underneath .calendar_date_select */

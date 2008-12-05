@@ -26,6 +26,7 @@
 
 <div id="comments">
 
+    <% if !@post.comments.size.zero? %>
 	  <h3>Comments (<%= @post.comments.approved.size %>)</h3>
 	  <%= render :partial => "comment", :collection => @post.comments.approved %>
 	  
@@ -44,6 +45,7 @@
 	      </table>
 	      <p><%= submit_tag "Destroy Checked" %></p>
 	    <% end -%>
+	  <% end -%>
 	  <% end -%>
 
 </div>

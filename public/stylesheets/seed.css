@@ -9,6 +9,9 @@ fieldset {
 	padding: 0;
 	position: relative;
 }
+textarea, select { margin: 0;}
+a { color: #4488bb; }
+a:visited { color: #4488bb; }
 
 /************ User Bar *************/
 
@@ -24,12 +27,12 @@ ul#seed-user-bar {
 }
 ul#seed-user-bar li {
 	float: left;
-	padding: 9px 7px 0 7px;
+	padding: 8px 7px 0 7px;
 	margin: 3px 5px 0 0;
 	color: #ccc;
 	position: relative;
 	z-index: 1;
-	height: 24px;
+	height: 25px;
 	display: inline; /* for IE 6 */
 }
 ul#seed-user-bar li.add-stuff {
@@ -102,46 +105,22 @@ ul#seed-user-bar a:hover {
 
 /************* Forms ***************/
 
-div#seed-admin-form {
-	
-}
-div#seed-admin-form h2 {
-	margin: 0 0 1em 0;
+h2.admin {
 	font: 18px Georgia, "Times New Roman", serif; 
 	letter-spacing: 1px;
-}
-div#seed-admin-form h2.adjusted {
-	margin-bottom: 1em;
-}
-div#seed-admin-form img#spinner {
-	position: absolute;
-	left: 350px;
-	top: 40px;
 }
 form.seed-admin { 			
 	padding: 1em;
 	border: 1px solid #dbe2e8;
 	background-color: #f1f4f6;
-	margin: 0px;
+	margin: 0 0 2em 0;
 }
 form.seed-admin label {
 	float: left;
 	width: 25%;
 	color: #666;
-}
-form.tight {
-	width: 70%;
-	padding: 1em 1.5em;
-}
-form.ajax {
-	width: 375px;
-	margin-top: 1em;
-}
-form.tight label, form.ajax label {
-	float: none;
-	display: block;
-	color: #666;
-	width: 100%;
+	margin: 3px 0 0 0;
+	font-weight: normal;
 }
 form.seed-admin p {
 	margin: 0 0 0 25%;
@@ -156,53 +135,63 @@ form.seed-admin legend {
 form.seed-admin a {
 	text-decoration: none;
 }
+form.seed-admin div.input-row {
+	padding: 5px 0
+}
+form.tight label, form.ajax label {
+	float: none;
+	display: block;
+	color: #666;
+	margin-bottom: 1px;
+	width: 100%;
+}
+form.seed-admin div.input-row select {
+	margin: 0;
+}
+form.seed-admin div.input-row input,
+form.seed-admin div.input-row textarea {
+	width: 70%;
+	margin: 0;
+}
+form.tight div.input-row input,
+form.tight div.input-row textarea {
+	width: 97%;
+}
+div.submit {
+	margin: 2em 0;
+}
+
+/*********** Ajax Forms *************/
+div#seed-admin-form img#spinner {
+	position: absolute;
+	left: 350px;
+	top: 40px;
+}
+form.ajax {
+	width: 375px;
+	margin-top: 1em;
+}
 form.seed-admin fieldset#ajax {
 	margin-top: 1em;
 }
 form.seed-admin fieldset#ajax label {
 	margin-bottom: 0.5em;
 }
-form.seed-admin div.input-row {
-	margin: 2px 0 2px 0;
-	padding: 3px 0 3px 0;
-	text-align: left;
-}
+
+/********** Comments Form ***********/
 form.seed-admin div.commentable-row {
 	margin-bottom: 10px;
 }
-form.seed-admin div.input-row label {
-	padding-top: 3px;
+form.comment textarea, textarea.compact {
+	height: 90px;
 }
-form.seed-admin div.input-row input,
-form.seed-admin div.input-row textarea {
-	width: 70%;
-}
-form.tight div.input-row input,
-form.tight div.input-row textarea {
-	width: 100%;
-}
+
+/********** Events Form *************/
 form.seed-admin div.input-row input.date {
-	width: 197px;
+	width: 220px;
 }
 div.cds_footer {
 	display: none;
-}
-div.cds_header span {
-	font-size: 11px !important;
-}
-form.seed-admin div.input-row img {
-	position: relative;
-	left: 0px;
-}
-form.ajax div.input-row input,
-form.ajax div.input-row textarea {
-	width: auto;
-}
-div.submit {
-	margin: 2em 0;
-}
-form.comment textarea, textarea.compact {
-	height: 90px;
 }
 
 /********** Form Tab Menu **********/
@@ -236,25 +225,12 @@ ul#formtabs li a.selected {
 }
 
 /********** Form Sidebar ***********/
-div#form-sidebar {
-	position: absolute;
-	top: 60px;
-	right: 0;
-	width: 20%;
-}
-div#form-sidebar.notabs {
-	top: 38px;
-}
-div#form-sidebar .seed-image-item {
-	margin-right: 0;
-	float: left;
-}
-div#seed-admin-form div#image-control a.add {
+
+div#image-control a.add {
 	text-decoration: none;
 	display: block;
-	font-size: 10px;
-	background: #fff;
-	padding: 0 4%;
+	font-size: 0.9em;
+	padding: 5px;
 	margin: 5px 0;
 	border: 1px solid #ddd;
 	background-image: url('../images/icons/grad_1px.gif');
@@ -277,50 +253,17 @@ div#seed-notes h4, div#seed-notes h5 {
 	font-size: 0.9em;
 	color: #555;
 }
-div#seed-notes h5 {
-	margin-top: -5px;
-	color: #999;
-}
 
 /********* Admin Tables ************/
-table.seed-admin {
-	width: 100%;
-	margin-bottom: 2em;
-	border-collapse: separate;
-	border-spacing: 0;
-	*border-collapse: collapse; /* for the IE's */
-}
-table.seed-admin th {
-	text-align: left;
-	font-weight: normal;
-	border-bottom: 1px solid #ccc;
-	padding: 0.2em 0.5em;
-	background: #f1f4f6;
-}
-table.seed-admin td {
-	border-width: 0px;
-	border-bottom: 1px solid #ddd;
-	padding: 0.2em 0.5em;
-}
+
 table.seed-admin tr.even {
 	background: #fbfbfb;
-}
-table.seed-admin td.right {
-	text-align: right;
-}
-table.users {
-	margin-top: 2em;
-}
-table.clean td {
-	border-width: 0px;
-	padding: 0.2em;
 }
 
 /******* CRUD Anchor Tags **********/
 
 .seed-admin-tag { 				
-	font-size: 10px;
-	line-height: 12px;
+	font-size: 11px;
 	color: #666;
 	background: #f0f0f0;
 }

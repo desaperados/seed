@@ -1,15 +1,15 @@
-<div id="archive">
+<div id="archive" class="span-4 last">
   <% cache "page-#{@page.id}-archive" do -%>
   
 	  <h3>Archive</h3>
 	  <% classname.constantize.archive_links.each do |year, dates| %>
 	  	<div class="year">
-	  	<h4 class="year"><%= link_to year, annual_archive_path(@page, year) %></h4>
+	  	<h5 class="year"><%= link_to year, annual_archive_path(@page, year) %></h5>
 	  	
 	  	<% dates.group_by { |m| m.created_at.strftime('%B')}.each do |month, items| %>
-	  	  <h4 class="month">
+	  	  <h5 class="month">
 	  	    <%= link_to "#{month} (#{items.size})", archive_path(@page, Date.parse(month).month, year) %>
-	  	  </h4>
+	  	  </h5>
 	    <% end -%>
 	    
 	    </div>

@@ -1,27 +1,29 @@
-<% form_for @component, :url => component_path(@page, @component), :html => {:class => "seed-admin tight", :id => "changer"} do |f| -%>
-  <%= f.error_messages %>
-  <fieldset>
-    <div class="input-row">
-      <%= f.label :title %>
-      <%= f.text_field :title %>
+<div class="span-12">
+  <% form_for @component, :url => component_path(@page, @component), :html => {:class => "seed-admin tight", :id => "changer"} do |f| -%>
+    <%= f.error_messages %>
+    <fieldset>
+      <div class="input-row">
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </div>
+      <div class="input-row">
+        <%= f.label :order, "Sort Order" %>
+        <%= f.select(:order, Document::ORDER_OPTIONS) %>
+      </div>
+    </fieldset>
+    <%= f.hidden_field :component_type, :value => "documents" %>
+    <div id="document-ids">
+  	  <% @component.documents.each do |document| %>
+  		  <%= hidden_field_tag "component[document_ids][]", document.id, :id => "hidden_document_tag_#{document.id}" %>
+  	  <% end -%>
     </div>
-    <div class="input-row">
-      <%= f.label :order, "Sort Order" %>
-      <%= f.select(:order, Document::ORDER_OPTIONS) %>
+    <div class="submit">
+      <%= f.submit submit %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
     </div>
-  </fieldset>
-  <%= f.hidden_field :component_type, :value => "documents" %>
-  <div id="document-ids">
-	  <% @component.documents.each do |document| %>
-		  <%= hidden_field_tag "component[document_ids][]", document.id, :id => "hidden_document_tag_#{document.id}" %>
-	  <% end -%>
-  </div>
-  <div class="submit">
-    <%= f.submit submit %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
-<div id="form-sidebar">
+<div class="span-5">
 	<div id="seed-notes">
 		<h4>Component Type:</h4>
 		<h5>Documents</h5>
@@ -30,7 +32,7 @@
 	</div>
 </div>
 
-<div id="form-documents">
+<div id="form-documents" class="span-17">
   
 		<%= link_to_lightview( "Upload Document", new_document_path, 
 				{:class => "button"}, {:title => "'Document Upload'"}, {:autosize => false, :width => 400, :height => 300} )%>

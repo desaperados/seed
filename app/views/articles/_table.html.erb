@@ -1,24 +1,25 @@
-<% form_for(@article, :url => article_path(@page, @article), :html => {:class => "seed-admin tight", :id => "changer"}) do |f| %>
-  <%= f.error_messages %>
-  <fieldset>
-  <div class="input-row">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="input-row">
-    <%= f.label :content, "Table Data" %>
-    <%= display_speech_marks(f.text_area :content) %>
-  </div>
-  </fieldset>
-  <div class="submit">
-	<%= f.hidden_field :page_id %>
-	<%= hidden_field :article, :article_type, {:value => "table"} %>
-    <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
-  </div>
-  
-<% end %>
+<div class="span-12">
+  <% form_for(@article, :url => article_path(@page, @article), :html => {:class => "seed-admin tight", :id => "changer"}) do |f| %>
+    <%= f.error_messages %>
+    <fieldset>
+    <div class="input-row">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="input-row">
+      <%= f.label :content, "Table Data" %>
+      <%= display_speech_marks(f.text_area :content) %>
+    </div>
+    </fieldset>
+    <div class="submit">
+  	<%= f.hidden_field :page_id %>
+  	<%= hidden_field :article, :article_type, {:value => "table"} %>
+      <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
+    </div>
+  <% end %>
+</div>
 
-<div id="form-sidebar">
+<div class="span-5">
 	<div id="seed-notes">
 		<h4>Post Style:</h4>
 		<h5>Table</h5>

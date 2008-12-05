@@ -7,9 +7,9 @@
 		</div>
 	<% end -%>
 	
-	<h2><%= event.name %></h2>
-	<h3><%= calendar_date(event.date, event.to_date) %></h3>
-	<%= content_tag_if(:h4, "Time: #{calendar_time(event.date, event.all_day?)}", !event.all_day?) %>
+	<h2><%= calendar_date(event.date, event.to_date, event.all_day?) %></h2>
+	<h3><%= event.name %></h3>
+	
 	
 	<%= textilize(event.description) %>
 	<%= content_tag_if(:p, "Location: #{event.location}", !event.location.blank?) %>

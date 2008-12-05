@@ -15,14 +15,14 @@
 	    
 	    <% if component.page_feed? %>
         <% component.snippets.each do |snippet| -%>
-          <h4><%= link_to(snippet.title, resource_path(component.source, snippet.id)) %></h4>
+          <h5><%= link_to(snippet.title, resource_path(component.source, snippet.id)) %></h5>
           <%= textilize(snippet.component_preview) %>
         <% end -%>
       <% end -%>
       
       <% if component.documents? %>
         <% component.ordered_documents.each do |document| -%>
-          <h4><%= link_to(document.name, document.public_filename) %></h4>
+          <h5><%= link_to(document.name, document.public_filename) %></h5>
         <% end -%>
       <% end -%>
       

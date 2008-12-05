@@ -1,12 +1,10 @@
-<div class="span-18">
-	<h2>Edit article</h2>
-	
-	<ul id="formtabs">
-		<li class="articletab"><%= form_tab_link "Article", "Update", @article %></li>
-		<li class="videotab"><%= form_tab_link "Video", "Update", @article %></li>
-		<li class="tabletab"><%= form_tab_link "Table", "Update", @article %></li>
-	</ul>
-	<div id="tabbedform">
-		<%= render :partial => @article.article_type, :locals => {:submit => "Update"} %>
-	</div>
+<h2 class="admin">Edit article</h2>
+
+<ul id="formtabs">
+	<li class="articletab"><%= form_tab_link "Article", "Update", @article %></li>
+	<li class="videotab"><%= form_tab_link "Video", "Update", @article %></li>
+	<li class="tabletab"><%= form_tab_link "Table", "Update", @article %></li>
+</ul>
+<div id="tabbedform">
+	<%= render :partial => @article.article_type, :locals => {:submit => "Update"} %>
 </div>
