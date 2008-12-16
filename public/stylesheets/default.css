@@ -7,6 +7,7 @@
  
 body { 
   font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 70%;
 }
 div#head {
 	margin-top: 1em;
@@ -122,6 +123,7 @@ ul.menu {
   margin: 0 0 2em 0;
   padding: 0;
   border-top: 1px solid #ccc;
+	font-size: 1.1em;
 }
 ul.menuchild {
   padding-left: 1.5em;

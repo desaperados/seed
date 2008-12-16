@@ -24,3 +24,4 @@ db/data.yml
 config/settings.yml
 config/database.yml
 config/deploy.rb
+config/newrelic.yml
