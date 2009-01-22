@@ -256,8 +256,24 @@ div#seed-notes h4, div#seed-notes h5 {
 
 /********* Admin Tables ************/
 
-table.seed-admin tr.even {
-	background: #fbfbfb;
+table.seed-admin tr.primary td {
+	background: #f0f0f0;
+	border-bottom: 1px solid #ddd;
+}
+table.seed-admin tr.secondary {
+	background-color: #f9f9f9;
+}
+table.seed-admin tr.secondary td, table.seed-admin tr.sub td {
+	border-bottom: 1px solid #eee;
+}
+table.seed-admin tr.sub {
+	background-color: #ffffff;
+}
+table.seed-admin td.child {
+	padding-left: 20px;
+}
+table.seed-admin td.subchild {
+	padding-left: 40px;
 }
 
 /******* CRUD Anchor Tags **********/

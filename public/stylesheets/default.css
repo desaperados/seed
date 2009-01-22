@@ -131,7 +131,7 @@ ul.menu {
   border-top: 1px solid #ccc;
 	font-size: 1.1em;
 }
-ul.menuchild {
+ul.menuchild, ul.submenuchild {
   padding-left: 1.5em;
   margin: 0.5em 0 -0.5em 0;
   list-style: none;
