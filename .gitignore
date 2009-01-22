@@ -16,7 +16,7 @@ public/imageupload
 public/documents
 public/stylesheets/cache/*
 public/javascripts/cache/*
-public/plugin_assets
+public/plugin_assets/*
 
 db/*.sqlite3
 db/data.yml

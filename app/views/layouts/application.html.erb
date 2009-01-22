@@ -18,9 +18,11 @@
 			</div>
 			<hr />
 			
-			<%= seed_primary_menu "horizontal" %>
+			<%= seed_secondary_menu "horizontal" %>
 			
-
+			<div class="span-4 colborder">
+          <%= seed_primary_menu %>
+      </div>
 			
 			<div class="span-19 last">
 			  <%= content_tag(:div, yield, :class => seed_page_class(@page)) %>
