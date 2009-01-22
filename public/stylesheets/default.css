@@ -68,6 +68,12 @@ div.post h4, div.newsitem h4 {
   background: #fafafa;
   margin-bottom: 2em;
 }
+
+/********* Articles, News *********/
+div.article img, div.newsitem img, div.post img {
+  float: right;
+  margin: 0 0 1em 1.5em;
+}
  
 /*********** News & Blog **********/
 div#archive {
@@ -180,6 +186,9 @@ div.horizontal-menu ul.menuchild {
   padding: 0px;
   background-color: #999;
   z-index: 1;
+}
+div.horizontal-menu ul.submenuchild {
+	display: none;
 }
 li:hover ul.menuchild, li.over ul.menuchild { 
   display: block;

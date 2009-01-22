@@ -21,7 +21,7 @@ ul#seed-user-bar {
 	padding: 0 10px 0 5px;
 	list-style: none;
 	background-color: #444;
-	height: 35px;
+	height: 36px;
 	border-bottom: 1px solid #000;
 	background-image: url('../images/bg/dark_grey_diag.png');
 }
@@ -31,7 +31,7 @@ ul#seed-user-bar li {
 	margin: 3px 5px 0 0;
 	color: #ccc;
 	position: relative;
-	z-index: 1;
+	z-index: 1000;
 	height: 25px;
 	display: inline; /* for IE 6 */
 }
@@ -68,7 +68,7 @@ ul#seed-user-bar ul.sub {
 	list-style: none;
 	padding: 0;
 	left: 0;
-	top: 32px;
+	top: 33px;
 	width: 200px;
 	z-index: 1;
 	background: #4488bb;

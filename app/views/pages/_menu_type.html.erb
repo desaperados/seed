@@ -1,1 +1,3 @@
-<%= collection_select(:page, :parent_id, Page.pages_for_parent_select(@page, action), :id, :name) %>
+<select id="page_parent_id" name="page[parent_id]">
+    <%= options_from_tree_for_select(Page.parent_select(@page) , :id, :name, @page.parent_id) %>
+</select>

@@ -95,9 +95,23 @@ class Page < ActiveRecord::Base
       conditions = ["menu_type = ? AND parent_id IS NULL", page.menu_type]
     end
     defaults = Page.new(:name => "Top Level")
-    list = Page.find(:all, :select => "id, name", :conditions => conditions, :order => "position DESC")
-    list << defaults
-    list.reverse
+    primary = Page.find(:all, :select => "id, name, parent_id", :conditions => conditions, :order => "position DESC")
+    primary << defaults
+    primary.reverse
+  end
+  
+  def self.parent_select(page)
+    default = Page.new(:name => "Top Level")
+    pages = Page.find(:all, :select => "id, name", :conditions => ["parent_id IS NULL AND menu_type =?", page.menu_type], :order => "position")
+    pages.insert(0, default)
+  end
+  
+  def name_for_parent_menu
+    if parent_id.nil? 
+      name 
+    else
+      "- #{name}"
+    end
   end
 
   # Use the parent_id for the menu list_level class
