@@ -90,8 +90,10 @@ module RenderingHelper
   end
   
   # Renders a list of child menu items for the given page
-  def seed_flat_child_links(page, tag="li")
-    render :partial => "layouts/shared/flatmenu", :collection => page.flat_child_links, :locals => {:tag => tag}
+  def seed_flat_child_links(page)
+    if !page.flat_child_links.empty?
+      render :partial => "layouts/shared/flatmenu", :object => page.flat_child_links
+    end
   end
   
   # Pages may have any number of articles, news items or posts associated with them. 

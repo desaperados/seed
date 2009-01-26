@@ -8,7 +8,9 @@
       </div>
       <div class="input-row">
         <%= f.label :source_page %>
-        <%= f.collection_select(:source_page, Page.all_pages_excluding_current(params[:page_id]), :id, :name) %>
+        <select name="component[source_page]" id="component_source_page">
+          <%= options_from_tree_for_select(Page.all_pages_for_dropdown(params[:page_id]), :id, :name, @component.source_page) %>
+        </select>
       </div>
       <div class="input-row">
         <%= f.label :order, "Sort Order" %>

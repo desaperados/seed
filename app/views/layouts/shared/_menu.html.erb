@@ -6,15 +6,6 @@
 		  	 <% for child in menu.children -%>
 		  	   <li class="level_<%= child.tree_level %> sortable <%= menu_current?(child) %>" id="page_<%= child.id %>">
 	  			  <%= link_to child.name, articles_path(child) %>
-	  			  <% if !child.children.size.zero? -%>
-      		  	 <ul class="submenuchild">
-      		  	 <% for subchild in child.children -%>
-      		  	   <li class="level_<%= subchild.tree_level %> sortable <%= menu_current?(subchild) %>" id="page_<%= subchild.id %>">
-      	  			  <%= link_to subchild.name, articles_path(subchild) %>
-      	  		   </li>
-      		  	 <% end -%>
-      		  	 </ul>
-      		  <% end -%>
 	  		   </li>
 		  	 <% end -%>
 		  	 </ul>

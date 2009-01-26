@@ -59,7 +59,7 @@ module ApplicationHelper
   
   def seed_page_class(page)
     if page && action_name != "new"
-      "#{page.name.downcase.gsub(" ", "-")}"
+      "#{page.name.downcase.gsub(" ", "-").gsub("'", "")}"
     else
       "admin"
     end
@@ -94,7 +94,7 @@ module ApplicationHelper
     if page.custom_path.nil?
       eval "#{page.kind}_path('#{page.id}-#{page.permalink}')"
     else
-      page.custom_path
+      eval "#{page.custom_path}_path"
     end
   end
   

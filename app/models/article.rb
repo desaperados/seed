@@ -27,7 +27,7 @@ class Article < ActiveRecord::Base
   end
   
   def component_preview
-    content.slice(0, 30) + "..."
+    content.slice(0, 100) + "..."
   end
   
   IMAGESIZE = [

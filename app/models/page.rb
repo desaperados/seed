@@ -27,8 +27,10 @@ class Page < ActiveRecord::Base
   end
   
   def flat_child_links
+    # If this is a child page. Return all other children on the same level
     if self.parent_id != nil
       Page.find(:all, :conditions => ["parent_id = ?", self.parent_id])
+    # If this is a top level page then return all children
     else
       self.children
     end
@@ -84,8 +86,14 @@ class Page < ActiveRecord::Base
     [ '50 Items per page', 50 ]
   ]
   
+  # Unused?
   def self.all_pages_excluding_current(current)
     find(:all, :conditions => ["id != ?", current])
+  end
+  
+  # for the page feed dropdown
+  def self.all_pages_for_dropdown(current)
+    find(:all, :conditions => ["id != ? AND parent_id IS NULL", current])
   end
   
   def self.pages_for_parent_select(page, action)
