@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081126094156) do
+ActiveRecord::Schema.define(:version => 20090126090940) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(:version => 20081126094156) do
     t.integer  "components_count", :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "custom_path"
   end
 
   create_table "passwords", :force => true do |t|

@@ -91,7 +91,11 @@ module ApplicationHelper
   # Generate RESTful path for the pages menu according
   # to Page attributes
   def resources_path(page)
-    eval "#{page.kind}_path('#{page.id}-#{page.permalink}')"
+    if page.custom_path.nil?
+      eval "#{page.kind}_path('#{page.id}-#{page.permalink}')"
+    else
+      page.custom_path
+    end
   end
   
   # Generate a path for component links
