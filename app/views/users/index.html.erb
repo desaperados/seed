@@ -1,31 +1,33 @@
-<%= title("User Admin") %>
-<div class="button">
-<%= content_tag(:span, link_to("Create User", :controller => "users", :action => "new"),
-	              :class => "seed-admin-tag button") %>
+<div id="seed-admin-page">
+  <%= title("User Admin") %>
+  <div class="button">
+  <%= content_tag(:span, link_to("Create User", :controller => "users", :action => "new"),
+  	              :class => "seed-admin-tag button") %>
+  </div>
+  
+  <div id="seed-role-admin">
+    <div id="seed-role-menu">
+      <strong>Role: </strong>
+      <%= collection_select(:role, :id, Role.all_for_user_filter, :id, :capitalised_name, {}, {:id => :roleFilter}) %>
+      <%= observe_field :roleFilter, :url => { :controller => :javascript, :action => :list_users_by_role },
+                                     :with => 'role' %>
+                                   
+      <%= content_tag(:span, (link_to("Edit", edit_role_path(@role)) unless !@role),
+      		            :class => "seed-admin-tag", :id => "edit-role-link") %>
+      		            
+      <%= content_tag(:span, link_to("New Role", :controller => "roles", :action => "new"),
+      		            :class => "seed-admin-tag") %>
+    </div>
+    <div id="role-info">
+      <% if @role %>
+        <%= render :partial => "roles/role" %>
+      <% end -%>
+    </div>
+  </div>   
+  
+  <table id="user-list">
+  	<%= render :partial => "user", :collection => @users %>
+  </table>
 </div>
-
-<div id="seed-role-admin">
-  <div id="seed-role-menu">
-    <strong>Role: </strong>
-    <%= collection_select(:role, :id, Role.all_for_user_filter, :id, :capitalised_name, {}, {:id => :roleFilter}) %>
-    <%= observe_field :roleFilter, :url => { :controller => :javascript, :action => :list_users_by_role },
-                                   :with => 'role' %>
-                                 
-    <%= content_tag(:span, (link_to("Edit", edit_role_path(@role)) unless !@role),
-    		            :class => "seed-admin-tag", :id => "edit-role-link") %>
-    		            
-    <%= content_tag(:span, link_to("New Role", :controller => "roles", :action => "new"),
-    		            :class => "seed-admin-tag") %>
-  </div>
-  <div id="role-info">
-    <% if @role %>
-      <%= render :partial => "roles/role" %>
-    <% end -%>
-  </div>
-</div>   
-
-<table id="user-list">
-	<%= render :partial => "user", :collection => @users %>
-</table>
 
 	

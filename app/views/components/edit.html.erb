@@ -1,11 +1,13 @@
-<h2 class="admin">Edit Component</h2>
-
-<ul id="formtabs">
-	<li class="pagefeedtab"><%= form_tab_link "Page Feed", "Update", @component %></li>
-	<li class="documentstab"><%= form_tab_link "Documents", "Update", @component %></li>
-	<li class="texttab"><%= form_tab_link "Text", "Update", @component %></li>
-</ul>
-<div id="tabbedform">
-	<%= render :partial => @component.component_type, :locals => {:submit => "Update"} %>
+<div id="seed-admin-form">
+  <h2 class="admin">Edit Component</h2>
+  
+  <ul id="formtabs">
+  	<li class="pagefeedtab"><%= form_tab_link "Page Feed", "Update", @component %></li>
+  	<li class="documentstab"><%= form_tab_link "Documents", "Update", @component %></li>
+  	<li class="texttab"><%= form_tab_link "Text", "Update", @component %></li>
+  </ul>
+  <div id="tabbedform">
+  	<%= render :partial => @component.component_type, :locals => {:submit => "Update"} %>
+  </div>
 </div>
 	

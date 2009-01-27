@@ -1,132 +1,134 @@
-<%= title("Page Access") %>
-<table class="seed-admin">
-  <tr>
-	 <th>Page</th>
-	 <th>Viewable By</th>
-	 <th>Editable By</th>
-	</tr>
-	<% for primary in Page.pages_menu %>
-	    <tr class="primary">
-	      <td><%= primary.name %></td>
-	      <td>
-	        <select id="page_<%= primary.id %>_viewable" name="role[viewable_by]">
-	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', primary.viewable_by) %>
-	        </select>
-          <%= observe_field "page_#{primary.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => primary.id },
-                                       :with => "role" %>
-	      </td>
-	      <td>
-	        <select id="page_<%= primary.id %>_editable" name="role[editable_by]">
-	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', primary.editable_by) %>
-	        </select>
-          <%= observe_field "page_#{primary.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => primary.id },
-                                       :with => "role" %>
-	      </td>
-	    </tr>
-	    
-	    <% for child in primary.children -%>
-	     <tr class="secondary">
-         <td class="child"><%= child.name %></td>
-         <td>
- 	        <select id="page_<%= child.id %>_viewable" name="role[viewable_by]">
- 	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', child.viewable_by) %>
- 	        </select>
-           <%= observe_field "page_#{child.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => child.id },
-                                        :with => "role" %>
- 	      </td>
- 	      <td>
- 	        <select id="page_<%= child.id %>_editable" name="role[editable_by]">
- 	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', child.editable_by) %>
- 	        </select>
-           <%= observe_field "page_#{child.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => child.id },
-                                        :with => "role" %>
- 	      </td>
-       </tr>
-       
-       <% for subchild in child.children -%>
- 	     <tr class="sub">
-          <td class="subchild"><%= subchild.name %></td>
-          <td>
-  	        <select id="page_<%= subchild.id %>_viewable" name="role[viewable_by]">
-  	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', subchild.viewable_by) %>
+<div id="seed-admin-page">
+  <%= title("Page Access") %>
+  <table class="seed-admin">
+    <tr>
+  	 <th>Page</th>
+  	 <th>Viewable By</th>
+  	 <th>Editable By</th>
+  	</tr>
+  	<% for primary in Page.pages_menu %>
+  	    <tr class="primary">
+  	      <td><%= primary.name %></td>
+  	      <td>
+  	        <select id="page_<%= primary.id %>_viewable" name="role[viewable_by]">
+  	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', primary.viewable_by) %>
   	        </select>
-            <%= observe_field "page_#{subchild.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => subchild.id },
+            <%= observe_field "page_#{primary.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => primary.id },
                                          :with => "role" %>
   	      </td>
   	      <td>
-  	        <select id="page_<%= subchild.id %>_editable" name="role[editable_by]">
-  	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', subchild.editable_by) %>
+  	        <select id="page_<%= primary.id %>_editable" name="role[editable_by]">
+  	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', primary.editable_by) %>
   	        </select>
-            <%= observe_field "page_#{subchild.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => subchild.id },
+            <%= observe_field "page_#{primary.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => primary.id },
                                          :with => "role" %>
   	      </td>
-        </tr>
- 	    <% end -%>
-	    <% end -%>
-	<% end -%>
-	
-	<% if secondary_menu? %>
-	
-	<% for secondary in Page.pages_menu("secondary") %>
-	    <tr class="primary">
-	      <td><%= secondary.name %></td>
-	      <td>
- 	        <select id="page_<%= secondary.id %>_viewable" name="role[viewable_by]">
- 	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', secondary.viewable_by) %>
- 	        </select>
-           <%= observe_field "page_#{secondary.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => secondary.id },
-                                        :with => "role" %>
- 	      </td>
- 	      <td>
- 	        <select id="page_<%= primary.id %>_editable" name="role[editable_by]">
- 	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', primary.editable_by) %>
- 	        </select>
-           <%= observe_field "page_#{primary.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => primary.id },
-                                        :with => "role" %>
- 	      </td>
-	    </tr>
-	    
-	    <% for schild in secondary.children -%>
-	     <tr class="secondary">
-         <td><%= schild.name %></td>
-         <td>
-  	        <select id="page_<%= schild.id %>_viewable" name="role[viewable_by]">
-  	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', schild.viewable_by) %>
-  	        </select>
-            <%= observe_field "page_#{schild.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => schild.id },
-                                         :with => "role" %>
-  	      </td>
-  	      <td>
-  	        <select id="page_<%= schild.id %>_editable" name="role[editable_by]">
-  	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', schild.editable_by) %>
-  	        </select>
-            <%= observe_field "page_#{schild.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => schild.id },
-                                         :with => "role" %>
-  	      </td>
-       </tr>
-       
-       <% for ssubchild in schild.children -%>
- 	     <tr class="secondary">
-          <td><%= ssubchild.name %></td>
-          <td>
-   	        <select id="page_<%= ssubchild.id %>_viewable" name="role[viewable_by]">
-   	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', ssubchild.viewable_by) %>
+  	    </tr>
+  	    
+  	    <% for child in primary.children -%>
+  	     <tr class="secondary">
+           <td class="child"><%= child.name %></td>
+           <td>
+   	        <select id="page_<%= child.id %>_viewable" name="role[viewable_by]">
+   	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', child.viewable_by) %>
    	        </select>
-             <%= observe_field "page_#{ssubchild.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => ssubchild.id },
+             <%= observe_field "page_#{child.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => child.id },
                                           :with => "role" %>
    	      </td>
    	      <td>
-   	        <select id="page_<%= ssubchild.id %>_editable" name="role[editable_by]">
-   	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', ssubchild.editable_by) %>
+   	        <select id="page_<%= child.id %>_editable" name="role[editable_by]">
+   	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', child.editable_by) %>
    	        </select>
-             <%= observe_field "page_#{ssubchild.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => ssubchild.id },
+             <%= observe_field "page_#{child.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => child.id },
                                           :with => "role" %>
    	      </td>
-        </tr>
- 	    <% end -%>
-	    <% end -%>
-	 
-	 <% end -%>
-	 
-	 <% end -%>
-</table>
+         </tr>
+         
+         <% for subchild in child.children -%>
+   	     <tr class="sub">
+            <td class="subchild"><%= subchild.name %></td>
+            <td>
+    	        <select id="page_<%= subchild.id %>_viewable" name="role[viewable_by]">
+    	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', subchild.viewable_by) %>
+    	        </select>
+              <%= observe_field "page_#{subchild.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => subchild.id },
+                                           :with => "role" %>
+    	      </td>
+    	      <td>
+    	        <select id="page_<%= subchild.id %>_editable" name="role[editable_by]">
+    	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', subchild.editable_by) %>
+    	        </select>
+              <%= observe_field "page_#{subchild.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => subchild.id },
+                                           :with => "role" %>
+    	      </td>
+          </tr>
+   	    <% end -%>
+  	    <% end -%>
+  	<% end -%>
+  	
+  	<% if secondary_menu? %>
+  	
+  	<% for secondary in Page.pages_menu("secondary") %>
+  	    <tr class="primary">
+  	      <td><%= secondary.name %></td>
+  	      <td>
+   	        <select id="page_<%= secondary.id %>_viewable" name="role[viewable_by]">
+   	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', secondary.viewable_by) %>
+   	        </select>
+             <%= observe_field "page_#{secondary.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => secondary.id },
+                                          :with => "role" %>
+   	      </td>
+   	      <td>
+   	        <select id="page_<%= primary.id %>_editable" name="role[editable_by]">
+   	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', primary.editable_by) %>
+   	        </select>
+             <%= observe_field "page_#{primary.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => primary.id },
+                                          :with => "role" %>
+   	      </td>
+  	    </tr>
+  	    
+  	    <% for schild in secondary.children -%>
+  	     <tr class="secondary">
+           <td><%= schild.name %></td>
+           <td>
+    	        <select id="page_<%= schild.id %>_viewable" name="role[viewable_by]">
+    	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', schild.viewable_by) %>
+    	        </select>
+              <%= observe_field "page_#{schild.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => schild.id },
+                                           :with => "role" %>
+    	      </td>
+    	      <td>
+    	        <select id="page_<%= schild.id %>_editable" name="role[editable_by]">
+    	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', schild.editable_by) %>
+    	        </select>
+              <%= observe_field "page_#{schild.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => schild.id },
+                                           :with => "role" %>
+    	      </td>
+         </tr>
+         
+         <% for ssubchild in schild.children -%>
+   	     <tr class="secondary">
+            <td><%= ssubchild.name %></td>
+            <td>
+     	        <select id="page_<%= ssubchild.id %>_viewable" name="role[viewable_by]">
+     	          <%= options_from_collection_for_select(@viewable,'name','capitalised_name', ssubchild.viewable_by) %>
+     	        </select>
+               <%= observe_field "page_#{ssubchild.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => ssubchild.id },
+                                            :with => "role" %>
+     	      </td>
+     	      <td>
+     	        <select id="page_<%= ssubchild.id %>_editable" name="role[editable_by]">
+     	          <%= options_from_collection_for_select(@editable,'name','capitalised_name', ssubchild.editable_by) %>
+     	        </select>
+               <%= observe_field "page_#{ssubchild.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => ssubchild.id },
+                                            :with => "role" %>
+     	      </td>
+          </tr>
+   	    <% end -%>
+  	    <% end -%>
+  	 
+  	 <% end -%>
+  	 
+  	 <% end -%>
+  </table>
+</div>

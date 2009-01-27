@@ -1,10 +1,12 @@
-<h2 class="admin">Page Settings</h2>
-
-<%= render :partial => "form", :locals => {:submit => "Update"} %>
-
-<div class="span-15 append-bottom">
-<%= link_to "Delete this page", page_path(@page), 
-      :confirm => 'Delete this page and all associated content?', 
-      :method => :delete, 
-      :title => "Delete this page and all associated content" %>
+<div id="seed-admin-form">
+  <h2 class="admin">Page Settings</h2>
+  
+  <%= render :partial => "form", :locals => {:submit => "Update"} %>
+  
+  <div class="span-15 append-bottom">
+  <%= link_to "Delete this page", page_path(@page), 
+        :confirm => 'Delete this page and all associated content?', 
+        :method => :delete, 
+        :title => "Delete this page and all associated content" %>
+  </div>
 </div>
