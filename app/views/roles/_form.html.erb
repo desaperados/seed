@@ -1,19 +1,17 @@
-<div class="span-12">
-  <% form_for @role, :html => {:class => "seed-admin"} do |f| %>
-    <%= f.error_messages %>
-    <fieldset>
-    <div class="input-row">
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-    </div>
-    <div class="input-row">
-      <%= f.label :description %>
-      <%= f.text_field :description %>
-    </div>
-    </fieldset>
-    <div>
-      <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
-    </div>
-    
-  <% end %>
-</div>
+<% form_for @role, :html => {:class => "seed-admin"} do |f| %>
+  <%= f.error_messages %>
+  <fieldset>
+  <div class="input-row">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="input-row">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  </fieldset>
+  <div>
+    <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
+  </div>
+  
+<% end %>

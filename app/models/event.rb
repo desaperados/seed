@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
   
   def self.current_month_events(year, month)
     from = Date.new(year, month, 1)
-    to = Date.new(year, month, days_in_month(year, month))
+    to = Date.new(year, next_month(month), 1)
     find(:all, :conditions => ["datetime BETWEEN ? AND ? OR from_date BETWEEN ? AND ? OR to_date BETWEEN ? AND ?", from, to, from, to, from, to], :order => "datetime, from_date ASC")
   end
   
@@ -76,4 +76,12 @@ private
 
 def days_in_month(year, month)
   Date.new(year, month, -1).day
+end
+
+def next_month(month)
+  if month == 12
+    month = 1
+  else
+    month = month+1
+  end
 end

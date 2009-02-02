@@ -5,7 +5,7 @@
 		  	 <ul class="menuchild">
 		  	 <% for child in menu.children -%>
 		  	   <li class="level_<%= child.tree_level %> sortable <%= menu_current?(child) %>" id="page_<%= child.id %>">
-	  			  <%= link_to child.name, articles_path(child) %>
+	  			  <%= link_to child.name, resources_path(child) %>
 	  		   </li>
 		  	 <% end -%>
 		  	 </ul>
