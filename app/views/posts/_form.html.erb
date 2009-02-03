@@ -1,7 +1,7 @@
 <div class="span-12">
 <% form_for(@article, :url => post_path(@page, @article), :html => {:class => "seed-admin tight"}) do |f| %>
   <%= f.error_messages %>
-  <fieldset>
+  <div id="fieldset">
   <div class="input-row">
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -20,7 +20,7 @@
     <%= f.radio_button :commentable, true, :style => "display:inline" %>On
     <%= f.radio_button :commentable, false %>Off
   </div>
-  </fieldset>
+  </div>
   <%= f.hidden_field :page_id %>
   <%= f.hidden_field :article_type, {:value => "post"} %>
   <%= f.hidden_field :author, {:value => current_user.name} %>

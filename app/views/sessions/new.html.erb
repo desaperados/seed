@@ -3,7 +3,7 @@
   	<%= title "Login", :h2, :class => "admin" %>
   	
   	<% form_tag session_path, :class => "seed-admin" do -%>
-  	<fieldset>
+  	<div id="fieldset">
   	<div class="input-row">
   		<%= label_tag 'login' %>
   		<%= text_field_tag 'login', @login %>
@@ -19,7 +19,7 @@
   		<%= check_box_tag 'remember_me', '1', @remember_me, :style => "width:4%;" %>
   	</div>
   
-  	</fieldset>
+  	</div id="fieldset">
   	<div class="submit">
   		<%= submit_tag 'Login' %>
   		<%= link_to '(I forgot my password)', forgot_password_path %>

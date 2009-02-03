@@ -2,7 +2,7 @@
 <%= title "Reset Your Password", :h2 %>
 <% form_for :user, :url => { :action => 'update_after_forgetting' }, :html => {:class => "seed-admin"} do |f| %>
   <%= f.error_messages %>
-  <fieldset>
+  <div id="fieldset">
   	<legend>Please enter a new password and confirm it</legend>
   		<div class="input-row">
   	    	<%= f.label :password, "New password" %>
@@ -12,7 +12,7 @@
   	    	<%= f.label :password_confirmation, "Confirm password" %>
   	    	<%= f.password_field :password_confirmation %>
   		</div>
-  </fieldset>
+  </div>
   <%= hidden_field_tag :reset_code, params[:reset_code] %>
   <div><%= f.submit "Submit" %></div>
 <% end %>

@@ -1,14 +1,20 @@
 <% if @page.parent && !@page.parent.parent_id.nil? %>
+ <% if viewable?(@page.parent ) -%>
  <ul>
   <li><%= link_to @page.parent.name, resources_path(@page.parent) %></li>
  </ul>
+ <% end -%>
 <% end -%>
 
 <ul>
   <% flatmenu.each do |item| %>
-    <li><%= link_to item.name, resources_path(item) %></li>
+    <% if viewable?(item) -%>
+      <li><%= link_to item.name, resources_path(item) %></li>
+    <% end -%>
     <% item.children.each do |child| %>
+      <% if viewable?(child) -%>
       <li class="sub"><%= link_to child.name, resources_path(child) %></li>
+      <% end -%>
     <% end -%>
   <% end -%>
 </ul>

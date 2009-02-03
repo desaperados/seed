@@ -2,13 +2,13 @@
 <%= title "Forgot Your Password?", :h2 %>
 <% form_for @password, :html => {:class => "seed-admin"} do |f| %>
   <%= f.error_messages %>
-	<fieldset>
+	<div id="fieldset">
 		<legend>Enter Your Email Address</legend>
 			<div class="input-row">			
 		    <%= f.label :email %>
 		    <%= f.text_field :email %>
 			</div>
-	</fieldset>
+	</div>
 	<div><%= f.submit "Submit" %></div>
 <% end %>
 </div>

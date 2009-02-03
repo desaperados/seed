@@ -1,4 +1,4 @@
-<div id="seed-admin-form">
+<div>
 	<%= image_tag "spinner.gif", :id => 'spinner', :size => "31x31", :alt => 'spinner', :style => "display:none;" %>
 	<ul id="ajax-error"></ul>
 	
@@ -7,7 +7,7 @@
 								   :target => "upload_frame",
 								   :class => "seed-admin ajax", 
 								   :id => "ajax_create" }) do |f| %>
-	  <fieldset id="ajax">
+	  <div id="ajax" class="fieldset">
 	    <div class="input-row">
 	      <%= f.label :name, "Name: <small>(required)</small>" %>
 	      <%= f.text_field :name %>
@@ -16,7 +16,7 @@
 	      <%= f.label :uploaded_data, "Choose a document to upload" %>
 		    <%= f.file_field :uploaded_data %>
 	    </div>
-	  </fieldset>
+	  </div>
 	  <div class="submit">
 	    <%= submit_tag 'Upload', :onclick => "Element.show('spinner')" %> or <%= link_to_function 'cancel', "Lightview.hide();" %>
 	  </div>

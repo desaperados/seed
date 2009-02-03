@@ -1,7 +1,7 @@
 <div class="span-12">
   <% form_for @component, :url => component_path(@page, @component), :html => {:class => "seed-admin tight", :id => "changer"} do |f| -%>
     <%= f.error_messages %>
-    <fieldset>
+    <div id="fieldset">
       <div class="input-row">
         <%= f.label :title %>
         <%= f.text_field :title %>
@@ -10,7 +10,7 @@
         <%= f.label :text %>
         <%= display_speech_marks(f.text_area :text) %>
       </div>
-    </fieldset>
+    </div>
     <%= f.hidden_field :component_type, :value => "text" %>
     <div class="submit">
       <%= f.submit submit %> or <%= link_to_function 'cancel', 'history.go(-1)' %>

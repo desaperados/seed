@@ -1,7 +1,7 @@
 <div class="span-12">
   <% form_for @component, :url => component_path(@page, @component), :html => {:class => "seed-admin tight", :id => "changer"} do |f| -%>
     <%= f.error_messages %>
-    <fieldset>
+    <div id="fieldset">
       <div class="input-row">
         <%= f.label :title %>
         <%= f.text_field :title %>
@@ -10,7 +10,7 @@
         <%= f.label :order, "Sort Order" %>
         <%= f.select(:order, Document::ORDER_OPTIONS) %>
       </div>
-    </fieldset>
+    </div>
     <%= f.hidden_field :component_type, :value => "documents" %>
     <div id="document-ids">
   	  <% @component.documents.each do |document| %>

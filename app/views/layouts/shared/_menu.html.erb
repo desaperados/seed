@@ -4,13 +4,16 @@
 		  <% if !menu.children.size.zero? -%>
 		  	 <ul class="menuchild">
 		  	 <% for child in menu.children -%>
+		  	   <% if viewable?(child) -%>
 		  	   <li class="level_<%= child.tree_level %> sortable <%= menu_current?(child) %>" id="page_<%= child.id %>">
 	  			  <%= link_to child.name, resources_path(child) %>
 	  		   </li>
+	  		   <% end -%>
 		  	 <% end -%>
 		  	 </ul>
 		  <% end -%>
 	</li>
 <% end -%>
+
 
 

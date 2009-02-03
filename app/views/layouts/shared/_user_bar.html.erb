@@ -7,7 +7,7 @@
   	<li class="edit-page"></li>
   	
   	<% if current_user.has_role?("admin") %>
-  	  <li class="right img"><%= link_to link_to image_tag("bg/ub_access.png", :size => "33x33", :alt => "Access"), pages_path, :title => "Manage Page Access" %></li>
+  	  <li class="right img"><%= link_to image_tag("bg/ub_access.png", :size => "33x33", :alt => "Access"), pages_path, :title => "Manage Page Access" %></li>
   	  <li class="right img"><%= link_to image_tag("bg/ub_users.png", :size => "33x33", :alt => "Users"), users_path, :title => "Manage Users and Roles" %></li>
   	  
   	  <% if display_page_edit_tags? %>

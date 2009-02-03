@@ -2,7 +2,7 @@
   
 <% form_for(@page, :html => {:class => "seed-admin"}) do |f| %>
   <%= f.error_messages %>
-  <fieldset>
+  <div id="fieldset">
   <div class="input-row">
     <%= f.label :title, "Page Title:" %>
     <%= f.text_field :title %>
@@ -55,7 +55,7 @@
     <%= f.label :paginate, "Pagination:" %>
 	<%= f.select(:paginate, Page::PAGINATION) %>
   </div>
-  </fieldset>
+  </div>
   <div class="submit">
     <%= f.submit submit %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
   </div>

@@ -2,7 +2,7 @@
 <% form_for(@event, :url => event_path(@page, @event), :html => {:class => "seed-admin"}) do |f| %>
   
   <%= f.error_messages %>
-  <fieldset>
+  <div id="fieldset">
     <div class="input-row">
       <%= f.label :name, "Event Name" %>
       <%= f.text_field :name %>
@@ -34,7 +34,7 @@
       <%= f.label :location %>
       <%= f.text_field :location %>
     </div>
-  </fieldset>
+  </div>
   <div class="submit">
     <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
   </div>

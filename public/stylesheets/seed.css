@@ -171,10 +171,10 @@ form.ajax {
 	width: 375px;
 	margin-top: 1em;
 }
-form.seed-admin fieldset#ajax {
+form.seed-admin #ajax {
 	margin-top: 1em;
 }
-form.seed-admin fieldset#ajax label {
+form.seed-admin #ajax label {
 	margin-bottom: 0.5em;
 }
 

@@ -1,6 +1,6 @@
 <% form_for @role, :html => {:class => "seed-admin"} do |f| %>
   <%= f.error_messages %>
-  <fieldset>
+  <div id="fieldset">
   <div class="input-row">
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -9,7 +9,7 @@
     <%= f.label :description %>
     <%= f.text_field :description %>
   </div>
-  </fieldset>
+  </div>
   <div>
     <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
   </div>

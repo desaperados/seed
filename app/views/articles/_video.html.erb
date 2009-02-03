@@ -1,7 +1,7 @@
 <div class="span-12">
   <% form_for(@article, :url => article_path(@page, @article), :html => {:class => "seed-admin tight", :id => "changer"}) do |f| %>
     <%= f.error_messages %>
-    <fieldset>
+    <div id="fieldset">
     <div class="input-row">
       <%= f.label :title %>
       <%= f.text_field :title %>
@@ -15,7 +15,7 @@
       <%= f.label :content, "Caption" %>
       <%= display_speech_marks(f.text_area :content, :class => "compact") %>
     </div>
-    </fieldset>
+    </div>
     <div class="submit">
   	<%= f.hidden_field :page_id %>
   	<%= hidden_field :article, :article_type, {:value => "video"} %>

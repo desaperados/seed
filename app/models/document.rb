@@ -2,7 +2,7 @@ class Document < ActiveRecord::Base
   
   belongs_to :component
   
-  has_attachment    :max_size => 4.megabytes,
+  has_attachment    :max_size => 9.megabytes,
                     :content_type => ['application/pdf', 
                                       'application/msword', 
                                       'application/msexcel', 
@@ -10,7 +10,8 @@ class Document < ActiveRecord::Base
                                       'application/vnd.ms-powerpoint',
                                       'application/octet-stream',
                                       'text/rtf',
-                                      'text/plain'],
+                                      'text/plain',
+                                      'audio/mpeg'],
                     :storage => :file_system
                     
   validates_as_attachment
