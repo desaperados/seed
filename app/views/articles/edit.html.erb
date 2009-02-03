@@ -5,6 +5,7 @@
   	<li class="articletab"><%= form_tab_link "Article", "Update", @article %></li>
   	<li class="videotab"><%= form_tab_link "Video", "Update", @article %></li>
   	<li class="tabletab"><%= form_tab_link "Table", "Update", @article %></li>
+  	<li class="documentstab"><%= form_tab_link "Documents", "Update", @article %></li>
   </ul>
   <div id="tabbedform">
   	<%= render :partial => @article.article_type, :locals => {:submit => "Update"} %>

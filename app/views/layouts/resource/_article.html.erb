@@ -26,6 +26,16 @@
 		<%= textilize(article.content.lstrip) %>
 	<% end -%>
 	
+	<% if article.article_type == "documents" %>
+		<h2><%= article.title %></h2>
+		<div class="documents">
+		  <%= textilize(article.content.lstrip) %>
+		  <% article.documents.each do |document| %>
+		  	<h5 class="doc"><%= link_to(document.name, document.public_filename) %></h5>
+		  <% end -%>
+		</div>
+	<% end -%>
+	
 	<% if article.article_type == "video" %>
 		<h2 class="handle"><%= article.title %></h2>
 		<% if article.video != "" %>

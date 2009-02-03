@@ -2,12 +2,13 @@ class Article < ActiveRecord::Base
   belongs_to :page
   acts_as_list :scope => :page
   has_many :images
+  has_many :documents
   acts_as_indexed :fields => [:title, :content]
   validates_presence_of :title
   
   # Strip any speech marks and replace with a marker
   def before_save
-    self.content = content.gsub(/["]/, '[s-mark]')
+    self.content = content.gsub(/["]/, '[s-mark]') unless content.nil?
   end
   
   def sortable?

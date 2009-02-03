@@ -1,6 +1,7 @@
 class Document < ActiveRecord::Base
   
   belongs_to :component
+  belongs_to :article
   
   has_attachment    :max_size => 9.megabytes,
                     :content_type => ['application/pdf', 

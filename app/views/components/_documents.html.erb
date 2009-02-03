@@ -34,7 +34,7 @@
 
 <div id="form-documents" class="span-17">
   
-		<%= link_to_lightview( "Upload Document", new_document_path, 
+		<%= link_to_lightview( "Upload Document", new_document_path(:for => "component"), 
 				{:class => "button"}, {:title => "'Document Upload'"}, {:autosize => false, :width => 400, :height => 300} )%>
 		
 		<table id="document-table" class="seed-admin">

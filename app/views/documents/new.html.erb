@@ -17,6 +17,7 @@
 		    <%= f.file_field :uploaded_data %>
 	    </div>
 	  </div>
+	  <%= hidden_field_tag :for, params[:for] %>
 	  <div class="submit">
 	    <%= submit_tag 'Upload', :onclick => "Element.show('spinner')" %> or <%= link_to_function 'cancel', "Lightview.hide();" %>
 	  </div>

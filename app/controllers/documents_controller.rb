@@ -14,7 +14,7 @@ class DocumentsController < ApplicationController
         render :update do |page|
             page << "Lightview.hide();"
             page.insert_html :top, 'document-table', :partial => "documents/document", :object => @document
-            page.insert_html :top, 'document-ids', hidden_field_tag("component[document_ids][]", @document.id, :id => "hidden_document_tag_#{@document.id}")
+            page.insert_html :top, 'document-ids', hidden_field_tag("#{params[:for]}[document_ids][]", @document.id, :id => "hidden_document_tag_#{@document.id}")
         end
       end          
     else
@@ -27,7 +27,7 @@ class DocumentsController < ApplicationController
       end          
     end
   end
-
+  
   def destroy
     @document = Document.find(params[:id])
     @document.destroy

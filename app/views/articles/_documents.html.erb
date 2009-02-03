@@ -1,0 +1,53 @@
+<div class="span-12">
+  <% form_for(@article, :url => article_path(@page, @article), :html => {:class => "seed-admin tight", :id => "changer"}) do |f| %>
+    <%= f.error_messages %>
+    <div id="fieldset">
+    <div class="input-row">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+    <div class="input-row">
+      <%= f.label :content %>
+      <%= f.text_area :content, :class => "compact" %>
+    </div>
+    </div>
+    <div id="document-ids">
+  	  <% @article.documents.each do |document| %>
+  		  <%= hidden_field_tag "article[document_ids][]", document.id, :id => "hidden_document_tag_#{document.id}" %>
+  	  <% end -%>
+    </div>
+    <%= f.hidden_field :page_id %>
+    <%= hidden_field :article, :article_type, {:value => "documents"} %>
+    <%= f.submit "#{submit}" %> or <%= link_to_function 'cancel', 'history.go(-1)' %>
+  <% end %>
+</div>
+
+<div class="span-5">
+	<div id="seed-notes">
+		<h4>Component Type:</h4>
+		<h5>Documents</h5>
+		<p>Displays links to documents for viewing or download.</p> 
+		<p>Upload documents that you would like this article to display.</p>
+	</div>
+</div>
+
+<div id="form-documents" class="span-17">
+  
+		<%= link_to_lightview( "Upload Document", new_document_path(:for => "article"), 
+				{:class => "button"}, {:title => "'Document Upload'"}, {:autosize => false, :width => 400, :height => 300} )%>
+		
+		<table id="document-table" class="seed-admin">
+		  <thead>
+		    <tr>
+		      <th>Name</th>
+		      <th>Type</th>
+		      <th>Filename</th>
+		      <th colspan="2">Size</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+        <%= render :partial => "documents/document", :collection => @article.documents %>
+		  </tbody>
+		</table>
+		
+</div>
