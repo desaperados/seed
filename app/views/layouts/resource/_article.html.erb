@@ -47,7 +47,9 @@
 	<% end -%>
 	<% if article.article_type == "table" %>
 		<h2 class="handle"><%= article.title %></h2>
-		<%= textilize_without_paragraph(article.content) %>
+		<div class="user-table">
+		  <%= textilize_without_paragraph(article.content) %>
+		</div>
 	<% end -%>
 	
 </div>
