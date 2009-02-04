@@ -7,30 +7,20 @@ module SeedAccessRights
   end
   
   def check_view_rights
-    if logged_in? 
-      if !viewable?
-        redirect_to root_url
-      end
-    elsif @page.viewable_by != "public"
+    if @page.viewable_by != "public" && !viewable?
       redirect_to root_url
     end
   end
   
   def check_edit_rights
-    if logged_in? 
-      if !viewable?
-        redirect_to root_url
-      end
-    else 
-      redirect_to root_url
-    end
+    redirect_to root_url unless logged_in? && editable?
   end
   
   def viewable?
-    current_user.has_role?("#{@page.viewable_by}") || @page.viewable_by != "all users"
+    current_user.has_role?("#{@page.viewable_by}") || @page.viewable_by == "all users"
   end
   
   def editable?
-    current_user.has_role?("#{@page.editable_by}") || @page.editable_by != "all users"
+    current_user.has_role?("#{@page.editable_by}") || @page.editable_by == "all users"
   end
 end

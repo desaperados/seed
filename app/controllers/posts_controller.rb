@@ -10,6 +10,8 @@ class PostsController < ArticlesController
                 :unless => :logged_in?, 
                 :cache_path => Proc.new { |c| "page-#{c.params[:page_id]}-archive-#{c.params[:year]}#{c.params[:month]}" }
   
+  before_filter :check_view_rights, :only => [:show, :archive]
+  
   def index
     @posts = @page.posts.paginate(:page => params[:page], :per_page => @page.paginate, :order => "created_at DESC")
   end
