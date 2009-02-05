@@ -7,12 +7,12 @@
 								   :target => "upload_frame",
 								   :class => "seed-admin ajax", 
 								   :id => "ajax_create" }) do |f| %>
-	  <id="ajax" class="fieldset">
+	  <fieldset id="ajax">
 	    <div class="input-row">
 	      <%= f.label :uploaded_data, "Choose a file to upload:" %>
 		    <%= f.file_field :uploaded_data %>
 	    </div>
-	  </div>
+	  </fieldset>
 	  <div class="submit">
 	    <%= submit_tag 'Upload', :onclick => "Element.show('spinner')" %> or <%= link_to_function 'cancel', "Lightview.hide();" %>
 	  </div>
