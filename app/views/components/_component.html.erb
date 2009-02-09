@@ -24,6 +24,7 @@
         <% component.ordered_documents.each do |document| -%>
           <h5><%= link_to(document.name, document.public_filename) %></h5>
         <% end -%>
+        <script type="text/javascript" src="http://mediaplayer.yahoo.com/js"></script>
       <% end -%>
       
       <% if component.text? %>
