@@ -4,6 +4,8 @@ h1. Seed
 
 a Common Sense CMS from The Media Collective.
 
+http://github.com/desaperados/seed/
+
 Straightforward in-line content management without endless back-end screens and preference panes. 
 Create and manage General, News, Blog and Event style pages, add content or components to pages for
 extra functionality. 
