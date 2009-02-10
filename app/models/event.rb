@@ -8,10 +8,10 @@ class Event < ActiveRecord::Base
     find(:all, :conditions => ['datetime >= ? OR from_date >= ?', from, from ], :order => "datetime, from_date ASC", :limit => limit)
   end
   
-  def self.current_month_events(year, month)
+  def self.current_month_events(year, month, page)
     from = Date.new(year, month, 1)
     to = Date.new(year, next_month(month), 1)
-    find(:all, :conditions => ["datetime BETWEEN ? AND ? OR from_date BETWEEN ? AND ? OR to_date BETWEEN ? AND ?", from, to, from, to, from, to], :order => "datetime, from_date ASC")
+    find(:all, :conditions => ["page_id = ? AND datetime BETWEEN ? AND ? OR from_date BETWEEN ? AND ? OR to_date BETWEEN ? AND ?", page.id, from, to, from, to, from, to], :order => "datetime, from_date ASC")
   end
   
   def sortable?
