@@ -3,7 +3,7 @@ class Document < ActiveRecord::Base
   belongs_to :component
   belongs_to :article
   
-  has_attachment    :max_size => 9.megabytes,
+  has_attachment    :max_size => 20.megabytes,
                     :content_type => ['application/pdf', 
                                       'application/msword', 
                                       'application/msexcel', 
@@ -12,6 +12,10 @@ class Document < ActiveRecord::Base
                                       'application/octet-stream',
                                       'text/rtf',
                                       'text/plain',
+                                      'video/mpeg',
+                                      'video/quicktime',
+                                      'video/x-msvideo',
+                                      'audio/x-wav',
                                       'audio/mpeg'],
                     :storage => :file_system
                     
