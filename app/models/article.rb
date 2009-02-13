@@ -37,4 +37,26 @@ class Article < ActiveRecord::Base
     [ 'Medium', 'thumb300' ],
     [ 'Large', 'thumb400' ]
   ]
+  
+  # For the news and blog archive sections
+  def self.find_all_in_month(year, month, page_params, page)
+    conditions = ["page_id = ? AND created_at BETWEEN ? AND ?", page.id, DateTime.new(year, month, 1), DateTime.new(year, month, days_in_month(year, month), 11, 59, 59)]
+    self.paginate(:page => page_params, :per_page => page.paginate, :include => :images, :conditions => conditions, :order => "created_at DESC")
+  end
+  
+  def self.find_all_in_year(year, page_params, page)
+    conditions =  ["page_id = ? AND created_at BETWEEN ? AND ?", page.id, DateTime.new(year, 1, 1), DateTime.new(year, 12, 31, 11, 59, 59)]
+    self.paginate(:page => page_params, :per_page => page.paginate, :include => :images, :conditions => conditions, :order => "created_at DESC")
+  end
+  
+  def self.archive_links(page)
+    self.find(:all, :select => "created_at", :conditions => ["page_id = ?", page.id]).group_by {|a| a.created_at.strftime('%Y')}.sort.reverse
+  end
+  
+  private
+
+  def self.days_in_month(year, month)
+    Date.new(year, month, -1).day
+  end
+  
 end

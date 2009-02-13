@@ -1,14 +1,14 @@
 <div id="archive">
   <% cache "page-#{@page.id}-archive" do -%>
   
-	  <h3>Archive</h3>
-	  <% classname.constantize.archive_links.each do |year, dates| %>
+	  <h3><%= title %></h3>
+	  <% Article.archive_links(@page).each do |year, dates| %>
 	  	<div class="year">
-	  	<h5 class="year"><%= link_to year, annual_archive_path(@page, year) %></h5>
+	  	<h5 class="year"><%= link_to year, annual_archive_link(@page, year) %></h5>
 	  	
 	  	<% dates.group_by { |m| m.created_at.strftime('%B')}.each do |month, items| %>
 	  	  <h5 class="month">
-	  	    <%= link_to "#{month} (#{items.size})", archive_path(@page, Date.parse(month).month, year) %>
+	  	    <%= link_to "#{month} (#{items.size})", archive_link(@page, Date.parse(month).month, year) %>
 	  	  </h5>
 	    <% end -%>
 	    

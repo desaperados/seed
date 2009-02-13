@@ -18,9 +18,9 @@ class NewsitemsController < ArticlesController
   
   def archive
     if params[:month]
-      @newsitems = Newsitem.find_all_in_month(params[:year].to_i, params[:month].to_i, params[:page], @page.paginate)
+      @newsitems = Newsitem.find_all_in_month(params[:year].to_i, params[:month].to_i, params[:page], @page)
     else
-      @newsitems = Newsitem.find_all_in_year(params[:year].to_i, params[:page], @page.paginate)
+      @newsitems = Newsitem.find_all_in_year(params[:year].to_i, params[:page], @page)
     end
     render :template => "newsitems/index"
   end

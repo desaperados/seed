@@ -107,6 +107,24 @@ module ApplicationHelper
     end
   end
   
+  # Generate a path for news and blog archive links
+  def archive_link(page, month, year)
+    if page.kind == "newsitems"
+      archive_path(page, month, year)
+    else
+      blog_archive_path(page, month, year)
+    end
+  end
+  
+  # Generate a path for news and blog annual archive links
+   def annual_archive_link(page, year)
+     if page.kind == "newsitems"
+       annual_archive_path(page,  year)
+     else
+       blog_annual_archive_path(page, year)
+     end
+   end
+  
   def display_page_edit_tags?
     if @page
       true unless params[:controller] == "pages" || params[:controller] == "components" || !editable?(@page)

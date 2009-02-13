@@ -18,9 +18,9 @@ class PostsController < ArticlesController
   
   def archive
     if params[:month]
-      @posts = Post.find_all_in_month(params[:year].to_i, params[:month].to_i, params[:page], @page.paginate)
+      @posts = Post.find_all_in_month(params[:year].to_i, params[:month].to_i, params[:page], @page)
     else
-      @posts = Post.find_all_in_year(params[:year].to_i, params[:page], @page.paginate)
+      @posts = Post.find_all_in_year(params[:year].to_i, params[:page], @page)
     end
     render :template => "posts/index"
   end

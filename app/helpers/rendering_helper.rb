@@ -96,6 +96,11 @@ module RenderingHelper
     end
   end
   
+  # Renders archive links for sidebar - intended for blog and news pages
+  def seed_page_archive(title="Archive")
+    render :partial => "layouts/shared/archive", :locals => {:title => title} 
+  end
+  
   # Pages may have any number of articles, news items or posts associated with them. 
   # To display these on a page use seed_render_all and pass the appropriate collection of data and 
   # an optional id for the containing div
