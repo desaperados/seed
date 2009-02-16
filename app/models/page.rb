@@ -26,6 +26,10 @@ class Page < ActiveRecord::Base
     find(:all, :conditions => ["parent_id IS NULL"], :include => :children, :order => "position")
   end
   
+  def self.all_parents
+    find(:all, :select => "parent_id", :conditions => ["parent_id NOT NULL"], :group => "parent_id")
+  end
+  
   def flat_child_links
     # If this is a child page. Return all other children on the same level
     if self.parent_id != nil

@@ -1,0 +1,78 @@
+<li id="menu_<%= page.id %>"><span class="name"><%= page.name %></span>
+    <span class="viewable">
+      <select id="page_<%= page.id %>_viewable" name="role[viewable_by]">
+      <%= options_from_collection_for_select(@viewable,'name','capitalised_name', page.viewable_by) %>
+      </select>
+      <%= observe_field "page_#{page.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => page.id },
+                                 :with => "role" %>
+    </span>
+    <span class="editable">
+      <select id="page_<%= page.id %>_editable" name="role[editable_by]">
+        <%= options_from_collection_for_select(@editable,'name','capitalised_name', page.editable_by) %>
+      </select>
+      <%= observe_field "page_#{page.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => page.id },
+                                   :with => "role" %>
+    </span>
+  
+    <% if page.children %>
+    <ul class="child" id="parent_<%= page.id %>">
+      <% for child in page.children %>
+      <li id="menu_<%= child.id %>"><span class="name"><%= child.name %></span>
+          <span class="viewable">
+            <select id="page_<%= child.id %>_viewable" name="role[viewable_by]">
+            <%= options_from_collection_for_select(@viewable,'name','capitalised_name', child.viewable_by) %>
+            </select>
+            <%= observe_field "page_#{child.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => child.id },
+                                       :with => "role" %>
+          </span>
+          <span class="editable">
+            <select id="page_<%= child.id %>_editable" name="role[editable_by]">
+              <%= options_from_collection_for_select(@editable,'name','capitalised_name', child.editable_by) %>
+            </select>
+            <%= observe_field "page_#{child.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => child.id },
+                                         :with => "role" %>
+          </span>
+          
+        <% if child.children %>
+        <ul class="subchild" id="parent_<%= child.id %>">
+          <% for subchild in child.children %>
+          <li id="menu_<%= subchild.id %>"><span class="name"><%= subchild.name %></span>
+              <span class="viewable">
+                <select id="page_<%= subchild.id %>_viewable" name="role[viewable_by]">
+                <%= options_from_collection_for_select(@viewable,'name','capitalised_name', subchild.viewable_by) %>
+                </select>
+                <%= observe_field "page_#{subchild.id}_viewable", :url => { :controller => :javascript, :action => :update_page_viewable, :id => subchild.id },
+                                           :with => "role" %>
+              </span>
+              <span class="editable">
+                <select id="page_<%= subchild.id %>_editable" name="role[editable_by]">
+                  <%= options_from_collection_for_select(@editable,'name','capitalised_name', subchild.editable_by) %>
+                </select>
+                <%= observe_field "page_#{subchild.id}_editable", :url => { :controller => :javascript, :action => :update_page_editable, :id => subchild.id },
+                                             :with => "role" %>
+              </span>
+          </li> 
+          <% end -%>
+        </ul>
+        <![if !IE]>
+        <%= sortable_element("parent_#{child.id}",  
+                   :url => {:controller => "javascript", :action => "update_page_order"},
+                   :containment => @parents,
+                   :constraint => false,
+                   :overlap => "horizontal",
+                   :handle => "name") %>
+        <![endif]>
+        <% end -%>
+      </li> 
+      <% end -%>
+    </ul>
+    <![if !IE]>
+    <%= sortable_element("parent_#{page.id}",  
+               :url => {:controller => "javascript", :action => "update_page_order"},
+               :containment => @parents,
+               :constraint => false,
+               :overlap => "horizontal",
+               :handle => "name") %>
+    <![endif]>
+    <% end -%>
+</li>

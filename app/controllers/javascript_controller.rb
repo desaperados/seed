@@ -91,21 +91,16 @@ class JavascriptController < ApplicationController
   end
   
   def update_page_order
-    pages = params[:menupages] || params[:menupages2]
-    pages.each_pair do |position, value|
-      if value.is_a?(Hash)
-        value.each_pair do |pos, v|
-          if v.is_a?(String)
-            Page.update(v, :position => position)
-          else
-            Page.update(v.values[0], :position => pos)
-          end
+    params.each_key {|key|
+      if key.include?('parent')
+        p_id = key[/(\d)/]
+        p_id = nil if p_id == "0" || p_id == "00"
+        params[key].each_with_index do |id, position|
+         Page.update(id, :position => position, :parent_id => p_id)
         end
-      else
-        Page.update(value.values, :position => position)
+        render :nothing => true
       end
-    end
-    render(:nothing => true)
+    }
   end
   
 end

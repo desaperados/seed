@@ -28,7 +28,11 @@ class Article < ActiveRecord::Base
   end
   
   def component_preview
-    content.slice(0, 100) + "..."
+    if article_type == "documents"
+      "Preview not available..."
+    else
+      content.slice(0, 100) + "..."
+    end
   end
   
   IMAGESIZE = [

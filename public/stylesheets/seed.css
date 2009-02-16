@@ -254,26 +254,49 @@ div#seed-notes h4, div#seed-notes h5 {
 	color: #555;
 }
 
-/********* Admin Tables ************/
-
-table.seed-admin tr.primary td {
-	background: #f0f0f0;
-	border-bottom: 1px solid #ddd;
+/********* Page Index ************/
+div.page-control ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
 }
-table.seed-admin tr.secondary {
+div.page-control li {
+	float: left;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+div.page-control ul span {
+	float: left;
+	width: 32%;
+	height: 22px;
+	line-height: 22px;
+	padding: 3px 0 3px 1%;
+	border-bottom: 1px solid #ccc;
+	background-color: #f1f4f6;
+}
+
+div.page-control ul#titles li span, div.page-control ul#titles2 li span {
+	background-color: #fff;
+	font-weight: bold;
+}
+div.page-control ul#titles2 li span {
+	margin-top: 20px;
+}
+div.page-control ul.child li span {
 	background-color: #f9f9f9;
 }
-table.seed-admin tr.secondary td, table.seed-admin tr.sub td {
-	border-bottom: 1px solid #eee;
+div.page-control ul.child span.name {
+	padding-left: 3%;
+	width: 30%;
 }
-table.seed-admin tr.sub {
-	background-color: #ffffff;
+div.page-control ul.subchild li span {
+	background-color: #fff;
 }
-table.seed-admin td.child {
-	padding-left: 20px;
-}
-table.seed-admin td.subchild {
-	padding-left: 40px;
+div.page-control ul.subchild span.name {
+	padding-left: 5%;
+	width: 28%;
 }
 
 /******* CRUD Anchor Tags **********/

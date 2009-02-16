@@ -1,11 +1,11 @@
 <% if viewable?(menu) -%>
-	<li class="level_<%= menu.tree_level %> sortable top <%= menu_current?(menu) %>" id="page_<%= menu.id %>">
+	<li class="sortable top <%= menu_current?(menu) %>" id="page_<%= menu.id %>">
 	    <%= link_to menu.name, resources_path(menu) %>
 		  <% if !menu.children.size.zero? -%>
 		  	 <ul class="menuchild">
 		  	 <% for child in menu.children -%>
 		  	   <% if viewable?(child) -%>
-		  	   <li class="level_<%= child.tree_level %> sortable <%= menu_current?(child) %>" id="page_<%= child.id %>">
+		  	   <li class="sortable <%= menu_current?(child) %>" id="page_<%= child.id %>">
 	  			  <%= link_to child.name, resources_path(child) %>
 	  		   </li>
 	  		   <% end -%>
