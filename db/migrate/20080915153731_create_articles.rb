@@ -2,7 +2,7 @@ class CreateArticles < ActiveRecord::Migration
   def self.up
     create_table :articles do |t|
       t.string :title
-      t.string :content
+      t.text :content
       t.string :video
       t.string :article_type, :default => "article"
       t.string :imagesize

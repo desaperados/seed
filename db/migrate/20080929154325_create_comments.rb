@@ -4,7 +4,7 @@ class CreateComments < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :website
-      t.string :comment
+      t.text :comment
       t.string :user_ip
       t.string :user_agent
       t.string :referrer
