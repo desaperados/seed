@@ -45,12 +45,12 @@ class Article < ActiveRecord::Base
   # For the news and blog archive sections
   def self.find_all_in_month(year, month, page_params, page)
     conditions = ["page_id = ? AND created_at BETWEEN ? AND ?", page.id, DateTime.new(year, month, 1), DateTime.new(year, month, days_in_month(year, month), 11, 59, 59)]
-    self.paginate(:page => page_params, :per_page => page.paginate, :include => :images, :conditions => conditions, :order => "created_at DESC")
+    self.paginate(:page => page_params, :per_page => page.paginate, :conditions => conditions, :order => "created_at DESC")
   end
   
   def self.find_all_in_year(year, page_params, page)
     conditions =  ["page_id = ? AND created_at BETWEEN ? AND ?", page.id, DateTime.new(year, 1, 1), DateTime.new(year, 12, 31, 11, 59, 59)]
-    self.paginate(:page => page_params, :per_page => page.paginate, :include => :images, :conditions => conditions, :order => "created_at DESC")
+    self.paginate(:page => page_params, :per_page => page.paginate, :conditions => conditions, :order => "created_at DESC")
   end
   
   def self.archive_links(page)

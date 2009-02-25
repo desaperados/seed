@@ -30,9 +30,7 @@ class PageSweeper < ActionController::Caching::Sweeper
   
   def expire_page(page)
     expire_action(page.to_param)
-    if page.id == 1
-      expire_action("1")
-    end
+    expire_action(page.id)
   end
 
 end

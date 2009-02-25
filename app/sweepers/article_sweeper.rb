@@ -46,9 +46,7 @@ class ArticleSweeper < ActionController::Caching::Sweeper
   
   def expire_page(resource)
     expire_action(resource.page.to_param)
-    if resource.page_id == 1
-      expire_action("#{resource.page_id}")
-    end
+    expire_action("#{resource.page_id}")
   end
   
   def expire_show_page(article)
