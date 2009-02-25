@@ -9,7 +9,7 @@ class CreateComponents < ActiveRecord::Migration
       t.string :order
       t.string :snippet_class
       t.string :component_type
-      t.string :text
+      t.text :text
 
       t.timestamps
     end
