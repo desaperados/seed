@@ -27,7 +27,7 @@ class Page < ActiveRecord::Base
   end
   
   def self.all_parents
-    find(:all, :select => "parent_id", :conditions => ["parent_id NOT NULL"], :group => "parent_id")
+    find(:all, :select => "parent_id", :conditions => ["parent_id IS NOT NULL"], :group => "parent_id")
   end
   
   def flat_child_links
