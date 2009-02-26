@@ -33,7 +33,7 @@ class Page < ActiveRecord::Base
   def flat_child_links
     # If this is a child page. Return all other children on the same level
     if self.parent_id != nil
-      Page.find(:all, :conditions => ["parent_id = ?", self.parent_id])
+      Page.find(:all, :conditions => ["parent_id = ?", self.parent_id], :order => "position")
     # If this is a top level page then return all children
     else
       self.children
