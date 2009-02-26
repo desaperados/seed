@@ -17,7 +17,9 @@ module SeedAccessRights
   end
   
   def viewable?
-    current_user.has_role?("#{@page.viewable_by}") || @page.viewable_by == "all users"
+    if logged_in?
+      current_user.has_role?("#{@page.viewable_by}") || @page.viewable_by == "all users"
+    end
   end
   
   def editable?
