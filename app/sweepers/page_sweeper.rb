@@ -29,8 +29,8 @@ class PageSweeper < ActionController::Caching::Sweeper
   private
   
   def expire_page(page)
-    expire_action(page.to_param)
-    expire_action(page.id)
+    expire_fragment(page.to_param)
+    expire_fragment(page.id)
   end
 
 end
