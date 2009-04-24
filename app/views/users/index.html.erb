@@ -1,13 +1,15 @@
 <div id="seed-admin-page">
   <%= title("User Admin") %>
   <div class="button">
+  <%= content_tag(:span, link_to("List All Users", :controller => "users", :action => "index"),
+  	              :class => "seed-admin-tag button") %> | 
   <%= content_tag(:span, link_to("Create User", :controller => "users", :action => "new"),
   	              :class => "seed-admin-tag button") %>
   </div>
   
   <div id="seed-role-admin">
     <div id="seed-role-menu">
-      <strong>Role: </strong>
+      <strong>Groups: </strong>
       <%= collection_select(:role, :id, Role.all_for_user_filter, :id, :capitalised_name, {}, {:id => :roleFilter}) %>
       <%= observe_field :roleFilter, :url => { :controller => :javascript, :action => :list_users_by_role },
                                      :with => 'role' %>
@@ -15,7 +17,7 @@
       <%= content_tag(:span, (link_to("Edit", edit_role_path(@role)) unless !@role),
       		            :class => "seed-admin-tag", :id => "edit-role-link") %>
       		            
-      <%= content_tag(:span, link_to("New Role", :controller => "roles", :action => "new"),
+      <%= content_tag(:span, link_to("New Group", :controller => "roles", :action => "new"),
       		            :class => "seed-admin-tag") %>
     </div>
     <div id="role-info">
@@ -27,7 +29,12 @@
   
   <table id="user-list">
   	<%= render :partial => "user", :collection => @users %>
+  	<% unless params[:role] %>
+    <tr><td colspan="7"><%= will_paginate @users %></td></tr>
+    <% end -%>
   </table>
 </div>
 
-	
+<% content_for :head_content do %>
+  <%= javascript_include_tag('controls') %>
+<% end -%>

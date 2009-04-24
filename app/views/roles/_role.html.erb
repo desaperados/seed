@@ -1,10 +1,9 @@
-<strong id="role-name"><%= @role.name %></strong>	|  
-<span class="seed-admin-tag">
-<%= link_to_lightview( "Add a User to #{@role.name}",
-		{:controller => 'javascript', :action => 'list_users', :role => @role.id}, 
-  			{}, 
-  			{:title => "'Click to add to #{@role.name} group'"}, 
-  			{:autosize => false, :width => 250, :height => 350} 
-		)%>	
-</span>
-<p id="role-description"><%= @role.description %></p>
+<strong id="role-name"><%= @role.name %></strong>	|  <span id="role-description"><%= @role.description %></span><br />
+
+<div id="user-grp-form">
+<% form_remote_tag :url => {:action => "assign_role", :id => @role.id} do %>
+  <%= text_field_with_auto_complete :user, :name, :class => "text" %>
+  <%= submit_tag "Add User to this group", :class => "sbmt" %>
+<% end -%>
+<div id="user-grp-error"></div>
+</div>

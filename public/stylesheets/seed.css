@@ -361,10 +361,17 @@ div#seed-role-menu {
 div#seed-role-menu select {
 	min-width: 200px;
 }
-#role-info p {
-	margin: 2px 0 0 0;
-	font-style: italic;
-	color: #666;
+div#user-grp-form {
+	background-color: #f0f0f0;
+	padding: 5px 2px;
+	margin: 5px 0 10px 0;
+}
+div#user-grp-form input.text {
+	margin: 0 20px 0 0;
+}
+div#user-grp-error div {
+	margin: 5px 2px 0 2px;
+	color: red;
 }
 
 /********** Image Admin **********/

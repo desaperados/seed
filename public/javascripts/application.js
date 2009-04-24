@@ -43,11 +43,6 @@ Ajax.Base.prototype.initialize = Ajax.Base.prototype.initialize.wrap(
    } 
 );
  
-function show_clicked(anchor) {
-  anchor.up(0).setStyle({background: '#ffff99'});
-  anchor.setStyle({color: '#333333'});
-}
- 
 // Events Form Helpers
 function toggle_when_field(checkbox) {
   if (checkbox.checked) {

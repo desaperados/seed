@@ -2,6 +2,7 @@ class JavascriptController < ApplicationController
   
   layout nil
   cache_sweeper :page_sweeper, :only => [:update_page_order]
+  auto_complete_for :user, :name
   
   # Page Access Control 
   def update_page_viewable
@@ -21,7 +22,7 @@ class JavascriptController < ApplicationController
   # Used by select Role filter on Users index
   def list_users_by_role
     @role = Role.find(params[:role]) unless params[:role].blank?
-    @users = @role ? @role.users : User.find(:all)
+    @users = @role ? @role.users : User.paginate(:page => params[:page], :per_page => 40)
     render :update do |page|
       if @role
         page.replace_html "role-info", :partial => "roles/role"
@@ -30,30 +31,41 @@ class JavascriptController < ApplicationController
         page.replace_html "role-info", "<strong id='role-name'>All Users</strong>"
       end
       page.replace_html "user-list", :partial => "users/user", :collection => @users
+      if !@role
+        page.insert_html :bottom, "user-list", "<tr><td colspan='7'>#{will_paginate @users}</td></tr>"
+      end
     end
-  end
-  
-  # Used by Roles, Add User to Role.
-  def list_users
-    @users = User.find(:all)
-    @roleid = params[:role]
   end
   
   #TODO Make this method more efficient
   def assign_role
-    user = User.find(params[:id])
-    role = Role.find(params[:role])
+    role = Role.find(params[:id])
+    
     begin
-      exists = user.roles.find(role.id)
+      user = User.find_by_name(params[:user][:name])
     rescue
-      exists = false
+      raise "User not found"
+      user = false
     end
-    user.roles << role unless exists
+    
+    if user
+      begin
+        exists = user.roles.find(role.id) 
+      rescue
+        exists = false
+      end
+      user.roles << role unless exists
+    end
+    
     render :update do |page|
       if exists
+        page.replace_html "user-grp-error", "<div>User was already added to this group</div>"
+      elsif !user
+        page.replace_html "user-grp-error", "<div>User not found</div>"
       else
         @role = role.id
-        page.insert_html :bottom, "user-list", :partial => "users/user", :object => user
+        page.replace_html "user-grp-error", ""
+        page.insert_html :top, "user-list", :partial => "users/user", :object => user
       end
     end
   end

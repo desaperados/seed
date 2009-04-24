@@ -6,9 +6,9 @@ class UsersController < ApplicationController
   def index
     if params[:role]
       @role = Role.find(params[:role])
-      @users = @role.users
+      @users = @role.users.paginate(:page => params[:page], :per_page => 40)
     else
-      @users = User.find(:all)
+      @users = User.paginate(:page => params[:page], :per_page => 40)
     end
   end
   
