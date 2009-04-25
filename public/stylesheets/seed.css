@@ -444,7 +444,7 @@ ul#ajax-error {
 	margin: 0;
 	padding: 0;
 }
-div#flash-notice, div#flash-warning, div#flash-error, div#flash-test, div#flash-public {
+div#flash-notice, div#flash-warning, div#flash-error, div#flash-test, div#flash-public, div#flash-notification {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -461,5 +461,9 @@ div#flash-notice, div#flash-warning, div#flash-error, div#flash-test, div#flash-
 }
 div#flash-error {
 	top: 0;
+}
+div#flash-notification {
+	background: #ffee44;
+	border-color: #ffee44;
 }
 

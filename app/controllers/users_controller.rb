@@ -27,8 +27,10 @@ class UsersController < ApplicationController
   # Create behaviour allows for users to be created by an admin user
   # with activation via email or via self signup and activation
   def create
-    if current_user.has_role? "admin"
-      internal = true
+    if logged_in? 
+      if current_user.has_role? "admin"
+        internal = true
+      end
     else
       logout_keeping_session!
     end
@@ -40,7 +42,7 @@ class UsersController < ApplicationController
         flash[:notice] = "User created! An email has been sent to #{@user.email} for account activation."
       else
         redirect_back_or_default('/')
-        flash[:notice] = "Thanks for signing up! We're sending you an email with your activation code."
+        flash[:notification] = "Thanks for signing up! We're sending you an email with your activation code."
       end
     else
       flash[:error]  = "We couldn't set up that account, sorry. Please try again."
