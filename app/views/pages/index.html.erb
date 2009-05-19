@@ -22,7 +22,7 @@
     <ul id="parent_00"><%= render :partial => "page", :collection => Page.pages_menu("secondary") %></ul>
 	<% end -%>
 	
-	<ul id="spacer">&nbsp;</ul>
+	<ul id="spacer" style="clear:both">&nbsp;</ul>
 
 </div>
 
@@ -33,10 +33,12 @@
              :constraint => false,
              :overlap => "horizontal",
              :handle => "name") %>
+  <% if secondary_menu? %>
   <%= sortable_element("parent_00",  
              :url => {:controller => "javascript", :action => "update_page_order"},
              :containment => @parents,
              :constraint => false,
              :handle => "name",
              :constraint => false) %>
+  <% end -%>
 <![endif]>
