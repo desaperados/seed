@@ -16,8 +16,12 @@ class PagesController < ApplicationController
   end
   
   def show
-     @page = Page.find(params[:id])
+     if params[:id] != "login"
+     @page = Page.find(params[:id]) 
      redirect_to resources_path(@page) 
+     else
+       redirect_to home_url
+     end
   end
 
   def edit
