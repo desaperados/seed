@@ -9,11 +9,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090126090940) do
+ActiveRecord::Schema.define(:version => 20090203123705) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
-    t.string   "content"
+    t.text     "content"
     t.string   "video"
     t.string   "article_type",  :default => "article"
     t.string   "imagesize"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(:version => 20090126090940) do
     t.string   "name"
     t.string   "email"
     t.string   "website"
-    t.string   "comment"
+    t.text     "comment"
     t.string   "user_ip"
     t.string   "user_agent"
     t.string   "referrer"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(:version => 20090126090940) do
     t.string   "order"
     t.string   "snippet_class"
     t.string   "component_type"
-    t.string   "text"
+    t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20090126090940) do
     t.integer  "component_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "article_id"
   end
 
   create_table "events", :force => true do |t|
@@ -132,8 +133,8 @@ ActiveRecord::Schema.define(:version => 20090126090940) do
     t.datetime "updated_at"
   end
 
-  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40
