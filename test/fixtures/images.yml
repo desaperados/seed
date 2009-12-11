@@ -2,20 +2,8 @@
 
 one:
   size: 1
-  content_type: MyString
-  filename: MyString
+  content_type: image/jpeg
+  filename: test.jpg
   height: 1
   width: 1
-  parent_id: 1
-  thumbnail: MyString
-  article_id: 1
 
-two:
-  size: 1
-  content_type: MyString
-  filename: MyString
-  height: 1
-  width: 1
-  parent_id: 1
-  thumbnail: MyString
-  article_id: 1
