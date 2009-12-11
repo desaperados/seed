@@ -2,6 +2,7 @@
 quentin:
   id:                        1
   login:                     quentin
+  name:                      quentin
   email:                     quentin@example.com
   salt:                      356a192b7913b04c54574d18c28d46e6395428ab # SHA1('0')
   crypted_password:          13c9ba3ab72641d04ad100470cd5ae2a6cf74bb9 # 'monkey'
@@ -14,6 +15,7 @@ quentin:
 aaron:
   id:                        2
   login:                     aaron
+  name:                      aaron
   email:                     aaron@example.com
   salt:                      da4b9237bacccdf19c0760cab7aec4a8359010b0 # SHA1('1')
   crypted_password:          fbfa0135a9a57abac582d3f46529d7b6c68f865f # 'monkey'
@@ -27,6 +29,7 @@ aaron:
 old_password_holder:
   id:                        3
   login:                     old_password_holder
+  name:                      old_password_holder
   email:                     salty_dog@example.com
   salt:                      7e3041ebc2fc05a40c60028e2c4901a81035d3cd
   crypted_password:          00742970dc9e6319f8019fd54864d3ea740f04b1 # test
@@ -40,6 +43,7 @@ old_password_holder:
 admin:
   id: 4
   login: admin
+  name:  admin
   email: admin@example.com
   salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
   crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
