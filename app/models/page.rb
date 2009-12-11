@@ -19,7 +19,7 @@ class Page < ActiveRecord::Base
   end
   
   def self.pages_menu(type="primary")
-    all_menu_pages.group_by { |p| p[:menu_type] }[type]
+    all_menu_pages.group_by { |p| p[:menu_type] }[type] || []
   end
   
   def self.all_menu_pages

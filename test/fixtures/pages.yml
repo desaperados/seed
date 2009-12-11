@@ -1,13 +1,17 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: MyString
-  name: MyString
-  description: MyString
+  id: 1
+  title: public
+  name: public
+  description: public page
+  viewable_by: public
   parent_id: 1
 
 two:
+  id: 2
   title: MyString
   name: MyString
   description: MyString
+  viewable_by: public
   parent_id: 1

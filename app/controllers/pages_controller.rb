@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
   before_filter :login_required, :except => [:show]
   cache_sweeper :page_sweeper, :only => [:create, :update, :destroy]
-  require_role "admin"
+  require_role "admin", :except => [:show]
   
   def index
     @viewable = Role.pages_for_viewable_by
@@ -16,12 +16,12 @@ class PagesController < ApplicationController
   end
   
   def show
-     if params[:id] != "login"
-     @page = Page.find(params[:id]) 
-     redirect_to resources_path(@page) 
-     else
-       redirect_to home_url
-     end
+    if params[:id] != "login"
+      @page = Page.find(params[:id]) 
+      redirect_to resources_path(@page) 
+    else
+      redirect_to home_url
+    end
   end
 
   def edit
