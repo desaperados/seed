@@ -9,7 +9,7 @@ one:
   user_agent: MyString
   referrer: MyString
   approved: false
-  article_id: 1
+  post_id: 1
 
 two:
   name: MyString
@@ -20,4 +20,4 @@ two:
   user_agent: MyString
   referrer: MyString
   approved: false
-  article_id: 1
+  post_id: 1
